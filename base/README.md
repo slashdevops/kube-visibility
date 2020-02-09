@@ -63,3 +63,27 @@ git commit -am "added prometheus-operator project"
 git push
 ```
 
+## node-exporter
+
+[node_exporter](https://github.com/prometheus/node_exporter)
+
+```bash
+RELEASE_VERION_URL="https://api.github.com/repos/coreos/prometheus-operator/releases/latest"
+LATEST_VERION=$(curl --silent $RELEASE_VERION_URL | jq -r .tag_name)
+
+mkdir -p base/node_exporter
+cd base/node_exporter
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-clusterRole.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-clusterRoleBinding.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-daemonset.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-service.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-serviceAccount.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/kube-prometheus/master/manifests/node-exporter-serviceMonitor.yaml
+
+kustomize create --autodetect --recursive
+
+cd ../../
+git add .
+git commit -am "added node_exporter project"
+git push
+```
