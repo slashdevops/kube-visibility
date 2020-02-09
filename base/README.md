@@ -39,6 +39,8 @@ cd ../../
 git add .
 git commit -am "added kube-state-metrics project"
 git push
+
+unset RELEASE_VERION_URL LATEST_VERION
 ```
 
 ## Install Prometheus Operator
@@ -46,9 +48,12 @@ git push
 [prometheus-operator](https://github.com/coreos/prometheus-operator)
 
 ```bash
+RELEASE_VERION_URL="https://api.github.com/repos/coreos/prometheus-operator/releases/latest"
+LATEST_VERION=$(curl --silent $RELEASE_VERION_URL | jq -r .tag_name)
+
 mkdir -p base/prometheus-operator
 cd base/prometheus-operator
-curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/prometheus-operator/v0.35.0/bundle.yaml
+curl --remote-name --remote-header-name https://raw.githubusercontent.com/coreos/prometheus-operator/${LATEST_VERION}/bundle.yaml
 
 kustomize create --autodetect --recursive
 
