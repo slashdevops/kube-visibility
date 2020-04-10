@@ -7,8 +7,6 @@ This folder containg the manifest files from the original project
 ### MacOS
 
 ```bash
-brew install minikube
-brew install kubectl
 brew install kustomize
 brew install fluxctl
 brew install curl
