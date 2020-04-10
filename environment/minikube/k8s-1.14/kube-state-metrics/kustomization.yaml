@@ -6,3 +6,5 @@ commonLabels:
   environment: minikube
 bases:
   - ../../../../base/kube-state-metrics
+patches:
+  - statefulset-patch.yaml
