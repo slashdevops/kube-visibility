@@ -9,6 +9,6 @@ commonLabels:
 bases:
   - ./node_exporter
   - ./kube-state-metrics
-  #- ./prometheus-operator
+  - ./prometheus-operator
   # - ./prometheus
   # - ./grafana
