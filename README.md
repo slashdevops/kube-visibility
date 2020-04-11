@@ -47,34 +47,34 @@ kustomize build manifests/minikube-k8s-1.15 | kubectl apply -f -
 
 ## Access to graphical tools
 
-Kubernetes Dashboard
+### kubernetes Dashboard
 
 ```bash
 kubectl proxy
 ```
-link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
-
-NOTE: To get the token if you create the ServiceAccount like is mentioned in HowTos use the following command
+**NOTE:** First you need to get the token (Secret) of the `default ServiceAccount of kube-system namespace`
 
 ```bash
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 ```
 
-Prometheus
+**link:** [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
+
+### Prometheus
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```
 link: [prometheus](http://localhost:9090)
 
-Alertmanager
+### Alertmanager
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
 link: [prometheus](http://localhost:9093)
 
-Grafana
+### Grafana
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
