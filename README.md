@@ -47,6 +47,36 @@ or since kubernetes v1.14.x kustomize is integrated with kubectl
 kubectl apply -k manifests/minikube-k8s-1.15
 ```
 
+## Access to graphical tools
+
+Kubernetes Dashboard
+
+```bash
+kubectl proxy
+```
+link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
+
+Prometheus
+
+```bash
+kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
+```
+link: [prometheus](http://localhost:9090)
+
+Alertmanager
+
+```bash
+kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
+```
+link: [prometheus](http://localhost:9093)
+
+Grafana
+
+```bash
+kubectl --namespace kube-visibility port-forward svc/grafana 3000
+```
+link: [prometheus](http://localhost:3000)
+
 ## Development / Contributing
 
 WIP

@@ -3,9 +3,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: Alertmanager
 metadata:
-  name: kube-visibility
+  name: visibility
   labels:
-    alertmanager: kube-visibility
+    alertmanager: visibility
 spec:
   replicas: 1
   version: v0.20.0

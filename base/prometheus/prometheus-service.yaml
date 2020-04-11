@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus-kube-visibility
+  name: prometheus-visibility
   labels:
-    prometheus: kube-visibility
+    prometheus: visibility
 spec:
   type: NodePort
   ports:
@@ -13,5 +13,5 @@ spec:
       protocol: TCP
       targetPort: web
   selector:
-    prometheus: kube-visibility
+    prometheus: visibility
     app: prometheus

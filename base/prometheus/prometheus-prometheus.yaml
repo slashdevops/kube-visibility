@@ -2,9 +2,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
-  name: kube-visibility
+  name: visibility
   labels:
-    prometheus: kube-visibility
+    prometheus: visibility
 spec:
   replicas: 1
   version: v2.17.1
@@ -20,13 +20,13 @@ spec:
     runAsUser: 1000
   alerting:
     alertmanagers:
-      - name: alertmanager-kube-visibility
+      - name: alertmanager-visibility
         namespace: kube-visibility
         port: web
   ruleSelector:
     matchLabels:
       role: alert-rules
-      prometheus: kube-visibility
+      prometheus: visibility
   serviceMonitorNamespaceSelector:
     matchLabels:
       name: kube-visibility
