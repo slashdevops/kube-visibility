@@ -17,7 +17,7 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 
 ## Manifests availables
 
-Looks inside [manifest folder](manifests)
+Looks inside [manifest folder](manifests/README.md)
 
 ## Generate Templates for Kubernetes
 
