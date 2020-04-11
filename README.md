@@ -42,3 +42,17 @@ or since kubernetes v1.14.x kustomize is integrated with kubectl
 ```bash
 kubectl apply -k manifests/minikube-k8s-1.15
 ```
+
+## Development / Contributing
+
+WIP
+
+## License
+
+This module is released under the GNU General Public License Version 3:
+
+* [http://www.gnu.org/licenses/gpl-3.0-standalone.html](http://www.gnu.org/licenses/gpl-3.0-standalone.html)
+
+## Author Information
+
+* [Christian González Di Antonio](https://github.com/christiangda)
