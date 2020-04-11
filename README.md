@@ -13,7 +13,7 @@ This project is like kube-prometheus but instead of use jsonnet use kustomize
 
 ## Manifests availables
 
-Looks inside [manifest folder](manifest)
+Looks inside [manifest folder](manifests)
 
 ## Generate Templates for Kubernetes
 
