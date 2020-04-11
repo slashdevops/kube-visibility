@@ -4,7 +4,7 @@ This project was inspired by [kube-prometheus](https://github.com/coreos/kube-pr
 * It is a little complicated to configure in a custom way because It is also using [jsonnet](https://jsonnet.org/) as a data templating language, which is very hard to understand and apply
 * You don't know exactly the version available ( they don't manage releases) and this complicates the  compatibility with your kubernetes version
 
-The idea of this project is to use [kustomize](https://github.com/kubernetes-sigs/kustomize) tool which is incredibly amazing and easy to use to create manifest overlays.
+The idea of this project is to use [kustomize](https://github.com/kubernetes-sigs/kustomize) tool which is incredibly amazing and easy to use to create manifest overlays for [kubernetes](https://kubernetes.io)
 
 ## Projects used in this repository
 
