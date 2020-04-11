@@ -38,7 +38,7 @@ kustomize version
 
 This way persist configuration when making minikube stop and minikube start again
 
-**NOTE:** Select the resources and kubernetes version according to your needs
+**NOTE:** `Set the minikube config values` and `kubernetes version` according to your needs
 
 ```bash
 minikube config set memory 4096
