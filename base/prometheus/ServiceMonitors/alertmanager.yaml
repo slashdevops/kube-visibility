@@ -2,10 +2,14 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  name: alertmanager-visibility
   labels:
-    k8s-app: alertmanager
-  name: alertmanager
+    name: alertmanager-visibility
 spec:
+  jobLabel: alertmanager
+  namespaceSelector:
+    matchNames:
+      - kube-visibility
   endpoints:
     - interval: 30s
       port: web
