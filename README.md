@@ -17,11 +17,11 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 
 ## Manifests availables
 
-Looks inside [manifest folder](manifests) to see available manifest
+Looks inside [manifest folder](manifests/) to see available manifest
 
 ## Use It in minikube
 
-Looks inside [HowTos folder](howTos) to see available docs per OS
+Looks inside [HowTos folder](HowTos/) to see available docs per OS
 
 ## Generate Templates for Kubernetes
 
