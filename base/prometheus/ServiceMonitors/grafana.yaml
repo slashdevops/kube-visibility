@@ -1,0 +1,20 @@
+---
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: grafana
+  labels:
+    name: grafana
+spec:
+  jobLabel: grafana
+  namespaceSelector:
+    matchNames:
+      - kube-visibility
+  selector:
+    matchLabels:
+      name: grafana
+  endpoints:
+    - targetPort: 3000
+      path: /metrics
+      interval: 30s

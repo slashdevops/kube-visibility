@@ -11,3 +11,4 @@ resources:
   - alertmanager-account.yaml
   - alertmanager-alertmanager.yaml
   - alertmanager-service.yaml
+  - ./ServiceMonitors/
