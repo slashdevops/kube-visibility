@@ -65,21 +65,21 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 ```bash
 kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```
-link: [prometheus](http://localhost:9090)
+**link:** [prometheus](http://localhost:9090)
 
 ### Alertmanager
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
-link: [prometheus](http://localhost:9093)
+**link:** [prometheus](http://localhost:9093)
 
 ### Grafana
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
 ```
-link: [prometheus](http://localhost:3000)
+**link:** [prometheus](http://localhost:3000)
 
 ## Development / Contributing
 
