@@ -38,13 +38,7 @@ kubectl apply -f kube-visibility.yaml
 or all in one command:
 
 ```bash
-kustomize build manifests/minikube-k8s-1.15 kubectl apply -f -
-```
-
-or since kubernetes v1.14.x kustomize is integrated with kubectl
-
-```bash
-kubectl apply -k manifests/minikube-k8s-1.15
+kustomize build manifests/minikube-k8s-1.15 | kubectl apply -f -
 ```
 
 ## Access to graphical tools
