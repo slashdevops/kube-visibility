@@ -1,6 +1,10 @@
 # kube-visibility
 
-This project is like kube-prometheus but instead of use jsonnet use kustomize
+This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) which is great but:
+* It is a little complicated to configure in a custom way because It is also using [jsonnet](https://jsonnet.org/) as a data templating language, which is very hard to understand and apply
+* You don't know exactly the version available ( they don't manage releases) and this complicates the  compatibility with your kubernetes version
+
+The idea of this project is to use [kustomize](https://github.com/kubernetes-sigs/kustomize) tool which is incredibly amazing and easy to use to create manifest overlays.
 
 ## Porjects used in this reppository
 
