@@ -4,6 +4,6 @@ kind: Kustomization
 namespace: kube-visibility
 commonLabels:
   environment: minikube
-  k8s-version: "1.14"
+  k8s-version: "1.15"
 bases:
-  - ../../modifiers/k8s-1.14
+  - ../../modifiers/k8s-1.15
