@@ -1,0 +1,37 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: kube-visibility
+  labels:
+    prometheus: kube-visibility
+spec:
+  replicas: 1
+  version: v2.17.1
+  image: quay.io/prometheus/prometheus
+  serviceAccountName: prometheus
+  enableAdminAPI: true
+  resources:
+    requests:
+      memory: 100Mi
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  alerting:
+    alertmanagers:
+      - name: alertmanager-kube-visibility
+        namespace: kube-visibility
+        port: web
+  ruleSelector:
+    matchLabels:
+      role: alert-rules
+      prometheus: kube-visibility
+  serviceMonitorNamespaceSelector:
+    matchLabels:
+      name: kube-visibility
+  podMonitorNamespaceSelector:
+    matchLabels:
+      name: kube-visibility
+  nodeSelector:
+    kubernetes.io/os: linux

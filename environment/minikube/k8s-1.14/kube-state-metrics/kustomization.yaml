@@ -7,4 +7,10 @@ commonLabels:
 bases:
   - ../../../../base/kube-state-metrics
 patches:
+  - cluster-role-binding-patch.yaml
+  - cluster-role-patch.yaml
+  - role-binding-patch.yaml
+  - role-patch.yaml
+  - service-account-patch.yaml
+  - service-patch.yaml
   - statefulset-patch.yaml

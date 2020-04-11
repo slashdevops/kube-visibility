@@ -1,0 +1,22 @@
+---
+# https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/alerting.md
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: kube-visibility
+  labels:
+    alertmanager: kube-visibility
+spec:
+  replicas: 1
+  version: v0.20.0
+  image: quay.io/prometheus/alertmanager
+  serviceAccountName: alertmanager
+  resources:
+    requests:
+      memory: 50Mi
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  nodeSelector:
+    kubernetes.io/os: linux

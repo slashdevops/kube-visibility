@@ -1,0 +1,8 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  labels:
+    app.kubernetes.io/version: v1.9.4
+  name: kube-state-metrics
+  namespace: kube-system
