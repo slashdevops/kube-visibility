@@ -23,16 +23,16 @@ Looks inside [manifest folder](manifests/) to see available manifest
 
 Looks inside [HowTos folder](HowTos/) to see available docs per OS
 
-## Generate Templates for Kubernetes
+## Generating Kubernetes manifests from templates
 
-Clone the repository:
+Clone the repository
 
 ```bash
 git clone https://github.com/christiangda/kube-visibility.git
 cd kube-visibility/
 ```
 
-Generate a unique file bundle:
+Generate a unique file bundle
 
 ```bash
 kustomize build manifests/minikube-k8s-1.15 > kube-visibility.yaml
