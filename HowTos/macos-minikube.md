@@ -68,17 +68,23 @@ minikube status
 
 ## Install kubernetes dashboard
 
+Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 ```
 
-### Create a RoleBinding to `kube-syste namespace default ServiceAccount` to access to the dashboard as ClusterAdmin
+### Create a RoleBinding for ServiceAccount
+
+Create a RoleBinding to `kube-system namespace default ServiceAccount` to access to the dashboard as ClusterAdmin
 
 ```bash
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 ```
 
 ### Check the running pods
+
+Running pods in all Namespaces
 
 ```bash
 kubectl get pods --all-namespaces
@@ -95,5 +101,4 @@ kubectl proxy
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 ```
 
-**link:** [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
-
+After execute `kubectl proxy` got this link [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
