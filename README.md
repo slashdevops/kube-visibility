@@ -6,7 +6,7 @@ This project was inspired by [kube-prometheus](https://github.com/coreos/kube-pr
 
 The idea of this project is to use [kustomize](https://github.com/kubernetes-sigs/kustomize) tool which is incredibly amazing and easy to use to create manifest overlays.
 
-## Porjects used in this reppository
+## Projects used in this reppository
 
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 * [node_exporter](https://github.com/prometheus/node_exporter)
