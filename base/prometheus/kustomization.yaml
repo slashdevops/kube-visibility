@@ -9,7 +9,7 @@ resources:
   - prometheus-roleBindingConfig.yaml
   - prometheus-roleBindingSpecificNamespaces.yaml
   - prometheus-roleSpecificNamespaces.yaml
-  - alertmanager-configuration.yaml
+  - alertmanager-secret.yaml
   - alertmanager-account.yaml
   - alertmanager-alertmanager.yaml
   - alertmanager-service.yaml
