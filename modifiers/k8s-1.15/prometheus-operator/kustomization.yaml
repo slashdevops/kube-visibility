@@ -5,4 +5,4 @@ namespace: kube-visibility
 commonLabels:
   environment: minikube
 bases:
-  - ../../../../base/node_exporter
+  - ../../../base/prometheus-operator

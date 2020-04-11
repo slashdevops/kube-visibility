@@ -4,8 +4,6 @@ kind: Kustomization
 namespace: kube-visibility
 resources:
   - namespace.yaml
-commonLabels:
-  environment: minikube
 bases:
   - ./node_exporter
   - ./kube-state-metrics

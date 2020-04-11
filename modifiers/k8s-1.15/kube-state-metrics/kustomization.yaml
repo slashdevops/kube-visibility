@@ -5,7 +5,7 @@ namespace: kube-visibility
 commonLabels:
   environment: minikube
 bases:
-  - ../../../../base/kube-state-metrics
+  - ../../../base/kube-state-metrics
 patches:
   - cluster-role-binding-patch.yaml
   - cluster-role-patch.yaml
