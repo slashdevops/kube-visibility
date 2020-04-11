@@ -91,7 +91,7 @@ If you want to contribute to this project do the following
 * Create your custom `manifests/modifiers` or `grafana dashboard` or fix some bug what did you find
 * Merge and push your changes to the `custom branch` or `develop` branch in your forked repository
 * Create a Pull Request to official project `develop` branch
-* Wait to be approved and merge to the `master branch`
+* Wait until your `PR` to be approved and merged to the `master branch`
 
 References
 * [Fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
