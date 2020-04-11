@@ -83,7 +83,19 @@ kubectl --namespace kube-visibility port-forward svc/grafana 3000
 
 ## Development / Contributing
 
-WIP
+If you want to contribute to this project do the following
+
+* [Fork the project](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+* Clone the Forked repository
+* Create a `custom branch` or work on `develop branch`
+* Create your custom `manifests/modifiers` or `grafana dashboard` or fix some bug what did you find
+* Merge and push your changes to the `custom branch` or `develop` branch in your forked repository
+* Create a Pull Request to official project `develop` branch
+* Wait to be approved and merge to the `master branch`
+
+References
+* [Fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
+* [Creating a pull request from a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
 
 ## License
 
