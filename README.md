@@ -56,6 +56,12 @@ kubectl proxy
 ```
 link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
 
+NOTE: To get the token if you create the ServiceAccount like is mentioned in HowTos use the following command
+
+```bash
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
+```
+
 Prometheus
 
 ```bash
