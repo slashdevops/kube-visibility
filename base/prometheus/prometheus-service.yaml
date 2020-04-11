@@ -5,8 +5,6 @@ metadata:
   name: prometheus-kube-visibility
   labels:
     prometheus: kube-visibility
-  annotations:
-    alb.ingress.kubernetes.io/target-type: ip
 spec:
   type: NodePort
   ports:
