@@ -1,18 +1,12 @@
-# Fedora Minikube Howto
+# MacOs Minikube Howto
 
-This receipe apply for [Fedora 31](https://getfedora.org/) + [Linux KVM](https://www.linux-kvm.org/page/Main_Page) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
+This receipe apply for [MacOs](https://www.apple.com/macos/catalina/) + [brew](https://brew.sh/) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
 
 ## Preparing "minikube" environment
 
 ```bash
-sudo dnf install @virtualization
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-sudo systemctl status libvirtd.service
-sudo usermod -a -G libvirt $(whoami)
-sudo usermod -a -G kvm $(whoami)
-newgrp libvirt
-newgrp kvm
+brew update
+brew upgrade
 ```
 
 ## Instaling command line tools
@@ -20,30 +14,21 @@ newgrp kvm
 ### minikube
 
 ```bash
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-chmod +x ./minikube
-sudo mv ./minikube /usr/local/bin/minikube
-
+brew install minikube
 minikube version
 ```
 
 ### kubectrl
 
 ```bash
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-
+brew install kubectl
 kubectl version
 ```
 
 ### kustomize
 
 ```bash
-curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
-chmod +x ./kustomize
-sudo mv ./kustomize /usr/local/bin/kustomize
-
+brew install kustomize
 kustomize version
 ```
 
@@ -111,3 +96,4 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 ```
 
 **link:** [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
+
