@@ -4,5 +4,20 @@ kind: Secret
 metadata:
   name: alertmanager-visibility
 type: Opaque
-data:
-  alertmanager.yaml: Imdsb2JhbCI6CiAgInJlc29sdmVfdGltZW91dCI6ICI1bSIKInJlY2VpdmVycyI6Ci0gIm5hbWUiOiAibnVsbCIKInJvdXRlIjoKICAiZ3JvdXBfYnkiOgogIC0gIm5hbWVzcGFjZSIKICAiZ3JvdXBfaW50ZXJ2YWwiOiAiNW0iCiAgImdyb3VwX3dhaXQiOiAiMzBzIgogICJyZWNlaXZlciI6ICJudWxsIgogICJyZXBlYXRfaW50ZXJ2YWwiOiAiMTJoIgogICJyb3V0ZXMiOgogIC0gIm1hdGNoIjoKICAgICAgImFsZXJ0bmFtZSI6ICJXYXRjaGRvZyIKICAgICJyZWNlaXZlciI6ICJudWxsIg==
+stringData:
+  alertmanager.yaml: |-
+    "global":
+      "resolve_timeout": "5m"
+    "receivers":
+      - "name": "null"
+    "route":
+      "group_by":
+        - "namespace"
+      "group_interval": "5m"
+      "group_wait": "30s"
+      "receiver": "null"
+      "repeat_interval": "12h"
+      "routes":
+        - "match":
+            "alertname": "Watchdog"
+        "receiver": "null"

@@ -30,6 +30,23 @@ spec:
   serviceMonitorNamespaceSelector:
     matchLabels:
       name: kube-visibility
+  serviceMonitorSelector:
+    matchExpressions:
+      - {
+          key: name,
+          operator: In,
+          values:
+            [
+              alertmanager-visibility,
+              kube-apiserver,
+              kube-controller-manager,
+              coredns,
+              grafana,
+              kubelet,
+              kube-scheduler,
+              prometheus-visibility,
+            ],
+        }
   podMonitorNamespaceSelector:
     matchLabels:
       name: kube-visibility
