@@ -2,6 +2,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
-  - ../../modifiers/k8s-1.15
+  - ../../modifiers/k8s-1.16
 commonAnnotations:
-  kube-visibility.manifest: "minikube-k8s-1.15"
+  kube-visibility.manifest: "minikube-k8s-1.16"

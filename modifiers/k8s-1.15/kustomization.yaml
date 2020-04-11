@@ -10,3 +10,5 @@ bases:
   - ./prometheus-operator
   # - ./prometheus
   # - ./grafana
+commonAnnotations:
+  kube-visibility.modifier: "k8s-1.15"
