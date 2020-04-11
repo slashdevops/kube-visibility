@@ -5,6 +5,7 @@ metadata:
   name: grafana
   labels:
     name: grafana
+  namespace: kube-visibility
 spec:
   jobLabel: grafana
   namespaceSelector:

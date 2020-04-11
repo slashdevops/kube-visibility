@@ -5,6 +5,7 @@ metadata:
   name: prometheus-visibility
   labels:
     name: prometheus-visibility
+  namespace: kube-visibility
 spec:
   jobLabel: prometheus
   namespaceSelector:

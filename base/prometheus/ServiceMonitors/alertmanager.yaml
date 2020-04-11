@@ -5,6 +5,7 @@ metadata:
   name: alertmanager-visibility
   labels:
     name: alertmanager-visibility
+  namespace: kube-visibility
 spec:
   jobLabel: alertmanager
   namespaceSelector:

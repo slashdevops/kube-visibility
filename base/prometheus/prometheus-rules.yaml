@@ -2,10 +2,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
+  name: prometheus-visibility-rules
   labels:
     prometheus: visibility
     role: alert-rules
-  name: prometheus-visibility-rules
+  namespace: kube-visibility
 spec:
   groups:
     - name: prometheus
@@ -228,7 +229,7 @@ spec:
               The configuration of the instances of the Alertmanager cluster `{{$labels.service}}`
               are out of sync.
           expr: |
-            count_values("config_hash", alertmanager_config_hash{job="alertmanager-visibility",namespace="kube-visibility"}) BY (service) / ON(service) GROUP_LEFT() label_replace(max(prometheus_operator_spec_replicas{job="prometheus-operator",namespace="monitoring",controller="alertmanager"}) by (name, job, namespace, controller), "service", "alertmanager-$1", "name", "(.*)") != 1
+            count_values("config_hash", alertmanager_config_hash{job="alertmanager-visibility",namespace="kube-visibility"}) BY (service) / ON(service) GROUP_LEFT() label_replace(max(prometheus_operator_spec_replicas{job="prometheus-operator",namespace="kube-visibility",controller="alertmanager"}) by (name, job, namespace, controller), "service", "alertmanager-$1", "name", "(.*)") != 1
           for: 5m
           labels:
             severity: critical

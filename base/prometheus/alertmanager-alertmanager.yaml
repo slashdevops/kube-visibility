@@ -6,6 +6,7 @@ metadata:
   name: visibility
   labels:
     alertmanager: visibility
+  namespace: kube-visibility
 spec:
   replicas: 1
   version: v0.20.0

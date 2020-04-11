@@ -6,4 +6,3 @@ resources:
   - node-exporter-daemonset.yaml
   - node-exporter-service.yaml
   - node-exporter-serviceAccount.yaml
-#- node-exporter-serviceMonitor.yaml

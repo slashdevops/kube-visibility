@@ -1,12 +1,14 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: kube-visibility
 resources:
   - prometheus-account.yaml
   - prometheus-prometheus.yaml
   - prometheus-service.yaml
   - prometheus-rules.yaml
+  - prometheus-roleBindingConfig.yaml
+  - prometheus-roleBindingSpecificNamespaces.yaml
+  - prometheus-roleSpecificNamespaces.yaml
   - alertmanager-configuration.yaml
   - alertmanager-account.yaml
   - alertmanager-alertmanager.yaml

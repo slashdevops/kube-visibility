@@ -5,6 +5,7 @@ metadata:
   name: visibility
   labels:
     prometheus: visibility
+  namespace: kube-visibility
 spec:
   replicas: 1
   version: v2.17.1

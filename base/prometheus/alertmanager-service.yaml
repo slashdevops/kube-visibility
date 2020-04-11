@@ -5,6 +5,7 @@ metadata:
   name: alertmanager-visibility
   labels:
     alertmanager: visibility
+  namespace: kube-visibility
 spec:
   type: NodePort
   sessionAffinity: ClientIP

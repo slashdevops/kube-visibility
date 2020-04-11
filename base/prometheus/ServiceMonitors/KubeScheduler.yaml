@@ -2,9 +2,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  name: kube-scheduler
   labels:
     k8s-app: kube-scheduler
-  name: kube-scheduler
+  namespace: kube-visibility
 spec:
   jobLabel: k8s-app
   namespaceSelector:

@@ -5,6 +5,7 @@ metadata:
   name: kubelet
   labels:
     k8s-app: kubelet
+  namespace: kube-visibility
 spec:
   jobLabel: k8s-app
   namespaceSelector:

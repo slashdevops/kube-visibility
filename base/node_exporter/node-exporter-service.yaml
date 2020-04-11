@@ -4,7 +4,7 @@ metadata:
   labels:
     k8s-app: node-exporter
   name: node-exporter
-  namespace: monitoring
+  namespace: kube-visibility
 spec:
   clusterIP: None
   ports:

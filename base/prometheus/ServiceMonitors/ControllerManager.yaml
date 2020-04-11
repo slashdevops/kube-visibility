@@ -2,9 +2,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  name: kube-controller-manager
   labels:
     k8s-app: kube-controller-manager
-  name: kube-controller-manager
+  namespace: kube-visibility
 spec:
   jobLabel: k8s-app
   namespaceSelector:

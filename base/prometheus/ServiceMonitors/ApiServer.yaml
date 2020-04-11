@@ -2,9 +2,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  name: kube-apiserver
   labels:
     k8s-app: apiserver
-  name: kube-apiserver
+  namespace: kube-visibility
 spec:
   jobLabel: component
   namespaceSelector:

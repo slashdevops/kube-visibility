@@ -10,3 +10,6 @@ resources:
   - alertmanager.yaml
   - grafana.yaml
   - prometheus.yaml
+  - prometheus-operator.yaml
+  - node-exporter.yaml
+  - kube-state-metrics.yaml

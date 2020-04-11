@@ -5,4 +5,4 @@ metadata:
   labels:
     app.kubernetes.io/version: v1.9.5
   name: kube-state-metrics
-  namespace: kube-system
+  namespace: kube-visibility
