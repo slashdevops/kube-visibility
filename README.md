@@ -11,6 +11,7 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 * [node_exporter](https://github.com/prometheus/node_exporter)
 * [prometheus-operator](https://github.com/coreos/prometheus-operator)
+* [k8s-prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter)
 * [prometheus](https://prometheus.io/docs/introduction/overview/)
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
