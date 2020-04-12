@@ -85,3 +85,26 @@ git add .
 git commit -am "added node_exporter project"
 git push
 ```
+
+## Check installations
+
+### node_exporter
+
+```bash
+kubectl --namespace kube-visibility port-forward svc/node-exporter 9100
+```
+
+[http://localhost:9100/metrics](http://localhost:9100/metrics)
+
+
+### kube-state-metrics
+
+```bash
+kubectl --namespace kube-visibility port-forward svc/kube-state-metrics 8080
+kubectl --namespace kube-visibility port-forward svc/kube-state-metrics 8081
+```
+
+[http://localhost:9100/metrics](http://localhost:8080/metrics)
+[http://localhost:9100/metrics](http://localhost:8081/metrics)
+
+

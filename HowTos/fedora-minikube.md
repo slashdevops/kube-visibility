@@ -65,7 +65,9 @@ kubeval --version
 
 This way persist configuration when making minikube stop and minikube start again
 
-**NOTE:** `Set the minikube config values` and `kubernetes version` according to your needs
+**NOTES:**
+* `Set the minikube config values` and `kubernetes version` according to your needs.
+* To Select the [Kubernetes versions](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) availables select the `CHANGELOG-X.Y.md` you want to use
 
 ```bash
 minikube config set memory 4096

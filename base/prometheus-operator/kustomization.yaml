@@ -10,6 +10,5 @@ resources:
   - clusterrole.yaml
   - clusterrolebinding.yaml
   - deployment.yaml
-  - namespace.yaml
   - service.yaml
   - serviceaccount.yaml
