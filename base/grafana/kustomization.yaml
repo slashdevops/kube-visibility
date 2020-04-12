@@ -22,6 +22,7 @@ configMapGenerator:
   - name: dashboards-prometheus
     files:
       - ./dashboards/prometheus/prometheus-stats.json
+      - ./dashboards/prometheus/prometheus-remote-write.json
 
   - name: dashboards-kubernetes
     files:
