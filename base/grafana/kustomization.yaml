@@ -26,3 +26,4 @@ configMapGenerator:
   - name: dashboards-kubernetes
     files:
       - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json
+      - ./dashboards/kubernetes/kubernetes-compute-resources-namespace.json
