@@ -12,12 +12,12 @@
             }
         ]
     },
-    "description": "Prometeus Metrics Dashboard",
+    "description": "Prometheus Stats Dashboard",
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
     "id": 2,
-    "iteration": 1586703757401,
+    "iteration": 1586707018304,
     "links": [],
     "panels": [
         {
@@ -1152,7 +1152,9 @@
     "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "prometheus"
+        "prometheus",
+        "stats",
+        "kubernetes"
     ],
     "templating": {
         "list": [
@@ -1176,8 +1178,6 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "tags": [],
                     "text": "All",
                     "value": [
                         "$__all"
@@ -1261,7 +1261,7 @@
         ]
     },
     "timezone": "utc",
-    "title": "Prometheus",
+    "title": "Prometheus / Stats",
     "uid": "zvp-nKUZk",
     "version": 2
 }

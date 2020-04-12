@@ -21,4 +21,8 @@ configMapGenerator:
 
   - name: dashboards-prometheus
     files:
-      - ./dashboards/prometheus-metrics/prometheus.json
+      - ./dashboards/prometheus/prometheus-stats.json
+
+  - name: dashboards-kubernetes
+    files:
+      - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json

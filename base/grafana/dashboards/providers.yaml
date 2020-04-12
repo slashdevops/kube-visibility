@@ -4,7 +4,7 @@ apiVersion: 1
 providers:
   - name: "Prometheus Metrics"
     orgId: 1
-    folder: "Prometheus Metrics"
+    folder: "Prometheus"
     folderUid: ""
     type: file
     disableDeletion: true
@@ -12,4 +12,15 @@ providers:
     updateIntervalSeconds: 10
     allowUiUpdates: true
     options:
-      path: /grafana/dashboards/prometheus-metrics
+      path: /grafana/dashboards/prometheus
+  - name: "Kubernetes Metrics"
+    orgId: 1
+    folder: "Kubernetes"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/kubernetes

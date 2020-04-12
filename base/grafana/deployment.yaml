@@ -57,7 +57,10 @@ spec:
               mountPath: /etc/grafana/provisioning/datasources
               readOnly: true
             - name: dashboards-prometheus
-              mountPath: /grafana/dashboards/prometheus-metrics
+              mountPath: /grafana/dashboards/prometheus
+              readOnly: true
+            - name: dashboards-kubernetes
+              mountPath: /grafana/dashboards/kubernetes
               readOnly: true
       securityContext:
         runAsNonRoot: true
@@ -77,5 +80,8 @@ spec:
         - name: dashboards-prometheus
           configMap:
             name: dashboards-prometheus
+        - name: dashboards-kubernetes
+          configMap:
+            name: dashboards-kubernetes
       nodeSelector:
         beta.kubernetes.io/os: linux
