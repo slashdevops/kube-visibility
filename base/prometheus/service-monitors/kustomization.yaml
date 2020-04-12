@@ -4,11 +4,11 @@ resources:
   # - alertmanager.yaml
   # - apiserver.yaml
   # - controller-manager.yaml
-  # - coredns.yaml
+  - kube-dns.yaml
   # - grafana.yaml
   # - kube-scheduler.yaml
   - kube-state-metrics.yaml
-  # - kubelet.yaml
+  - kubelet.yaml
   - node-exporter.yaml
-  # - prometheus-operator.yaml
-  # - prometheus.yaml
+  - prometheus-operator.yaml
+  - prometheus.yaml

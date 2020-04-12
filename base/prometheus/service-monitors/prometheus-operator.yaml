@@ -5,14 +5,17 @@ metadata:
   labels:
     app.kubernetes.io/component: controller
     app.kubernetes.io/name: prometheus-operator
-    app.kubernetes.io/version: v0.38.0
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility
 spec:
-  endpoints:
-    - honorLabels: true
-      port: http
+  jobLabel: prometheus-operator
   selector:
     matchLabels:
       app.kubernetes.io/component: controller
       app.kubernetes.io/name: prometheus-operator
-      app.kubernetes.io/version: v0.38.0
+  namespaceSelector:
+    matchNames:
+      - kube-visibility
+  endpoints:
+    - honorLabels: true
+      port: http

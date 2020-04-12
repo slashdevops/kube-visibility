@@ -2,12 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: coredns
+  name: kube-dns
   labels:
-    k8s-app: coredns
+    k8s-app: kube-dns
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility
 spec:
-  jobLabel: k8s-app
+  jobLabel: kube-dns
   namespaceSelector:
     matchNames:
       - kube-system
@@ -15,6 +16,6 @@ spec:
     matchLabels:
       k8s-app: kube-dns
   endpoints:
-    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    - port: metrics
+      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
       interval: 15s
-      port: metrics
