@@ -47,6 +47,8 @@ kustomize build manifests/minikube-k8s-1.16 | kubectl apply -f -
 
 ## Access to graphical tools
 
+All these tools are accessible (using the method described below) when you follow the instructions described in [HowTos folder](HowTos/) for minikube
+
 ### kubernetes Dashboard
 
 ```bash
