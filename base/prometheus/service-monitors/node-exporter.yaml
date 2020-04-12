@@ -1,15 +1,27 @@
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: node-exporter
   labels:
     k8s-app: node-exporter
+    kube-visibility.monitoring: "enabled"
   namespace: kube-visibility
 spec:
+  jobLabel: node-exporter
+  selector:
+    matchLabels:
+      k8s-app: node-exporter
+  namespaceSelector:
+    matchNames:
+      - kube-visibility
   endpoints:
-    - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-      interval: 15s
-      port: https
+    - port: https
+      scheme: https
+      interval: 30s
+      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      tlsConfig:
+        insecureSkipVerify: true
       relabelings:
         - action: replace
           regex: (.*)
@@ -17,10 +29,3 @@ spec:
           sourceLabels:
             - __meta_kubernetes_pod_node_name
           targetLabel: instance
-      scheme: https
-      tlsConfig:
-        insecureSkipVerify: true
-  jobLabel: k8s-app
-  selector:
-    matchLabels:
-      k8s-app: node-exporter
