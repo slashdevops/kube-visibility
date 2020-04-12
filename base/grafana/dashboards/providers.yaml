@@ -1,0 +1,15 @@
+---
+apiVersion: 1
+
+providers:
+  - name: "Prometheus Metrics"
+    orgId: 1
+    folder: "Prometheus Metrics"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/prometheus-metrics

@@ -8,4 +8,4 @@ bases:
   - ./node_exporter
   - ./kube-state-metrics
   - ./prometheus
-  # - ./grafana
+  - ./grafana
