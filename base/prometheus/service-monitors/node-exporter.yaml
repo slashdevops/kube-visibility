@@ -1,9 +1,9 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
+  name: node-exporter
   labels:
     k8s-app: node-exporter
-  name: node-exporter
   namespace: kube-visibility
 spec:
   endpoints:

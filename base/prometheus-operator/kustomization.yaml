@@ -1,15 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - alertmanagers.yaml-crd.yaml
+  - alertmanagers-crd.yaml
+  - podmonitors-crd.yaml
+  - prometheuses-crd.yaml
+  - prometheusrules-crd.yaml
+  - servicemonitors-crd.yaml
+  - thanosrulers-crd.yaml
   - clusterrole.yaml
   - clusterrolebinding.yaml
   - deployment.yaml
   - namespace.yaml
-  - podmonitors-crd.yaml
-  - prometheuses-crd.yaml
-  - prometheusrules-crd.yaml
   - service.yaml
   - serviceaccount.yaml
-  - servicemonitors-crd.yaml
-  - thanosrulers-crd.yaml
