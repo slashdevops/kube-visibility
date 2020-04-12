@@ -52,13 +52,10 @@ kustomize build manifests/minikube-k8s-1.16 | kubectl apply -f -
 ```bash
 kubectl proxy
 ```
-**NOTE:** First you need to get the token (Secret) of the `default ServiceAccount of kube-system namespace`
-
-```bash
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
-```
-
-**link:** [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
+NOTES:
+* Link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
+* To Create a `ClusterRoleBinding` following the instructions inside [HowTos folder](HowTos/) before trying to get a token
+* Access Token: `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')`
 
 ### Prometheus
 
