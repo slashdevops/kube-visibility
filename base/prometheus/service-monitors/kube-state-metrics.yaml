@@ -4,14 +4,19 @@ metadata:
   labels:
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/version: v1.9.5
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   name: kube-state-metrics
   namespace: kube-visibility
 spec:
+  jobLabel: kube-state-metrics
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kube-state-metrics
   endpoints:
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
       honorLabels: true
       interval: 30s
-      port: https-main
+      port: https-metrics
       relabelings:
         - action: labeldrop
           regex: (pod|service|endpoint|namespace)
@@ -21,11 +26,7 @@ spec:
         insecureSkipVerify: true
     - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
       interval: 30s
-      port: https-self
+      port: https-telemetry
       scheme: https
       tlsConfig:
         insecureSkipVerify: true
-  jobLabel: app.kubernetes.io/name
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: kube-state-metrics

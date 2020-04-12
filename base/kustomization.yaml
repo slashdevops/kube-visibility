@@ -7,5 +7,5 @@ bases:
   - ./prometheus-operator
   - ./node_exporter
   - ./kube-state-metrics
-  # - ./prometheus
+  - ./prometheus
   # - ./grafana

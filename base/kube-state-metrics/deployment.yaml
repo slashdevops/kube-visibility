@@ -19,27 +19,56 @@ spec:
         app.kubernetes.io/version: 1.9.5
     spec:
       containers:
-        - image: quay.io/coreos/kube-state-metrics:v1.9.5
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: 8080
-            initialDelaySeconds: 5
-            timeoutSeconds: 5
-          name: kube-state-metrics
-          ports:
-            - containerPort: 8080
-              name: http-metrics
-            - containerPort: 8081
-              name: telemetry
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8081
-            initialDelaySeconds: 5
-            timeoutSeconds: 5
+        - name: kube-state-metrics
+          image: quay.io/coreos/kube-state-metrics:v1.9.5
+          args:
+            - --host=127.0.0.1
+            - --port=8080
+            - --telemetry-host=127.0.0.1
+            - --telemetry-port=8081
           securityContext:
             runAsUser: 65534
+          resources:
+            limits:
+              cpu: 100m
+              memory: 100Mi
+            requests:
+              cpu: 10m
+              memory: 20Mi
+        - name: kube-rbac-proxy-metrics
+          image: quay.io/coreos/kube-rbac-proxy:v0.4.1
+          args:
+            - --logtostderr
+            - --secure-listen-address=:8080
+            - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+            - --upstream=http://127.0.0.1:8080/
+          ports:
+            - containerPort: 8080
+              name: https-metrics
+          resources:
+            limits:
+              cpu: 20m
+              memory: 40Mi
+            requests:
+              cpu: 10m
+              memory: 20Mi
+        - name: kube-rbac-proxy-telemetry
+          image: quay.io/coreos/kube-rbac-proxy:v0.4.1
+          args:
+            - --logtostderr
+            - --secure-listen-address=:8081
+            - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+            - --upstream=http://127.0.0.1:8081/
+          ports:
+            - containerPort: 8081
+              name: https-telemetry
+          resources:
+            limits:
+              cpu: 20m
+              memory: 40Mi
+            requests:
+              cpu: 10m
+              memory: 20Mi
       nodeSelector:
         kubernetes.io/os: linux
       serviceAccountName: kube-state-metrics

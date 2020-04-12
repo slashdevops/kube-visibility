@@ -1,4 +1,5 @@
 ---
+# https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
@@ -28,28 +29,13 @@ spec:
     matchLabels:
       role: alert-rules
       prometheus: visibility
-  serviceMonitorNamespaceSelector:
-    matchLabels:
-      name: kube-visibility
+  # This allow that any kind: ServiceMonitor that have the label 'kube-visibility.monitoring: "enabled"' will be scraped
   serviceMonitorSelector:
-    matchExpressions:
-      - {
-          key: name,
-          operator: In,
-          values:
-            [
-              alertmanager-visibility,
-              kube-apiserver,
-              kube-controller-manager,
-              coredns,
-              grafana,
-              kubelet,
-              kube-scheduler,
-              prometheus-visibility,
-            ],
-        }
-  podMonitorNamespaceSelector:
     matchLabels:
-      name: kube-visibility
+      kube-visibility.monitoring: "enabled"
+  # This allow that any kind: PodMonitor that have the label 'kube-visibility.monitoring: "enabled"' will be scraped
+  podMonitorSelector:
+    matchLabels:
+      kube-visibility.monitoring: "enabled"
   nodeSelector:
     kubernetes.io/os: linux
