@@ -5,9 +5,10 @@ metadata:
   name: kube-scheduler
   labels:
     k8s-app: kube-scheduler
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility
 spec:
-  jobLabel: k8s-app
+  jobLabel: kube-scheduler
   namespaceSelector:
     matchNames:
       - kube-system
@@ -15,5 +16,5 @@ spec:
     matchLabels:
       k8s-app: kube-scheduler
   endpoints:
-    - interval: 30s
-      port: http-metrics
+    - port: http-metrics
+      interval: 30s

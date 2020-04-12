@@ -5,15 +5,16 @@ metadata:
   name: alertmanager-visibility
   labels:
     name: alertmanager-visibility
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility
 spec:
   jobLabel: alertmanager
   namespaceSelector:
     matchNames:
       - kube-visibility
-  endpoints:
-    - interval: 30s
-      port: web
   selector:
     matchLabels:
       alertmanager: visibility
+  endpoints:
+    - port: web
+      interval: 30s
