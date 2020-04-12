@@ -6,6 +6,6 @@ resources:
 bases:
   - ./node_exporter
   - ./kube-state-metrics
-  - ./prometheus-operator
-  - ./prometheus
+  # - ./prometheus-operator
+  # - ./prometheus
   # - ./grafana

@@ -55,7 +55,7 @@ minikube config set memory 4096
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2
-minikube config set kubernetes-version 1.15.10
+minikube config set kubernetes-version 1.16.8
 minikube config view
 
 minikube start
@@ -67,7 +67,7 @@ minikube status
 
 ```bash
 minikube start \
- --kubernetes-version v1.15.10 \
+ --kubernetes-version v1.16.8 \
  --vm-driver=kvm2 \
  --memory=4096 \
  --cpus=2 \

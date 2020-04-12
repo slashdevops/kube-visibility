@@ -35,14 +35,14 @@ cd kube-visibility/
 Generate a unique file bundle
 
 ```bash
-kustomize build manifests/minikube-k8s-1.15 > kube-visibility.yaml
+kustomize build manifests/minikube-k8s-1.16 > kube-visibility.yaml
 kubectl apply -f kube-visibility.yaml
 ```
 
 or all in one command:
 
 ```bash
-kustomize build manifests/minikube-k8s-1.15 | kubectl apply -f -
+kustomize build manifests/minikube-k8s-1.16 | kubectl apply -f -
 ```
 
 ## Access to graphical tools

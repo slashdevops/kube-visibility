@@ -3,7 +3,7 @@ kind: Role
 metadata:
   labels:
     app.kubernetes.io/name: kube-state-metrics
-    app.kubernetes.io/version: v1.9.5
+    app.kubernetes.io/version: 1.9.5
   name: kube-state-metrics
   namespace: kube-visibility
 rules:
@@ -14,10 +14,20 @@ rules:
     verbs:
       - get
   - apiGroups:
+      - extensions
+    resourceNames:
+      - kube-state-metrics
+    resources:
+      - deployments
+    verbs:
+      - get
+      - update
+  - apiGroups:
       - apps
     resourceNames:
       - kube-state-metrics
     resources:
-      - statefulsets
+      - deployments
     verbs:
       - get
+      - update

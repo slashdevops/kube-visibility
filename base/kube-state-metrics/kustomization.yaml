@@ -7,4 +7,4 @@ resources:
   - role.yaml
   - role-binding.yaml
   - service.yaml
-  - statefulset.yaml
+  - deployment.yaml
