@@ -8,6 +8,7 @@ bases:
   - ./kube-state-metrics
   - ./prometheus-operator
   - ./prometheus
+  - ./prometheus-adapter
   - ./grafana
 commonAnnotations:
   kube-visibility.modifier: "k8s-1.14"
