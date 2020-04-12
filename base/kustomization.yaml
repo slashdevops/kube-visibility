@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   - namespace.yaml
 bases:
+  - ./prometheus-operator
   - ./node_exporter
   - ./kube-state-metrics
-  # - ./prometheus-operator
   # - ./prometheus
   # - ./grafana

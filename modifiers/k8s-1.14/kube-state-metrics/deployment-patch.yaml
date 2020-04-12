@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/version: 1.9.4
+  name: kube-state-metrics
+  namespace: kube-visibility
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/version: 1.9.4

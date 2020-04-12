@@ -10,4 +10,4 @@ patches:
   - role-patch.yaml
   - service-account-patch.yaml
   - service-patch.yaml
-  - statefulset-patch.yaml
+  - deployment-patch.yaml
