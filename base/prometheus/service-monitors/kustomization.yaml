@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   # - alertmanager.yaml
   - kube-apiserver.yaml
-  # - controller-manager.yaml
+  - controller-manager.yaml
   - kube-dns.yaml
   # - grafana.yaml
   # - kube-scheduler.yaml

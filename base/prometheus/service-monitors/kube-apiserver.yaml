@@ -8,7 +8,7 @@ metadata:
     kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility
 spec:
-  jobLabel: kubernetes-apiservers
+  jobLabel: kube-apiservers
   namespaceSelector:
     matchNames:
       - default
