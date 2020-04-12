@@ -72,14 +72,17 @@ kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```bash
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
-**link:** [prometheus](http://localhost:9093)
+**link:** [alertmanager](http://localhost:9093)
 
 ### Grafana
 
 ```bash
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
 ```
-**link:** [prometheus](http://localhost:3000)
+**NOTES:**
+* Link: [grafana](http://localhost:3000)
+* user: admin
+* password: admin
 
 ## Development / Contributing
 
