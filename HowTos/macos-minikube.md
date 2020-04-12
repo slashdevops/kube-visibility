@@ -32,6 +32,14 @@ brew install kustomize
 kustomize version
 ```
 
+### kubeval
+
+```bash
+brew tap instrumenta/instrumenta
+brew install kubeval
+kubeval --version
+```
+
 ## Starting Kubernetes with minikube
 
 ### Option 1 (Stateful, config saved at ~./minikube)

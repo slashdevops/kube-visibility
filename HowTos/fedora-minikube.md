@@ -47,6 +47,18 @@ sudo mv ./kustomize /usr/local/bin/kustomize
 kustomize version
 ```
 
+### kubeval
+
+```bash
+wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+tar xf kubeval-linux-amd64.tar.gz
+chmod +x ./kubeval
+sudo mv ./kubeval /usr/local/bin/
+rm -rf kubeval-linux-amd64.tar.gz
+
+kubeval --version
+```
+
 ## Starting Kubernetes with minikube
 
 ### Option 1 (Stateful, config saved at ~./minikube)
