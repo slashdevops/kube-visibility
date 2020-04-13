@@ -29,6 +29,7 @@ configMapGenerator:
       - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json
       - ./dashboards/kubernetes/kubernetes-compute-resources-namespace.json
       - ./dashboards/kubernetes/kubernetes-statefulsets.json
+      - ./dashboards/kubernetes/kubernetes-persistent-volumes.json
 
   - name: dashboards-infrastructure
     files:
