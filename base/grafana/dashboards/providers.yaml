@@ -24,3 +24,14 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/kubernetes
+  - name: "Infrastructure Metrics"
+    orgId: 1
+    folder: "Infrastructure"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/infrastructure
