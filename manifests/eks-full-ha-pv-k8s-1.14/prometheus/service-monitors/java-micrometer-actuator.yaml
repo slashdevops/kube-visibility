@@ -1,0 +1,21 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: actuator
+  labels:
+    name: actuator
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+spec:
+  jobLabel: actuator
+  selector:
+    matchLabels:
+      environment: production # change it if you want
+  namespaceSelector:
+    matchNames:
+      - my-ms-namespace1 # change it
+      - my-ms-namespace2 # change it
+  endpoints:
+    - targetPort: 8080
+      path: /actuator/prometheus
+      interval: 30s

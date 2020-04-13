@@ -1,0 +1,27 @@
+---
+# https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/alerting.md
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: visibility
+  namespace: kube-visibility
+spec:
+  replicas: 3
+  resources:
+    limits:
+      cpu: 250Mi
+      memory: 200Mi
+    requests:
+      cpu: 100Mi
+      memory: 100Mi
+    labels: # The way in prometheus operator to add labels to nodes
+      environment: production
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: aws-gp2-alertmanager-visibility
+        resources:
+          requests:
+            storage: 30Gi
+  nodeSelector:
+    node.workload.type: management # change it, use your custom node label selectors or commet the block

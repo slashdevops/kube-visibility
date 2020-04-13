@@ -1,0 +1,30 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: visibility
+  namespace: kube-visibility
+spec:
+  replicas: 2
+  # enableAdminAPI: false if you want to disable it from the base
+  retention: 8w # ~2 months
+  retentionSize: 45GB # base in PVC EBS Volume
+  resources:
+    limits:
+      cpu: 400Mi
+      memory: 250Mi
+    requests:
+      cpu: 100Mi
+      memory: 100Mi
+  podMetadata: # The way in prometheus operator to add labels to nodes
+    labels:
+      environment: production
+  storage:
+    volumeClaimTemplate:
+      spec:
+        storageClassName: aws-gp2-prometheus-visibility
+        resources:
+          requests:
+            storage: 50Gi
+  nodeSelector:
+    node.workload.type: management # change it, use your custom node label selectors or commet the block

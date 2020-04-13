@@ -1,0 +1,12 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-state-metrics
+  namespace: kube-visibility
+spec:
+  replicas: 2
+  template:
+    spec:
+      nodeSelector:
+        node.workload.type: management # change it, use your custom node label selectors or commet the block
