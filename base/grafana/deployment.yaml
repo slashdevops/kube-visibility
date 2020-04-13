@@ -51,7 +51,8 @@ spec:
               mountPath: /var/lib/grafana
               readOnly: false
             - name: dashboards-providers
-              mountPath: /etc/grafana/provisioning/dashboards
+              mountPath: /etc/grafana/provisioning/dashboards/providers.yaml
+              subPath: providers.yaml
               readOnly: true
             - name: dashboards-datasources
               mountPath: /etc/grafana/provisioning/datasources
