@@ -24,15 +24,31 @@ configMapGenerator:
       - ./dashboards/prometheus/prometheus-stats.json
       - ./dashboards/prometheus/prometheus-remote-write.json
 
-  - name: dashboards-kubernetes
+  - name: dashboards-kubernetes-0
     files:
       - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json
       - ./dashboards/kubernetes/kubernetes-compute-resources-namespace.json
       - ./dashboards/kubernetes/kubernetes-statefulsets.json
       - ./dashboards/kubernetes/kubernetes-persistent-volumes.json
 
+  - name: dashboards-kubernetes-1
+    files:
+      - ./dashboards/kubernetes/kubernetes-compute-resources-namespace-workloads.json
+      - ./dashboards/kubernetes/kubernetes-scheduler.json
+      - ./dashboards/kubernetes/kubernetes-compute-resources-node-pods.json
+
+  - name: dashboards-network
+    files:
+      - ./dashboards/network/kubernetes-network-cluster.json
+      - ./dashboards/network/kubernetes-network-pods.json
+      - ./dashboards/network/kubernetes-network-workload.json
+      - ./dashboards/network/kubernetes-network-namespace-pods.json
+      - ./dashboards/network/kubernetes-network-namespace-workload.json
+
   - name: dashboards-infrastructure
     files:
       - ./dashboards/infrastructure/nodes.json
       - ./dashboards/infrastructure/use-method-cluster.json
       - ./dashboards/infrastructure/use-method-node.json
+
+      
