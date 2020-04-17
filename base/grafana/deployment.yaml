@@ -60,8 +60,14 @@ spec:
             - name: dashboards-prometheus
               mountPath: /grafana/dashboards/prometheus
               readOnly: true
-            - name: dashboards-kubernetes
-              mountPath: /grafana/dashboards/kubernetes
+            - name: dashboards-kubernetes-0
+              mountPath: /grafana/dashboards/kubernetes-0
+              readOnly: true
+            - name: dashboards-kubernetes-1
+              mountPath: /grafana/dashboards/kubernetes-1
+              readOnly: true
+            - name: dashboards-network
+              mountPath: /grafana/dashboards/network
               readOnly: true
             - name: dashboards-infrastructure
               mountPath: /grafana/dashboards/infrastructure
@@ -84,9 +90,15 @@ spec:
         - name: dashboards-prometheus
           configMap:
             name: dashboards-prometheus
-        - name: dashboards-kubernetes
+        - name: dashboards-kubernetes-0
           configMap:
-            name: dashboards-kubernetes
+            name: dashboards-kubernetes-0
+        - name: dashboards-kubernetes-1
+          configMap:
+            name: dashboards-kubernetes-1
+        - name: dashboards-network
+          configMap:
+            name: dashboards-network
         - name: dashboards-infrastructure
           configMap:
             name: dashboards-infrastructure

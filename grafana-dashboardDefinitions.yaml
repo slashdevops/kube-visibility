@@ -1,0 +1,9 @@
+
+- apiVersion: v1
+  data:
+    controller-manager.json: |-
+      
+  kind: ConfigMap
+  metadata:
+    name: grafana-dashboard-controller-manager
+    namespace: monitoring

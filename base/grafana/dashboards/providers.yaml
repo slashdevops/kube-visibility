@@ -23,7 +23,18 @@ providers:
     updateIntervalSeconds: 10
     allowUiUpdates: true
     options:
-      path: /grafana/dashboards/kubernetes
+      path: /grafana/dashboards/kubernetes-0
+  - name: "Kubernetes Metrics"
+    orgId: 1
+    folder: "Kubernetes"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/kubernetes-1
   - name: "Infrastructure Metrics"
     orgId: 1
     folder: "Infrastructure"
@@ -35,3 +46,14 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/infrastructure
+  - name: "Network Metrics"
+    orgId: 1
+    folder: "Network"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/network
