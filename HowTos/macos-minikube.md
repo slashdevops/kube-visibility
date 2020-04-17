@@ -54,7 +54,7 @@ This way persist configuration when making minikube stop and minikube start agai
 minikube config set memory 4096
 minikube config set cpus 2
 minikube config set disk-size 40G
-minikube config set vm-driver kvm2
+minikube config set vm-driver hyperkit
 minikube config set kubernetes-version 1.16.8
 minikube config view
 
@@ -68,7 +68,7 @@ minikube status
 ```bash
 minikube start \
  --kubernetes-version v1.16.8 \
- --vm-driver=kvm2 \
+ --vm-driver=hyperkit \
  --memory=4096 \
  --cpus=2 \
  --disk-size=40G
