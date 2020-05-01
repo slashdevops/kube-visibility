@@ -29,11 +29,19 @@ Looks inside [HowTos folder](HowTos/) to see available docs per OS
 Clone the repository
 
 ```bash
-git clone https://github.com/christiangda/kube-visibility.git
+git clone https://github.com/slashdevops/kube-visibility.git
 cd kube-visibility/
 ```
 
-Generate a unique file bundle
+> __NOTE:__  The bundle of manifest generated with kustomize has some dependencies with 
+> each other (prometheus depends on prometheus-operator and needs that it was created first), so when you 
+> execute the first time the manifest, some errors will occur.
+> After the first execution you need to wait until some resources were created, and then you can execute 
+> again the command to create the resources into the k8s cluster. 
+> If you are using the kubernetes-dashboard you can watch when the first execution finished creating 
+> the resources, and then you can execute it again to finish with the instalation.
+
+Generate a unique file bundle and then apply it
 
 ```bash
 kustomize build manifests/minikube-k8s-1.16 > kube-visibility.yaml
@@ -110,4 +118,4 @@ This module is released under the GNU General Public License Version 3:
 
 ## Author Information
 
-* [Christian González Di Antonio](https://github.com/christiangda)
+* [Christian González Di Antonio](https://github.com/slashdevops)

@@ -5,7 +5,7 @@ This receipe apply for [Fedora 31](https://getfedora.org/) + [Linux KVM](https:/
 ## Preparing "minikube" environment
 
 ```bash
-sudo dnf install @virtualization
+sudo dnf -y install @virtualization
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 sudo systemctl status libvirtd.service
@@ -100,7 +100,7 @@ minikube status
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 ```
 
 ### Create a RoleBinding for ServiceAccount

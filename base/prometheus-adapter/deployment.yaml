@@ -23,7 +23,7 @@ spec:
       serviceAccountName: prometheus-adapter
       containers:
         - name: prometheus-adapter
-          image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.6.0
+          image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.7.0
           args:
             - --cert-dir=/var/run/serving-cert
             - --config=/etc/adapter/config.yaml

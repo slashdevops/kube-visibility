@@ -9,7 +9,7 @@ metadata:
   namespace: kube-visibility
 spec:
   replicas: 1
-  version: v2.17.1
+  version: v2.17.2
   image: quay.io/prometheus/prometheus
   serviceAccountName: prometheus
   enableAdminAPI: true

@@ -16,7 +16,7 @@ Those manifest are the way to share `custom configurations` over the [base layer
 Clone the repository
 
 ```bash
-git clone https://github.com/christiangda/kube-visibility.git
+git clone https://github.com/slashdevops/kube-visibility.git
 cd kube-visibility/
 ```
 
