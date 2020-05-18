@@ -15,8 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 9,
-    "iteration": 1586772184331,
+    "iteration": 1589799587166,
     "links": [],
     "panels": [
         {
@@ -965,19 +964,18 @@
     "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "kubernetes",
-        "infrastructure"
+        "kube-visibility"
     ],
     "templating": {
         "list": [
             {
                 "current": {
-                    "text": "prometheus-visibility",
-                    "value": "prometheus-visibility"
+                    "text": "prometheus",
+                    "value": "prometheus"
                 },
                 "hide": 0,
                 "includeAll": false,
-                "label": "Datasource",
+                "label": null,
                 "multi": false,
                 "name": "datasource",
                 "options": [],
@@ -990,8 +988,8 @@
             {
                 "allValue": null,
                 "current": {
-                    "text": "minikube",
-                    "value": "minikube"
+                    "text": "ip-10-60-18-36.eu-west-1.compute.internal",
+                    "value": "ip-10-60-18-36.eu-west-1.compute.internal"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -1046,5 +1044,5 @@
     "timezone": "",
     "title": "USE Method / Node",
     "uid": "fac67cfbe174d3ef53eb473d73d9212f",
-    "version": 2
+    "version": 3
 }

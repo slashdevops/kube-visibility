@@ -1,10 +1,4 @@
 {
-    "__inputs": [
-
-    ],
-    "__requires": [
-
-    ],
     "annotations": {
         "list": [
             {
@@ -21,15 +15,13 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "hideControls": false,
-    "id": null,
-    "links": [
-
-    ],
+    "iteration": 1589800270846,
+    "links": [],
     "panels": [
         {
             "collapse": false,
             "collapsed": false,
+            "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
@@ -37,9 +29,7 @@
                 "y": 0
             },
             "id": 2,
-            "panels": [
-
-            ],
+            "panels": [],
             "repeat": null,
             "repeatIteration": null,
             "repeatRowId": null,
@@ -49,20 +39,20 @@
             "type": "row"
         },
         {
-            "aliasColors": {
-
-            },
+            "aliasColors": {},
             "bars": true,
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
             "fill": 2,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 9,
                 "w": 12,
                 "x": 0,
                 "y": 1
             },
+            "hiddenSeries": false,
             "id": 3,
             "legend": {
                 "alignAsTable": true,
@@ -81,20 +71,19 @@
             },
             "lines": false,
             "linewidth": 1,
-            "links": [
-
-            ],
+            "links": [],
             "minSpan": 24,
             "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
             "paceLength": 10,
             "percentage": false,
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
             "repeat": null,
-            "seriesOverrides": [
-
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "span": 24,
             "stack": false,
@@ -109,10 +98,9 @@
                     "step": 10
                 }
             ],
-            "thresholds": [
-
-            ],
+            "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Current Rate of Bytes Received",
             "tooltip": {
@@ -147,23 +135,27 @@
                     "min": 0,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
-            "aliasColors": {
-
-            },
+            "aliasColors": {},
             "bars": true,
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
             "fill": 2,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 9,
                 "w": 12,
                 "x": 12,
                 "y": 1
             },
+            "hiddenSeries": false,
             "id": 4,
             "legend": {
                 "alignAsTable": true,
@@ -182,20 +174,19 @@
             },
             "lines": false,
             "linewidth": 1,
-            "links": [
-
-            ],
+            "links": [],
             "minSpan": 24,
             "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
             "paceLength": 10,
             "percentage": false,
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
             "repeat": null,
-            "seriesOverrides": [
-
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "span": 24,
             "stack": false,
@@ -210,10 +201,9 @@
                     "step": 10
                 }
             ],
-            "thresholds": [
-
-            ],
+            "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Current Rate of Bytes Transmitted",
             "tooltip": {
@@ -248,7 +238,11 @@
                     "min": 0,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "columns": [
@@ -307,6 +301,8 @@
             "linewidth": 1,
             "minSpan": 24,
             "nullPointMode": "null as zero",
+            "options": {},
+            "pageSize": null,
             "renderer": "flot",
             "scroll": true,
             "showHeader": true,
@@ -319,181 +315,151 @@
             "styles": [
                 {
                     "alias": "Time",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Time",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "hidden",
                     "unit": "short"
                 },
                 {
                     "alias": "Current Bandwidth Received",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #A",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "Bps"
                 },
                 {
                     "alias": "Current Bandwidth Transmitted",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #B",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "Bps"
                 },
                 {
                     "alias": "Average Bandwidth Received",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #C",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "Bps"
                 },
                 {
                     "alias": "Average Bandwidth Transmitted",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #D",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "Bps"
                 },
                 {
                     "alias": "Rate of Received Packets",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #E",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "pps"
                 },
                 {
                     "alias": "Rate of Transmitted Packets",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #F",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "pps"
                 },
                 {
                     "alias": "Rate of Received Packets Dropped",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #G",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "pps"
                 },
                 {
                     "alias": "Rate of Transmitted Packets Dropped",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": false,
                     "linkTooltip": "Drill down",
                     "linkUrl": "",
                     "pattern": "Value #H",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "pps"
                 },
                 {
                     "alias": "Namespace",
+                    "align": "auto",
                     "colorMode": null,
-                    "colors": [
-
-                    ],
+                    "colors": [],
                     "dateFormat": "YYYY-MM-DD HH:mm:ss",
                     "decimals": 2,
                     "link": true,
                     "linkTooltip": "Drill down",
                     "linkUrl": "d/8b7a8b326d7a6f1f04244066368c67af/kubernetes-networking-namespace-pods?orgId=1&refresh=30s&var-namespace=$__cell",
                     "pattern": "namespace",
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "type": "number",
                     "unit": "short"
                 }
@@ -575,23 +541,23 @@
             "timeFrom": null,
             "timeShift": null,
             "title": "Current Status",
+            "transform": "table",
             "type": "table"
         },
         {
             "collapse": true,
             "collapsed": true,
+            "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 10
+                "y": 19
             },
             "id": 6,
             "panels": [
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": true,
                     "dashLength": 10,
                     "dashes": false,
@@ -621,9 +587,7 @@
                     },
                     "lines": false,
                     "linewidth": 1,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "null",
                     "paceLength": 10,
@@ -632,9 +596,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": false,
@@ -649,9 +611,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Average Rate of Bytes Received",
@@ -690,9 +650,7 @@
                     ]
                 },
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": true,
                     "dashLength": 10,
                     "dashes": false,
@@ -722,9 +680,7 @@
                     },
                     "lines": false,
                     "linewidth": 1,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "null",
                     "paceLength": 10,
@@ -733,9 +689,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": false,
@@ -750,9 +704,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Average Rate of Bytes Transmitted",
@@ -802,16 +754,15 @@
         {
             "collapse": false,
             "collapsed": false,
+            "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 11
+                "y": 20
             },
             "id": 9,
-            "panels": [
-
-            ],
+            "panels": [],
             "repeat": null,
             "repeatIteration": null,
             "repeatRowId": null,
@@ -821,20 +772,20 @@
             "type": "row"
         },
         {
-            "aliasColors": {
-
-            },
+            "aliasColors": {},
             "bars": false,
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
             "fill": 2,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 9,
                 "w": 24,
                 "x": 0,
-                "y": 12
+                "y": 21
             },
+            "hiddenSeries": false,
             "id": 10,
             "legend": {
                 "alignAsTable": true,
@@ -851,20 +802,19 @@
             },
             "lines": true,
             "linewidth": 2,
-            "links": [
-
-            ],
+            "links": [],
             "minSpan": 24,
             "nullPointMode": "connected",
+            "options": {
+                "dataLinks": []
+            },
             "paceLength": 10,
             "percentage": false,
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
             "repeat": null,
-            "seriesOverrides": [
-
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "span": 24,
             "stack": true,
@@ -879,10 +829,9 @@
                     "step": 10
                 }
             ],
-            "thresholds": [
-
-            ],
+            "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Receive Bandwidth",
             "tooltip": {
@@ -896,9 +845,7 @@
                 "mode": "time",
                 "name": null,
                 "show": true,
-                "values": [
-
-                ]
+                "values": []
             },
             "yaxes": [
                 {
@@ -917,23 +864,27 @@
                     "min": 0,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
-            "aliasColors": {
-
-            },
+            "aliasColors": {},
             "bars": false,
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
             "fill": 2,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 9,
                 "w": 24,
                 "x": 0,
-                "y": 21
+                "y": 30
             },
+            "hiddenSeries": false,
             "id": 11,
             "legend": {
                 "alignAsTable": true,
@@ -950,20 +901,19 @@
             },
             "lines": true,
             "linewidth": 2,
-            "links": [
-
-            ],
+            "links": [],
             "minSpan": 24,
             "nullPointMode": "connected",
+            "options": {
+                "dataLinks": []
+            },
             "paceLength": 10,
             "percentage": false,
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
             "repeat": null,
-            "seriesOverrides": [
-
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "span": 24,
             "stack": true,
@@ -978,10 +928,9 @@
                     "step": 10
                 }
             ],
-            "thresholds": [
-
-            ],
+            "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Transmit Bandwidth",
             "tooltip": {
@@ -995,9 +944,7 @@
                 "mode": "time",
                 "name": null,
                 "show": true,
-                "values": [
-
-                ]
+                "values": []
             },
             "yaxes": [
                 {
@@ -1016,23 +963,26 @@
                     "min": 0,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "collapse": true,
             "collapsed": true,
+            "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 30
+                "y": 39
             },
             "id": 12,
             "panels": [
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1060,9 +1010,7 @@
                     },
                     "lines": true,
                     "linewidth": 2,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "connected",
                     "paceLength": 10,
@@ -1071,9 +1019,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1088,9 +1034,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of Received Packets",
@@ -1105,9 +1049,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1129,9 +1071,7 @@
                     ]
                 },
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1159,9 +1099,7 @@
                     },
                     "lines": true,
                     "linewidth": 2,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "connected",
                     "paceLength": 10,
@@ -1170,9 +1108,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1187,9 +1123,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of Transmitted Packets",
@@ -1204,9 +1138,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1239,18 +1171,17 @@
         {
             "collapse": true,
             "collapsed": true,
+            "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 31
+                "y": 40
             },
             "id": 15,
             "panels": [
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1278,9 +1209,7 @@
                     },
                     "lines": true,
                     "linewidth": 2,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "connected",
                     "paceLength": 10,
@@ -1289,9 +1218,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1306,9 +1233,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of Received Packets Dropped",
@@ -1323,9 +1248,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1347,9 +1270,7 @@
                     ]
                 },
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1377,9 +1298,7 @@
                     },
                     "lines": true,
                     "linewidth": 2,
-                    "links": [
-
-                    ],
+                    "links": [],
                     "minSpan": 24,
                     "nullPointMode": "connected",
                     "paceLength": 10,
@@ -1388,9 +1307,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1405,9 +1322,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of Transmitted Packets Dropped",
@@ -1422,9 +1337,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1446,9 +1359,7 @@
                     ]
                 },
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1491,9 +1402,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1508,9 +1417,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of TCP Retransmits out of all sent segments",
@@ -1525,9 +1432,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1549,9 +1454,7 @@
                     ]
                 },
                 {
-                    "aliasColors": {
-
-                    },
+                    "aliasColors": {},
                     "bars": false,
                     "dashLength": 10,
                     "dashes": false,
@@ -1594,9 +1497,7 @@
                     "points": false,
                     "renderer": "flot",
                     "repeat": null,
-                    "seriesOverrides": [
-
-                    ],
+                    "seriesOverrides": [],
                     "spaceLength": 10,
                     "span": 24,
                     "stack": true,
@@ -1611,9 +1512,7 @@
                             "step": 10
                         }
                     ],
-                    "thresholds": [
-
-                    ],
+                    "thresholds": [],
                     "timeFrom": null,
                     "timeShift": null,
                     "title": "Rate of TCP SYN Retransmits out of all retransmits",
@@ -1628,9 +1527,7 @@
                         "mode": "time",
                         "name": null,
                         "show": true,
-                        "values": [
-
-                        ]
+                        "values": []
                     },
                     "yaxes": [
                         {
@@ -1662,29 +1559,44 @@
         }
     ],
     "refresh": "10s",
-    "rows": [
-
-    ],
-    "schemaVersion": 18,
+    "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "kubernetes-mixin"
+        "kube-visibility"
     ],
     "templating": {
         "list": [
+            {
+                "current": {
+                    "text": "prometheus",
+                    "value": "prometheus"
+                },
+                "hide": 0,
+                "includeAll": false,
+                "label": "Datasource",
+                "multi": false,
+                "name": "datasource",
+                "options": [],
+                "query": "prometheus",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "type": "datasource"
+            },
             {
                 "allValue": null,
                 "auto": false,
                 "auto_count": 30,
                 "auto_min": "10s",
                 "current": {
+                    "selected": false,
                     "text": "5m",
                     "value": "5m"
                 },
                 "datasource": "$datasource",
                 "hide": 0,
                 "includeAll": false,
-                "label": null,
+                "label": "Resolution",
                 "multi": false,
                 "name": "resolution",
                 "options": [
@@ -1710,9 +1622,7 @@
                 "skipUrlSync": false,
                 "sort": 1,
                 "tagValuesQuery": "",
-                "tags": [
-
-                ],
+                "tags": [],
                 "tagsQuery": "",
                 "type": "interval",
                 "useTags": false
@@ -1723,13 +1633,14 @@
                 "auto_count": 30,
                 "auto_min": "10s",
                 "current": {
-                    "text": "5m",
-                    "value": "5m"
+                    "selected": false,
+                    "text": "4h",
+                    "value": "4h"
                 },
                 "datasource": "$datasource",
                 "hide": 2,
                 "includeAll": false,
-                "label": null,
+                "label": "Interval",
                 "multi": false,
                 "name": "interval",
                 "options": [
@@ -1745,28 +1656,10 @@
                 "skipUrlSync": false,
                 "sort": 1,
                 "tagValuesQuery": "",
-                "tags": [
-
-                ],
+                "tags": [],
                 "tagsQuery": "",
                 "type": "interval",
                 "useTags": false
-            },
-            {
-                "current": {
-                    "text": "default",
-                    "value": "default"
-                },
-                "hide": 0,
-                "label": null,
-                "name": "datasource",
-                "options": [
-
-                ],
-                "query": "prometheus",
-                "refresh": 1,
-                "regex": "",
-                "type": "datasource"
             }
         ]
     },
@@ -1802,5 +1695,5 @@
     "timezone": "",
     "title": "Kubernetes / Networking / Cluster",
     "uid": "ff635a025bcfea7bc3dd4f508990a3e9",
-    "version": 0
+    "version": 2
 }
