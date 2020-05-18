@@ -1,13 +1,12 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/component: controller
     app.kubernetes.io/name: prometheus-operator
-    app.kubernetes.io/version: v0.38.1
+    app.kubernetes.io/version: v0.39.0
   name: prometheus-operator
-  namespace: kube-visibility
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -19,28 +18,28 @@ spec:
       labels:
         app.kubernetes.io/component: controller
         app.kubernetes.io/name: prometheus-operator
-        app.kubernetes.io/version: v0.38.1
+        app.kubernetes.io/version: v0.39.0
     spec:
       containers:
-        - name: prometheus-operator
-          image: quay.io/coreos/prometheus-operator:v0.38.1
-          args:
-            - --kubelet-service=kube-system/kubelet
-            - --logtostderr=true
-            - --config-reloader-image=jimmidyson/configmap-reload:v0.3.0
-            - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.38.1
-          ports:
-            - containerPort: 8080
-              name: http
-          resources:
-            limits:
-              cpu: 200m
-              memory: 200Mi
-            requests:
-              cpu: 100m
-              memory: 100Mi
-          securityContext:
-            allowPrivilegeEscalation: false
+      - args:
+        - --kubelet-service=kube-system/kubelet
+        - --logtostderr=true
+        - --config-reloader-image=jimmidyson/configmap-reload:v0.3.0
+        - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.39.0
+        image: quay.io/coreos/prometheus-operator:v0.39.0
+        name: prometheus-operator
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          limits:
+            cpu: 200m
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        securityContext:
+          allowPrivilegeEscalation: false
       nodeSelector:
         beta.kubernetes.io/os: linux
       securityContext:

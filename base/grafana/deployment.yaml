@@ -66,7 +66,13 @@ spec:
             - name: dashboards-kubernetes-1
               mountPath: /grafana/dashboards/kubernetes-1
               readOnly: true
-            - name: dashboards-network
+            - name: dashboards-kubernetes-2
+              mountPath: /grafana/dashboards/kubernetes-2
+              readOnly: true
+            - name: dashboards-network-0
+              mountPath: /grafana/dashboards/network
+              readOnly: true              
+            - name: dashboards-network-1
               mountPath: /grafana/dashboards/network
               readOnly: true
             - name: dashboards-infrastructure
@@ -96,9 +102,15 @@ spec:
         - name: dashboards-kubernetes-1
           configMap:
             name: dashboards-kubernetes-1
-        - name: dashboards-network
+        - name: dashboards-kubernetes-2
           configMap:
-            name: dashboards-network
+            name: dashboards-kubernetes-2
+        - name: dashboards-network-0
+          configMap:
+            name: dashboards-network-0
+        - name: dashboards-network-1
+          configMap:
+            name: dashboards-network-1            
         - name: dashboards-infrastructure
           configMap:
             name: dashboards-infrastructure

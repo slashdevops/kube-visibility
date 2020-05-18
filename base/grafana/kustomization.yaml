@@ -36,12 +36,21 @@ configMapGenerator:
       - ./dashboards/kubernetes/kubernetes-compute-resources-namespace-workloads.json
       - ./dashboards/kubernetes/kubernetes-scheduler.json
       - ./dashboards/kubernetes/kubernetes-compute-resources-node-pods.json
+      - ./dashboards/kubernetes/kubernetes-compute-resources-pod.json
 
-  - name: dashboards-network
+  - name: dashboards-kubernetes-2
+    files:
+      - ./dashboards/kubernetes/kubernetes-api-server.json
+      - ./dashboards/kubernetes/kubernetes-kubelet.json
+
+  - name: dashboards-network-0
     files:
       - ./dashboards/network/kubernetes-network-cluster.json
       - ./dashboards/network/kubernetes-network-pods.json
       - ./dashboards/network/kubernetes-network-workload.json
+
+  - name: dashboards-network-1
+    files:
       - ./dashboards/network/kubernetes-network-namespace-pods.json
       - ./dashboards/network/kubernetes-network-namespace-workload.json
 
@@ -50,5 +59,3 @@ configMapGenerator:
       - ./dashboards/infrastructure/nodes.json
       - ./dashboards/infrastructure/use-method-cluster.json
       - ./dashboards/infrastructure/use-method-node.json
-
-      
