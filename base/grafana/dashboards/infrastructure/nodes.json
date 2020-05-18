@@ -12,12 +12,12 @@
             }
         ]
     },
-    "description": "Kubernetes Nodes",
+    "description": "Node Resources",
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 8,
-    "iteration": 1586771985833,
+    "id": 4,
+    "iteration": 1589798307934,
     "links": [],
     "panels": [
         {
@@ -237,8 +237,8 @@
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
-                "h": 7,
-                "w": 18,
+                "h": 6,
+                "w": 19,
                 "x": 0,
                 "y": 7
             },
@@ -344,64 +344,60 @@
         },
         {
             "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-                "rgba(50, 172, 45, 0.97)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(245, 54, 54, 0.9)"
-            ],
             "datasource": "$datasource",
-            "format": "percent",
-            "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": true,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-            },
             "gridPos": {
-                "h": 7,
-                "w": 6,
-                "x": 18,
+                "h": 6,
+                "w": 5,
+                "x": 19,
                 "y": 7
             },
             "id": 5,
-            "interval": null,
             "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-                {
-                    "name": "value to text",
-                    "value": 1
+            "options": {
+                "fieldOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "defaults": {
+                        "mappings": [
+                            {
+                                "id": 0,
+                                "op": "=",
+                                "text": "N/A",
+                                "type": 1,
+                                "value": "null"
+                            }
+                        ],
+                        "max": 100,
+                        "min": 0,
+                        "nullValueMode": "connected",
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "rgba(50, 172, 45, 0.97)",
+                                    "value": null
+                                },
+                                {
+                                    "color": "rgba(237, 129, 40, 0.89)",
+                                    "value": 80
+                                },
+                                {
+                                    "color": "rgba(245, 54, 54, 0.9)",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": [],
+                    "values": false
                 },
-                {
-                    "name": "range to text",
-                    "value": 2
-                }
-            ],
-            "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "options": {},
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-                {
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
-                }
-            ],
-            "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
+                "orientation": "horizontal",
+                "showThresholdLabels": true,
+                "showThresholdMarkers": true
             },
-            "tableColumn": "",
+            "pluginVersion": "6.6.0",
             "targets": [
                 {
                     "expr": "100 -\n(\n  node_memory_MemAvailable_bytes{job=\"node-exporter\", instance=\"$instance\"}\n/\n  node_memory_MemTotal_bytes{job=\"node-exporter\", instance=\"$instance\"}\n* 100\n)\n",
@@ -411,21 +407,185 @@
                     "refId": "A"
                 }
             ],
-            "thresholds": "80, 90",
             "title": "Memory Usage",
-            "tooltip": {
-                "shared": false
+            "type": "gauge"
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "fill": 1,
+            "fillGradient": 0,
+            "gridPos": {
+                "h": 6,
+                "w": 19,
+                "x": 0,
+                "y": 13
             },
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
+            "hiddenSeries": false,
+            "id": 7,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+                "dataLinks": []
+            },
+            "percentage": false,
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "seriesOverrides": [
                 {
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
+                    "alias": "used",
+                    "color": "#E0B400"
+                },
+                {
+                    "alias": "available",
+                    "color": "#73BF69"
                 }
             ],
-            "valueName": "current"
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "sum(\n  max by (device) (\n    node_filesystem_size_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  -\n    node_filesystem_avail_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  )\n)\n",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "used",
+                    "refId": "A"
+                },
+                {
+                    "expr": "sum(\n  max by (device) (\n    node_filesystem_avail_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  )\n)\n",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "available",
+                    "refId": "B"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Disk Space Usage",
+            "tooltip": {
+                "shared": false,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "gridPos": {
+                "h": 6,
+                "w": 5,
+                "x": 19,
+                "y": 13
+            },
+            "id": 10,
+            "links": [],
+            "options": {
+                "fieldOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "defaults": {
+                        "mappings": [
+                            {
+                                "id": 0,
+                                "op": "=",
+                                "text": "N/A",
+                                "type": 1,
+                                "value": "null"
+                            }
+                        ],
+                        "max": 100,
+                        "min": 0,
+                        "nullValueMode": "connected",
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "rgba(50, 172, 45, 0.97)",
+                                    "value": null
+                                },
+                                {
+                                    "color": "rgba(237, 129, 40, 0.89)",
+                                    "value": 80
+                                },
+                                {
+                                    "color": "rgba(245, 54, 54, 0.9)",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": [],
+                    "values": false
+                },
+                "orientation": "horizontal",
+                "showThresholdLabels": true,
+                "showThresholdMarkers": true
+            },
+            "pluginVersion": "6.6.0",
+            "targets": [
+                {
+                    "expr": "(\n  avg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}[$__range]))\n  -\n  avg(avg_over_time(node_filesystem_avail_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}[$__range]))\n)\n/\navg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}[$__range]))\n* 100\n",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Disk Usage",
+            "type": "gauge"
         },
         {
             "aliasColors": {},
@@ -436,10 +596,10 @@
             "fill": 0,
             "fillGradient": 0,
             "gridPos": {
-                "h": 7,
-                "w": 12,
+                "h": 6,
+                "w": 24,
                 "x": 0,
-                "y": 14
+                "y": 19
             },
             "hiddenSeries": false,
             "id": 6,
@@ -552,122 +712,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
-            "fill": 1,
-            "fillGradient": 0,
-            "gridPos": {
-                "h": 7,
-                "w": 12,
-                "x": 12,
-                "y": 14
-            },
-            "hiddenSeries": false,
-            "id": 7,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
-            "percentage": false,
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "repeat": null,
-            "seriesOverrides": [
-                {
-                    "alias": "used",
-                    "color": "#E0B400"
-                },
-                {
-                    "alias": "available",
-                    "color": "#73BF69"
-                }
-            ],
-            "spaceLength": 10,
-            "stack": true,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "sum(\n  max by (device) (\n    node_filesystem_size_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  -\n    node_filesystem_avail_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  )\n)\n",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "used",
-                    "refId": "A"
-                },
-                {
-                    "expr": "sum(\n  max by (device) (\n    node_filesystem_avail_bytes{job=\"node-exporter\", instance=\"$instance\", fstype!=\"\"}\n  )\n)\n",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "available",
-                    "refId": "B"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Disk Space Usage",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
             "fill": 0,
             "fillGradient": 0,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 21
+                "y": 25
             },
             "hiddenSeries": false,
             "id": 8,
@@ -761,7 +812,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 21
+                "y": 25
             },
             "hiddenSeries": false,
             "id": 9,
@@ -844,19 +895,18 @@
             }
         }
     ],
-    "refresh": "",
+    "refresh": false,
     "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "kubernetes",
-        "infrastructure"
+        "kube-visibility"
     ],
     "templating": {
         "list": [
             {
                 "current": {
-                    "text": "prometheus-visibility",
-                    "value": "prometheus-visibility"
+                    "text": "prometheus",
+                    "value": "prometheus"
                 },
                 "hide": 0,
                 "includeAll": false,
@@ -873,14 +923,14 @@
             {
                 "allValue": null,
                 "current": {
-                    "text": "minikube",
-                    "value": "minikube"
+                    "text": "ip-10-60-12-102.eu-west-1.compute.internal",
+                    "value": "ip-10-60-12-102.eu-west-1.compute.internal"
                 },
                 "datasource": "$datasource",
                 "definition": "",
                 "hide": 0,
                 "includeAll": false,
-                "label": null,
+                "label": "Instance",
                 "multi": false,
                 "name": "instance",
                 "options": [],
@@ -898,8 +948,8 @@
         ]
     },
     "time": {
-        "from": "now-1h",
-        "to": "now"
+        "from": "2020-05-18T10:48:38.551Z",
+        "to": "2020-05-18T10:58:38.551Z"
     },
     "timepicker": {
         "refresh_intervals": [
@@ -929,5 +979,5 @@
     "timezone": "",
     "title": "Infrastructure / Nodes",
     "uid": "fa49a4706d07a042595b664c87fb33ea",
-    "version": 1
+    "version": 2
 }

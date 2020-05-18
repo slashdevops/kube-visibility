@@ -12,11 +12,11 @@
             }
         ]
     },
-    "editable": true,
+    "editable": false,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 12,
-    "iteration": 1586778199561,
+    "id": 11,
+    "iteration": 1589797652490,
     "links": [],
     "panels": [
         {
@@ -390,22 +390,23 @@
             "valueName": "current"
         }
     ],
-    "refresh": "",
+    "refresh": "10s",
     "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "kubernetes"
+        "kubernetes-mixin"
     ],
     "templating": {
         "list": [
             {
                 "current": {
-                    "text": "prometheus-visibility",
-                    "value": "prometheus-visibility"
+                    "selected": true,
+                    "text": "prometheus",
+                    "value": "prometheus"
                 },
                 "hide": 0,
                 "includeAll": false,
-                "label": "Datasource",
+                "label": null,
                 "multi": false,
                 "name": "datasource",
                 "options": [],
@@ -419,7 +420,7 @@
                 "allValue": null,
                 "current": {
                     "isNone": true,
-                    "selected": false,
+                    "selected": true,
                     "text": "None",
                     "value": ""
                 },
@@ -445,10 +446,8 @@
             {
                 "allValue": null,
                 "current": {
-                    "isNone": true,
-                    "selected": false,
-                    "text": "None",
-                    "value": ""
+                    "text": "monitoring",
+                    "value": "monitoring"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -472,10 +471,8 @@
             {
                 "allValue": null,
                 "current": {
-                    "isNone": true,
-                    "selected": false,
-                    "text": "None",
-                    "value": ""
+                    "text": "alertmanager-main-db-alertmanager-main-0",
+                    "value": "alertmanager-main-db-alertmanager-main-0"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -530,5 +527,5 @@
     "timezone": "",
     "title": "Kubernetes / Persistent Volumes",
     "uid": "919b92a8e8041bd567af9edab12c840c",
-    "version": 3
+    "version": 4
 }

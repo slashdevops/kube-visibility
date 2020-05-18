@@ -15,8 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 10,
-    "iteration": 1586772578708,
+    "iteration": 1589799510729,
     "links": [],
     "panels": [
         {
@@ -965,19 +964,18 @@
     "schemaVersion": 22,
     "style": "dark",
     "tags": [
-        "kubernetes",
-        "infrastructure"
+        "kube-visibility"
     ],
     "templating": {
         "list": [
             {
                 "current": {
-                    "text": "prometheus-visibility",
-                    "value": "prometheus-visibility"
+                    "text": "prometheus",
+                    "value": "prometheus"
                 },
                 "hide": 0,
                 "includeAll": false,
-                "label": "Datasource",
+                "label": null,
                 "multi": false,
                 "name": "datasource",
                 "options": [],
