@@ -1,12 +1,11 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kube-state-metrics
   labels:
     app.kubernetes.io/name: kube-state-metrics
-    app.kubernetes.io/version: 1.9.5
-  namespace: kube-visibility
+    app.kubernetes.io/version: v1.9.6
+  name: kube-state-metrics
+  namespace: kube-system
 spec:
   replicas: 1
   selector:
@@ -16,70 +15,28 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: kube-state-metrics
-        app.kubernetes.io/version: 1.9.5
+        app.kubernetes.io/version: v1.9.6
     spec:
-      serviceAccountName: kube-state-metrics
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 65534
       containers:
-        - name: kube-state-metrics
-          image: quay.io/coreos/kube-state-metrics:v1.9.5
-          args:
-            - --host=127.0.0.1
-            - --port=8080
-            - --telemetry-host=127.0.0.1
-            - --telemetry-port=8081
-          resources:
-            limits:
-              cpu: 100m
-              memory: 100Mi
-            requests:
-              cpu: 10m
-              memory: 20Mi
-        - name: kube-rbac-proxy-metrics
-          image: quay.io/coreos/kube-rbac-proxy:v0.4.1
-          args:
-            - --logtostderr
-            - --secure-listen-address=[$(IP)]:8080
-            - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-            - --upstream=http://127.0.0.1:8080/
-          env:
-            - name: IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-          ports:
-            - containerPort: 8080
-              name: https-metrics
-          resources:
-            limits:
-              cpu: 20m
-              memory: 40Mi
-            requests:
-              cpu: 10m
-              memory: 20Mi
-        - name: kube-rbac-proxy-telemetry
-          image: quay.io/coreos/kube-rbac-proxy:v0.4.1
-          args:
-            - --logtostderr
-            - --secure-listen-address=[$(IP)]:8081
-            - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-            - --upstream=http://127.0.0.1:8081/
-          env:
-            - name: IP
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
-          ports:
-            - containerPort: 8081
-              name: https-telemetry
-          resources:
-            limits:
-              cpu: 20m
-              memory: 40Mi
-            requests:
-              cpu: 10m
-              memory: 20Mi
+      - image: quay.io/coreos/kube-state-metrics:v1.9.6
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
+        name: kube-state-metrics
+        ports:
+        - containerPort: 8080
+          name: http-metrics
+        - containerPort: 8081
+          name: telemetry
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8081
+          initialDelaySeconds: 5
+          timeoutSeconds: 5
       nodeSelector:
         kubernetes.io/os: linux
+      serviceAccountName: kube-state-metrics

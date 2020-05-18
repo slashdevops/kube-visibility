@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+    name: kube-state-metrics
+upstream:
+    type: git
+    git:
+        commit: 3776bbfea58490bc6f36a33e5d9879dccd93b63f
+        repo: https://github.com/kubernetes/kube-state-metrics
+        directory: /examples/standard
+        ref: v1.9.6
