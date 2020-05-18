@@ -6,6 +6,7 @@ resources:
   - prometheus-prometheus.yaml
   - prometheus-service.yaml
   - prometheus-rules.yaml
+  - prometheus-roleConfig.yaml 
   - prometheus-roleBindingConfig.yaml
   - prometheus-roleBindingSpecificNamespaces.yaml
   - prometheus-roleSpecificNamespaces.yaml
