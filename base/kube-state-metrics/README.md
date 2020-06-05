@@ -19,7 +19,7 @@ This project was imported and maintaint using KPT and Kustomize
 
 ```bash
 cd base/
-kpt pkg get https://github.com/kubernetes/kube-state-metrics.git/examples/standard@v1.9.6 kube-state-metrics
+kpt pkg get https://github.com/kubernetes/kube-state-metrics.git/examples/standard@v1.9.7 kube-state-metrics
 ```
 
 ## Maintanined
@@ -27,8 +27,8 @@ kpt pkg get https://github.com/kubernetes/kube-state-metrics.git/examples/standa
 **NOTE:** Replace x.y.z with the right version
 
 ```bash
-cd base/
-kpt pkg update https://github.com/kubernetes/kube-state-metrics.git/examples/standard@vx.y.z --strategy=resource-merge
+cd base/kube-state-metrics
+kpt pkg update https://github.com/kubernetes/kube-state-metrics.git/examples/standard@vx.y.x --strategy=resource-merge
 ```
 
 ## Kustomize

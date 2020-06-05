@@ -9,5 +9,3 @@ resources:
   - role-binding.yaml
   - service.yaml
   - deployment.yaml
-patches:
-  - deployment-patch.yaml

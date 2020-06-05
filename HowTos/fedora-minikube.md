@@ -1,6 +1,6 @@
 # Fedora Minikube Howto
 
-This receipe apply for [Fedora 31](https://getfedora.org/) + [Linux KVM](https://www.linux-kvm.org/page/Main_Page) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
+This receipe apply for [Fedora 32](https://getfedora.org/) + [Linux KVM](https://www.linux-kvm.org/page/Main_Page) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
 
 ## Preparing "minikube" environment
 

@@ -5,7 +5,7 @@ metadata:
 upstream:
     type: git
     git:
-        commit: 3776bbfea58490bc6f36a33e5d9879dccd93b63f
+        commit: b3fa5852d755c912c2601c53781a58567c822b81
         repo: https://github.com/kubernetes/kube-state-metrics
         directory: /examples/standard
-        ref: v1.9.6
+        ref: v1.9.7
