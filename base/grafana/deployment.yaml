@@ -19,7 +19,7 @@ spec:
       serviceAccountName: grafana
       containers:
         - name: grafana
-          image: grafana/grafana:6.7.3
+          image: grafana/grafana:7.0.3
           ports:
             - name: http
               containerPort: 3000
@@ -70,10 +70,10 @@ spec:
               mountPath: /grafana/dashboards/kubernetes-2
               readOnly: true
             - name: dashboards-network-0
-              mountPath: /grafana/dashboards/network
+              mountPath: /grafana/dashboards/network-0
               readOnly: true              
             - name: dashboards-network-1
-              mountPath: /grafana/dashboards/network
+              mountPath: /grafana/dashboards/network-1
               readOnly: true
             - name: dashboards-infrastructure
               mountPath: /grafana/dashboards/infrastructure

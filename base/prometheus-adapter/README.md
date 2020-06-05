@@ -50,7 +50,7 @@ kubectl apply -k .
 After manifest creation
 
 ```bash
-kubectl --namespace kube-visibility port-forward svc/prometheus-adapter 443
+kubectl --namespace kube-visibility port-forward svc/prometheus-adapter 6443
 ```
 
-[http://localhost:443/metrics](http://localhost:6443/metrics)
+[http://localhost:443/metrics](https://localhost:6443/metrics)

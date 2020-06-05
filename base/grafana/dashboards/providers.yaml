@@ -13,7 +13,7 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/prometheus
-  - name: "Kubernetes Metrics"
+  - name: "Kubernetes Metrics 0"
     orgId: 1
     folder: "Kubernetes"
     folderUid: ""
@@ -24,7 +24,7 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/kubernetes-0
-  - name: "Kubernetes Metrics"
+  - name: "Kubernetes Metrics 1"
     orgId: 1
     folder: "Kubernetes"
     folderUid: ""
@@ -46,9 +46,9 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/infrastructure
-  - name: "Network Metrics"
+  - name: "Network Metrics 0"
     orgId: 1
-    folder: "Network"
+    folder: "Network 0"
     folderUid: ""
     type: file
     disableDeletion: true
@@ -56,4 +56,15 @@ providers:
     updateIntervalSeconds: 10
     allowUiUpdates: true
     options:
-      path: /grafana/dashboards/network
+      path: /grafana/dashboards/network-0
+  - name: "Network Metrics 1"
+    orgId: 1
+    folder: "Network 1"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/network-1
