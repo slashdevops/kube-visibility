@@ -17,7 +17,7 @@ spec:
           image: quay.io/brancz/kube-rbac-proxy:v0.5.0
           args:
             - --logtostderr
-            - --secure-listen-address=[$(IP)]:8085
+            - --secure-listen-address=[$(IP)]:8080
             - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
             - --upstream=http://127.0.0.1:8080/
           env:
@@ -26,7 +26,7 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
           ports:
-            - containerPort: 8085
+            - containerPort: 8080
               name: https-metrics
           resources:
             limits:
@@ -39,7 +39,7 @@ spec:
           image: quay.io/brancz/kube-rbac-proxy:v0.5.0
           args:
             - --logtostderr
-            - --secure-listen-address=[$(IP)]:8084
+            - --secure-listen-address=[$(IP)]:8081
             - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
             - --upstream=http://127.0.0.1:8081/
           env:
@@ -48,7 +48,7 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
           ports:
-            - containerPort: 8084
+            - containerPort: 8081
               name: https-telemetry
           resources:
             limits:
