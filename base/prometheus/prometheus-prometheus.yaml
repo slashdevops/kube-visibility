@@ -1,5 +1,4 @@
 ---
-# https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
@@ -9,7 +8,7 @@ metadata:
   namespace: kube-visibility
 spec:
   replicas: 1
-  version: v2.17.2
+  version: v2.18.1
   image: quay.io/prometheus/prometheus
   serviceAccountName: prometheus
   enableAdminAPI: true
