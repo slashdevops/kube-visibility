@@ -33,5 +33,3 @@ kubectl --namespace kube-visibility port-forward svc/prometheus-adapter 443
 ```
 
 [http://localhost:443/metrics](http://localhost:6443/metrics)
-
-
