@@ -27,13 +27,13 @@ spec:
             httpGet:
               path: /api/health
               port: http
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 30
           livenessProbe:
             httpGet:
               path: /api/health
               port: http
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 30
           resources:
             # limits:
@@ -57,8 +57,8 @@ spec:
             - name: dashboards-datasources
               mountPath: /etc/grafana/provisioning/datasources
               readOnly: true
-            - name: dashboards-prometheus
-              mountPath: /grafana/dashboards/prometheus
+            - name: dashboards-prometheus-0
+              mountPath: /grafana/dashboards/prometheus-0
               readOnly: true
             - name: dashboards-kubernetes-0
               mountPath: /grafana/dashboards/kubernetes-0
@@ -75,8 +75,8 @@ spec:
             - name: dashboards-network-1
               mountPath: /grafana/dashboards/network-1
               readOnly: true
-            - name: dashboards-infrastructure
-              mountPath: /grafana/dashboards/infrastructure
+            - name: dashboards-infrastructure-0
+              mountPath: /grafana/dashboards/infrastructure-0
               readOnly: true
       securityContext:
         runAsNonRoot: true
@@ -90,29 +90,38 @@ spec:
         - name: dashboards-providers
           configMap:
             name: dashboards-providers
+
         - name: dashboards-datasources
           configMap:
             name: dashboards-datasources
-        - name: dashboards-prometheus
+
+        - name: dashboards-prometheus-0
           configMap:
-            name: dashboards-prometheus
+            name: dashboards-prometheus-0
+
         - name: dashboards-kubernetes-0
           configMap:
             name: dashboards-kubernetes-0
+
         - name: dashboards-kubernetes-1
           configMap:
             name: dashboards-kubernetes-1
+
         - name: dashboards-kubernetes-2
           configMap:
             name: dashboards-kubernetes-2
+
         - name: dashboards-network-0
           configMap:
             name: dashboards-network-0
+
         - name: dashboards-network-1
           configMap:
-            name: dashboards-network-1            
-        - name: dashboards-infrastructure
+            name: dashboards-network-1
+
+        - name: dashboards-infrastructure-0
           configMap:
-            name: dashboards-infrastructure
+            name: dashboards-infrastructure-0
+            
       nodeSelector:
         beta.kubernetes.io/os: linux

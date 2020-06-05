@@ -19,7 +19,7 @@ configMapGenerator:
     files:
       - ./datasources/datasources.yaml
 
-  - name: dashboards-prometheus
+  - name: dashboards-prometheus-0
     files:
       - ./dashboards/prometheus/prometheus-stats.json
       - ./dashboards/prometheus/prometheus-remote-write.json
@@ -54,7 +54,7 @@ configMapGenerator:
       - ./dashboards/network/kubernetes-network-namespace-pods.json
       - ./dashboards/network/kubernetes-network-namespace-workload.json
 
-  - name: dashboards-infrastructure
+  - name: dashboards-infrastructure-0
     files:
       - ./dashboards/infrastructure/nodes.json
       - ./dashboards/infrastructure/use-method-cluster.json
