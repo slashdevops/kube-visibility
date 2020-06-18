@@ -1,12 +1,12 @@
 # kube-state-metrics
 
-NOTES: 
+NOTES:
 
-v1.9.6 > k8s 1.16.x 
+v1.9.6 > k8s 1.16.x
 * https://github.com/kubernetes/kube-state-metrics/issues/1093
 * https://github.com/sighupio/fury-kubernetes-monitoring/issues/32
 
-Important URLs: 
+Important URLs:
 
 * https://github.com/kubernetes/kube-state-metrics
 * https://github.com/brancz/kube-rbac-proxy
@@ -14,22 +14,6 @@ Important URLs:
 * https://googlecontainertools.github.io/kpt/
 
 This project was imported and maintaint using KPT and Kustomize
-
-## Imported
-
-```bash
-cd base/
-kpt pkg get https://github.com/kubernetes/kube-state-metrics.git/examples/standard@v1.9.7 kube-state-metrics
-```
-
-## Maintanined
-
-**NOTE:** Replace x.y.z with the right version
-
-```bash
-cd base/kube-state-metrics
-kpt pkg update https://github.com/kubernetes/kube-state-metrics.git/examples/standard@vx.y.x --strategy=resource-merge
-```
 
 ## Kustomize
 
@@ -65,7 +49,7 @@ EOF
 kustomize build . | kubectl apply -f -
 ```
 
-or 
+or
 
 ```bash
 kubectl apply -k .

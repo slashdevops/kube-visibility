@@ -16,7 +16,7 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
 
-## Manifests availables
+## Manifests available
 
 Looks inside [manifest folder](manifests/) to see available manifest
 
@@ -33,12 +33,12 @@ git clone https://github.com/slashdevops/kube-visibility.git
 cd kube-visibility/
 ```
 
-> __NOTE:__  The bundle of manifest generated with kustomize has some dependencies with 
-> each other (prometheus depends on prometheus-operator and needs that it was created first), so when you 
+> __NOTE:__  The bundle of manifest generated with kustomize has some dependencies with
+> each other (prometheus depends on prometheus-operator and needs that it was created first), so when you
 > execute the first time the manifest, some errors will occur.
-> After the first execution you need to wait until some resources were created, and then you can execute 
-> again the command to create the resources into the k8s cluster. 
-> If you are using the kubernetes-dashboard you can watch when the first execution finished creating 
+> After the first execution you need to wait until some resources were created, and then you can execute
+> again the command to create the resources into the k8s cluster.
+> If you are using the kubernetes-dashboard you can watch when the first execution finished creating
 > the resources, and then you can execute it again to finish with the instalation.
 
 Generate a unique file bundle and then apply it
@@ -112,9 +112,9 @@ References
 
 ## License
 
-This module is released under the GNU General Public License Version 3:
+This module is released under the Apache License Version 2:
 
-* [http://www.gnu.org/licenses/gpl-3.0-standalone.html](http://www.gnu.org/licenses/gpl-3.0-standalone.html)
+* [https://www.apache.org/licenses/LICENSE-2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Author Information
 

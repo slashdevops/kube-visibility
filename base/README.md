@@ -1,6 +1,6 @@
 # base
 
-This folder containg the manifest files from the original project
+This folder contain the manifest files from the original project
 
 ## Check installations
 

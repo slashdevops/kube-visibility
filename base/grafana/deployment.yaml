@@ -47,9 +47,6 @@ spec:
               mountPath: /etc/grafana/grafana.ini
               subPath: grafana.ini
               readOnly: true
-            # - name: storage
-            #   mountPath: /var/lib/grafana
-            #   readOnly: false
             - name: dashboards-providers
               mountPath: /etc/grafana/provisioning/dashboards/providers.yaml
               subPath: providers.yaml
@@ -71,7 +68,7 @@ spec:
               readOnly: true
             - name: dashboards-network-0
               mountPath: /grafana/dashboards/network-0
-              readOnly: true              
+              readOnly: true
             - name: dashboards-network-1
               mountPath: /grafana/dashboards/network-1
               readOnly: true
@@ -85,8 +82,7 @@ spec:
         - name: configuration
           configMap:
             name: configuration
-        # - name: storage
-        #   emptyDir: {}
+
         - name: dashboards-providers
           configMap:
             name: dashboards-providers
@@ -122,6 +118,6 @@ spec:
         - name: dashboards-infrastructure-0
           configMap:
             name: dashboards-infrastructure-0
-            
+
       nodeSelector:
         beta.kubernetes.io/os: linux
