@@ -123,6 +123,31 @@ openAPI:
           name: grafana.resources-requests-memory
           value: "50Mi"
           setBy: package-default
+    # node-exporter setters
+    io.k8s.cli.setters.node-exporter.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-limits-cpu
+          value: "250m"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-limits-memory
+          value: "180Mi"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-requests-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-requests-memory
+          value: "180Mi"
+          setBy: package-default
     # prometheus-adapter setters
     io.k8s.cli.setters.prometheus-adapter.replicas:
       x-k8s-cli:

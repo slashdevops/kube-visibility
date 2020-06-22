@@ -4,3 +4,5 @@ namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace
 resources:
   - ../../upstream/node_exporter
   - service-monitor.yaml
+patches:
+  - daemonset-patch.yaml

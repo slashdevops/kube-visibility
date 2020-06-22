@@ -1,0 +1,17 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: node-exporter
+spec:
+  template:
+    spec:
+      containers:
+        - name: node-exporter
+          resources:
+            limits:
+              cpu: 250m # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-limits-cpu"}
+              memory: 180Mi # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-limits-memory"}
+            requests:
+              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-cpu"}
+              memory: 180Mi # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-memory"}
