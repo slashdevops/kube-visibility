@@ -2,12 +2,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - prometheus-account.yaml
-  - prometheus-prometheus.yaml
-  - prometheus-service.yaml
-  - prometheus-rules.yaml
-  - prometheus-roleConfig.yaml
-  - prometheus-roleBindingConfig.yaml
-  - prometheus-roleBindingSpecificNamespaces.yaml
-  - prometheus-roleSpecificNamespaces.yaml
+  - service-account.yaml
+  - prometheus.yaml
+  - service.yaml
+  - rules.yaml
+  - role-config.yaml
+  - role-binding-config.yaml
+  - role-binding-specific-namespaces.yaml
+  - role-specific-namespaces.yaml
   - service-monitor.yaml
