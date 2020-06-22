@@ -4,6 +4,8 @@ namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace
 resources:
   - ../../upstream/prometheus-adapter
   - apiserver.yaml
+patches:
+  - deployment-patch.yaml
 configMapGenerator:
   - name: prometheus-adapter-arg
     behavior: merge

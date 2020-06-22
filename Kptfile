@@ -123,6 +123,37 @@ openAPI:
           name: grafana.resources-requests-memory
           value: "50Mi"
           setBy: package-default
+    # prometheus-adapter setters
+    io.k8s.cli.setters.prometheus-adapter.replicas:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
     # prometheus-operator setters
     io.k8s.cli.setters.prometheus-operator.resources-limits-cpu:
       x-k8s-cli:
