@@ -8,19 +8,10 @@ Important URLs:
 
 v0.39.x
 
-```bash 
-mkdir -p base/prometheus-operator/gt-v.0.39.x
-cd base/prometheus-operator/gt-v.0.39.x/
-curl --remote-name --remote-header-name  https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml
-kustomize create --autodetect --recursive --namespace kube-visibility
-```
-
-v0.38.x
-
 ```bash
-mkdir -p base/prometheus-operator/lt-v.0.39.x
-cd base/prometheus-operator/lt-v.0.39.x/
-curl --remote-name --remote-header-name  https://raw.githubusercontent.com/coreos/prometheus-operator/v0.38.1/bundle.yaml
+mkdir -p prometheus-operator/
+cd prometheus-operator
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/coreos/prometheus-operator/master/bundle.yaml
 kustomize create --autodetect --recursive --namespace kube-visibility
 ```
 
@@ -56,7 +47,7 @@ EOF
 kustomize build . | kubectl apply -f -
 ```
 
-or 
+or
 
 ```bash
 kubectl apply -k .

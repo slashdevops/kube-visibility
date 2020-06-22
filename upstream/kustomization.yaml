@@ -10,3 +10,4 @@ bases:
   - ./prometheus-adapter
   - ./grafana
   - ./prometheus
+  - ./alertmanager

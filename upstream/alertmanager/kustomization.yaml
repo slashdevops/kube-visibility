@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - alertmanager-account.yaml
+  - alertmanager-alertmanager.yaml
+  - alertmanager-service.yaml
+
+secretGenerator:
+  - name: alertmanager-visibility
+    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+    files:
+      - ./alertmanager-secrets/alertmanager.yaml
