@@ -13,6 +13,7 @@ spec:
   configSecret: alertmanager-visibility
   resources:
     requests:
+      cpu: 50m
       memory: 50Mi
   securityContext:
     fsGroup: 2000

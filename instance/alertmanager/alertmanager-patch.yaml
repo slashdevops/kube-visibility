@@ -1,0 +1,14 @@
+# https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/alerting.md
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: visibility
+spec:
+  replicas: 1
+  resources:
+    limits:
+      cpu: 150m
+      memory: 100Mi
+    requests:
+      cpu: 50m
+      memory: 50Mi
