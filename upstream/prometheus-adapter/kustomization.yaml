@@ -1,20 +1,20 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: kube-visibility
 resources:
-  - apiserver.yaml
   - cluster-role.yaml
   - cluster-role-binding.yaml
   - cluster-role-aggregated-metrics-reader.yaml
   - cluster-role-binding-delegator.yaml
   - cluster-role-server-resources.yaml
-  - hpa-resource-metrics-cluster-role-binding.yaml
   - role-binding-auth-reader.yaml
-  - configmap.yaml
   - service-account.yaml
   - service.yaml
   - deployment.yaml
 configMapGenerator:
   - name: prometheus-adapter-arg
-    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
     literals:
-      - "prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.substitutions.prometheus-url"}
+      - "prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/"
+  - name: prometheus-adapter-config
+    files:
+      - ./configmap-content/config.yaml

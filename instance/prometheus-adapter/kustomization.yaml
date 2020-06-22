@@ -3,3 +3,9 @@ kind: Kustomization
 namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 resources:
   - ../../upstream/prometheus-adapter
+  - apiserver.yaml
+configMapGenerator:
+  - name: prometheus-adapter-arg
+    behavior: merge
+    literals:
+      - "prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.substitutions.prometheus-url"}
