@@ -5,7 +5,6 @@ metadata:
   name: visibility
   labels:
     alertmanager: visibility
-  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   replicas: 1
   version: v0.21.0
