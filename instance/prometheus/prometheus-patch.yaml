@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: visibility
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+spec:
+  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.replicas"}
+  enableAdminAPI: true # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.enable-admin-api"}
+  resources:
+    limits:
+      cpu: 150m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}
+      memory: 150Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
+    requests:
+      cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-cpu"}
+      memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}

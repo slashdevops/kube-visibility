@@ -16,6 +16,27 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
 
+## kpt setters
+
+List setters
+
+```bash
+kpt cfg list-setters .
+```
+
+Package setters
+
+```bash
+kpt cfg set . namespace monitoring
+```
+
+Prometheus setters
+
+```bash
+kpt cfg set . prometheus.replicas 1
+kpt cfg set . prometheus.enable-admin-api false
+```
+
 ## Manifests available
 
 Looks inside [manifest folder](manifests/) to see available manifest
