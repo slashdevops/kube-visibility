@@ -4,11 +4,11 @@ kind: Alertmanager
 metadata:
   name: visibility
 spec:
-  replicas: 1
+  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.replicas"}
   resources:
     limits:
-      cpu: 150m
-      memory: 100Mi
+      cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-cpu"}
+      memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-memory"}
     requests:
-      cpu: 50m
-      memory: 50Mi
+      cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-cpu"}
+      memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-memory"}

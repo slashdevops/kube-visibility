@@ -61,3 +61,65 @@ openAPI:
           name: prometheus.resources-requests-memory
           value: "100Mi"
           setBy: package-default
+    # alertmanager setters
+    io.k8s.cli.setters.alertmanager.replicas:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
+    # grafana setters
+    io.k8s.cli.setters.grafana.replicas:
+      x-k8s-cli:
+        setter:
+          name: grafana.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
