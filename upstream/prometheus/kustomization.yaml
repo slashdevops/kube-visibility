@@ -10,8 +10,13 @@ resources:
   - prometheus-roleBindingConfig.yaml
   - prometheus-roleBindingSpecificNamespaces.yaml
   - prometheus-roleSpecificNamespaces.yaml
-  - alertmanager-secret.yaml
   - alertmanager-account.yaml
   - alertmanager-alertmanager.yaml
   - alertmanager-service.yaml
   - ./service-monitors
+
+secretGenerator:
+  - name: alertmanager-visibility
+    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+    files:
+      - ./alertmanager-secrets/alertmanager.yaml

@@ -11,6 +11,7 @@ spec:
   version: v0.21.0
   image: quay.io/prometheus/alertmanager
   serviceAccountName: alertmanager-visibility
+  configSecret: alertmanager-visibility
   resources:
     requests:
       memory: 50Mi
