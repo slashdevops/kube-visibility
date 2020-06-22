@@ -11,4 +11,4 @@ resources:
 secretGenerator:
   - name: alertmanager-visibility
     files:
-      - ./alertmanager-secrets/alertmanager.yaml
+      - ./secrets-content/alertmanager.yaml
