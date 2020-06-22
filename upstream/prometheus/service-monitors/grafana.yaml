@@ -11,7 +11,7 @@ spec:
   jobLabel: grafana
   namespaceSelector:
     matchNames:
-      - kube-visibility
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   selector:
     matchLabels:
       name: grafana

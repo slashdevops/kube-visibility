@@ -14,7 +14,7 @@ spec:
       k8s-app: node-exporter
   namespaceSelector:
     matchNames:
-      - kube-visibility
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   endpoints:
     - port: https
       scheme: https

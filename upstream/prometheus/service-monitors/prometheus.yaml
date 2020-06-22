@@ -14,7 +14,7 @@ spec:
       prometheus: visibility
   namespaceSelector:
     matchNames:
-      - kube-visibility
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   endpoints:
     - interval: 30s
       port: web
