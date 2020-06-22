@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/name: prometheus-operator
     app.kubernetes.io/version: v0.40.0
     prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
-  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   jobLabel: prometheus-operator
   selector:
