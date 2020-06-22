@@ -1,0 +1,8 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../upstream/grafana
+namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+patches:
+  - deployment-patch.yaml
