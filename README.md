@@ -16,8 +16,15 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
 
-## kpt setters
+## kpt
 
+### get
+
+```bash
+kpt pkg get https://github.com/slashdevops/kube-visibility@ft-ktp kube-visibility
+```
+
+### setters
 List setters
 
 ```bash
@@ -60,7 +67,7 @@ cd kube-visibility/
 > After the first execution you need to wait until some resources were created, and then you can execute
 > again the command to create the resources into the k8s cluster.
 > If you are using the kubernetes-dashboard you can watch when the first execution finished creating
-> the resources, and then you can execute it again to finish with the instalation.
+> the resources, and then you can execute it again to finish with the installation.
 
 Generate a unique file bundle and then apply it
 
