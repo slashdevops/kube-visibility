@@ -1,5 +1,6 @@
 ---
+# This element is used only whe you execute kustomize build upstream, just to test all the components
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: kube-visibility
+  name: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}

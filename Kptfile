@@ -13,6 +13,7 @@ openAPI:
         setter:
           name: namespace
           value: "kube-visibility"
+          setBy: package-default
     io.k8s.cli.substitutions.prometheus-url:
       x-k8s-cli:
         substitution:
