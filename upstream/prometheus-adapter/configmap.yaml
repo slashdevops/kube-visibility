@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: prometheus-adapter-config
   labels:
-    name: prometheus-adapter
+    name: prometheus-adapter-config
   namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 data:
   config.yaml: |-

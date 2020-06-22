@@ -17,7 +17,7 @@ spec:
       app.kubernetes.io/version: v0.40.0
   namespaceSelector:
     matchNames:
-      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+    - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   endpoints:
-    - honorLabels: true
-      port: http
+  - honorLabels: true
+    port: http

@@ -8,6 +8,6 @@ roleRef:
   kind: Role
   name: extension-apiserver-authentication-reader
 subjects:
-  - kind: ServiceAccount
-    name: prometheus-adapter
-    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+- kind: ServiceAccount
+  name: prometheus-adapter
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}

@@ -10,10 +10,10 @@ spec:
   jobLabel: kube-scheduler
   namespaceSelector:
     matchNames:
-      - kube-system
+    - kube-system
   selector:
     matchLabels:
       k8s-app: kube-scheduler
   endpoints:
-    - port: http-metrics
-      interval: 30s
+  - port: http-metrics
+    interval: 30s

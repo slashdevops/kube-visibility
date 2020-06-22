@@ -4,7 +4,7 @@ metadata:
   name: kube-visibility
 packageMetadata:
   tags:
-  - kpt.dev/app=kube-visibility
+    - kpt.dev/app=kube-visibility
   shortDescription: Monitoring and visibility tools for Kubernetes
 openAPI:
   definitions:
@@ -13,3 +13,11 @@ openAPI:
         setter:
           name: namespace
           value: "kube-visibility"
+    io.k8s.cli.substitutions.prometheus-url:
+      x-k8s-cli:
+        substitution:
+          name: prometheus-url
+          pattern: prometheus-url=http://prometheus-visibility.NAMESPACE.svc:9090/
+          values:
+            - marker: NAMESPACE
+              ref: "#/definitions/io.k8s.cli.setters.namespace"

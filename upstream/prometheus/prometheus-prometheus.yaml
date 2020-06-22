@@ -20,9 +20,9 @@ spec:
     runAsUser: 1000
   alerting:
     alertmanagers:
-      - name: alertmanager-visibility
-        namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
-        port: web
+    - name: alertmanager-visibility
+      namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+      port: web
   ruleSelector:
     matchLabels:
       role: alert-rules

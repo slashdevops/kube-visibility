@@ -7,6 +7,6 @@ roleRef:
   kind: Role
   name: prometheus-config
 subjects:
-  - kind: ServiceAccount
-    name: prometheus
-    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+- kind: ServiceAccount
+  name: prometheus
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}

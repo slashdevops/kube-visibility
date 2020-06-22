@@ -13,3 +13,9 @@ resources:
   - service-account.yaml
   - service.yaml
   - deployment.yaml
+configMapGenerator:
+  - name: prometheus-adapter-arg
+    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+    literals:
+      # for bootstrapping the root table grants -- set to false after bootstrapped
+      - "prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.substitutions.prometheus-url"}

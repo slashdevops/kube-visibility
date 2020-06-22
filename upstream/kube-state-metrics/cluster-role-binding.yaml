@@ -10,6 +10,6 @@ roleRef:
   kind: ClusterRole
   name: kube-state-metrics
 subjects:
-  - kind: ServiceAccount
-    name: kube-state-metrics
-    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+- kind: ServiceAccount
+  name: kube-state-metrics
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}

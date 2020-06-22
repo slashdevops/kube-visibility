@@ -2,50 +2,50 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 resources:
-  - service-account.yaml
-  - deployment.yaml
-  - service.yaml
+- service-account.yaml
+- deployment.yaml
+- service.yaml
 configMapGenerator:
-  - name: configuration
-    files:
-      - ./configuration/grafana.ini
-  - name: dashboards-providers
-    files:
-      - ./dashboards/providers.yaml
-  - name: dashboards-datasources
-    files:
-      - ./datasources/datasources.yaml
-  - name: dashboards-prometheus-0
-    files:
-      - ./dashboards/prometheus/prometheus-stats.json
-      - ./dashboards/prometheus/prometheus-remote-write.json
-  - name: dashboards-kubernetes-0
-    files:
-      - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json
-      - ./dashboards/kubernetes/kubernetes-compute-resources-namespace.json
-      - ./dashboards/kubernetes/kubernetes-statefulsets.json
-      - ./dashboards/kubernetes/kubernetes-persistent-volumes.json
-  - name: dashboards-kubernetes-1
-    files:
-      - ./dashboards/kubernetes/kubernetes-compute-resources-namespace-workloads.json
-      - ./dashboards/kubernetes/kubernetes-scheduler.json
-      - ./dashboards/kubernetes/kubernetes-compute-resources-node-pods.json
-      - ./dashboards/kubernetes/kubernetes-compute-resources-pod.json
-  - name: dashboards-kubernetes-2
-    files:
-      - ./dashboards/kubernetes/kubernetes-api-server.json
-      - ./dashboards/kubernetes/kubernetes-kubelet.json
-  - name: dashboards-network-0
-    files:
-      - ./dashboards/network/kubernetes-network-cluster.json
-      - ./dashboards/network/kubernetes-network-pods.json
-      - ./dashboards/network/kubernetes-network-workload.json
-  - name: dashboards-network-1
-    files:
-      - ./dashboards/network/kubernetes-network-namespace-pods.json
-      - ./dashboards/network/kubernetes-network-namespace-workload.json
-  - name: dashboards-infrastructure-0
-    files:
-      - ./dashboards/infrastructure/nodes.json
-      - ./dashboards/infrastructure/use-method-cluster.json
-      - ./dashboards/infrastructure/use-method-node.json
+- name: configuration
+  files:
+  - ./configuration/grafana.ini
+- name: dashboards-providers
+  files:
+  - ./dashboards/providers.yaml
+- name: dashboards-datasources
+  files:
+  - ./datasources/datasources.yaml
+- name: dashboards-prometheus-0
+  files:
+  - ./dashboards/prometheus/prometheus-stats.json
+  - ./dashboards/prometheus/prometheus-remote-write.json
+- name: dashboards-kubernetes-0
+  files:
+  - ./dashboards/kubernetes/kubernetes-compute-resources-cluster.json
+  - ./dashboards/kubernetes/kubernetes-compute-resources-namespace.json
+  - ./dashboards/kubernetes/kubernetes-statefulsets.json
+  - ./dashboards/kubernetes/kubernetes-persistent-volumes.json
+- name: dashboards-kubernetes-1
+  files:
+  - ./dashboards/kubernetes/kubernetes-compute-resources-namespace-workloads.json
+  - ./dashboards/kubernetes/kubernetes-scheduler.json
+  - ./dashboards/kubernetes/kubernetes-compute-resources-node-pods.json
+  - ./dashboards/kubernetes/kubernetes-compute-resources-pod.json
+- name: dashboards-kubernetes-2
+  files:
+  - ./dashboards/kubernetes/kubernetes-api-server.json
+  - ./dashboards/kubernetes/kubernetes-kubelet.json
+- name: dashboards-network-0
+  files:
+  - ./dashboards/network/kubernetes-network-cluster.json
+  - ./dashboards/network/kubernetes-network-pods.json
+  - ./dashboards/network/kubernetes-network-workload.json
+- name: dashboards-network-1
+  files:
+  - ./dashboards/network/kubernetes-network-namespace-pods.json
+  - ./dashboards/network/kubernetes-network-namespace-workload.json
+- name: dashboards-infrastructure-0
+  files:
+  - ./dashboards/infrastructure/nodes.json
+  - ./dashboards/infrastructure/use-method-cluster.json
+  - ./dashboards/infrastructure/use-method-node.json

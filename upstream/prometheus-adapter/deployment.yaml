@@ -21,41 +21,47 @@ spec:
     spec:
       serviceAccountName: prometheus-adapter
       containers:
-        - name: prometheus-adapter
-          image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.7.0
-          args:
-            - --cert-dir=/var/run/serving-cert
-            - --config=/etc/adapter/config.yaml
-            - --logtostderr=true
-            - --metrics-relist-interval=1m
-            - --prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/
-            - --secure-port=6443
-          resources:
-            # limits:
-            #   cpu: 250m
-            #   memory: 200Mi
-            requests:
-              cpu: 50m
-              memory: 50Mi
-          ports:
-            - containerPort: 6443
-          volumeMounts:
-            - name: tmpfs
-              mountPath: /tmp
-              readOnly: false
-            - name: volume-serving-cert
-              mountPath: /var/run/serving-cert
-              readOnly: false
-            - name: config
-              mountPath: /etc/adapter
-              readOnly: false
+      - name: prometheus-adapter
+        image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.7.0
+        args:
+        - --cert-dir=/var/run/serving-cert
+        - --config=/etc/adapter/config.yaml
+        - --logtostderr=true
+        - --metrics-relist-interval=1m
+        - --prometheus-url=$(PROMETHEUS_URL)
+        - --secure-port=6443
+        env:
+        - name: PROMETHEUS_URL
+          valueFrom:
+            configMapKeyRef:
+              name: prometheus-adapter-arg
+              key: prometheus-url
+        resources:
+          # limits:
+          #   cpu: 250m
+          #   memory: 200Mi
+          requests:
+            cpu: 50m
+            memory: 50Mi
+        ports:
+        - containerPort: 6443
+        volumeMounts:
+        - name: tmpfs
+          mountPath: /tmp
+          readOnly: false
+        - name: volume-serving-cert
+          mountPath: /var/run/serving-cert
+          readOnly: false
+        - name: config
+          mountPath: /etc/adapter
+          readOnly: false
       nodeSelector:
         kubernetes.io/os: linux
       volumes:
-        - name: tmpfs
-          emptyDir: {}
-        - name: volume-serving-cert
-          emptyDir: {}
-        - name: config
-          configMap:
-            name: prometheus-adapter-config
+      - name: tmpfs
+        emptyDir: {}
+      - name: volume-serving-cert
+        emptyDir: {}
+      - name: config
+        configMap:
+          name: prometheus-adapter-config
