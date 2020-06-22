@@ -1,0 +1,15 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: kube-visibility
+packageMetadata:
+  tags:
+  - kpt.dev/app=kube-visibility
+  shortDescription: Monitoring and visibility tools for Kubernetes
+openAPI:
+  definitions:
+    io.k8s.cli.setters.namespace:
+      x-k8s-cli:
+        setter:
+          name: namespace
+          value: "kube-visibility"

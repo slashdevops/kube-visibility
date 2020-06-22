@@ -1,0 +1,20 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheus-visibility
+  labels:
+    name: prometheus-visibility
+    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+spec:
+  jobLabel: prometheus
+  selector:
+    matchLabels:
+      prometheus: visibility
+  namespaceSelector:
+    matchNames:
+      - kube-visibility
+  endpoints:
+    - interval: 30s
+      port: web
