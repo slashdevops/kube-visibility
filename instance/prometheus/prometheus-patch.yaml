@@ -6,6 +6,11 @@ metadata:
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.replicas"}
   enableAdminAPI: true # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.enable-admin-api"}
+  alerting:
+    alertmanagers:
+      - name: alertmanager-visibility
+        namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+        port: web
   resources:
     limits:
       cpu: 150m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}

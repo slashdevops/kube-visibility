@@ -4,7 +4,6 @@ metadata:
   name: prometheus-visibility
   labels:
     prometheus: visibility
-  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   type: NodePort
   ports:
