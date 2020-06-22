@@ -10,4 +10,4 @@ resources:
   - prometheus-roleBindingConfig.yaml
   - prometheus-roleBindingSpecificNamespaces.yaml
   - prometheus-roleSpecificNamespaces.yaml
-  - ./service-monitors
+  - service-monitor.yaml
