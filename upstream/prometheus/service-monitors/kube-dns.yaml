@@ -4,17 +4,17 @@ metadata:
   name: kube-dns
   labels:
     k8s-app: kube-dns
-    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   jobLabel: kube-dns
   namespaceSelector:
     matchNames:
-    - kube-system
+      - kube-system
   selector:
     matchLabels:
       k8s-app: kube-dns
   endpoints:
-  - port: metrics
-    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
-    interval: 15s
+    - port: metrics
+      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      interval: 15s

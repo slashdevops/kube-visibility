@@ -5,7 +5,7 @@ metadata:
   name: flux
   labels:
     name: flux
-    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
 spec:
   jobLabel: flux
   selector:

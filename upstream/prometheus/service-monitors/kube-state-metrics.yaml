@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/version: v1.9.7
-    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   name: kube-state-metrics
   namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
@@ -13,14 +13,14 @@ spec:
     matchLabels:
       app.kubernetes.io/name: kube-state-metrics
   endpoints:
-  - port: http-metrics
-    scheme: http
-    honorLabels: true
-    interval: 30s
-    relabelings:
-    - action: labeldrop
-      regex: (pod|service|endpoint|namespace)
-    scrapeTimeout: 30s
-  - port: telemetry
-    scheme: http
-    interval: 30s
+    - port: http-metrics
+      scheme: http
+      honorLabels: true
+      interval: 30s
+      relabelings:
+        - action: labeldrop
+          regex: (pod|service|endpoint|namespace)
+      scrapeTimeout: 30s
+    - port: telemetry
+      scheme: http
+      interval: 30s

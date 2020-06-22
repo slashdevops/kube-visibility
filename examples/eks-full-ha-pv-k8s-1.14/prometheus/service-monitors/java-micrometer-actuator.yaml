@@ -5,7 +5,7 @@ metadata:
   name: actuator
   labels:
     name: actuator
-    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
 spec:
   jobLabel: actuator
   selector:

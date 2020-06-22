@@ -4,17 +4,17 @@ metadata:
   name: grafana
   labels:
     name: grafana
-    kube-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   jobLabel: grafana
   namespaceSelector:
     matchNames:
-    - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   selector:
     matchLabels:
       name: grafana
   endpoints:
-  - targetPort: 3000
-    path: /metrics
-    interval: 30s
+    - targetPort: 3000
+      path: /metrics
+      interval: 30s
