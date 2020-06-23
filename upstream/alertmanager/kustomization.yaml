@@ -7,7 +7,11 @@ resources:
   - alertmanager.yaml
   - service.yaml
 
+generatorOptions:
+  disableNameSuffixHash: true # avoid alertmanager secret with suffix
+
 secretGenerator:
-  - name: alertmanager-visibility
+  - name: alertmanager-visibility-configuration
+    behavior: create
     files:
       - ./secrets-content/alertmanager.yaml
