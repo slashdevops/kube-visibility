@@ -37,6 +37,18 @@ openAPI:
           name: prometheus.external-url
           value: "https://prometheus-visibility.kube-visibility.svc:9090/"
           setBy: package-default
+    io.k8s.cli.setters.prometheus.retention:
+      x-k8s-cli:
+        setter:
+          name: prometheus.retention
+          value: "3w"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.retention-size:
+      x-k8s-cli:
+        setter:
+          name: prometheus.retention-size
+          value: "10G"
+          setBy: package-default
     io.k8s.cli.setters.prometheus.enable-admin-api:
       x-k8s-cli:
         setter:

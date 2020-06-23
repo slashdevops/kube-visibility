@@ -7,6 +7,8 @@ spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.replicas"}
   enableAdminAPI: true # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.enable-admin-api"}
   externalUrl: "https://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.external-url"}
+  retention: 3w # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention"}
+  retentionSize: 10GB # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention-size"}
   alerting:
     alertmanagers:
       - name: alertmanager-visibility
@@ -19,3 +21,7 @@ spec:
     requests:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-cpu"}
       memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
+  ruleSelector:
+    matchLabels:
+      role: alert-rules
+      prometheus: visibility

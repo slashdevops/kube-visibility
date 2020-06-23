@@ -22,10 +22,6 @@ spec:
       - name: alertmanager-visibility
         namespace: kube-visibility
         port: web
-  ruleSelector:
-    matchLabels:
-      role: alert-rules
-      prometheus: visibility
   # This allow that any kind: ServiceMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
   serviceMonitorSelector:
     matchLabels:
