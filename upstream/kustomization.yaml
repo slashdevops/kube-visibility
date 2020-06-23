@@ -6,9 +6,9 @@ resources:
   - namespace.yaml
 bases:
   - ./prometheus-operator
-  - ./node_exporter
-  - ./kube-state-metrics
   - ./prometheus-adapter
-  - ./grafana
+  - ./kube-state-metrics
+  - ./node_exporter
   - ./prometheus
   - ./alertmanager
+  - ./grafana
