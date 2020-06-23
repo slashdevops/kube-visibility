@@ -5,6 +5,7 @@ metadata:
   name: visibility
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.replicas"}
+  externalUrl: "https://alertmanager-visibility.kube-visibility.svc:9093/" # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.external-url"}
   resources:
     limits:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-cpu"}

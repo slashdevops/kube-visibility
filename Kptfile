@@ -31,6 +31,12 @@ openAPI:
           name: prometheus.replicas
           value: "1"
           setBy: package-default
+    io.k8s.cli.setters.prometheus.external-url:
+      x-k8s-cli:
+        setter:
+          name: prometheus.external-url
+          value: "https://prometheus-visibility.kube-visibility.svc:9090/"
+          setBy: package-default
     io.k8s.cli.setters.prometheus.enable-admin-api:
       x-k8s-cli:
         setter:
@@ -67,6 +73,12 @@ openAPI:
         setter:
           name: alertmanager.replicas
           value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.external-url:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.external-url
+          value: "https://alertmanager-visibility.kube-visibility.svc:9093/"
           setBy: package-default
     io.k8s.cli.setters.alertmanager.resources-limits-cpu:
       x-k8s-cli:

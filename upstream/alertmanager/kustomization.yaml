@@ -6,7 +6,6 @@ resources:
   - service-account.yaml
   - alertmanager.yaml
   - service.yaml
-  - service-monitor.yaml
 
 secretGenerator:
   - name: alertmanager-visibility
