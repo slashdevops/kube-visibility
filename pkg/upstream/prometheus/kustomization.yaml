@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-visibility
+resources:
+  - service-account.yaml
+  - prometheus.yaml
+  - service.yaml
+  - role-config.yaml
+  - role-binding-config.yaml
+  - role-binding-specific-namespaces.yaml
+  - role-specific-namespaces.yaml

@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBindingList
+items:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: prometheus-visibility
+      namespace: default
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: prometheus-visibility
+    subjects:
+    - kind: ServiceAccount
+      name: prometheus-visibility
+      namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: prometheus-visibility
+      namespace: kube-system
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: prometheus-visibility
+    subjects:
+    - kind: ServiceAccount
+      name: prometheus-visibility
+      namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}

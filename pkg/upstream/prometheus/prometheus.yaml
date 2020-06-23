@@ -1,0 +1,37 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: visibility
+  labels:
+    prometheus: visibility
+spec:
+  replicas: 1
+  version: v2.19.1
+  image: quay.io/prometheus/prometheus
+  serviceAccountName: prometheus
+  enableAdminAPI: true
+  portName: web
+  logLevel: info
+  logFormat: logfmt
+  resources:
+    requests:
+      memory: 100Mi
+  securityContext:
+    fsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  alerting:
+    alertmanagers:
+      - name: alertmanager-visibility
+        namespace: kube-visibility
+        port: web
+  # This allow that any kind: ServiceMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
+  serviceMonitorSelector:
+    matchLabels:
+      prometheus-visibility.monitoring: "enabled"
+  # This allow that any kind: PodMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
+  podMonitorSelector:
+    matchLabels:
+      prometheus-visibility.monitoring: "enabled"
+  nodeSelector:
+    kubernetes.io/os: linux

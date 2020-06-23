@@ -1,0 +1,307 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: kube-visibility
+packageMetadata:
+  tags:
+    - kpt.dev/app=kube-visibility
+  shortDescription: Monitoring and visibility tools for Kubernetes
+openAPI:
+  definitions:
+    # Package setters
+    io.k8s.cli.setters.namespace:
+      x-k8s-cli:
+        setter:
+          name: namespace
+          value: "kube-visibility"
+          setBy: package-default
+    # Package substitutions
+    io.k8s.cli.substitutions.prometheus-url:
+      x-k8s-cli:
+        substitution:
+          name: prometheus-url
+          pattern: prometheus-url=http://prometheus-visibility.NAMESPACE.svc:9090/
+          values:
+            - marker: NAMESPACE
+              ref: "#/definitions/io.k8s.cli.setters.namespace"
+    # prometheus setters
+    io.k8s.cli.setters.prometheus.replicas:
+      x-k8s-cli:
+        setter:
+          name: prometheus.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.external-url:
+      x-k8s-cli:
+        setter:
+          name: prometheus.external-url
+          value: "https://prometheus-visibility.kube-visibility.svc:9090/"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.retention:
+      x-k8s-cli:
+        setter:
+          name: prometheus.retention
+          value: "3w"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.retention-size:
+      x-k8s-cli:
+        setter:
+          name: prometheus.retention-size
+          value: "10G"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.log-level:
+      x-k8s-cli:
+        setter:
+          name: prometheus.log-level
+          value: "info"
+          setBy: package-default
+          enumValues:
+            debug: "debug"
+            info: "info"
+            warn: "warn"
+            error: "error"
+    io.k8s.cli.setters.prometheus.log-format:
+      x-k8s-cli:
+        setter:
+          name: prometheus.log-format
+          value: "logfmt"
+          setBy: package-default
+          enumValues:
+            logfmt: "logfmt"
+            json: "json"
+    io.k8s.cli.setters.prometheus.enable-admin-api:
+      x-k8s-cli:
+        setter:
+          name: prometheus.enable-admin-api
+          value: "true"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus.resources-limits-cpu
+          value: "200m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus.resources-limits-memory
+          value: "500Mi"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus.resources-requests-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus.resources-requests-memory
+          value: "300Mi"
+          setBy: package-default
+    # alertmanager setters
+    io.k8s.cli.setters.alertmanager.replicas:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.external-url:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.external-url
+          value: "https://alertmanager-visibility.kube-visibility.svc:9093/"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.log-level:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.log-level
+          value: "info"
+          setBy: package-default
+          enumValues:
+            debug: "debug"
+            info: "info"
+            warn: "warn"
+            error: "error"
+    io.k8s.cli.setters.alertmanager.log-format:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.log-format
+          value: "logfmt"
+          setBy: package-default
+          enumValues:
+            logfmt: "logfmt"
+            json: "json"
+    io.k8s.cli.setters.alertmanager.retention:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.retention
+          value: "120h"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.alertmanager.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
+    # grafana setters
+    io.k8s.cli.setters.grafana.replicas:
+      x-k8s-cli:
+        setter:
+          name: grafana.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.grafana.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: grafana.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
+    # node-exporter setters
+    io.k8s.cli.setters.node-exporter.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-limits-cpu
+          value: "250m"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-limits-memory
+          value: "180Mi"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-requests-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.node-exporter.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: node-exporter.resources-requests-memory
+          value: "180Mi"
+          setBy: package-default
+    # prometheus-adapter setters
+    io.k8s.cli.setters.prometheus-adapter.replicas:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-adapter.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-adapter.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
+    # prometheus-operator setters
+    io.k8s.cli.setters.prometheus-operator.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-operator.resources-limits-cpu
+          value: "200m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-operator.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-operator.resources-limits-memory
+          value: "200Mi"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-operator.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: prometheus-operator.resources-requests-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.prometheus-operator.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: prometheus-operator.resources-requests-memory
+          value: "100Mi"
+          setBy: package-default
+    # kube-state-metrics setters
+    io.k8s.cli.setters.kube-state-metrics.replicas:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default

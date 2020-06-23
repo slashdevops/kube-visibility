@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kube-scheduler
+  labels:
+    k8s-app: kube-scheduler
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+spec:
+  jobLabel: kube-scheduler
+  namespaceSelector:
+    matchNames:
+      - kube-system
+  selector:
+    matchLabels:
+      k8s-app: kube-scheduler
+  endpoints:
+    - port: http-metrics
+      interval: 30s

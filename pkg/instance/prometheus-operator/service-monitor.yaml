@@ -1,0 +1,22 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prometheus-operator
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/name: prometheus-operator
+    app.kubernetes.io/version: v0.40.0
+    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+spec:
+  jobLabel: prometheus-operator
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/name: prometheus-operator
+      app.kubernetes.io/version: v0.40.0
+  namespaceSelector:
+    matchNames:
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+  endpoints:
+    - honorLabels: true
+      port: http

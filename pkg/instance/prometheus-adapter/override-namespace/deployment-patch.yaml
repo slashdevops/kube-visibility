@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-adapter
+spec:
+  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.replicas"}
+  template:
+    spec:
+      containers:
+        - name: prometheus-adapter
+          resources:
+            limits:
+              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-limits-cpu"}
+              memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-limits-memory"}
+            requests:
+              cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-requests-cpu"}
+              memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-requests-memory"}

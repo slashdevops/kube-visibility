@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: kube-visibility
+resources:
+  - service-account.yaml
+  - alertmanager.yaml
+  - service.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true # avoid alertmanager secret with suffix
+
+secretGenerator:
+  - name: alertmanager-visibility-configuration
+    behavior: create
+    files:
+      - ./secrets-content/alertmanager.yaml

@@ -1,0 +1,14 @@
+---
+# This element is used only whe you execute kustomize build upstream, just to test all the components
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+bases:
+  - ./prometheus-operator
+  - ./prometheus-adapter
+  - ./kube-state-metrics
+  - ./node_exporter
+  - ./prometheus
+  - ./alertmanager
+  - ./grafana

@@ -1,10 +1,6 @@
 # kube-visibility
 
-This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) which is great but:
-* It is a little complicated to configure in a custom way because It is also using [jsonnet](https://jsonnet.org/) as a data templating language, which is very hard to understand and apply
-* You don't know exactly the version available ( they don't manage releases) and this complicates the  compatibility with your kubernetes version
-
-The idea of this project is to use [kustomize](https://github.com/kubernetes-sigs/kustomize) tool which is incredibly amazing and easy to use to create manifest overlays for [kubernetes](https://kubernetes.io)
+This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) we used [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay kubernetes manifest and [kpt](https://googlecontainertools.github.io/kpt/) to distribuit it as a package.
 
 ## Projects used in this repository
 
@@ -16,9 +12,14 @@ The idea of this project is to use [kustomize](https://github.com/kubernetes-sig
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
 
-## Manifests available
+## Install
 
-Looks inside [manifest folder](manifests/) to see available manifest
+To install this [kpt package](https://googlecontainertools.github.io/kpt/) you just need to know about [KPT Package Consumers
+](https://googlecontainertools.github.io/kpt/guides/consumer/), but in short
+
+```bash
+kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@v0.0.1 kube-visibility
+```
 
 ## Use It in minikube
 
@@ -39,7 +40,7 @@ cd kube-visibility/
 > After the first execution you need to wait until some resources were created, and then you can execute
 > again the command to create the resources into the k8s cluster.
 > If you are using the kubernetes-dashboard you can watch when the first execution finished creating
-> the resources, and then you can execute it again to finish with the instalation.
+> the resources, and then you can execute it again to finish with the installation.
 
 Generate a unique file bundle and then apply it
 
@@ -63,7 +64,9 @@ All these tools are accessible (using the method described below) when you follo
 ```bash
 kubectl proxy
 ```
+
 NOTES:
+
 * Link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 * To Create a `ClusterRoleBinding` following the instructions inside [HowTos folder](HowTos/) before trying to get a token
 * Access Token: `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')`
@@ -73,7 +76,9 @@ NOTES:
 ```bash
 kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```
+
 NOTES:
+
 * link: [prometheus](http://localhost:9090) --> http://localhost:9090
 
 ### Alertmanager
@@ -81,7 +86,9 @@ NOTES:
 ```bash
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
+
 NOTES:
+
 * link: [alertmanager](http://localhost:9093) --> http://localhost:9093
 
 ### Grafana
@@ -89,7 +96,9 @@ NOTES:
 ```bash
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
 ```
+
 NOTES:
+
 * Link: [grafana](http://localhost:3000) --> http://localhost:3000
 * user: admin
 * password: admin
@@ -107,6 +116,7 @@ If you want to contribute to this project do the following
 * Wait until your `PR` to be approved and merged to the `master branch`
 
 References
+
 * [Fork a repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
 * [Creating a pull request from a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)
 

@@ -1,0 +1,46 @@
+---
+global:
+  resolve_timeout: 5m
+  http_config: {}
+  smtp_hello: localhost
+  smtp_require_tls: true
+
+templates: []
+
+route:
+  receiver: Default
+  group_by:
+    - alertname
+    - namespace
+    - service
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  routes:
+    - match:
+        alertname: Watchdog
+      receiver: Watchdog
+    - match:
+        severity: critical
+      receiver: Critical
+
+receivers:
+  - name: Default
+  - name: Watchdog
+  - name: Critical
+
+inhibit_rules:
+  - source_match:
+      severity: critical
+    target_match_re:
+      severity: warning|info
+    equal:
+      - namespace
+      - alertname
+  - source_match:
+      severity: warning
+    target_match_re:
+      severity: info
+    equal:
+      - namespace
+      - alertname
