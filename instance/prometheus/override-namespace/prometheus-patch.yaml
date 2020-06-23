@@ -6,10 +6,10 @@ metadata:
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.replicas"}
   enableAdminAPI: true # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.enable-admin-api"}
-  #externalUrl: "https://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.external-url"}
+  externalUrl: "https://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.external-url"}
   retention: 3w # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention"}
   retentionSize: 10GB # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention-size"}
-  logLevel: all # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-level"}
+  logLevel: debug # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-level"}
   logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-format"}
   alerting:
     alertmanagers:
@@ -18,11 +18,11 @@ spec:
         port: web
   resources:
     limits:
-      cpu: 150m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}
-      memory: 150Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
+      cpu: 200m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}
+      memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
     requests:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-cpu"}
-      memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
+      memory: 200Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
   ruleSelector:
     matchLabels:
       role: alert-rules
