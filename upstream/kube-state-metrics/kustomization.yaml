@@ -9,4 +9,3 @@ resources:
   - role-binding.yaml
   - service.yaml
   - deployment.yaml
-  - service-monitor.yaml

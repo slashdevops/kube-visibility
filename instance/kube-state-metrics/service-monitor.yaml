@@ -6,12 +6,14 @@ metadata:
     app.kubernetes.io/version: v1.9.7
     prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
   name: kube-state-metrics
-  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   jobLabel: kube-state-metrics
   selector:
     matchLabels:
       app.kubernetes.io/name: kube-state-metrics
+  namespaceSelector:
+    matchNames:
+      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
   endpoints:
     - port: http-metrics
       scheme: http
