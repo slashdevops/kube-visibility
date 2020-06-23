@@ -10,3 +10,4 @@ resources:
   - ./prometheus
   - ./alertmanager
   - ./grafana
+  - ./k8s-service-monitors
