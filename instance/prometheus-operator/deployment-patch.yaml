@@ -10,8 +10,8 @@ spec:
         - name: prometheus-operator
           resources:
             limits:
-              cpu: 200m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-cpu"}
-              memory: 200Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-memory"}
+              cpu: 300m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-cpu"}
+              memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-memory"}
             requests:
               cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-requests-cpu"}
               memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-requests-memory"}
