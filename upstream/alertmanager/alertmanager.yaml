@@ -11,6 +11,7 @@ spec:
   image: quay.io/prometheus/alertmanager
   serviceAccountName: alertmanager-visibility
   configSecret: alertmanager-visibility-configuration
+  portName: web
   logLevel: info
   logFormat: logfmt
   resources:

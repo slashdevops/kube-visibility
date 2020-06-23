@@ -10,6 +10,7 @@ spec:
   image: quay.io/prometheus/prometheus
   serviceAccountName: prometheus
   enableAdminAPI: true
+  portName: web
   logLevel: info
   logFormat: logfmt
   resources:
