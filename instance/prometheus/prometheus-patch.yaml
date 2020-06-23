@@ -25,3 +25,15 @@ spec:
     matchLabels:
       role: alert-rules
       prometheus: visibility
+  # affinity:
+  #   podAntiAffinity:
+  #     preferredDuringSchedulingIgnoredDuringExecution:
+  #       - weight: 100
+  #         podAffinityTerm:
+  #           labelSelector:
+  #             matchExpressions:
+  #               - key: name
+  #                 operator: In
+  #                 values:
+  #                   - prometheus-visibility
+  #           topologyKey: "kubernetes.io/hostname"

@@ -6,6 +6,7 @@ metadata:
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.replicas"}
   externalUrl: "https://alertmanager-visibility.kube-visibility.svc:9093/" # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.external-url"}
+  retention: 120h # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.retention"}
   resources:
     limits:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-cpu"}
@@ -13,3 +14,15 @@ spec:
     requests:
       cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-cpu"}
       memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-memory"}
+  # affinity:
+  #   podAntiAffinity:
+  #     preferredDuringSchedulingIgnoredDuringExecution:
+  #       - weight: 100
+  #         podAffinityTerm:
+  #           labelSelector:
+  #             matchExpressions:
+  #               - key: name
+  #                 operator: In
+  #                 values:
+  #                   - alertmanager-visibility
+  #           topologyKey: "kubernetes.io/hostname"

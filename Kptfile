@@ -92,6 +92,12 @@ openAPI:
           name: alertmanager.external-url
           value: "https://alertmanager-visibility.kube-visibility.svc:9093/"
           setBy: package-default
+    io.k8s.cli.setters.alertmanager.retention:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.retention
+          value: "120h"
+          setBy: package-default
     io.k8s.cli.setters.alertmanager.resources-limits-cpu:
       x-k8s-cli:
         setter:
