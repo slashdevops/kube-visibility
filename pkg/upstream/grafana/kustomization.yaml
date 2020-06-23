@@ -12,10 +12,10 @@ configMapGenerator:
       - ./configuration/grafana.ini
   - name: dashboards-providers
     files:
-      - ./dashboards/providers.yaml
+      - ./dashboards/providers-yaml.txt
   - name: dashboards-datasources
     files:
-      - ./datasources/datasources.yaml
+      - ./datasources/datasources-yaml.txt
   - name: dashboards-prometheus-0
     files:
       - ./dashboards/prometheus/prometheus-stats.json

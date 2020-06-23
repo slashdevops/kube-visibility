@@ -24,7 +24,7 @@ spec:
           image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.7.0
           args:
             - --cert-dir=/var/run/serving-cert
-            - --config=/etc/adapter/config-yaml.txt
+            - --config=/etc/adapter/config.yaml
             - --logtostderr=true
             - --metrics-relist-interval=1m
             - --prometheus-url=$(PROMETHEUS_URL)
@@ -62,5 +62,8 @@ spec:
         - name: config
           configMap:
             name: prometheus-adapter-configuration
+            items:
+            - key: config-yaml.txt
+              path: config.yaml  
       nodeSelector:
         kubernetes.io/os: linux
