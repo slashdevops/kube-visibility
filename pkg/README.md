@@ -5,7 +5,7 @@
 ### get
 
 ```bash
-kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
+kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@ft-kpt kube-visibility
 ```
 
 ### setters
