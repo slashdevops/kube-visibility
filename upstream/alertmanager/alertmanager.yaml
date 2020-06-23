@@ -11,6 +11,8 @@ spec:
   image: quay.io/prometheus/alertmanager
   serviceAccountName: alertmanager-visibility
   configSecret: alertmanager-visibility
+  logLevel: info
+  logFormat: logfmt
   resources:
     requests:
       cpu: 50m

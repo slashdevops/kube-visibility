@@ -49,6 +49,28 @@ openAPI:
           name: prometheus.retention-size
           value: "10G"
           setBy: package-default
+    io.k8s.cli.setters.prometheus.log-level:
+      x-k8s-cli:
+        setter:
+          name: prometheus.log-level
+          value: "info"
+          setBy: package-default
+          enumValues:
+            all: "all"
+            debug: "debug"
+            info: "info"
+            warn: "warn"
+            error: "error"
+            none: "none"
+    io.k8s.cli.setters.prometheus.log-format:
+      x-k8s-cli:
+        setter:
+          name: prometheus.log-format
+          value: "logfmt"
+          setBy: package-default
+          enumValues:
+            logfmt: "logfmt"
+            json: "json"
     io.k8s.cli.setters.prometheus.enable-admin-api:
       x-k8s-cli:
         setter:
@@ -92,6 +114,28 @@ openAPI:
           name: alertmanager.external-url
           value: "https://alertmanager-visibility.kube-visibility.svc:9093/"
           setBy: package-default
+    io.k8s.cli.setters.alertmanager.log-level:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.log-level
+          value: "info"
+          setBy: package-default
+          enumValues:
+            all: "all"
+            debug: "debug"
+            info: "info"
+            warn: "warn"
+            error: "error"
+            none: "none"
+    io.k8s.cli.setters.alertmanager.log-format:
+      x-k8s-cli:
+        setter:
+          name: alertmanager.log-format
+          value: "logfmt"
+          setBy: package-default
+          enumValues:
+            logfmt: "logfmt"
+            json: "json"
     io.k8s.cli.setters.alertmanager.retention:
       x-k8s-cli:
         setter:

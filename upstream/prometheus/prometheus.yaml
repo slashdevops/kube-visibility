@@ -10,6 +10,8 @@ spec:
   image: quay.io/prometheus/prometheus
   serviceAccountName: prometheus
   enableAdminAPI: true
+  logLevel: info
+  logFormat: logfmt
   resources:
     requests:
       memory: 100Mi
