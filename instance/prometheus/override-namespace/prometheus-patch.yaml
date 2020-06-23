@@ -9,7 +9,7 @@ spec:
   externalUrl: "https://prometheus-visibility.kube-visibility.svc:9090/" # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.external-url"}
   retention: 3w # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention"}
   retentionSize: 10GB # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention-size"}
-  logLevel: debug # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-level"}
+  logLevel: info # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-level"}
   logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-format"}
   alerting:
     alertmanagers:
