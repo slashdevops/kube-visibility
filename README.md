@@ -18,7 +18,7 @@ To install this [kpt package](https://googlecontainertools.github.io/kpt/) you j
 ](https://googlecontainertools.github.io/kpt/guides/consumer/), but in short
 
 ```bash
-kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@v0.0.1 kube-visibility
+kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
 ```
 
 ## Use It in minikube
@@ -30,8 +30,9 @@ Looks inside [HowTos folder](HowTos/) to see available docs per OS
 Clone the repository
 
 ```bash
-git clone https://github.com/slashdevops/kube-visibility.git
+kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
 cd kube-visibility/
+kpt cfg list-setters .
 ```
 
 > __NOTE:__  The bundle of manifest generated with kustomize has some dependencies with
@@ -45,14 +46,14 @@ cd kube-visibility/
 Generate a unique file bundle and then apply it
 
 ```bash
-kustomize build manifests/minikube-k8s-1.16 > kube-visibility.yaml
+kustomize build instance/ > kube-visibility.yaml
 kubectl apply -f kube-visibility.yaml
 ```
 
 or all in one command:
 
 ```bash
-kustomize build manifests/minikube-k8s-1.16 | kubectl apply -f -
+kustomize build instance/ | kubectl apply -f -
 ```
 
 ## Access to graphical tools
