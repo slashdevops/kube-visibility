@@ -15,6 +15,6 @@ configMapGenerator:
   - name: prometheus-adapter-arg
     literals:
       - "prometheus-url=http://prometheus-visibility.kube-visibility.svc:9090/"
-  - name: prometheus-adapter-config
+  - name: prometheus-adapter-configuration
     files:
-      - ./configmap-content/config.yaml
+      - ./configmap-content/config-yaml.txt

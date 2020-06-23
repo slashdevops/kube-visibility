@@ -24,7 +24,7 @@ spec:
           image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.7.0
           args:
             - --cert-dir=/var/run/serving-cert
-            - --config=/etc/adapter/config.yaml
+            - --config=/etc/adapter/config-yaml.txt
             - --logtostderr=true
             - --metrics-relist-interval=1m
             - --prometheus-url=$(PROMETHEUS_URL)
@@ -52,7 +52,7 @@ spec:
               mountPath: /var/run/serving-cert
               readOnly: false
             - name: config
-              mountPath: /etc/adapter
+              mountPath: /etc/adapter/
               readOnly: false
       volumes:
         - name: tmpfs
@@ -61,6 +61,6 @@ spec:
           emptyDir: {}
         - name: config
           configMap:
-            name: prometheus-adapter-config
+            name: prometheus-adapter-configuration
       nodeSelector:
         kubernetes.io/os: linux
