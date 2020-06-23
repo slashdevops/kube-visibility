@@ -19,10 +19,10 @@ spec:
   resources:
     limits:
       cpu: 200m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}
-      memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
+      memory: 500Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
     requests:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-cpu"}
-      memory: 200Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
+      memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
   ruleSelector:
     matchLabels:
       role: alert-rules

@@ -85,7 +85,7 @@ openAPI:
       x-k8s-cli:
         setter:
           name: prometheus.resources-limits-memory
-          value: "300Mi"
+          value: "500Mi"
           setBy: package-default
     io.k8s.cli.setters.prometheus.resources-requests-cpu:
       x-k8s-cli:
@@ -97,7 +97,7 @@ openAPI:
       x-k8s-cli:
         setter:
           name: prometheus.resources-requests-memory
-          value: "200Mi"
+          value: "300Mi"
           setBy: package-default
     # alertmanager setters
     io.k8s.cli.setters.alertmanager.replicas:
