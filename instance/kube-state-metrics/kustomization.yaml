@@ -4,3 +4,5 @@ namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace
 resources:
   - ../../upstream/kube-state-metrics
   - service-monitor.yaml
+patches:
+  - deployment-patch.yaml

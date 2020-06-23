@@ -15,10 +15,6 @@ kubectl --namespace kube-visibility port-forward svc/node-exporter 9100
 ### kube-state-metrics
 
 ```bash
-kpt pkg get https://github.com/kubernetes/kube-state-metrics.git/examples/standard@v1.9.6 kube-state-metrics
-```
-
-```bash
 kubectl --namespace kube-visibility port-forward svc/kube-state-metrics 8080
 kubectl --namespace kube-visibility port-forward svc/kube-state-metrics 8081
 ```

@@ -278,3 +278,34 @@ openAPI:
           name: prometheus-operator.resources-requests-memory
           value: "100Mi"
           setBy: package-default
+    # kube-state-metrics setters
+    io.k8s.cli.setters.kube-state-metrics.replicas:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.replicas
+          value: "1"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-limits-cpu:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-limits-cpu
+          value: "100m"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-limits-memory:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-limits-memory
+          value: "100Mi"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-requests-cpu:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-requests-cpu
+          value: "50m"
+          setBy: package-default
+    io.k8s.cli.setters.kube-state-metrics.resources-requests-memory:
+      x-k8s-cli:
+        setter:
+          name: kube-state-metrics.resources-requests-memory
+          value: "50Mi"
+          setBy: package-default
