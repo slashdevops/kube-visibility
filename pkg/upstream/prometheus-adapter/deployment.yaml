@@ -62,8 +62,5 @@ spec:
         - name: config
           configMap:
             name: prometheus-adapter-configuration
-            items:
-            - key: config-yaml.txt
-              path: config.yaml  
       nodeSelector:
         kubernetes.io/os: linux

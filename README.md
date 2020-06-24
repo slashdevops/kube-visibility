@@ -4,7 +4,9 @@ Work In Progress (WIP)
 
 This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) to customize and configure we used [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay kubernetes manifest and [kpt](https://googlecontainertools.github.io/kpt/) to distribuit it as a package.
 
-## Projects used in this repository
+## Components of this bundle
+
+This [kpt package](pkg/) will install the following software list in your Kubernetes cluster
 
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 * [node_exporter](https://github.com/prometheus/node_exporter)
@@ -13,6 +15,15 @@ This project was inspired by [kube-prometheus](https://github.com/coreos/kube-pr
 * [prometheus](https://prometheus.io/docs/introduction/overview/)
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
+
+## Kubernetes version supported
+
+* >= 1.16.x
+
+## Project Layout
+
+The layout for this project is simple, the [pkg folder](pkg/) contains the [kpt blueprint](https://googlecontainertools.github.io/kpt/guides/producer/blueprint/) implementation of kube-visibility, which is separate from the root of git project intentionally to avoid unnecessary files into the package when you install it using [kpt pkg get](https://googlecontainertools.github.io/kpt/guides/consumer/get/) command.
+The root folder could contain additional docs, examples and CI/CD pipelines definitions.
 
 ## Customization and packager tool
 
@@ -28,13 +39,16 @@ To install this [kpt package](https://googlecontainertools.github.io/kpt/) you j
 kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
 ```
 
-## Use in minikube
+__NOTE:__  Remember the pkg folder into the git path
 
-Looks inside [HowTos folder](HowTos/) to see available docs.
+## Try it on minikube
+
+Looks inside [HowTos folder](HowTos/) for more detailed information about how to prepare minikube
 
 ### minikube setting
 
 ```bash
+# set
 minikube config set memory 4096
 minikube config set cpus 2
 minikube config set disk-size 40G
@@ -42,19 +56,24 @@ minikube config set vm-driver kvm2
 minikube config set kubernetes-version 1.16.8
 minikube config view
 
+# start
 minikube start
 
+# check
 minikube status
 
 # OPTIONAL, EXECUTE IT IN DIFFERENT TERMINAL
-# , but recommended to see what is happening inside my cluster
+# ,but recommended it to see what is happening inside my cluster
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 kubectl proxy
+# open the following link in your browser: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 ```
 
-OPTIONAL, depends on steps above: [Kubernetes Dashboard installed above](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)
+### Download and apply
+
+Download and install the `kpt pkg` from `master branch` or the specify the `release tag`, more information here [Command Reference / pkg / get](https://googlecontainertools.github.io/kpt/reference/pkg/get/)
 
 ```bash
 mkdir k8sworkplace
@@ -70,10 +89,10 @@ kpt cfg list-setters kube-visibility/
 # OPTIONAL, change one setter
 kpt cfg set kube-visibility/ alertmanager.resources-limits-cpu 120m
 
-# WORKARROUND, until kpt avoid problems with json and yaml files that not are part of k8s 'kind'
+# WORKAROUND, until kpt avoid problems with json and yaml files that not are part of k8s 'kind'
 # Apply the manifest bundle to the cluster
 # NOTE 1: the first time you execute this command some errors appears at the end, wait until
-# prometheus-operator is up before apply again!.
+# prometheus-operator is up before apply again! (see the note below).
 # to see it, use the command 'kubectl get pod --all-namespaces' or just see in the kubernetes-dashboard (step above)
 # NOTE 2: The second time you apply this command, they are take to long, because depending prometheus CRDs are big!
 kustomize build kube-visibility/instance | kubectl apply -f -
@@ -90,53 +109,51 @@ kustomize build kube-visibility/instance | kubectl apply -f -
 > If you are using the kubernetes-dashboard you can watch when the first execution finished creating
 > the resources, and then you can execute it again to finish with the installation.
 
-## Access to graphical tools
+### Once installed, access to graphical tools
 
 All these tools are accessible (using the method described below) when you follow the instructions described in [HowTos folder](HowTos/) for minikube
 
 ### kubernetes Dashboard
 
 ```bash
+# get the token
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
+
+# Execute it in a different terminal
 kubectl proxy
 ```
 
-NOTES:
+__Link:__ [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 
-* Link: [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
-* To Create a `ClusterRoleBinding` following the instructions inside [HowTos folder](HowTos/) before trying to get a token
-* Access Token: `kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')`
-
-### Prometheus
+### Prometheus Dashboard
 
 ```bash
+# Execute it in a different terminal
 kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```
 
-NOTES:
+__Link:__ [prometheus](http://localhost:9090) --> http://localhost:9090
 
-* link: [prometheus](http://localhost:9090) --> http://localhost:9090
-
-### Alertmanager
+### Alertmanager Dashboard
 
 ```bash
+# Execute it in a different terminal
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
 
-NOTES:
-
-* link: [alertmanager](http://localhost:9093) --> http://localhost:9093
+__Link:__ [alertmanager](http://localhost:9093) --> http://localhost:9093
 
 ### Grafana
 
 ```bash
+# Execute it in a different terminal
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
 ```
 
-NOTES:
+__Link:__  [grafana](http://localhost:3000) --> http://localhost:3000
 
-* Link: [grafana](http://localhost:3000) --> http://localhost:3000
-* user: admin
-* password: admin
+* __user:__ admin
+* __password:__ admin
 
 ## Development / Contributing
 

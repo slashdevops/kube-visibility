@@ -25,13 +25,13 @@ spec:
             httpGet:
               path: /api/health
               port: http
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 30
           livenessProbe:
             httpGet:
               path: /api/health
               port: http
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 30
           resources:
             limits:
@@ -84,16 +84,10 @@ spec:
         - name: dashboards-providers
           configMap:
             name: dashboards-providers
-            items:
-            - key: providers-yaml.txt
-              path: providers.yaml
 
         - name: dashboards-datasources
           configMap:
             name: dashboards-datasources
-            items:
-            - key: datasources-yaml.txt
-              path: datasources.yaml
 
         - name: dashboards-prometheus-0
           configMap:
