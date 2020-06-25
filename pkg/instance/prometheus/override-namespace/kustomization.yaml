@@ -5,6 +5,7 @@ namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace
 resources:
   - ../../../upstream/prometheus
   - service-monitor.yaml
-  - ./rules/kube-visibility-rules.yaml
+  - rules/alerting-rules.yaml
+  - rules/recording-rules.yaml
 patches:
   - prometheus-patch.yaml

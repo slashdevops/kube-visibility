@@ -24,17 +24,6 @@ spec:
       memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
   ruleSelector:
     matchLabels:
-      role: alert-rules
       prometheus: visibility
-  # affinity:
-  #   podAntiAffinity:
-  #     preferredDuringSchedulingIgnoredDuringExecution:
-  #       - weight: 100
-  #         podAffinityTerm:
-  #           labelSelector:
-  #             matchExpressions:
-  #               - key: name
-  #                 operator: In
-  #                 values:
-  #                   - prometheus-visibility
-  #           topologyKey: "kubernetes.io/hostname"
+    matchExpressions:
+      - { key: role, operator: In, values: [alerting-rules, recording-rules] }
