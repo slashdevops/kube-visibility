@@ -45,7 +45,7 @@ providers:
     updateIntervalSeconds: 10
     allowUiUpdates: true
     options:
-      path: /grafana/dashboards/kubernetes-2      
+      path: /grafana/dashboards/kubernetes-2
   - name: "Infrastructure Metrics 0"
     orgId: 1
     folder: "Infrastructure 0"
