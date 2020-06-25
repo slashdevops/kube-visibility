@@ -14,7 +14,7 @@ items:
     subjects:
       - kind: ServiceAccount
         name: prometheus-visibility
-        namespace: visibility
+        namespace: kube-visibility
   - apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
@@ -27,4 +27,4 @@ items:
     subjects:
       - kind: ServiceAccount
         name: prometheus-visibility
-        namespace: visibility
+        namespace: kube-visibility
