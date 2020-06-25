@@ -15,15 +15,6 @@ openAPI:
           name: namespace
           value: "kube-visibility"
           setBy: package-default
-    # Package substitutions
-    io.k8s.cli.substitutions.prometheus-url:
-      x-k8s-cli:
-        substitution:
-          name: prometheus-url
-          pattern: prometheus-url=http://prometheus-visibility.NAMESPACE.svc:9090/
-          values:
-            - marker: NAMESPACE
-              ref: "#/definitions/io.k8s.cli.setters.namespace"
     # prometheus setters
     io.k8s.cli.setters.prometheus.replicas:
       x-k8s-cli:
@@ -219,6 +210,14 @@ openAPI:
           value: "180Mi"
           setBy: package-default
     # prometheus-adapter setters
+    io.k8s.cli.substitutions.prometheus-adapter.prometheus-url:
+      x-k8s-cli:
+        substitution:
+          name: prometheus-adapter.prometheus-url
+          pattern: prometheus-url=http://prometheus-visibility.NAMESPACE.svc:9090/
+          values:
+            - marker: NAMESPACE
+              ref: "#/definitions/io.k8s.cli.setters.namespace"
     io.k8s.cli.setters.prometheus-adapter.replicas:
       x-k8s-cli:
         setter:
