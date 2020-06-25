@@ -21,8 +21,7 @@ spec:
               subPath: grafana.ini
               readOnly: true
             - name: dashboards-providers
-              mountPath: /etc/grafana/provisioning/dashboards/providers.yaml
-              subPath: providers.yaml
+              mountPath: /etc/grafana/provisioning/dashboards
               readOnly: true
             - name: dashboards-datasources
               mountPath: /etc/grafana/provisioning/datasources
