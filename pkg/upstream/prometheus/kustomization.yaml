@@ -8,5 +8,5 @@ resources:
   - service.yaml
   - role-config.yaml
   - role-binding-config.yaml
-  - role-binding-specific-namespaces.yaml
-  - role-specific-namespaces.yaml
+  - role-binding-namespaces.yaml
+  - role-namespaces.yaml
