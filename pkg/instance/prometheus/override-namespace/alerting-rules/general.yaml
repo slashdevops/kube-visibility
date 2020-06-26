@@ -8,7 +8,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: general-alerts
+    - name: general--alerting
       rules:
         - alert: TargetDown
           annotations:

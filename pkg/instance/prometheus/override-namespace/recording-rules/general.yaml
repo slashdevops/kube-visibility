@@ -1,0 +1,16 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: general-recording-rules
+  labels:
+    prometheus: visibility
+    role: recording-rules
+spec:
+  groups:
+    - name: general--recording
+      rules:
+        - expr: count without(instance, pod, node) (up == 1)
+          record: count:up1
+        - expr: count without(instance, pod, node) (up == 0)
+          record: count:up0

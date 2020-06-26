@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 bases:
   - alerting-rules/
-  - recording-rules/recording-rules.yaml
+  - recording-rules/
 resources:
   - ../../../upstream/prometheus
   - service-monitor.yaml
