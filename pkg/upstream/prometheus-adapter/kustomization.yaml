@@ -7,7 +7,6 @@ resources:
   - cluster-role-aggregated-metrics-reader.yaml
   - cluster-role-binding-delegator.yaml
   - cluster-role-server-resources.yaml
-  - role-binding-auth-reader.yaml
   - service-account.yaml
   - service.yaml
   - deployment.yaml
