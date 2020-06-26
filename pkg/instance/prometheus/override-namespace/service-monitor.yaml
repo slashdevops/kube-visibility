@@ -4,7 +4,7 @@ metadata:
   name: prometheus-visibility
   labels:
     name: prometheus-visibility
-    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled"
 spec:
   jobLabel: prometheus
   selector:

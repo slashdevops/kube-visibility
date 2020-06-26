@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/component: controller
     app.kubernetes.io/name: prometheus-operator
     app.kubernetes.io/version: v0.40.0
-    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled"
 spec:
   jobLabel: prometheus-operator
   selector:

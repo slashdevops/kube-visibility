@@ -4,7 +4,7 @@ metadata:
   name: kubelet
   labels:
     k8s-app: kubelet
-    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled"
 spec:
   jobLabel: kubelet
   namespaceSelector:

@@ -4,7 +4,7 @@ metadata:
   name: kube-dns
   labels:
     k8s-app: kube-dns
-    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled"
 spec:
   jobLabel: kube-dns
   namespaceSelector:

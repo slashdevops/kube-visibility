@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: kube-state-metrics
     app.kubernetes.io/version: v1.9.7
-    prometheus-visibility.monitoring: "enabled" # this enable the prometheus scrapping
+    prometheus-visibility.monitoring: "enabled"
   name: kube-state-metrics
 spec:
   jobLabel: kube-state-metrics
