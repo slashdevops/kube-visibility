@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 resources:
   - kube-apiserver.yaml
-  - controller-manager.yaml
+  #- controller-manager.yaml
   - kube-dns.yaml
-  - kube-scheduler.yaml
+  #- kube-scheduler.yaml
   - kubelet.yaml
