@@ -7,3 +7,10 @@ resources:
   - service-monitor.yaml
 patches:
   - alertmanager-patch.yaml
+generatorOptions:
+  disableNameSuffixHash: true
+secretGenerator:
+  - name: alertmanager-visibility-configuration
+    behavior: create
+    files:
+      - ./configuration/alertmanager.yaml

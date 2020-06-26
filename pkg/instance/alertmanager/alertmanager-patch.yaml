@@ -9,6 +9,7 @@ spec:
   retention: 120h # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.retention"}
   logLevel: info # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-level"}
   logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-format"}
+  configSecret: alertmanager-visibility-configuration
   resources:
     limits:
       cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-cpu"}
