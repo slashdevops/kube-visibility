@@ -33,7 +33,6 @@ configMapGenerator:
   - name: grafana-dashboards-kubernetes-1
     files:
       - ./dashboards/kubernetes/kubernetes-compute-resources-namespace-workloads.json
-      - ./dashboards/kubernetes/kubernetes-scheduler.json
       - ./dashboards/kubernetes/kubernetes-compute-resources-node-pods.json
       - ./dashboards/kubernetes/kubernetes-compute-resources-pod.json
   - name: grafana-dashboards-kubernetes-2
