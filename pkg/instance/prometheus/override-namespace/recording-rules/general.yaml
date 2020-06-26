@@ -8,7 +8,7 @@ metadata:
     role: recording-rules
 spec:
   groups:
-    - name: general--recording
+    - name: record--general
       rules:
         - expr: count without(instance, pod, node) (up == 1)
           record: count:up1

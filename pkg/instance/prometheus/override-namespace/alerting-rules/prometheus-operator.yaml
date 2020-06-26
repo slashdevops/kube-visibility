@@ -8,7 +8,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: prometheus-operator-alerts
+    - name: alerts--prometheus-operator
       rules:
         - alert: PrometheusOperatorReconcileErrors
           annotations:

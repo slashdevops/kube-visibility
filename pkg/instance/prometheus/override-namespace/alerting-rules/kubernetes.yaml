@@ -7,7 +7,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: kubernetes-apps--alerting
+    - name: alerts--kubernetes-apps
       rules:
         - alert: KubePodCrashLooping
           annotations:
@@ -225,7 +225,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: kubernetes-resources--alerting
+    - name: alerts--kubernetes-resources
       rules:
         - alert: KubeCPUOvercommit
           annotations:
@@ -312,7 +312,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: kubernetes-storage--alerting
+    - name: alerts--kubernetes-storage
       rules:
         - alert: KubePersistentVolumeFillingUp
           annotations:
@@ -358,7 +358,7 @@ spec:
           for: 5m
           labels:
             severity: critical
-    - name: kubernetes-system--alerting
+    - name: alerts--kubernetes-system
       rules:
         - alert: KubeVersionMismatch
           annotations:
@@ -385,7 +385,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: kubernetes-apiserver-slos--alerting
+    - name: alerts--kubernetes-apiserver-slost
       rules:
         - alert: KubeAPIErrorBudgetBurn
           annotations:
@@ -431,7 +431,7 @@ spec:
           for: 3h
           labels:
             severity: warning
-    - name: kubernetes-apiserver--alerting
+    - name: alerts--kubernetes-apiserver
       rules:
         - alert: KubeAPILatencyHigh
           annotations:
@@ -524,7 +524,7 @@ spec:
           for: 15m
           labels:
             severity: critical
-    - name: kubernetes-kubelet--alerting
+    - name: alerts--kubernetes-kubelet
       rules:
         - alert: KubeNodeNotReady
           annotations:

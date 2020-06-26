@@ -8,7 +8,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: kube-state-metrics--alerting
+    - name: alerts--kube-state-metrics
       rules:
         - alert: KubeStateMetricsListErrors
           annotations:

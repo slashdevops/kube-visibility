@@ -8,7 +8,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: node-filesystem--alerting
+    - name: alerts--node-filesystem
       rules:
         - alert: NodeFilesystemSpaceFillingUp
           annotations:
@@ -150,7 +150,7 @@ spec:
           for: 1h
           labels:
             severity: critical
-    - name: node-network--alerting
+    - name: alerts--node-network
       rules:
         - alert: NodeNetworkInterfaceFlapping
           annotations:
@@ -195,7 +195,7 @@ spec:
             (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
           labels:
             severity: warning
-    - name: node-clock--alerting
+    - name: alerts--node-clock
       rules:
         - alert: NodeClockSkewDetected
           annotations:

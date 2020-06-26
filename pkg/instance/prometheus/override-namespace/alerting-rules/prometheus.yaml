@@ -8,7 +8,7 @@ metadata:
     role: alerting-rules
 spec:
   groups:
-    - name: prometheus-alerts
+    - name: alerts--prometheus
       rules:
         - alert: PrometheusBadConfig
           annotations:

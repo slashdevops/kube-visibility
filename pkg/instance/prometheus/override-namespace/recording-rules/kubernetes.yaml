@@ -7,7 +7,7 @@ metadata:
     role: recording-rules
 spec:
   groups:
-    - name: kubernetes-apiserver--recording
+    - name: record--kubernetes-apiserver
       rules:
         - expr: |
             (
@@ -385,7 +385,7 @@ spec:
           labels:
             quantile: "0.5"
           record: cluster_quantile:apiserver_request_duration_seconds:histogram_quantile
-    - name: kubernetes-kubelet--recording
+    - name: record--kubernetes-kubelet
       rules:
         - expr: |
             histogram_quantile(0.99, sum(rate(kubelet_pleg_relist_duration_seconds_bucket[5m])) by (instance, le) * on(instance) group_left(node) kubelet_node_name{job="kubelet", metrics_path="/metrics"})
@@ -402,7 +402,7 @@ spec:
           labels:
             quantile: "0.5"
           record: node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile     
-    - name: kubernetes--recording
+    - name: record--kubernetes
       rules:
         - expr: |
             sum(rate(container_cpu_usage_seconds_total{job="kubelet", metrics_path="/metrics/cadvisor", image!="", container!="POD"}[5m])) by (namespace)
@@ -500,7 +500,7 @@ spec:
           labels:
             workload_type: statefulset
           record: mixin_pod_workload
-    - name: kubernetes-scheduler--recording
+    - name: record--kubernetes-scheduler
       rules:
         - expr: |
             histogram_quantile(0.99, sum(rate(scheduler_e2e_scheduling_duration_seconds_bucket{job="kube-scheduler"}[5m])) without(instance, pod))
