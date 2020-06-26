@@ -5,7 +5,7 @@ metadata:
   name: visibility
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.replicas"}
-  externalUrl: "https://alertmanager-visibility.kube-visibility.svc:9093/" # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.external-url"}
+  externalUrl: "http://localhost:9093/" # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.external-url"}
   retention: 120h # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.retention"}
   logLevel: info # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-level"}
   logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-format"}
