@@ -20,20 +20,5 @@ spec:
     fsGroup: 2000
     runAsNonRoot: true
     runAsUser: 1000
-  alerting:
-    alertmanagers:
-      - name: alertmanager-visibility
-        namespace: kube-visibility
-        port: web
-  serviceMonitorNamespaceSelector: {}
-  # This allow that any kind: ServiceMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
-  serviceMonitorSelector:
-    matchLabels:
-      prometheus-visibility.monitoring: "enabled"
-  podMonitorNamespaceSelector: {}
-  # This allow that any kind: PodMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
-  podMonitorSelector:
-    matchLabels:
-      prometheus-visibility.monitoring: "enabled"
   nodeSelector:
     kubernetes.io/os: linux

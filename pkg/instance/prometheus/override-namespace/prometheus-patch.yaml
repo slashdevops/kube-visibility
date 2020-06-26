@@ -27,3 +27,13 @@ spec:
       prometheus: visibility
     matchExpressions:
       - { key: role, operator: In, values: [alerting-rules, recording-rules] }
+  serviceMonitorNamespaceSelector: {}
+  # This allow that any kind: ServiceMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
+  serviceMonitorSelector:
+    matchLabels:
+      prometheus-visibility.monitoring: "enabled"
+  podMonitorNamespaceSelector: {}
+  # This allow that any kind: PodMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
+  podMonitorSelector:
+    matchLabels:
+      prometheus-visibility.monitoring: "enabled"
