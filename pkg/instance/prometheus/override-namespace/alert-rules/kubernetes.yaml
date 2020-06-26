@@ -1,13 +1,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: kubernetes-alerting-rules
+  name: kubernetes-alert-rules
   labels:
     prometheus: visibility
-    role: alerting-rules
+    role: alert-rules
 spec:
   groups:
-    - name: alerts--kubernetes-apps
+    - name: alert--kubernetes-apps
       rules:
         - alert: KubePodCrashLooping
           annotations:
@@ -225,7 +225,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: alerts--kubernetes-resources
+    - name: alert--kubernetes-resources
       rules:
         - alert: KubeCPUOvercommit
           annotations:
@@ -312,7 +312,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: alerts--kubernetes-storage
+    - name: alert--kubernetes-storage
       rules:
         - alert: KubePersistentVolumeFillingUp
           annotations:
@@ -358,7 +358,7 @@ spec:
           for: 5m
           labels:
             severity: critical
-    - name: alerts--kubernetes-system
+    - name: alert--kubernetes-system
       rules:
         - alert: KubeVersionMismatch
           annotations:
@@ -385,7 +385,7 @@ spec:
           for: 15m
           labels:
             severity: warning
-    - name: alerts--kubernetes-apiserver-slost
+    - name: alert--kubernetes-apiserver-slost
       rules:
         - alert: KubeAPIErrorBudgetBurn
           annotations:
@@ -431,7 +431,7 @@ spec:
           for: 3h
           labels:
             severity: warning
-    - name: alerts--kubernetes-apiserver
+    - name: alert--kubernetes-apiserver
       rules:
         - alert: KubeAPILatencyHigh
           annotations:
@@ -524,7 +524,7 @@ spec:
           for: 15m
           labels:
             severity: critical
-    - name: alerts--kubernetes-kubelet
+    - name: alert--kubernetes-kubelet
       rules:
         - alert: KubeNodeNotReady
           annotations:

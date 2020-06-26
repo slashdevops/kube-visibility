@@ -1,10 +1,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: kubernetes-recording-rules
+  name: kubernetes-record-rules
   labels:
     prometheus: visibility
-    role: recording-rules
+    role: record-rules
 spec:
   groups:
     - name: record--kubernetes-apiserver

@@ -2,10 +2,10 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: general-recording-rules
+  name: general-record-rules
   labels:
     prometheus: visibility
-    role: recording-rules
+    role: record-rules
 spec:
   groups:
     - name: record--general

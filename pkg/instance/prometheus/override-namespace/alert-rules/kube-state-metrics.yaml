@@ -2,13 +2,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: kube-state-metrics-alerting-rules
+  name: kube-state-metrics-alert-rules
   labels:
     prometheus: visibility
-    role: alerting-rules
+    role: alert-rules
 spec:
   groups:
-    - name: alerts--kube-state-metrics
+    - name: alert--kube-state-metrics
       rules:
         - alert: KubeStateMetricsListErrors
           annotations:
