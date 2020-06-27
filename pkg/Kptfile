@@ -26,7 +26,7 @@ openAPI:
       x-k8s-cli:
         setter:
           name: prometheus.external-url
-          value: "https://prometheus-visibility.kube-visibility.svc:9090/"
+          value: "http://localhost:9090/"
           setBy: package-default
     io.k8s.cli.setters.prometheus.retention:
       x-k8s-cli:
@@ -101,7 +101,7 @@ openAPI:
       x-k8s-cli:
         setter:
           name: alertmanager.external-url
-          value: "https://alertmanager-visibility.kube-visibility.svc:9093/"
+          value: "http://localhost:9093/"
           setBy: package-default
     io.k8s.cli.setters.alertmanager.log-level:
       x-k8s-cli:
