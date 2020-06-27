@@ -2,11 +2,13 @@
 
 Work In Progress (WIP)
 
-This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) to customize and configure we used [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay kubernetes manifest and [kpt](https://googlecontainertools.github.io/kpt/) to distribute it it as a package.
+This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) to customize and configure it, this use [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay [Kubernetes manifests](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/) and [kpt](https://googlecontainertools.github.io/kpt/) to distribute it as a package.
+
+Also, this is [GitOps](https://www.weave.works/technologies/gitops/) friendly.
 
 ## Components of this bundle
 
-This [kpt package](pkg/) will install the following software list in your Kubernetes cluster
+This [kpt package](pkg/) will install the following software list into your Kubernetes cluster
 
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
 * [node_exporter](https://github.com/prometheus/node_exporter)
@@ -20,26 +22,30 @@ This [kpt package](pkg/) will install the following software list in your Kubern
 
 * '>=' 1.16.x
 
-## Project Layout
+## Project Layout Structure
 
-The layout for this project is simple, the [pkg folder](pkg/) contains the [kpt blueprint](https://googlecontainertools.github.io/kpt/guides/producer/blueprint/) implementation of kube-visibility, which is separate from the root of git project intentionally to avoid unnecessary files into the package when you install it using [kpt pkg get](https://googlecontainertools.github.io/kpt/guides/consumer/get/) command.
-The root folder could contain additional docs, examples and CI/CD pipelines definitions.
+The layout structure for this project is simple, the [pkg folder](pkg/) contains the [kpt blueprint](https://googlecontainertools.github.io/kpt/guides/producer/blueprint/) implementation of kube-visibility, which is separate from the root of git project intentionally to avoid unnecessary files into the package when you install it using [kpt pkg get](https://googlecontainertools.github.io/kpt/guides/consumer/get/) command.
+The root folder could contain additional docs, examples, and CI/CD pipeline definitions.
 
 ## Customization and packager tool
 
-* [kpt](https://googlecontainertools.github.io/kpt/)
-* [kustomize](https://kubernetes-sigs.github.io/kustomize/)
+The heart of this project are these two tools, so if you want to contribute with it you need to understand and manage it.
 
-## Install
+* [kustomize](https://kubernetes-sigs.github.io/kustomize/)
+* [kpt](https://googlecontainertools.github.io/kpt/)
+
+and of course, it is was possible thanks to the big and great idea of [kube-prometheus project](https://github.com/coreos/kube-prometheus).
+
+## How to Install
 
 To install this [kpt package](https://googlecontainertools.github.io/kpt/) you just need to know about [KPT Package Consumers
-](https://googlecontainertools.github.io/kpt/guides/consumer/), but in short
+](https://googlecontainertools.github.io/kpt/guides/consumer/), but in short:
 
 ```bash
 kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
 ```
 
-__NOTE:__  Remember the pkg folder into the git path
+__NOTE:__  Remember the `pkg folder` into the `git path`
 
 ## Try it on minikube
 
@@ -49,10 +55,10 @@ Looks inside [HowTos folder](HowTos/) for more detailed information about how to
 
 ```bash
 # set
-minikube config set memory 4096
-minikube config set cpus 2
+minikube config set memory 4096 # > much better
+minikube config set cpus 2      # > much better
 minikube config set disk-size 40G
-minikube config set vm-driver kvm2
+minikube config set vm-driver kvm2 # for linux, for MacOS see HowTos/ folder
 minikube config set kubernetes-version 1.16.8
 minikube config view
 
@@ -63,25 +69,27 @@ minikube start
 minikube status
 
 # OPTIONAL, EXECUTE IT IN DIFFERENT TERMINAL
-# ,but recommended it to see what is happening inside my cluster
+# I recommended it to see what is happening inside your cluster
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 kubectl proxy
-# open the following link in your browser: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
+# then, open the following link in your browser: http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 ```
 
-### Download and apply
+### Download and Apply
 
 Download and install the `kpt pkg` from `master branch` or the specify the `release tag`, more information here [Command Reference / pkg / get](https://googlecontainertools.github.io/kpt/reference/pkg/get/)
 
 ```bash
-mkdir k8sworkplace
-cd k8sworkplace/
+mkdir k8s-workspace
+cd k8s-workspace/
 kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
+git add .
+git commit -am "added kube-visibility tool"
 
 # OPTIONAL, using kpt live
-# kpt live init kube-visibility/
+kpt live init kube-visibility/
 
 # OPTIONAL, list available kpt setters
 kpt cfg list-setters kube-visibility/
@@ -92,7 +100,7 @@ kpt cfg set kube-visibility/ alertmanager.resources-limits-cpu 120m
 # WORKAROUND, until kpt avoid problems with json and yaml files that not are part of k8s 'kind'
 # Apply the manifest bundle to the cluster
 # NOTE 1: the first time you execute this command some errors appears at the end, wait until
-# prometheus-operator is up before apply again! (see the note below).
+# prometheus-operator is up before apply again! (see the NOTE below).
 # to see it, use the command 'kubectl get pod --all-namespaces' or just see in the kubernetes-dashboard (step above)
 # NOTE 2: The second time you apply this command, they are take to long, because depending prometheus CRDs are big!
 kustomize build kube-visibility/instance | kubectl apply -f -
@@ -113,7 +121,7 @@ kustomize build kube-visibility/instance | kubectl apply -f -
 
 All these tools are accessible (using the method described below) when you follow the instructions described in [HowTos folder](HowTos/) for minikube
 
-### kubernetes Dashboard
+#### kubernetes Dashboard
 
 ```bash
 # get the token
@@ -125,7 +133,7 @@ kubectl proxy
 
 __Link:__ [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
 
-### Prometheus Dashboard
+#### Prometheus Dashboard
 
 ```bash
 # Execute it in a different terminal
@@ -134,7 +142,7 @@ kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 
 __Link:__ [prometheus](http://localhost:9090) --> http://localhost:9090
 
-### Alertmanager Dashboard
+#### Alertmanager Dashboard
 
 ```bash
 # Execute it in a different terminal
@@ -143,7 +151,7 @@ kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 909
 
 __Link:__ [alertmanager](http://localhost:9093) --> http://localhost:9093
 
-### Grafana
+#### Grafana Dashboard
 
 ```bash
 # Execute it in a different terminal
@@ -156,6 +164,8 @@ __Link:__  [grafana](http://localhost:3000) --> http://localhost:3000
 * __password:__ admin
 
 ## Development / Contributing
+
+WIP, but at least
 
 If you want to contribute to this project do the following
 

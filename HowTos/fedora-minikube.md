@@ -66,8 +66,9 @@ kubeval --version
 This way persist configuration when making minikube stop and minikube start again
 
 **NOTES:**
+
 * `Set the minikube config values` and `kubernetes version` according to your needs.
-* To Select the [Kubernetes versions](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) availables select the `CHANGELOG-X.Y.md` you want to use
+* To Select the [Kubernetes versions](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) available select the `CHANGELOG-X.Y.md` you want to use
 
 ```bash
 minikube config set memory 4096
@@ -82,7 +83,7 @@ minikube start
 minikube status
 ```
 
-### Option 2 (Stateless, config is not saved at ~./minikube):
+### Option 2 (Stateless, config is not saved at ~./minikube)
 
 ```bash
 minikube start \
@@ -124,6 +125,7 @@ kubectl get pods --all-namespaces
 ```bash
 kubectl proxy
 ```
+
 **NOTE:** First you need to get the token (Secret) of the `default ServiceAccount of kube-system namespace`
 
 ```bash
