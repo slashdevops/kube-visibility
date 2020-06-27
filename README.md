@@ -2,7 +2,7 @@
 
 Work In Progress (WIP)
 
-This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) to customize and configure we used [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay kubernetes manifest and [kpt](https://googlecontainertools.github.io/kpt/) to distribuit it as a package.
+This project was inspired by [kube-prometheus](https://github.com/coreos/kube-prometheus) bundle but instead of use [jsonnet](https://jsonnet.org/) to customize and configure we used [kustomize](https://github.com/kubernetes-sigs/kustomize) to overlay kubernetes manifest and [kpt](https://googlecontainertools.github.io/kpt/) to distribute it it as a package.
 
 ## Components of this bundle
 
@@ -18,7 +18,7 @@ This [kpt package](pkg/) will install the following software list in your Kubern
 
 ## Kubernetes version supported
 
-* >= 1.16.x
+* '>=' 1.16.x
 
 ## Project Layout
 
