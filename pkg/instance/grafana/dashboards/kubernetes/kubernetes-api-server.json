@@ -672,6 +672,7 @@
                 {
                     "expr": "sum(code_resource:apiserver_request_total:rate5m{verb=\"read\"})",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
@@ -2442,5 +2443,5 @@
     "timezone": "",
     "title": "Kubernetes / API server",
     "uid": "j3T1TPRGz",
-    "version": 1
+    "version": 2
 }
