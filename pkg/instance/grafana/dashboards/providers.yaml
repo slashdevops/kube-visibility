@@ -4,7 +4,7 @@ apiVersion: 1
 providers:
   - name: "Prometheus Metrics 0"
     orgId: 1
-    folder: "Prometheus 0"
+    folder: "Prometheus"
     folderUid: ""
     type: file
     disableDeletion: true
@@ -48,7 +48,7 @@ providers:
       path: /grafana/dashboards/kubernetes-2
   - name: "Infrastructure Metrics 0"
     orgId: 1
-    folder: "Infrastructure 0"
+    folder: "Infrastructure"
     folderUid: ""
     type: file
     disableDeletion: true
@@ -59,7 +59,7 @@ providers:
       path: /grafana/dashboards/infrastructure-0
   - name: "Network Metrics 0"
     orgId: 1
-    folder: "Network 0"
+    folder: "Network"
     folderUid: ""
     type: file
     disableDeletion: true
@@ -70,7 +70,7 @@ providers:
       path: /grafana/dashboards/network-0
   - name: "Network Metrics 1"
     orgId: 1
-    folder: "Network 1"
+    folder: "Network"
     folderUid: ""
     type: file
     disableDeletion: true
