@@ -47,6 +47,9 @@ spec:
             - name: grafana-dashboards-infrastructure-0
               mountPath: /grafana/dashboards/infrastructure-0
               readOnly: true
+            - name: grafana-dashboards-grafana-0
+              mountPath: /grafana/dashboards/grafana-0
+              readOnly: true
       volumes:
         - name: grafana-configuration
           configMap:
@@ -81,3 +84,6 @@ spec:
         - name: grafana-dashboards-infrastructure-0
           configMap:
             name: grafana-dashboards-infrastructure-0
+        - name: grafana-dashboards-grafana-0
+          configMap:
+            name: grafana-dashboards-grafana-0

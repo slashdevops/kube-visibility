@@ -79,3 +79,14 @@ providers:
     allowUiUpdates: true
     options:
       path: /grafana/dashboards/network-1
+  - name: "Grafana"
+    orgId: 1
+    folder: "grafana"
+    folderUid: ""
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /grafana/dashboards/grafana-0

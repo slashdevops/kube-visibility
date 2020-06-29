@@ -53,3 +53,6 @@ configMapGenerator:
       - ./dashboards/infrastructure/nodes.json
       - ./dashboards/infrastructure/use-method-cluster.json
       - ./dashboards/infrastructure/use-method-node.json
+  - name: grafana-dashboards-grafana-0
+    files:
+      - ./dashboards/grafana/grafana-internals.json
