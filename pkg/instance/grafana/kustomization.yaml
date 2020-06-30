@@ -39,15 +39,15 @@ configMapGenerator:
     files:
       - ./dashboards/kubernetes/kubernetes-api-server.json
       - ./dashboards/kubernetes/kubernetes-kubelet.json
-  - name: grafana-dashboards-network-0
+  - name: grafana-dashboards-kubernetes-3
     files:
-      - ./dashboards/network/kubernetes-network-cluster.json
-      - ./dashboards/network/kubernetes-network-pods.json
-      - ./dashboards/network/kubernetes-network-workload.json
-  - name: grafana-dashboards-network-1
+      - ./dashboards/kubernetes/kubernetes-network-cluster.json
+      - ./dashboards/kubernetes/kubernetes-network-pods.json
+      - ./dashboards/kubernetes/kubernetes-network-workload.json
+  - name: grafana-dashboards-kubernetes-4
     files:
-      - ./dashboards/network/kubernetes-network-namespace-pods.json
-      - ./dashboards/network/kubernetes-network-namespace-workload.json
+      - ./dashboards/kubernetes/kubernetes-network-namespace-pods.json
+      - ./dashboards/kubernetes/kubernetes-network-namespace-workload.json
   - name: grafana-dashboards-infrastructure-0
     files:
       - ./dashboards/infrastructure/nodes.json

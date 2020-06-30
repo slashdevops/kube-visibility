@@ -38,11 +38,11 @@ spec:
             - name: grafana-dashboards-kubernetes-2
               mountPath: /grafana/dashboards/kubernetes-2
               readOnly: true
-            - name: grafana-dashboards-network-0
-              mountPath: /grafana/dashboards/network-0
+            - name: grafana-dashboards-kubernetes-3
+              mountPath: /grafana/dashboards/kubernetes-3
               readOnly: true
-            - name: grafana-dashboards-network-1
-              mountPath: /grafana/dashboards/network-1
+            - name: grafana-dashboards-kubernetes-4
+              mountPath: /grafana/dashboards/kubernetes-4
               readOnly: true
             - name: grafana-dashboards-infrastructure-0
               mountPath: /grafana/dashboards/infrastructure-0
@@ -75,12 +75,12 @@ spec:
         - name: grafana-dashboards-kubernetes-2
           configMap:
             name: grafana-dashboards-kubernetes-2
-        - name: grafana-dashboards-network-0
+        - name: grafana-dashboards-kubernetes-3
           configMap:
-            name: grafana-dashboards-network-0
-        - name: grafana-dashboards-network-1
+            name: grafana-dashboards-kubernetes-3
+        - name: grafana-dashboards-kubernetes-4
           configMap:
-            name: grafana-dashboards-network-1
+            name: grafana-dashboards-kubernetes-4
         - name: grafana-dashboards-infrastructure-0
           configMap:
             name: grafana-dashboards-infrastructure-0
