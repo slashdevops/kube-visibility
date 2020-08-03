@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 3590,
     "graphTooltip": 0,
-    "id": 38,
-    "iteration": 1593443682840,
+    "id": 41,
+    "iteration": 1596460340314,
     "links": [],
     "panels": [
         {
@@ -37,31 +37,36 @@
         },
         {
             "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-                "#299c46",
-                "rgba(237, 129, 40, 0.89)",
-                "#d44a3a"
-            ],
             "datasource": "$datasource",
             "description": "start time of the process",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-orange",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "dateTimeFromNow"
                 },
                 "overrides": []
             },
-            "format": "dateTimeFromNow",
-            "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-            },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 6,
                 "x": 0,
                 "y": 1
@@ -69,38 +74,26 @@
             "id": 16,
             "interval": null,
             "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-                {
-                    "name": "value to text",
-                    "value": 1
-                },
-                {
-                    "name": "range to text",
-                    "value": 2
-                }
-            ],
             "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-                {
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
+            "options": {
+                "colorMode": "value",
+                "fieldOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ]
+                },
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "fields": "",
+                    "values": false
                 }
-            ],
-            "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
             },
-            "tableColumn": "{endpoint=\"3000\", instance=\"10.61.12.59:3000\", job=\"grafana\", namespace=\"visibility\", pod=\"grafana-86d5849794-lwq9m\", service=\"grafana\"}",
+            "pluginVersion": "7.0.4",
             "targets": [
                 {
                     "expr": "process_start_time_seconds{pod=\"$pod\"} * 1000",
@@ -111,46 +104,41 @@
                     "refId": "A"
                 }
             ],
-            "thresholds": "",
             "title": "Start time",
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
-                {
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }
-            ],
-            "valueName": "current"
+            "type": "stat"
         },
         {
             "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-                "#299c46",
-                "rgba(237, 129, 40, 0.89)",
-                "#d44a3a"
-            ],
             "datasource": "$datasource",
             "description": "total amount of orgs",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-orange",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
                 },
                 "overrides": []
             },
-            "format": "none",
-            "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-            },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 6,
                 "x": 6,
                 "y": 1
@@ -158,38 +146,26 @@
             "id": 2,
             "interval": null,
             "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-                {
-                    "name": "value to text",
-                    "value": 1
-                },
-                {
-                    "name": "range to text",
-                    "value": 2
-                }
-            ],
             "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-                {
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
+            "options": {
+                "colorMode": "value",
+                "fieldOptions": {
+                    "calcs": [
+                        "mean"
+                    ]
+                },
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "fields": "",
+                    "values": false
                 }
-            ],
-            "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
             },
-            "tableColumn": "grafana_stat_total_orgs{endpoint=\"3000\", instance=\"10.61.12.59:3000\", job=\"grafana\", namespace=\"visibility\", pod=\"grafana-86d5849794-lwq9m\", service=\"grafana\"}",
+            "pluginVersion": "7.0.4",
             "targets": [
                 {
                     "expr": "grafana_stat_total_orgs{pod=\"$pod\"}",
@@ -200,46 +176,41 @@
                     "refId": "A"
                 }
             ],
-            "thresholds": "",
             "title": "Organisation Count",
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
-                {
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }
-            ],
-            "valueName": "avg"
+            "type": "stat"
         },
         {
             "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-                "#299c46",
-                "rgba(237, 129, 40, 0.89)",
-                "#d44a3a"
-            ],
             "datasource": "$datasource",
             "description": "total amount of users",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-orange",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
                 },
                 "overrides": []
             },
-            "format": "none",
-            "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-            },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 6,
                 "x": 12,
                 "y": 1
@@ -247,38 +218,26 @@
             "id": 3,
             "interval": null,
             "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-                {
-                    "name": "value to text",
-                    "value": 1
-                },
-                {
-                    "name": "range to text",
-                    "value": 2
-                }
-            ],
             "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-                {
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
+            "options": {
+                "colorMode": "value",
+                "fieldOptions": {
+                    "calcs": [
+                        "mean"
+                    ]
+                },
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "fields": "",
+                    "values": false
                 }
-            ],
-            "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
             },
-            "tableColumn": "grafana_stat_total_users{endpoint=\"3000\", instance=\"10.61.12.59:3000\", job=\"grafana\", namespace=\"visibility\", pod=\"grafana-86d5849794-lwq9m\", service=\"grafana\"}",
+            "pluginVersion": "7.0.4",
             "targets": [
                 {
                     "expr": "grafana_stat_total_users{pod=\"$pod\"}",
@@ -289,46 +248,41 @@
                     "refId": "A"
                 }
             ],
-            "thresholds": "",
             "title": "User Count",
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
-                {
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }
-            ],
-            "valueName": "avg"
+            "type": "stat"
         },
         {
             "cacheTimeout": null,
-            "colorBackground": false,
-            "colorValue": false,
-            "colors": [
-                "#299c46",
-                "rgba(237, 129, 40, 0.89)",
-                "#d44a3a"
-            ],
             "datasource": "$datasource",
             "description": "total amount of dashboards",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-orange",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
                 },
                 "overrides": []
             },
-            "format": "none",
-            "gauge": {
-                "maxValue": 100,
-                "minValue": 0,
-                "show": false,
-                "thresholdLabels": false,
-                "thresholdMarkers": true
-            },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 6,
                 "x": 18,
                 "y": 1
@@ -336,38 +290,26 @@
             "id": 5,
             "interval": null,
             "links": [],
-            "mappingType": 1,
-            "mappingTypes": [
-                {
-                    "name": "value to text",
-                    "value": 1
-                },
-                {
-                    "name": "range to text",
-                    "value": 2
-                }
-            ],
             "maxDataPoints": 100,
-            "nullPointMode": "connected",
-            "nullText": null,
-            "postfix": "",
-            "postfixFontSize": "50%",
-            "prefix": "",
-            "prefixFontSize": "50%",
-            "rangeMaps": [
-                {
-                    "from": "null",
-                    "text": "N/A",
-                    "to": "null"
+            "options": {
+                "colorMode": "value",
+                "fieldOptions": {
+                    "calcs": [
+                        "mean"
+                    ]
+                },
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "fields": "",
+                    "values": false
                 }
-            ],
-            "sparkline": {
-                "fillColor": "rgba(31, 118, 189, 0.18)",
-                "full": false,
-                "lineColor": "rgb(31, 120, 193)",
-                "show": false
             },
-            "tableColumn": "grafana_stat_totals_dashboard{endpoint=\"3000\", instance=\"10.61.12.59:3000\", job=\"grafana\", namespace=\"visibility\", pod=\"grafana-86d5849794-lwq9m\", service=\"grafana\"}",
+            "pluginVersion": "7.0.4",
             "targets": [
                 {
                     "expr": "grafana_stat_totals_dashboard{pod=\"$pod\"}",
@@ -378,18 +320,8 @@
                     "refId": "A"
                 }
             ],
-            "thresholds": "",
             "title": "Dashboard Count",
-            "type": "singlestat",
-            "valueFontSize": "80%",
-            "valueMaps": [
-                {
-                    "op": "=",
-                    "text": "N/A",
-                    "value": "null"
-                }
-            ],
-            "valueName": "avg"
+            "type": "stat"
         },
         {
             "collapsed": false,
@@ -398,7 +330,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 8
+                "y": 5
             },
             "id": 22,
             "panels": [],
@@ -425,7 +357,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 9
+                "y": 6
             },
             "hiddenSeries": false,
             "id": 14,
@@ -456,7 +388,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "avg(rate(process_cpu_seconds_total{pod=\"$pod\"}[$interval]))",
+                    "expr": "avg(rate(process_cpu_seconds_total{pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -524,7 +456,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 9
+                "y": 6
             },
             "hiddenSeries": false,
             "id": 15,
@@ -555,7 +487,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "avg(rate(process_resident_memory_bytes{pod=\"$pod\"}[$interval]))",
+                    "expr": "avg(rate(process_resident_memory_bytes{pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -563,7 +495,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "avg(rate(process_virtual_memory_bytes{pod=\"$pod\"}[$interval]))",
+                    "expr": "avg(rate(process_virtual_memory_bytes{pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -632,7 +564,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 9
+                "y": 6
             },
             "hiddenSeries": false,
             "id": 17,
@@ -663,7 +595,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "process_open_fds{pod=\"$pod\"}",
+                    "expr": "process_open_fds{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -720,7 +652,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 16
+                "y": 13
             },
             "id": 23,
             "panels": [],
@@ -747,7 +679,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 17
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 18,
@@ -778,7 +710,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_response_status_total{pod=\"$pod\"}",
+                    "expr": "grafana_api_response_status_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -786,7 +718,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_page_response_status_total{pod=\"$pod\"}",
+                    "expr": "grafana_page_response_status_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -794,7 +726,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "grafana_proxy_response_status_total{pod=\"$pod\"}",
+                    "expr": "grafana_proxy_response_status_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -862,7 +794,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 17
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 20,
@@ -893,7 +825,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "http_request_total{pod=\"$pod\"}",
+                    "expr": "http_request_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -961,7 +893,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 17
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 19,
@@ -992,7 +924,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_login_post_total{pod=\"$pod\"}",
+                    "expr": "grafana_api_login_post_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1000,7 +932,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_api_login_oauth_total{pod=\"$pod\"}",
+                    "expr": "grafana_api_login_oauth_total{pod=~\"$pod\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1056,7 +988,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 24
+                "y": 21
             },
             "id": 24,
             "panels": [],
@@ -1083,7 +1015,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 25
+                "y": 22
             },
             "hiddenSeries": false,
             "id": 6,
@@ -1114,7 +1046,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=~\"$pod\", quantile=\"0.5\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1122,7 +1054,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=~\"$pod\", quantile=\"0.9\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1130,7 +1062,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+                    "expr": "grafana_api_dataproxy_request_all_milliseconds{pod=~\"$pod\", quantile=\"0.99\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1198,7 +1130,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 25
+                "y": 22
             },
             "hiddenSeries": false,
             "id": 7,
@@ -1229,7 +1161,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(grafana_api_dataproxy_request_all_milliseconds_sum{pod=\"$pod\"}[$interval]) / rate(grafana_api_dataproxy_request_all_milliseconds_count{pod=\"$pod\"}[$interval])",
+                    "expr": "rate(grafana_api_dataproxy_request_all_milliseconds_sum{pod=~\"$pod\"}[$interval]) / rate(grafana_api_dataproxy_request_all_milliseconds_count{pod=~\"$pod\"}[$interval])",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1285,7 +1217,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 32
+                "y": 29
             },
             "id": 25,
             "panels": [],
@@ -1312,7 +1244,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 33
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 8,
@@ -1343,7 +1275,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+                    "expr": "grafana_api_dashboard_get_milliseconds{pod=~\"$pod\", quantile=\"0.5\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1351,7 +1283,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+                    "expr": "grafana_api_dashboard_get_milliseconds{pod=~\"$pod\", quantile=\"0.9\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1359,7 +1291,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "grafana_api_dashboard_get_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+                    "expr": "grafana_api_dashboard_get_milliseconds{pod=~\"$pod\", quantile=\"0.99\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1427,7 +1359,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 33
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1458,7 +1390,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(grafana_api_dashboard_get_milliseconds_sum{pod=\"$pod\"}[$interval]) / rate(grafana_api_dashboard_get_milliseconds_count{pod=\"$pod\"}[$interval])",
+                    "expr": "rate(grafana_api_dashboard_get_milliseconds_sum{pod=~\"$pod\"}[$interval]) / rate(grafana_api_dashboard_get_milliseconds_count{pod=~\"$pod\"}[$interval])",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1514,7 +1446,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 40
+                "y": 37
             },
             "id": 26,
             "panels": [],
@@ -1541,7 +1473,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 41
+                "y": 38
             },
             "hiddenSeries": false,
             "id": 10,
@@ -1572,7 +1504,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+                    "expr": "grafana_api_dashboard_save_milliseconds{pod=~\"$pod\", quantile=\"0.5\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1580,7 +1512,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+                    "expr": "grafana_api_dashboard_save_milliseconds{pod=~\"$pod\", quantile=\"0.9\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1588,7 +1520,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "grafana_api_dashboard_save_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+                    "expr": "grafana_api_dashboard_save_milliseconds{pod=~\"$pod\", quantile=\"0.99\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1656,7 +1588,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 41
+                "y": 38
             },
             "hiddenSeries": false,
             "id": 11,
@@ -1687,7 +1619,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(grafana_api_dashboard_save_milliseconds_sum{pod=\"$pod\"}[$interval]) / rate(grafana_api_dashboard_save_milliseconds_count{pod=\"$pod\"}[$interval])",
+                    "expr": "rate(grafana_api_dashboard_save_milliseconds_sum{pod=~\"$pod\"}[$interval]) / rate(grafana_api_dashboard_save_milliseconds_count{pod=~\"$pod\"}[$interval])",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1743,7 +1675,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 48
+                "y": 45
             },
             "id": 27,
             "panels": [],
@@ -1770,7 +1702,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 49
+                "y": 46
             },
             "hiddenSeries": false,
             "id": 12,
@@ -1801,7 +1733,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.5\"}",
+                    "expr": "grafana_api_dashboard_search_milliseconds{pod=~\"$pod\", quantile=\"0.5\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1809,7 +1741,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.9\"}",
+                    "expr": "grafana_api_dashboard_search_milliseconds{pod=~\"$pod\", quantile=\"0.9\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1817,7 +1749,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "grafana_api_dashboard_search_milliseconds{pod=\"$pod\", quantile=\"0.99\"}",
+                    "expr": "grafana_api_dashboard_search_milliseconds{pod=~\"$pod\", quantile=\"0.99\"}",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1885,7 +1817,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 49
+                "y": 46
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1916,7 +1848,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(grafana_api_dashboard_search_milliseconds_sum{pod=\"$pod\"}[$interval]) / rate(grafana_api_dashboard_search_milliseconds_count{pod=\"$pod\"}[$interval])",
+                    "expr": "rate(grafana_api_dashboard_search_milliseconds_sum{pod=~\"$pod\"}[$interval]) / rate(grafana_api_dashboard_search_milliseconds_count{pod=~\"$pod\"}[$interval])",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -1976,9 +1908,9 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
-                    "text": "Prometheus",
-                    "value": "Prometheus"
+                    "selected": false,
+                    "text": "default",
+                    "value": "default"
                 },
                 "hide": 0,
                 "includeAll": false,
@@ -1997,8 +1929,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "grafana-86d5849794-lwq9m",
-                    "value": "grafana-86d5849794-lwq9m"
+                    "text": "grafana-988fb6cd6-m5hv7",
+                    "value": "grafana-988fb6cd6-m5hv7"
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(grafana_build_info,pod)",
