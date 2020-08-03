@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 21,
-    "iteration": 1594023371106,
+    "id": 20,
+    "iteration": 1596447988384,
     "links": [],
     "panels": [
         {
@@ -51,7 +51,7 @@
             "fill": 1,
             "fontSize": "100%",
             "gridPos": {
-                "h": 7,
+                "h": 5,
                 "w": 24,
                 "x": 0,
                 "y": 1
@@ -245,13 +245,70 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 8
+                "y": 6
             },
             "id": 12,
             "panels": [],
             "repeat": null,
             "title": "Discovery",
             "type": "row"
+        },
+        {
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-orange",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 4,
+                "x": 0,
+                "y": 7
+            },
+            "id": 17,
+            "links": [],
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                }
+            },
+            "pluginVersion": "7.0.4",
+            "targets": [
+                {
+                    "expr": "sum(prometheus_sd_discovered_targets{job=~\"$job\",pod=~\"$pod\"})",
+                    "format": "time_series",
+                    "intervalFactor": 2,
+                    "legendFormat": "Targets",
+                    "legendLink": null,
+                    "refId": "A",
+                    "step": 10
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Number of Targets",
+            "type": "stat"
         },
         {
             "aliasColors": {},
@@ -266,12 +323,12 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 0,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
-                "x": 0,
-                "y": 9
+                "x": 4,
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 2,
@@ -365,12 +422,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
-                "w": 12,
-                "x": 12,
-                "y": 9
+                "w": 8,
+                "x": 16,
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 3,
@@ -462,7 +519,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 16
+                "y": 14
             },
             "id": 13,
             "panels": [],
@@ -483,12 +540,12 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 4,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 17
+                "y": 15
             },
             "hiddenSeries": false,
             "id": 4,
@@ -582,12 +639,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 5,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 17
+                "y": 15
             },
             "hiddenSeries": false,
             "id": 5,
@@ -711,12 +768,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 17
+                "y": 15
             },
             "hiddenSeries": false,
             "id": 6,
@@ -804,7 +861,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 24
+                "y": 22
             },
             "id": 14,
             "panels": [],
@@ -825,12 +882,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 25
+                "y": 23
             },
             "hiddenSeries": false,
             "id": 7,
@@ -923,12 +980,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 25
+                "y": 23
             },
             "hiddenSeries": false,
             "id": 8,
@@ -1015,7 +1072,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 32
+                "y": 30
             },
             "id": 15,
             "panels": [],
@@ -1036,12 +1093,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 33
+                "y": 31
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1134,12 +1191,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 6,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 33
+                "y": 31
             },
             "hiddenSeries": false,
             "id": 10,
