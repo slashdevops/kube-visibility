@@ -17,7 +17,7 @@
     "gnetId": 3590,
     "graphTooltip": 0,
     "id": 41,
-    "iteration": 1596460340314,
+    "iteration": 1596460340316,
     "links": [],
     "panels": [
         {
@@ -56,7 +56,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -87,7 +87,7 @@
                 "orientation": "horizontal",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "last"
                     ],
                     "fields": "",
                     "values": false
@@ -128,7 +128,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -200,7 +200,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -272,7 +272,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -324,13 +324,83 @@
             "type": "stat"
         },
         {
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": "left",
+                        "displayMode": "auto"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "Value"
+                        },
+                        "properties": []
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 5,
+                "w": 24,
+                "x": 0,
+                "y": 5
+            },
+            "id": 29,
+            "options": {
+                "showHeader": true
+            },
+            "pluginVersion": "7.0.4",
+            "targets": [
+                {
+                    "expr": "count by (namespace, instance, edition ,pod, version) (grafana_build_info{pod=~\"$pod\"})",
+                    "format": "table",
+                    "instant": true,
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Build Info",
+            "transformations": [
+                {
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "Time": true,
+                            "Value": true
+                        },
+                        "indexByName": {},
+                        "renameByName": {
+                            "Value": ""
+                        }
+                    }
+                }
+            ],
+            "type": "table"
+        },
+        {
             "collapsed": false,
             "datasource": null,
             "gridPos": {
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 5
+                "y": 10
             },
             "id": 22,
             "panels": [],
@@ -357,7 +427,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 6
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 14,
@@ -456,7 +526,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 6
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 15,
@@ -564,7 +634,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 6
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 17,
@@ -652,7 +722,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 13
+                "y": 18
             },
             "id": 23,
             "panels": [],
@@ -679,7 +749,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 14
+                "y": 19
             },
             "hiddenSeries": false,
             "id": 18,
@@ -794,7 +864,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 14
+                "y": 19
             },
             "hiddenSeries": false,
             "id": 20,
@@ -893,7 +963,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 14
+                "y": 19
             },
             "hiddenSeries": false,
             "id": 19,
@@ -988,7 +1058,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 21
+                "y": 26
             },
             "id": 24,
             "panels": [],
@@ -1015,7 +1085,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 22
+                "y": 27
             },
             "hiddenSeries": false,
             "id": 6,
@@ -1130,7 +1200,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 22
+                "y": 27
             },
             "hiddenSeries": false,
             "id": 7,
@@ -1217,7 +1287,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 29
+                "y": 34
             },
             "id": 25,
             "panels": [],
@@ -1244,7 +1314,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 30
+                "y": 35
             },
             "hiddenSeries": false,
             "id": 8,
@@ -1359,7 +1429,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 30
+                "y": 35
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1446,7 +1516,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 37
+                "y": 42
             },
             "id": 26,
             "panels": [],
@@ -1473,7 +1543,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 38
+                "y": 43
             },
             "hiddenSeries": false,
             "id": 10,
@@ -1588,7 +1658,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 38
+                "y": 43
             },
             "hiddenSeries": false,
             "id": 11,
@@ -1675,7 +1745,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 45
+                "y": 50
             },
             "id": 27,
             "panels": [],
@@ -1702,7 +1772,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 46
+                "y": 51
             },
             "hiddenSeries": false,
             "id": 12,
@@ -1817,7 +1887,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 46
+                "y": 51
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1928,45 +1998,21 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "grafana-988fb6cd6-m5hv7",
-                    "value": "grafana-988fb6cd6-m5hv7"
+                    "selected": true,
+                    "text": "All",
+                    "value": [
+                        "$__all"
+                    ]
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(grafana_build_info,pod)",
                 "hide": 0,
-                "includeAll": false,
+                "includeAll": true,
                 "label": "Pod",
-                "multi": false,
+                "multi": true,
                 "name": "pod",
                 "options": [],
                 "query": "label_values(grafana_build_info,pod)",
-                "refresh": 2,
-                "regex": "",
-                "skipUrlSync": false,
-                "sort": 1,
-                "tagValuesQuery": "",
-                "tags": [],
-                "tagsQuery": "",
-                "type": "query",
-                "useTags": false
-            },
-            {
-                "allValue": null,
-                "current": {
-                    "selected": false,
-                    "text": "7.0.4",
-                    "value": "7.0.4"
-                },
-                "datasource": "$datasource",
-                "definition": "label_values(grafana_build_info, version)",
-                "hide": 0,
-                "includeAll": false,
-                "label": "Version",
-                "multi": false,
-                "name": "version",
-                "options": [],
-                "query": "label_values(grafana_build_info, version)",
                 "refresh": 2,
                 "regex": "",
                 "skipUrlSync": false,

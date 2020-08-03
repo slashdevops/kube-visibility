@@ -17,7 +17,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 20,
-    "iteration": 1596447988384,
+    "iteration": 1596459268741,
     "links": [],
     "panels": [
         {
@@ -36,207 +36,146 @@
             "type": "row"
         },
         {
-            "aliasColors": {},
-            "bars": false,
-            "columns": [],
-            "dashLength": 10,
-            "dashes": false,
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {
+                        "align": null
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fontSize": "100%",
             "gridPos": {
                 "h": 5,
-                "w": 24,
+                "w": 18,
                 "x": 0,
                 "y": 1
             },
             "id": 1,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
             "links": [],
-            "nullPointMode": "null as zero",
-            "pageSize": null,
-            "percentage": false,
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "showHeader": true,
-            "sort": {
-                "col": 0,
-                "desc": true
+            "options": {
+                "frameIndex": 0,
+                "showHeader": true,
+                "sortBy": [
+                    {
+                        "desc": false,
+                        "displayName": "version"
+                    }
+                ]
             },
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "styles": [
-                {
-                    "alias": "Time",
-                    "align": "auto",
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "pattern": "Time",
-                    "type": "hidden"
-                },
-                {
-                    "alias": "Count",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "link": false,
-                    "linkTooltip": "Drill down",
-                    "linkUrl": "",
-                    "pattern": "Value #A",
-                    "thresholds": [],
-                    "type": "hidden",
-                    "unit": "short"
-                },
-                {
-                    "alias": "Start Time",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "link": false,
-                    "linkTooltip": "Drill down",
-                    "linkUrl": "",
-                    "pattern": "Value #B",
-                    "thresholds": [],
-                    "type": "date",
-                    "unit": "short"
-                },
-                {
-                    "alias": "pod",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "link": false,
-                    "linkTooltip": "Drill down",
-                    "linkUrl": "",
-                    "pattern": "pod",
-                    "thresholds": [],
-                    "type": "number",
-                    "unit": "short"
-                },
-                {
-                    "alias": "Job",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "link": false,
-                    "linkTooltip": "Drill down",
-                    "linkUrl": "",
-                    "pattern": "job",
-                    "thresholds": [],
-                    "type": "number",
-                    "unit": "short"
-                },
-                {
-                    "alias": "Version",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "link": false,
-                    "linkTooltip": "Drill down",
-                    "linkUrl": "",
-                    "pattern": "version",
-                    "thresholds": [],
-                    "type": "number",
-                    "unit": "short"
-                },
-                {
-                    "alias": "",
-                    "align": "auto",
-                    "colorMode": null,
-                    "colors": [],
-                    "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                    "decimals": 2,
-                    "pattern": "/.*/",
-                    "thresholds": [],
-                    "type": "string",
-                    "unit": "short"
-                }
-            ],
+            "pluginVersion": "7.0.4",
             "targets": [
                 {
-                    "expr": "count by (job, pod, version) (prometheus_build_info{job=~\"$job\", pod=~\"$pod\"})",
-                    "format": "table",
-                    "instant": true,
-                    "intervalFactor": 2,
-                    "legendFormat": "",
-                    "refId": "A",
-                    "step": 10
-                },
-                {
-                    "expr": "max by (job, pod) (process_start_time_seconds{job=~\"$job\", pod=~\"$pod\"}*1000)",
+                    "expr": "count by (namespace, instance, pod, version) (prometheus_build_info{job=~\"$job\", pod=~\"$pod\"})",
                     "format": "table",
                     "instant": true,
                     "interval": "",
-                    "intervalFactor": 2,
+                    "intervalFactor": 1,
                     "legendFormat": "",
-                    "refId": "B",
+                    "refId": "A",
                     "step": 10
                 }
             ],
-            "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Prometheus Stats",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "transform": "table",
-            "type": "table-old",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
+            "title": "Build Info",
+            "transformations": [
                 {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": false
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "Time": true,
+                            "Value": true
+                        },
+                        "indexByName": {},
+                        "renameByName": {}
+                    }
                 }
-            ]
+            ],
+            "type": "table"
+        },
+        {
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": "left"
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "dateTimeFromNow"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 5,
+                "w": 6,
+                "x": 18,
+                "y": 1
+            },
+            "id": 19,
+            "links": [],
+            "options": {
+                "frameIndex": 0,
+                "showHeader": true
+            },
+            "pluginVersion": "7.0.4",
+            "targets": [
+                {
+                    "expr": "max by (namespace, instance,pod) (process_start_time_seconds{job=~\"$job\", pod=~\"$pod\"}*1000)\n",
+                    "format": "table",
+                    "instant": true,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A",
+                    "step": 10
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Uptime",
+            "transformations": [
+                {
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "Time": true,
+                            "Value": false,
+                            "instance": true,
+                            "namespace": true,
+                            "pod": true
+                        },
+                        "indexByName": {},
+                        "renameByName": {
+                            "Value": "Uptime"
+                        }
+                    }
+                }
+            ],
+            "type": "table"
         },
         {
             "collapsed": false,
@@ -263,7 +202,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -1309,9 +1248,10 @@
                 "allValue": null,
                 "current": {
                     "selected": true,
-                    "text": "All",
+                    "tags": [],
+                    "text": "visibility",
                     "value": [
-                        "$__all"
+                        "visibility"
                     ]
                 },
                 "datasource": "$datasource",
@@ -1337,6 +1277,7 @@
                 "allValue": null,
                 "current": {
                     "selected": true,
+                    "tags": [],
                     "text": "All",
                     "value": [
                         "$__all"
