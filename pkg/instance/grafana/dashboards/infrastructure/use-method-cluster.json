@@ -15,7 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "iteration": 1589799510729,
+    "id": 38,
+    "iteration": 1596456622392,
     "links": [],
     "panels": [
         {
@@ -39,6 +40,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -131,6 +138,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -238,6 +251,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -330,6 +349,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -437,6 +462,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -548,6 +579,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -674,6 +711,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -766,6 +809,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -873,6 +922,12 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 10,
             "fillGradient": 0,
             "gridPos": {
@@ -961,7 +1016,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 22,
+    "schemaVersion": 25,
     "style": "dark",
     "tags": [
         "kube-visibility"
@@ -970,8 +1025,9 @@
         "list": [
             {
                 "current": {
-                    "text": "prometheus",
-                    "value": "prometheus"
+                    "selected": true,
+                    "text": "default",
+                    "value": "default"
                 },
                 "hide": 0,
                 "includeAll": false,
@@ -980,6 +1036,7 @@
                 "name": "datasource",
                 "options": [],
                 "query": "prometheus",
+                "queryValue": "",
                 "refresh": 1,
                 "regex": "",
                 "skipUrlSync": false,
@@ -993,7 +1050,6 @@
     },
     "timepicker": {
         "refresh_intervals": [
-            "5s",
             "10s",
             "30s",
             "1m",
@@ -1019,5 +1075,5 @@
     "timezone": "",
     "title": "USE Method / Cluster",
     "uid": "3e97d1d02672cdd0861f4c97c64f89b2",
-    "version": 3
+    "version": 1
 }
