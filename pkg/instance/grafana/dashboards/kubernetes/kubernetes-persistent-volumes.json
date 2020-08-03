@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 24,
-    "iteration": 1593525278811,
+    "id": 23,
+    "iteration": 1596455618927,
     "links": [],
     "panels": [
         {
@@ -189,7 +189,7 @@
                 "lineColor": "rgb(31, 120, 193)",
                 "show": false
             },
-            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"databases\", persistentvolumeclaim=\"elasticsearch-pv-claim\", service=\"kubelet\"}",
+            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"visibility\", persistentvolumeclaim=\"alertmanager-visibility-db-alertmanager-visibility-0\", service=\"kubelet\"}",
             "targets": [
                 {
                     "expr": "(\n  sum without(instance, node) (kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n  -\n  sum without(instance, node) (kubelet_volume_stats_available_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n)\n/\nsum without(instance, node) (kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n* 100\n",
@@ -386,7 +386,7 @@
                 "lineColor": "rgb(31, 120, 193)",
                 "show": false
             },
-            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"databases\", persistentvolumeclaim=\"elasticsearch-pv-claim\", service=\"kubelet\"}",
+            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"visibility\", persistentvolumeclaim=\"alertmanager-visibility-db-alertmanager-visibility-0\", service=\"kubelet\"}",
             "targets": [
                 {
                     "expr": "sum without(instance, node) (kubelet_volume_stats_inodes_used{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n/\nsum without(instance, node) (kubelet_volume_stats_inodes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n* 100",
@@ -426,9 +426,9 @@
         "list": [
             {
                 "current": {
-                    "selected": false,
-                    "text": "Prometheus",
-                    "value": "Prometheus"
+                    "selected": true,
+                    "text": "default",
+                    "value": "default"
                 },
                 "hide": 0,
                 "includeAll": false,
@@ -474,8 +474,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "databases",
-                    "value": "databases"
+                    "text": "visibility",
+                    "value": "visibility"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -500,8 +500,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "elasticsearch-pv-claim",
-                    "value": "elasticsearch-pv-claim"
+                    "text": "alertmanager-visibility-db-alertmanager-visibility-0",
+                    "value": "alertmanager-visibility-db-alertmanager-visibility-0"
                 },
                 "datasource": "$datasource",
                 "definition": "",
