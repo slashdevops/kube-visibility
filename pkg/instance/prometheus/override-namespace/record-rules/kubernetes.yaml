@@ -296,13 +296,11 @@ spec:
           record: apiserver_request:availability30d
         - expr: |
             1 - (
-              sum(increase(apiserver_request_duration_seconds_count{component="apiserver",verb=~"LIST|GET"}[30d]))
-              -
               (
                 # too slow
-                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"LIST|GET",scope="resource",le="0.1"}[30d])) +
-                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"LIST|GET",scope="namespace",le="0.5"}[30d])) +
-                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"LIST|GET",scope="cluster",le="5"}[30d]))
+                sum(increase(apiserver_request_duration_seconds_count{component="apiserver",verb=~"LIST|GET"}[30d]))
+                -
+                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"LIST|GET",le="1"}[30d]))
               )
               +
               # errors
@@ -317,9 +315,9 @@ spec:
             1 - (
               (
                 # too slow
-                sum(increase(apiserver_request_duration_seconds_count{verb=~"POST|PUT|PATCH|DELETE"}[30d]))
+                sum(increase(apiserver_request_duration_seconds_count{component="apiserver",verb=~"POST|PUT|PATCH|DELETE"}[30d]))
                 -
-                sum(increase(apiserver_request_duration_seconds_bucket{verb=~"POST|PUT|PATCH|DELETE",le="1"}[30d]))
+                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"POST|PUT|PATCH|DELETE",le="1"}[30d]))
               )
               +
               # errors
