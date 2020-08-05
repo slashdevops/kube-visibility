@@ -277,14 +277,9 @@ spec:
                 sum(increase(apiserver_request_duration_seconds_bucket{verb=~"POST|PUT|PATCH|DELETE",le="1"}[30d]))
               ) +
               (
-                # read too slow
-                sum(increase(apiserver_request_duration_seconds_count{verb=~"LIST|GET"}[30d]))
+                sum(increase(apiserver_request_duration_seconds_count{component="apiserver",verb=~"LIST|GET"}[30d]))
                 -
-                (
-                  sum(increase(apiserver_request_duration_seconds_bucket{verb=~"LIST|GET",scope="resource",le="0.1"}[30d])) +
-                  sum(increase(apiserver_request_duration_seconds_bucket{verb=~"LIST|GET",scope="namespace",le="0.5"}[30d])) +
-                  sum(increase(apiserver_request_duration_seconds_bucket{verb=~"LIST|GET",scope="cluster",le="5"}[30d]))
-                )
+                sum(increase(apiserver_request_duration_seconds_bucket{component="apiserver",verb=~"LIST|GET",le="1"}[30d]))
               ) +
               # errors
               sum(code:apiserver_request_total:increase30d{code=~"5.."})
