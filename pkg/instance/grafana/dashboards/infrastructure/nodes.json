@@ -17,7 +17,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 37,
-    "iteration": 1596456274746,
+    "iteration": 1596613442400,
     "links": [],
     "panels": [
         {
@@ -28,7 +28,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -57,10 +58,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -128,7 +127,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -157,10 +157,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -245,6 +243,79 @@
             }
         },
         {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "max": 100,
+                    "min": 0,
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "rgba(50, 172, 45, 0.97)",
+                                "value": null
+                            },
+                            {
+                                "color": "rgba(237, 129, 40, 0.89)",
+                                "value": 80
+                            },
+                            {
+                                "color": "rgba(245, 54, 54, 0.9)",
+                                "value": 90
+                            }
+                        ]
+                    },
+                    "unit": "percent"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 6,
+                "w": 5,
+                "x": 0,
+                "y": 7
+            },
+            "id": 5,
+            "links": [],
+            "options": {
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "showThresholdLabels": true,
+                "showThresholdMarkers": true
+            },
+            "pluginVersion": "7.1.1",
+            "targets": [
+                {
+                    "expr": "100 -\n(\n  avg(avg_over_time(node_memory_MemAvailable_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n/\n  avg(avg_over_time(node_memory_MemTotal_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n* 100\n)\n",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Memory Usage",
+            "type": "gauge"
+        },
+        {
             "aliasColors": {},
             "bars": false,
             "dashLength": 10,
@@ -252,7 +323,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -261,7 +333,7 @@
             "gridPos": {
                 "h": 6,
                 "w": 19,
-                "x": 0,
+                "x": 5,
                 "y": 7
             },
             "hiddenSeries": false,
@@ -281,10 +353,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -409,10 +479,10 @@
             "gridPos": {
                 "h": 6,
                 "w": 5,
-                "x": 19,
-                "y": 7
+                "x": 0,
+                "y": 13
             },
-            "id": 5,
+            "id": 10,
             "links": [],
             "options": {
                 "orientation": "horizontal",
@@ -426,10 +496,10 @@
                 "showThresholdLabels": true,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
-                    "expr": "100 -\n(\n  avg(avg_over_time(node_memory_MemAvailable_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n/\n  avg(avg_over_time(node_memory_MemTotal_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n* 100\n)\n",
+                    "expr": "(\n  avg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n  -\n  avg(avg_over_time(node_filesystem_avail_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n)\n/\navg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n* 100\n",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -437,7 +507,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Memory Usage",
+            "title": "Disk Usage",
             "type": "gauge"
         },
         {
@@ -448,7 +518,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -457,7 +528,7 @@
             "gridPos": {
                 "h": 6,
                 "w": 19,
-                "x": 0,
+                "x": 5,
                 "y": 13
             },
             "hiddenSeries": false,
@@ -477,10 +548,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -558,79 +627,6 @@
             }
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "N/A",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "max": 100,
-                    "min": 0,
-                    "nullValueMode": "connected",
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "rgba(50, 172, 45, 0.97)",
-                                "value": null
-                            },
-                            {
-                                "color": "rgba(237, 129, 40, 0.89)",
-                                "value": 80
-                            },
-                            {
-                                "color": "rgba(245, 54, 54, 0.9)",
-                                "value": 90
-                            }
-                        ]
-                    },
-                    "unit": "percent"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 6,
-                "w": 5,
-                "x": 19,
-                "y": 13
-            },
-            "id": 10,
-            "links": [],
-            "options": {
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "showThresholdLabels": true,
-                "showThresholdMarkers": true
-            },
-            "pluginVersion": "7.0.4",
-            "targets": [
-                {
-                    "expr": "(\n  avg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n  -\n  avg(avg_over_time(node_filesystem_avail_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n)\n/\navg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n* 100\n",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 2,
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "title": "Disk Usage",
-            "type": "gauge"
-        },
-        {
             "aliasColors": {},
             "bars": false,
             "dashLength": 10,
@@ -638,7 +634,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -667,10 +664,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -763,7 +758,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -792,10 +788,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -863,7 +857,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -892,10 +887,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -957,7 +950,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility",

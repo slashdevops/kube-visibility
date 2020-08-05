@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 31,
-    "iteration": 1596454340653,
+    "iteration": 1596612809942,
     "links": [],
     "panels": [
         {
@@ -53,7 +53,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 0,
                 "y": 0
@@ -78,9 +78,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(up{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\"})",
@@ -123,7 +124,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 4,
                 "y": 0
@@ -148,9 +149,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(kubelet_running_pod_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
@@ -193,7 +195,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 8,
                 "y": 0
@@ -218,9 +220,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(kubelet_running_container_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
@@ -263,7 +266,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 12,
                 "y": 0
@@ -288,9 +291,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(volume_manager_total_volumes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\", state=\"actual_state_of_world\"})",
@@ -333,7 +337,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 16,
                 "y": 0
@@ -358,9 +362,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(volume_manager_total_volumes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\",state=\"desired_state_of_world\"})",
@@ -411,7 +416,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 4,
                 "w": 4,
                 "x": 20,
                 "y": 0
@@ -436,9 +441,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "sum(rate(kubelet_node_config_error{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"}[5m]))",
@@ -459,7 +465,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -469,7 +476,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 7
+                "y": 4
             },
             "hiddenSeries": false,
             "id": 8,
@@ -488,10 +495,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -559,7 +564,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -569,7 +575,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 7
+                "y": 4
             },
             "hiddenSeries": false,
             "id": 9,
@@ -588,10 +594,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -659,7 +663,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -669,7 +674,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 14
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 10,
@@ -688,10 +693,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -759,7 +762,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -769,7 +773,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 21
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 11,
@@ -788,10 +792,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -867,7 +869,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -877,7 +880,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 21
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 12,
@@ -896,10 +899,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -975,7 +976,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -985,7 +987,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 28
+                "y": 25
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1006,10 +1008,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1077,7 +1077,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1087,7 +1088,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 28
+                "y": 25
             },
             "hiddenSeries": false,
             "id": 14,
@@ -1108,10 +1109,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1179,7 +1178,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1189,7 +1189,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 35
+                "y": 32
             },
             "hiddenSeries": false,
             "id": 15,
@@ -1210,10 +1210,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1281,7 +1279,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1291,7 +1290,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 42
+                "y": 39
             },
             "hiddenSeries": false,
             "id": 16,
@@ -1310,10 +1309,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1381,7 +1378,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1391,7 +1389,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 42
+                "y": 39
             },
             "hiddenSeries": false,
             "id": 17,
@@ -1410,10 +1408,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1482,7 +1478,8 @@
             "description": "Pod lifecycle event generator",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1492,7 +1489,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 49
+                "y": 46
             },
             "hiddenSeries": false,
             "id": 18,
@@ -1511,10 +1508,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1582,7 +1577,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1592,7 +1588,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 49
+                "y": 46
             },
             "hiddenSeries": false,
             "id": 19,
@@ -1611,10 +1607,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1682,7 +1676,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1692,7 +1687,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 56
+                "y": 53
             },
             "hiddenSeries": false,
             "id": 20,
@@ -1711,10 +1706,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1782,7 +1775,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1792,7 +1786,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 63
+                "y": 60
             },
             "hiddenSeries": false,
             "id": 23,
@@ -1811,10 +1805,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1881,7 +1873,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1891,7 +1884,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 63
+                "y": 60
             },
             "hiddenSeries": false,
             "id": 24,
@@ -1910,10 +1903,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1980,7 +1971,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1990,7 +1982,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 63
+                "y": 60
             },
             "hiddenSeries": false,
             "id": 25,
@@ -2009,10 +2001,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2073,7 +2063,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility",

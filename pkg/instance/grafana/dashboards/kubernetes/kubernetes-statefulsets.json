@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 24,
-    "iteration": 1596455697056,
+    "id": 26,
+    "iteration": 1596613323277,
     "links": [],
     "panels": [
         {
@@ -39,7 +39,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
+                                "color": "dark-blue",
                                 "value": null
                             }
                         ]
@@ -68,9 +68,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "max(kube_statefulset_replicas{job=\"kube-state-metrics\", cluster=\"$cluster\", namespace=\"$namespace\", statefulset=\"$statefulset\"}) without (instance, pod)",
@@ -103,7 +104,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
+                                "color": "dark-blue",
                                 "value": null
                             }
                         ]
@@ -138,9 +139,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "min(kube_statefulset_status_replicas_current{job=\"kube-state-metrics\", cluster=\"$cluster\", namespace=\"$namespace\", statefulset=\"$statefulset\"}) without (instance, pod)",
@@ -173,7 +175,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
+                                "color": "dark-blue",
                                 "value": null
                             }
                         ]
@@ -208,9 +210,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "max(kube_statefulset_status_observed_generation{job=\"kube-state-metrics\", cluster=\"$cluster\", namespace=\"$namespace\", statefulset=\"$statefulset\"}) without (instance, pod)",
@@ -243,7 +246,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "green",
+                                "color": "dark-blue",
                                 "value": null
                             }
                         ]
@@ -278,9 +281,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.1.1",
             "targets": [
                 {
                     "expr": "max(kube_statefulset_metadata_generation{job=\"kube-state-metrics\", statefulset=\"$statefulset\", cluster=\"$cluster\", namespace=\"$namespace\"}) without (instance, pod)",
@@ -571,7 +575,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -600,10 +605,8 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {
-                "dataLinks": []
-            },
             "percentage": false,
+            "pluginVersion": "7.1.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -697,7 +700,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility",
@@ -708,7 +711,7 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "default",
                     "value": "default"
                 },
