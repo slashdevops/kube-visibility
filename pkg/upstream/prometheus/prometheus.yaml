@@ -6,7 +6,7 @@ metadata:
     prometheus: visibility
 spec:
   replicas: 1
-  version: v2.20.0
+  version: v2.20.1
   image: quay.io/prometheus/prometheus
   serviceAccountName: prometheus-visibility
   enableAdminAPI: true
