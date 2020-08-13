@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 11074,
     "graphTooltip": 0,
-    "id": 42,
-    "iteration": 1596614913963,
+    "id": 37,
+    "iteration": 1597327469529,
     "links": [
         {
             "icon": "external link",
@@ -58,7 +58,7 @@
     "panels": [
         {
             "collapsed": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "gridPos": {
                 "h": 1,
                 "w": 24,
@@ -72,7 +72,7 @@
         },
         {
             "columns": [],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "description": "Partition utilization, disk read, disk write, download bandwidth, upload bandwidth, if there are multiple network cards or multiple partitions, it is the value of the network card or partition with the highest utilization rate collected.",
             "fieldConfig": {
                 "defaults": {
@@ -494,7 +494,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": null,
             "description": "",
             "fieldConfig": {
@@ -646,7 +646,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 1,
             "fieldConfig": {
                 "defaults": {
@@ -785,7 +785,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 1,
             "description": "",
             "fieldConfig": {
@@ -920,7 +920,7 @@
         },
         {
             "collapsed": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "gridPos": {
                 "h": 1,
                 "w": 24,
@@ -943,7 +943,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 0,
             "description": "",
             "fieldConfig": {
@@ -1031,7 +1031,7 @@
             "valueName": "current"
         },
         {
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
                     "color": {
@@ -1132,7 +1132,7 @@
         },
         {
             "columns": [],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "description": "In this kanban: the total disk, usage, available, and usage rate are consistent with the values of the Size, Used, Avail, and Use% columns of the df command, and the value of Use% will be rounded to one decimal place, which will be more accurate .\n\nNote: The Use% algorithm in df is: (size-free) * 100 / (avail + (size-free)), the result is divisible by this value, non-divisible by this value is +1, and the unit of the result is %.\nRefer to the df command source code:",
             "fieldConfig": {
                 "defaults": {
@@ -1341,7 +1341,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "#d44a3a"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "",
             "fieldConfig": {
@@ -1442,7 +1442,7 @@
             "bars": true,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1568,7 +1568,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "description": "",
             "fieldConfig": {
                 "defaults": {
@@ -1661,7 +1661,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": null,
             "description": "",
             "fieldConfig": {
@@ -1754,7 +1754,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 0,
             "description": "",
             "fieldConfig": {
@@ -1848,7 +1848,7 @@
                 "rgba(237, 129, 40, 0.89)",
                 "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": null,
             "description": "",
             "fieldConfig": {
@@ -1951,7 +1951,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "",
             "fieldConfig": {
@@ -2109,7 +2109,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "fieldConfig": {
                 "defaults": {
@@ -2262,7 +2262,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "fieldConfig": {
                 "defaults": {
@@ -2385,7 +2385,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "editable": true,
             "error": false,
@@ -2534,7 +2534,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "Per second read / write bytes ",
             "fieldConfig": {
@@ -2655,7 +2655,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 1,
             "description": "",
             "fieldConfig": {
@@ -2765,7 +2765,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "Read/write completions per second",
             "fieldConfig": {
@@ -2900,7 +2900,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": null,
             "description": "The time spent on I/O in the natural time of each second.（wall-clock time）",
             "fieldConfig": {
@@ -3009,7 +3009,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "Time spent on each read/write operation",
             "fieldConfig": {
@@ -3134,7 +3134,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "decimals": 2,
             "description": "Sockets_used - Sockets currently in use\n\nCurrEstab - TCP connections for which the current state is either ESTABLISHED or CLOSE- WAIT\n\nTCP_alloc - Allocated sockets\n\nTCP_tw - Sockets wating close\n\nUDP_inuse - Udp sockets currently in use\n\nRetransSegs - TCP retransmission packets\n\nOutSegs - Number of packets sent by TCP\n\nInSegs - Number of packets received by TCP",
             "fieldConfig": {
@@ -3329,7 +3329,7 @@
             "cacheTimeout": null,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "Prometheus",
+            "datasource": "$datasource",
             "description": "",
             "fieldConfig": {
                 "defaults": {
@@ -3457,13 +3457,32 @@
     "templating": {
         "list": [
             {
+                "current": {
+                    "selected": false,
+                    "text": "default",
+                    "value": "default"
+                },
+                "hide": 0,
+                "includeAll": false,
+                "label": "datasource",
+                "multi": false,
+                "name": "datasource",
+                "options": [],
+                "query": "prometheus",
+                "queryValue": "",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "type": "datasource"
+            },
+            {
                 "allValue": null,
                 "current": {
                     "selected": false,
                     "text": "node-exporter",
                     "value": "node-exporter"
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "label_values(node_uname_info, job)",
                 "hide": 0,
                 "includeAll": false,
@@ -3489,7 +3508,7 @@
                     "text": "All",
                     "value": "$__all"
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "label_values(node_uname_info{job=~\"$job\"}, nodename)",
                 "hide": 0,
                 "includeAll": true,
@@ -3518,7 +3537,7 @@
                         "ip-10-62-53-204.eu-west-1.compute.internal"
                     ]
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "label_values(node_uname_info{job=~\"$job\",nodename=~\"$hostname\"},instance)",
                 "hide": 0,
                 "includeAll": false,
@@ -3546,7 +3565,7 @@
                     "text": "All",
                     "value": "$__all"
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "label_values(node_network_info{device!~'tap.*|veth.*|br.*|docker.*|virbr.*|lo.*|cni.*'},device)",
                 "hide": 0,
                 "includeAll": true,
@@ -3573,7 +3592,7 @@
                     "text": "/",
                     "value": "/"
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{instance=~'$node',fstype=~\"ext.?|xfs\",mountpoint!~\".*pods.*\"}) by (mountpoint))))",
                 "hide": 2,
                 "includeAll": false,
@@ -3599,7 +3618,7 @@
                     "text": "ip-10-62-53-204.eu-west-1.compute.internal",
                     "value": "ip-10-62-53-204.eu-west-1.compute.internal"
                 },
-                "datasource": "Prometheus",
+                "datasource": "$datasource",
                 "definition": "label_values(node_uname_info{job=~\"$job\",instance=~\"$node\"}, nodename)",
                 "hide": 2,
                 "includeAll": false,
@@ -3650,5 +3669,5 @@
     "timezone": "browser",
     "title": "Infrastructure / Nodes / Details",
     "uid": "hb7fSE0Zz",
-    "version": 5
+    "version": 1
 }
