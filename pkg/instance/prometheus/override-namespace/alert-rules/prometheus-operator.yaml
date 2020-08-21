@@ -11,10 +11,6 @@ spec:
     - name: alert--prometheus-operator
       rules:
         - alert: PrometheusOperatorReconcileErrors
-          annotations:
-            message:
-              Errors while reconciling {{ $labels.controller }} in {{ $labels.namespace
-              }} Namespace.
           expr: |
             rate(prometheus_operator_reconcile_errors_total{job="prometheus-operator"}[5m]) > 0.1
           for: 10m
@@ -22,9 +18,11 @@ spec:
             severity: warning
             team: visibility
             service: prometheus-operator
-        - alert: PrometheusOperatorNodeLookupErrors
           annotations:
-            message: Errors while reconciling Prometheus in {{ $labels.namespace }} Namespace.
+            message:
+              Errors while reconciling {{ $labels.controller }} in {{ $labels.namespace
+              }} Namespace.
+        - alert: PrometheusOperatorNodeLookupErrors
           expr: |
             rate(prometheus_operator_node_address_lookup_errors_total{job="prometheus-operator"}[5m]) > 0.1
           for: 10m
@@ -32,3 +30,5 @@ spec:
             severity: warning
             team: visibility
             service: prometheus-operator
+          annotations:
+            message: Errors while reconciling Prometheus in {{ $labels.namespace }} Namespace.

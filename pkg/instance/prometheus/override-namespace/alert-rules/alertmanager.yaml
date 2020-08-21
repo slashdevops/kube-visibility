@@ -11,10 +11,6 @@ spec:
     - name: alert--alertmanager
       rules:
         - alert: AlertmanagerConfigInconsistent
-          annotations:
-            message:
-              The configuration of the instances of the Alertmanager cluster `{{$labels.service}}`
-              are out of sync.
           expr: |
             count_values("config_hash", alertmanager_config_hash{service="alertmanager-visibility"}) BY (service) / ON(service) GROUP_LEFT() label_replace(max(prometheus_operator_spec_replicas{job="prometheus-operator",controller="alertmanager"}) by (name, job, namespace, controller), "service", "alertmanager-$1", "name", "(.*)") != 1
           for: 5m
@@ -22,11 +18,11 @@ spec:
             severity: critical
             team: visibility
             service: alertmanager
-        - alert: AlertmanagerFailedReload
           annotations:
             message:
-              Reloading Alertmanager's configuration has failed for {{ $labels.namespace
-              }}/{{ $labels.pod}}.
+              The configuration of the instances of the Alertmanager cluster `{{$labels.service}}`
+              are out of sync.
+        - alert: AlertmanagerFailedReload
           expr: |
             alertmanager_config_last_reload_successful{service="alertmanager-visibility"} == 0
           for: 10m
@@ -34,9 +30,11 @@ spec:
             severity: warning
             team: visibility
             service: alertmanager
-        - alert: AlertmanagerMembersInconsistent
           annotations:
-            message: Alertmanager has not found all other members of the cluster.
+            message:
+              Reloading Alertmanager's configuration has failed for {{ $labels.namespace
+              }}/{{ $labels.pod}}.
+        - alert: AlertmanagerMembersInconsistent
           expr: |
             alertmanager_cluster_members{service="alertmanager-visibility"}
               != on (service) GROUP_LEFT()
@@ -46,3 +44,5 @@ spec:
             severity: critical
             team: visibility
             service: alertmanager
+          annotations:
+            message: Alertmanager has not found all other members of the cluster.

@@ -10,11 +10,6 @@ spec:
     - name: alert--kubernetes-apps
       rules:
         - alert: KubePodCrashLooping
-          annotations:
-            message:
-              Pod {{ $labels.namespace }}/{{ $labels.pod }} ({{ $labels.container
-              }}) is restarting {{ printf "%.2f" $value }} times / 5 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodcrashlooping
           expr: |
             rate(kube_pod_container_status_restarts_total{job="kube-state-metrics"}[15m]) * 60 * 5 > 0
           for: 15m
@@ -22,12 +17,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubePodNotReady
           annotations:
             message:
-              Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-ready
-              state for longer than 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodnotready
+              Pod {{ $labels.namespace }}/{{ $labels.pod }} ({{ $labels.container
+              }}) is restarting {{ printf "%.2f" $value }} times / 5 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodcrashlooping
+        - alert: KubePodNotReady
           expr: |
             sum by (namespace, pod) (max by(namespace, pod) (kube_pod_status_phase{job="kube-state-metrics", phase=~"Pending|Unknown"}) * on(namespace, pod) group_left(owner_kind) max by(namespace, pod, owner_kind) (kube_pod_owner{owner_kind!="Job"})) > 0
           for: 15m
@@ -35,13 +30,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeDeploymentGenerationMismatch
           annotations:
             message:
-              Deployment generation for {{ $labels.namespace }}/{{ $labels.deployment
-              }} does not match, this indicates that the Deployment has failed but has
-              not been rolled back.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentgenerationmismatch
+              Pod {{ $labels.namespace }}/{{ $labels.pod }} has been in a non-ready
+              state for longer than 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepodnotready
+        - alert: KubeDeploymentGenerationMismatch
           expr: |
             kube_deployment_status_observed_generation{job="kube-state-metrics"}
               !=
@@ -51,12 +45,13 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeDeploymentReplicasMismatch
           annotations:
             message:
-              Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has not
-              matched the expected number of replicas for longer than 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentreplicasmismatch
+              Deployment generation for {{ $labels.namespace }}/{{ $labels.deployment
+              }} does not match, this indicates that the Deployment has failed but has
+              not been rolled back.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentgenerationmismatch
+        - alert: KubeDeploymentReplicasMismatch
           expr: |
             (
               kube_deployment_spec_replicas{job="kube-state-metrics"}
@@ -72,12 +67,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeStatefulSetReplicasMismatch
           annotations:
             message:
-              StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has
-              not matched the expected number of replicas for longer than 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetreplicasmismatch
+              Deployment {{ $labels.namespace }}/{{ $labels.deployment }} has not
+              matched the expected number of replicas for longer than 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedeploymentreplicasmismatch
+        - alert: KubeStatefulSetReplicasMismatch
           expr: |
             (
               kube_statefulset_status_replicas_ready{job="kube-state-metrics"}
@@ -93,13 +88,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeStatefulSetGenerationMismatch
           annotations:
             message:
-              StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset
-              }} does not match, this indicates that the StatefulSet has failed but has
-              not been rolled back.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetgenerationmismatch
+              StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} has
+              not matched the expected number of replicas for longer than 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetreplicasmismatch
+        - alert: KubeStatefulSetGenerationMismatch
           expr: |
             kube_statefulset_status_observed_generation{job="kube-state-metrics"}
               !=
@@ -109,12 +103,13 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeStatefulSetUpdateNotRolledOut
           annotations:
             message:
-              StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update
-              has not been rolled out.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetupdatenotrolledout
+              StatefulSet generation for {{ $labels.namespace }}/{{ $labels.statefulset
+              }} does not match, this indicates that the StatefulSet has failed but has
+              not been rolled back.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetgenerationmismatch
+        - alert: KubeStatefulSetUpdateNotRolledOut
           expr: |
             max without (revision) (
               kube_statefulset_status_current_revision{job="kube-state-metrics"}
@@ -132,12 +127,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeDaemonSetRolloutStuck
           annotations:
             message:
-              Only {{ $value | humanizePercentage }} of the desired Pods of DaemonSet
-              {{ $labels.namespace }}/{{ $labels.daemonset }} are scheduled and ready.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetrolloutstuck
+              StatefulSet {{ $labels.namespace }}/{{ $labels.statefulset }} update
+              has not been rolled out.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatefulsetupdatenotrolledout
+        - alert: KubeDaemonSetRolloutStuck
           expr: |
             kube_daemonset_status_number_ready{job="kube-state-metrics"}
               /
@@ -147,12 +142,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeContainerWaiting
           annotations:
             message:
-              Pod {{ $labels.namespace }}/{{ $labels.pod }} container {{ $labels.container}}
-              has been in waiting state for longer than 1 hour.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontainerwaiting
+              Only {{ $value | humanizePercentage }} of the desired Pods of DaemonSet
+              {{ $labels.namespace }}/{{ $labels.daemonset }} are scheduled and ready.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetrolloutstuck
+        - alert: KubeContainerWaiting
           expr: |
             sum by (namespace, pod, container) (kube_pod_container_status_waiting_reason{job="kube-state-metrics"}) > 0
           for: 1h
@@ -160,12 +155,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeDaemonSetNotScheduled
           annotations:
             message:
-              "{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset
-              }} are not scheduled."
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetnotscheduled
+              Pod {{ $labels.namespace }}/{{ $labels.pod }} container {{ $labels.container}}
+              has been in waiting state for longer than 1 hour.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecontainerwaiting
+        - alert: KubeDaemonSetNotScheduled
           expr: |
             kube_daemonset_status_desired_number_scheduled{job="kube-state-metrics"}
               -
@@ -175,12 +170,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeDaemonSetMisScheduled
           annotations:
             message:
               "{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset
-              }} are running where they are not supposed to run."
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetmisscheduled
+              }} are not scheduled."
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetnotscheduled
+        - alert: KubeDaemonSetMisScheduled
           expr: |
             kube_daemonset_status_number_misscheduled{job="kube-state-metrics"} > 0
           for: 15m
@@ -188,12 +183,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeCronJobRunning
           annotations:
             message:
-              CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more
-              than 1h to complete.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecronjobrunning
+              "{{ $value }} Pods of DaemonSet {{ $labels.namespace }}/{{ $labels.daemonset
+              }} are running where they are not supposed to run."
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubedaemonsetmisscheduled
+        - alert: KubeCronJobRunning
           expr: |
             time() - kube_cronjob_next_schedule_time{job="kube-state-metrics"} > 3600
           for: 1h
@@ -201,12 +196,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeJobCompletion
           annotations:
             message:
-              Job {{ $labels.namespace }}/{{ $labels.job_name }} is taking more
-              than one hour to complete.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobcompletion
+              CronJob {{ $labels.namespace }}/{{ $labels.cronjob }} is taking more
+              than 1h to complete.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecronjobrunning
+        - alert: KubeJobCompletion
           expr: |
             kube_job_spec_completions{job="kube-state-metrics"} - kube_job_status_succeeded{job="kube-state-metrics"}  > 0
           for: 1h
@@ -214,10 +209,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeJobFailed
           annotations:
-            message: Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobfailed
+            message:
+              Job {{ $labels.namespace }}/{{ $labels.job_name }} is taking more
+              than one hour to complete.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobcompletion
+        - alert: KubeJobFailed
           expr: |
             kube_job_failed{job="kube-state-metrics"}  > 0
           for: 15m
@@ -225,12 +222,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeHpaReplicasMismatch
           annotations:
-            message:
-              HPA {{ $labels.namespace }}/{{ $labels.hpa }} has not matched the
-              desired number of replicas for longer than 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpareplicasmismatch
+            message: Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubejobfailed
+        - alert: KubeHpaReplicasMismatch
           expr: |
             (kube_hpa_status_desired_replicas{job="kube-state-metrics"}
               !=
@@ -242,12 +237,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeHpaMaxedOut
           annotations:
             message:
-              HPA {{ $labels.namespace }}/{{ $labels.hpa }} has been running at
-              max replicas for longer than 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpamaxedout
+              HPA {{ $labels.namespace }}/{{ $labels.hpa }} has not matched the
+              desired number of replicas for longer than 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpareplicasmismatch
+        - alert: KubeHpaMaxedOut
           expr: |
             kube_hpa_status_current_replicas{job="kube-state-metrics"}
               ==
@@ -257,14 +252,14 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
+          annotations:
+            message:
+              HPA {{ $labels.namespace }}/{{ $labels.hpa }} has been running at
+              max replicas for longer than 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubehpamaxedout
     - name: alert--kubernetes-resources
       rules:
         - alert: KubeCPUOvercommit
-          annotations:
-            message:
-              Cluster has overcommitted CPU resource requests for Pods and cannot
-              tolerate node failure.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuovercommit
           expr: |
             sum(namespace:kube_pod_container_resource_requests_cpu_cores:sum{})
               /
@@ -276,12 +271,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeMemoryOvercommit
           annotations:
             message:
-              Cluster has overcommitted memory resource requests for Pods and cannot
+              Cluster has overcommitted CPU resource requests for Pods and cannot
               tolerate node failure.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryovercommit
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuovercommit
+        - alert: KubeMemoryOvercommit
           expr: |
             sum(namespace:kube_pod_container_resource_requests_memory_bytes:sum{})
               /
@@ -295,10 +290,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeCPUQuotaOvercommit
           annotations:
-            message: Cluster has overcommitted CPU resource requests for Namespaces.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuquotaovercommit
+            message:
+              Cluster has overcommitted memory resource requests for Pods and cannot
+              tolerate node failure.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryovercommit
+        - alert: KubeCPUQuotaOvercommit
           expr: |
             sum(kube_resourcequota{job="kube-state-metrics", type="hard", resource="cpu"})
               /
@@ -309,10 +306,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeMemoryQuotaOvercommit
           annotations:
-            message: Cluster has overcommitted memory resource requests for Namespaces.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryquotaovercommit
+            message: Cluster has overcommitted CPU resource requests for Namespaces.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubecpuquotaovercommit
+        - alert: KubeMemoryQuotaOvercommit
           expr: |
             sum(kube_resourcequota{job="kube-state-metrics", type="hard", resource="memory"})
               /
@@ -323,12 +320,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeQuotaExceeded
           annotations:
-            message:
-              Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage
-              }} of its {{ $labels.resource }} quota.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaexceeded
+            message: Cluster has overcommitted memory resource requests for Namespaces.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubememoryquotaovercommit
+        - alert: KubeQuotaExceeded
           expr: |
             kube_resourcequota{job="kube-state-metrics", type="used"}
               / ignoring(instance, job, type)
@@ -339,13 +334,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: CPUThrottlingHigh
           annotations:
             message:
-              "{{ $value | humanizePercentage }} throttling of CPU in namespace
-              {{ $labels.namespace }} for container {{ $labels.container }} in pod {{
-              $labels.pod }}."
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-cputhrottlinghigh
+              Namespace {{ $labels.namespace }} is using {{ $value | humanizePercentage
+              }} of its {{ $labels.resource }} quota.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubequotaexceeded
+        - alert: CPUThrottlingHigh
           expr: |
             sum(increase(container_cpu_cfs_throttled_periods_total{container!="", }[5m])) by (container, pod, namespace)
               /
@@ -356,15 +350,15 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
+          annotations:
+            message:
+              "{{ $value | humanizePercentage }} throttling of CPU in namespace
+              {{ $labels.namespace }} for container {{ $labels.container }} in pod {{
+              $labels.pod }}."
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-cputhrottlinghigh
     - name: alert--kubernetes-storage
       rules:
         - alert: KubePersistentVolumeFillingUp
-          annotations:
-            message:
-              The PersistentVolume claimed by {{ $labels.persistentvolumeclaim
-              }} in Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage
-              }} free.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
           expr: |
             kubelet_volume_stats_available_bytes{job="kubelet", metrics_path="/metrics"}
               /
@@ -375,13 +369,13 @@ spec:
             severity: critical
             team: visibility
             service: kubelet
-        - alert: KubePersistentVolumeFillingUp
           annotations:
             message:
-              Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim
-              }} in Namespace {{ $labels.namespace }} is expected to fill up within four
-              days. Currently {{ $value | humanizePercentage }} is available.
+              The PersistentVolume claimed by {{ $labels.persistentvolumeclaim
+              }} in Namespace {{ $labels.namespace }} is only {{ $value | humanizePercentage
+              }} free.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
+        - alert: KubePersistentVolumeFillingUp
           expr: |
             (
               kubelet_volume_stats_available_bytes{job="kubelet", metrics_path="/metrics"}
@@ -395,12 +389,13 @@ spec:
             severity: warning
             team: visibility
             service: kubelet
-        - alert: KubePersistentVolumeErrors
           annotations:
             message:
-              The persistent volume {{ $labels.persistentvolume }} has status {{
-              $labels.phase }}.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeerrors
+              Based on recent sampling, the PersistentVolume claimed by {{ $labels.persistentvolumeclaim
+              }} in Namespace {{ $labels.namespace }} is expected to fill up within four
+              days. Currently {{ $value | humanizePercentage }} is available.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumefillingup
+        - alert: KubePersistentVolumeErrors
           expr: |
             kube_persistentvolume_status_phase{phase=~"Failed|Pending",job="kube-state-metrics"} > 0
           for: 5m
@@ -408,14 +403,14 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
+          annotations:
+            message:
+              The persistent volume {{ $labels.persistentvolume }} has status {{
+              $labels.phase }}.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubepersistentvolumeerrors
     - name: alert--kubernetes-system
       rules:
         - alert: KubeVersionMismatch
-          annotations:
-            message:
-              There are {{ $value }} different semantic versions of Kubernetes
-              components running.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeversionmismatch
           expr: |
             count(count by (gitVersion) (label_replace(kubernetes_build_info{job!~"kube-dns|coredns"},"gitVersion","$1","gitVersion","(v[0-9]*.[0-9]*.[0-9]*).*"))) > 1
           for: 15m
@@ -423,12 +418,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeClientErrors
           annotations:
             message:
-              Kubernetes API server client '{{ $labels.job }}/{{ $labels.instance
-              }}' is experiencing {{ $value | humanizePercentage }} errors.'
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclienterrors
+              There are {{ $value }} different semantic versions of Kubernetes
+              components running.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeversionmismatch
+        - alert: KubeClientErrors
           expr: |
             (sum(rate(rest_client_requests_total{code=~"5.."}[5m])) by (instance, job)
               /
@@ -439,12 +434,14 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
+          annotations:
+            message:
+              Kubernetes API server client '{{ $labels.job }}/{{ $labels.instance
+              }}' is experiencing {{ $value | humanizePercentage }} errors.'
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclienterrors
     - name: alert--kubernetes-apiserver-slost
       rules:
         - alert: KubeAPIErrorBudgetBurn
-          annotations:
-            message: The API server is burning too much error budget
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
           expr: |
             sum(apiserver_request:burnrate1h) > (14.40 * 0.01000)
             and
@@ -454,10 +451,10 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
+        - alert: KubeAPIErrorBudgetBurn
           expr: |
             sum(apiserver_request:burnrate6h) > (6.00 * 0.01000)
             and
@@ -467,10 +464,10 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
-        - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
+        - alert: KubeAPIErrorBudgetBurn
           expr: |
             sum(apiserver_request:burnrate1d) > (3.00 * 0.01000)
             and
@@ -480,10 +477,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
+        - alert: KubeAPIErrorBudgetBurn
           expr: |
             sum(apiserver_request:burnrate3d) > (1.00 * 0.01000)
             and
@@ -493,14 +490,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
+          annotations:
+            message: The API server is burning too much error budget
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorbudgetburn
     - name: alert--kubernetes-apiserver
       rules:
         - alert: KubeAPILatencyHigh
-          annotations:
-            message:
-              The API server has an abnormal latency of {{ $value }} seconds for
-              {{ $labels.verb }} {{ $labels.resource }}.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapilatencyhigh
           expr: |
             (
               cluster:apiserver_request_duration_seconds:mean5m{job=~"apiserver|kubernetes"}
@@ -522,13 +517,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeAPIErrorsHigh
           annotations:
             message:
-              API server is returning errors for {{ $value | humanizePercentage
-              }} of requests for {{ $labels.verb }} {{ $labels.resource }} {{ $labels.subresource
-              }}.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorshigh
+              The API server has an abnormal latency of {{ $value }} seconds for
+              {{ $labels.verb }} {{ $labels.resource }}.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapilatencyhigh
+        - alert: KubeAPIErrorsHigh
           expr: |
             sum(rate(apiserver_request_total{job=~"apiserver|kubernetes",code=~"5.."}[5m])) by (resource,subresource,verb)
               /
@@ -538,31 +532,43 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeClientCertificateExpiration
           annotations:
             message:
-              A client certificate used to authenticate to the apiserver is expiring
-              in less than 7.0 days.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
+              API server is returning errors for {{ $value | humanizePercentage
+              }} of requests for {{ $labels.verb }} {{ $labels.resource }} {{ $labels.subresource
+              }}.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorshigh
+        - alert: KubeClientCertificateExpiration
           expr: |
             apiserver_client_certificate_expiration_seconds_count{job=~"apiserver|kubernetes"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job=~"apiserver|kubernetes"}[5m]))) < 604800
           labels:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeClientCertificateExpiration
           annotations:
             message:
               A client certificate used to authenticate to the apiserver is expiring
-              in less than 24.0 hours.
+              in less than 7.0 days.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
+        - alert: KubeClientCertificateExpiration
           expr: |
             apiserver_client_certificate_expiration_seconds_count{job=~"apiserver|kubernetes"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job=~"apiserver|kubernetes"}[5m]))) < 86400
           labels:
             severity: critical
             team: visibility
             service: kubernetes
+          annotations:
+            message:
+              A client certificate used to authenticate to the apiserver is expiring
+              in less than 24.0 hours.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
         - alert: AggregatedAPIErrors
+          expr: |
+            sum by(name, namespace)(increase(aggregator_unavailable_apiservice_count[5m])) > 2
+          labels:
+            severity: warning
+            team: visibility
+            service: kubernetes
           annotations:
             message:
               An aggregated API {{ $labels.name }}/{{ $labels.namespace }} has
@@ -570,18 +576,7 @@ spec:
               five minutes. High values indicate that the availability of the service
               changes too often.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapierrors
-          expr: |
-            sum by(name, namespace)(increase(aggregator_unavailable_apiservice_count[5m])) > 2
-          labels:
-            severity: warning
-            team: visibility
-            service: kubernetes
         - alert: AggregatedAPIDown
-          annotations:
-            message:
-              An aggregated API {{ $labels.name }}/{{ $labels.namespace }} is down.
-              It has not been available at least for the past five minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
           expr: |
             sum by(name, namespace)(sum_over_time(aggregator_unavailable_apiservice[5m])) > 0
           for: 5m
@@ -589,10 +584,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeAPIDown
           annotations:
-            message: KubeAPI has disappeared from Prometheus target discovery.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapidown
+            message:
+              An aggregated API {{ $labels.name }}/{{ $labels.namespace }} is down.
+              It has not been available at least for the past five minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
+        - alert: KubeAPIDown
           expr: |
             absent(up{job=~"apiserver|kubernetes"} == 1)
           for: 15m
@@ -600,12 +597,12 @@ spec:
             severity: critical
             team: visibility
             service: kubernetes
+          annotations:
+            message: KubeAPI has disappeared from Prometheus target discovery.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapidown
     - name: alert--kubernetes-kubelet
       rules:
         - alert: KubeNodeNotReady
-          annotations:
-            message: "{{ $labels.node }} has been unready for more than 15 minutes."
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodenotready
           expr: |
             kube_node_status_condition{job="kube-state-metrics",condition="Ready",status="true"} == 0
           for: 15m
@@ -613,10 +610,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeNodeUnreachable
           annotations:
-            message: "{{ $labels.node }} is unreachable and some workloads may be rescheduled."
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodeunreachable
+            message: "{{ $labels.node }} has been unready for more than 15 minutes."
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodenotready
+        - alert: KubeNodeUnreachable
           expr: |
             kube_node_spec_taint{job="kube-state-metrics",key="node.kubernetes.io/unreachable",effect="NoSchedule"} == 1
           for: 2m
@@ -624,12 +621,10 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeletTooManyPods
           annotations:
-            message:
-              Kubelet '{{ $labels.node }}' is running at {{ $value | humanizePercentage
-              }} of its Pod capacity.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubelettoomanypods
+            message: "{{ $labels.node }} is unreachable and some workloads may be rescheduled."
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodeunreachable
+        - alert: KubeletTooManyPods
           expr: |
             max(max(kubelet_running_pod_count{job="kubelet", metrics_path="/metrics"}) by(instance) * on(instance) group_left(node) kubelet_node_name{job="kubelet", metrics_path="/metrics"}) by(node) / max(kube_node_status_capacity_pods{job="kube-state-metrics"} != 1) by(node) > 0.95
           for: 15m
@@ -637,12 +632,12 @@ spec:
             severity: warning
             team: visibility
             service: kubelet
-        - alert: KubeNodeReadinessFlapping
           annotations:
             message:
-              The readiness status of node {{ $labels.node }} has changed {{ $value
-              }} times in the last 15 minutes.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodereadinessflapping
+              Kubelet '{{ $labels.node }}' is running at {{ $value | humanizePercentage
+              }} of its Pod capacity.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubelettoomanypods
+        - alert: KubeNodeReadinessFlapping
           expr: |
             sum(changes(kube_node_status_condition{status="true",condition="Ready"}[15m])) by (node) > 2
           for: 15m
@@ -650,12 +645,12 @@ spec:
             severity: warning
             team: visibility
             service: kubernetes
-        - alert: KubeletPlegDurationHigh
           annotations:
             message:
-              The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration
-              of {{ $value }} seconds on node {{ $labels.node }}.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletplegdurationhigh
+              The readiness status of node {{ $labels.node }} has changed {{ $value
+              }} times in the last 15 minutes.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubenodereadinessflapping
+        - alert: KubeletPlegDurationHigh
           expr: |
             node_quantile:kubelet_pleg_relist_duration_seconds:histogram_quantile{quantile="0.99"} >= 10
           for: 5m
@@ -663,12 +658,12 @@ spec:
             severity: warning
             team: visibility
             service: kubelet
-        - alert: KubeletPodStartUpLatencyHigh
           annotations:
             message:
-              Kubelet Pod startup 99th percentile latency is {{ $value }} seconds
-              on node {{ $labels.node }}.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletpodstartuplatencyhigh
+              The Kubelet Pod Lifecycle Event Generator has a 99th percentile duration
+              of {{ $value }} seconds on node {{ $labels.node }}.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletplegdurationhigh
+        - alert: KubeletPodStartUpLatencyHigh
           expr: |
             histogram_quantile(0.99, sum(rate(kubelet_pod_worker_duration_seconds_bucket{job="kubelet", metrics_path="/metrics"}[5m])) by (instance, le)) * on(instance) group_left(node) kubelet_node_name{job="kubelet", metrics_path="/metrics"} > 60
           for: 15m
@@ -676,10 +671,12 @@ spec:
             severity: warning
             team: visibility
             service: kubelet
-        - alert: KubeletDown
           annotations:
-            message: Kubelet has disappeared from Prometheus target discovery.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletdown
+            message:
+              Kubelet Pod startup 99th percentile latency is {{ $value }} seconds
+              on node {{ $labels.node }}.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletpodstartuplatencyhigh
+        - alert: KubeletDown
           expr: |
             absent(up{job="kubelet", metrics_path="/metrics"} == 1)
           for: 15m
@@ -687,3 +684,6 @@ spec:
             severity: critical
             team: visibility
             service: kubelet
+          annotations:
+            message: Kubelet has disappeared from Prometheus target discovery.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeletdown

@@ -11,12 +11,6 @@ spec:
     - name: alert--kube-state-metrics
       rules:
         - alert: KubeStateMetricsListErrors
-          annotations:
-            message:
-              kube-state-metrics is experiencing errors at an elevated rate in
-              list operations. This is likely causing it to not be able to expose metrics
-              about Kubernetes objects correctly or at all.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatemetricslisterrors
           expr: |
             (sum(rate(kube_state_metrics_list_total{job="kube-state-metrics",result="error"}[5m]))
               /
@@ -27,13 +21,13 @@ spec:
             severity: critical
             team: visibility
             service: kube-state-metrics
-        - alert: KubeStateMetricsWatchErrors
           annotations:
             message:
               kube-state-metrics is experiencing errors at an elevated rate in
-              watch operations. This is likely causing it to not be able to expose metrics
+              list operations. This is likely causing it to not be able to expose metrics
               about Kubernetes objects correctly or at all.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatemetricswatcherrors
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatemetricslisterrors
+        - alert: KubeStateMetricsWatchErrors
           expr: |
             (sum(rate(kube_state_metrics_watch_total{job="kube-state-metrics",result="error"}[5m]))
               /
@@ -44,3 +38,9 @@ spec:
             severity: critical
             team: visibility
             service: kube-state-metrics
+          annotations:
+            message:
+              kube-state-metrics is experiencing errors at an elevated rate in
+              watch operations. This is likely causing it to not be able to expose metrics
+              about Kubernetes objects correctly or at all.
+            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubestatemetricswatcherrors
