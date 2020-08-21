@@ -10,13 +10,18 @@ Also, this is [GitOps](https://www.weave.works/technologies/gitops/) friendly.
 
 This [kpt package](pkg/) will install the following software list into your Kubernetes cluster
 
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
-* [node_exporter](https://github.com/prometheus/node_exporter)
-* [prometheus-operator](https://github.com/coreos/prometheus-operator)
-* [k8s-prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter)
-* [prometheus](https://prometheus.io/docs/introduction/overview/)
-* [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
-* [grafana](https://grafana.com/)
+| Project                                                                          | License                                                                                              |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)           | [Apache License 2.0](https://github.com/kubernetes/kube-state-metrics/blob/master/LICENSE)           |
+| [node_exporter](https://github.com/prometheus/node_exporter)                     | [Apache License 2.0](https://github.com/prometheus/node_exporter/blob/master/LICENSE)                |
+| [prometheus-operator](https://github.com/coreos/prometheus-operator)             | [Apache License 2.0](https://github.com/prometheus-operator/prometheus-operator/blob/master/LICENSE) |
+| [k8s-prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter) | [Apache License 2.0](https://github.com/DirectXMan12/k8s-prometheus-adapter/blob/master/LICENSE)     |
+| [kube-rbac-proxy](https://github.com/brancz/kube-rbac-proxy)                     | [Apache License 2.0](https://github.com/brancz/kube-rbac-proxy/blob/master/LICENSE)                  |
+| [prometheus](https://prometheus.io/docs/introduction/overview/)                  | [Apache License 2.0](https://github.com/prometheus/prometheus/blob/master/LICENSE)                   |
+| [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)                | [Apache License 2.0](https://github.com/prometheus/alertmanager/blob/master/LICENSE)                 |
+| [grafana](https://grafana.com/)                                                  | [Apache License 2.0](https://github.com/grafana/grafana/blob/master/LICENSE)                         |
+| [kpt](https://googlecontainertools.github.io/kpt/)                               | [Apache License 2.0](https://github.com/GoogleContainerTools/kpt/blob/master/LICENSE)                |
+| [kustomize](https://kubernetes-sigs.github.io/kustomize/)                        | [Apache License 2.0](https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE)               |
 
 ## Components Versions
 
