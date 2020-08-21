@@ -25,12 +25,12 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem is predicted to run out of space within the next 24 hours.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available space left and is filling
               up.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemspacefillingup
-            summary: Filesystem is predicted to run out of space within the next 24 hours.
         - alert: NodeFilesystemSpaceFillingUp
           expr: |
             (
@@ -46,12 +46,12 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem is predicted to run out of space within the next 4 hours.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available space left and is filling
               up fast.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemspacefillingup
-            summary: Filesystem is predicted to run out of space within the next 4 hours.
         - alert: NodeFilesystemAlmostOutOfSpace
           expr: |
             (
@@ -65,11 +65,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem has less than 5% space left.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available space left.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemalmostoutofspace
-            summary: Filesystem has less than 5% space left.
         - alert: NodeFilesystemAlmostOutOfSpace
           expr: |
             (
@@ -83,11 +83,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem has less than 3% space left.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available space left.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemalmostoutofspace
-            summary: Filesystem has less than 3% space left.
         - alert: NodeFilesystemFilesFillingUp
           expr: |
             (
@@ -103,12 +103,12 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem is predicted to run out of inodes within the next 24 hours.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available inodes left and is filling
               up.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemfilesfillingup
-            summary: Filesystem is predicted to run out of inodes within the next 24 hours.
         - alert: NodeFilesystemFilesFillingUp
           expr: |
             (
@@ -124,12 +124,12 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem is predicted to run out of inodes within the next 4 hours.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available inodes left and is filling
               up fast.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemfilesfillingup
-            summary: Filesystem is predicted to run out of inodes within the next 4 hours.
         - alert: NodeFilesystemAlmostOutOfFiles
           expr: |
             (
@@ -143,11 +143,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem has less than 5% inodes left.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available inodes left.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemalmostoutoffiles
-            summary: Filesystem has less than 5% inodes left.
         - alert: NodeFilesystemAlmostOutOfFiles
           expr: |
             (
@@ -161,11 +161,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Filesystem has less than 3% inodes left.
             description:
               Filesystem on {{ $labels.device }} at {{ $labels.instance }}
               has only {{ printf "%.2f" $value }}% available inodes left.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodefilesystemalmostoutoffiles
-            summary: Filesystem has less than 3% inodes left.
     - name: alert--node-network
       rules:
         - alert: NodeNetworkInterfaceFlapping
@@ -177,7 +177,7 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
-            message:
+            description:
               Network interface "{{ $labels.device }}" changing it's up status
               often on node-exporter {{ $labels.namespace }}/{{ $labels.pod }}"
         - alert: NodeNetworkReceiveErrs
@@ -189,11 +189,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Network interface is reporting many receive errors.
             description:
               '{{ $labels.instance }} interface {{ $labels.device }} has encountered
               {{ printf "%.0f" $value }} receive errors in the last two minutes.'
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodenetworkreceiveerrs
-            summary: Network interface is reporting many receive errors.
         - alert: NodeNetworkTransmitErrs
           expr: |
             increase(node_network_transmit_errs_total[2m]) > 10
@@ -203,11 +203,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Network interface is reporting many transmit errors.
             description:
               '{{ $labels.instance }} interface {{ $labels.device }} has encountered
               {{ printf "%.0f" $value }} transmit errors in the last two minutes.'
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodenetworktransmiterrs
-            summary: Network interface is reporting many transmit errors.
         - alert: NodeHighNumberConntrackEntriesUsed
           expr: |
             (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
@@ -216,9 +216,9 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
+            summary: Number of conntrack are getting close to the limit
             description: "{{ $value | humanizePercentage }} of conntrack entries are used"
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodehighnumberconntrackentriesused
-            summary: Number of conntrack are getting close to the limit
     - name: alert--node-clock
       rules:
         - alert: NodeClockSkewDetected
@@ -240,11 +240,11 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
-            message:
+            summary: Clock skew detected.
+            description:
               Clock on {{ $labels.instance }} is out of sync by more than 300s.
               Ensure NTP is configured correctly on this host.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodeclockskewdetected
-            summary: Clock skew detected.
         - alert: NodeClockNotSynchronising
           expr: |
             min_over_time(node_timex_sync_status[5m]) == 0
@@ -254,8 +254,8 @@ spec:
             team: visibility
             service: node-exporter
           annotations:
-            message:
+            summary: Clock not synchronising.
+            description:
               Clock on {{ $labels.instance }} is not synchronising. Ensure NTP
               is configured on this host.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-nodeclocknotsynchronising
-            summary: Clock not synchronising.

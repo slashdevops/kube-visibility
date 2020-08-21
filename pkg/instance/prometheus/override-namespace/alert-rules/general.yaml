@@ -20,9 +20,11 @@ spec:
             team: visibility
             service: "{{ $labels.service }}"
           annotations:
-            message:
-              '{{ printf "%.4g" $value }}% of the {{ $labels.job }}/{{ $labels.service
-              }} targets in {{ $labels.namespace }} namespace are down.'
+            title: "Target Down"
+            summary: '{{ printf "%.4g" $value }}% of {{ $labels.service }} are down'
+            description:
+              '{{ printf "%.4g" $value }}% of the {{ $labels.job }}/{{ $labels.service }}
+              targets in {{ $labels.namespace }} namespace are down.'
         - alert: Watchdog
           expr: vector(1)
           labels:
@@ -30,7 +32,9 @@ spec:
             team: visibility
             service: watchdog
           annotations:
-            message: |
+            title: "Watchdog"
+            summary: "This Watchdog alert is ensuring that alerting pipeline is functional"
+            description: |
               This is an alert meant to ensure that the entire alerting pipeline is functional.
               This alert is always firing, therefore it should always be firing in Alertmanager
               and always fire against a receiver. There are integrations with various notification

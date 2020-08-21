@@ -19,9 +19,9 @@ spec:
             team: visibility
             service: prometheus-operator
           annotations:
-            message:
-              Errors while reconciling {{ $labels.controller }} in {{ $labels.namespace
-              }} Namespace.
+            title: "prometheus-operator reconcile errors"
+            summary: "The prometheus-operator is experiencing errors while reconciling prometheus"
+            description: "Errors while reconciling {{ $labels.controller }} in {{ $labels.namespace }} Namespace."
         - alert: PrometheusOperatorNodeLookupErrors
           expr: |
             rate(prometheus_operator_node_address_lookup_errors_total{job="prometheus-operator"}[5m]) > 0.1
@@ -31,4 +31,6 @@ spec:
             team: visibility
             service: prometheus-operator
           annotations:
-            message: Errors while reconciling Prometheus in {{ $labels.namespace }} Namespace.
+            title: "prometheus-operator node lookup errors"
+            summary: "The prometheus-operator is experiencing nodes lookup errors while reconciling prometheus"
+            description: "Nodes lookup errors while reconciling Prometheus in {{ $labels.namespace }} Namespace."
