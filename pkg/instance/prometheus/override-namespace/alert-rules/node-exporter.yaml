@@ -30,6 +30,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemSpaceFillingUp
           annotations:
             description:
@@ -50,6 +51,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemAlmostOutOfSpace
           annotations:
             description:
@@ -67,6 +69,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemAlmostOutOfSpace
           annotations:
             description:
@@ -84,6 +87,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemFilesFillingUp
           annotations:
             description:
@@ -104,6 +108,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemFilesFillingUp
           annotations:
             description:
@@ -124,6 +129,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemAlmostOutOfFiles
           annotations:
             description:
@@ -141,6 +147,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeFilesystemAlmostOutOfFiles
           annotations:
             description:
@@ -158,6 +165,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: node-exporter
     - name: alert--node-network
       rules:
         - alert: NodeNetworkInterfaceFlapping
@@ -171,6 +179,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeNetworkReceiveErrs
           annotations:
             description:
@@ -184,6 +193,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeNetworkTransmitErrs
           annotations:
             description:
@@ -197,6 +207,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeHighNumberConntrackEntriesUsed
           annotations:
             description: "{{ $value | humanizePercentage }} of conntrack entries are used"
@@ -207,6 +218,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
     - name: alert--node-clock
       rules:
         - alert: NodeClockSkewDetected
@@ -232,6 +244,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter
         - alert: NodeClockNotSynchronising
           annotations:
             message:
@@ -245,3 +258,4 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: node-exporter

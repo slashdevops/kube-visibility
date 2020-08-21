@@ -26,6 +26,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kube-state-metrics
         - alert: KubeStateMetricsWatchErrors
           annotations:
             message:
@@ -42,3 +43,4 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kube-state-metrics

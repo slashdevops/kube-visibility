@@ -22,6 +22,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: "{{ $labels.service }}"
         - alert: Watchdog
           annotations:
             message: |
@@ -34,3 +35,4 @@ spec:
           labels:
             severity: none
             team: visibility
+            service: watchdog

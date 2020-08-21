@@ -21,6 +21,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubePodNotReady
           annotations:
             message:
@@ -33,6 +34,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeDeploymentGenerationMismatch
           annotations:
             message:
@@ -48,6 +50,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeDeploymentReplicasMismatch
           annotations:
             message:
@@ -68,6 +71,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeStatefulSetReplicasMismatch
           annotations:
             message:
@@ -88,6 +92,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeStatefulSetGenerationMismatch
           annotations:
             message:
@@ -103,6 +108,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeStatefulSetUpdateNotRolledOut
           annotations:
             message:
@@ -125,6 +131,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeDaemonSetRolloutStuck
           annotations:
             message:
@@ -139,6 +146,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeContainerWaiting
           annotations:
             message:
@@ -151,6 +159,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeDaemonSetNotScheduled
           annotations:
             message:
@@ -165,6 +174,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeDaemonSetMisScheduled
           annotations:
             message:
@@ -177,6 +187,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeCronJobRunning
           annotations:
             message:
@@ -189,6 +200,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeJobCompletion
           annotations:
             message:
@@ -201,6 +213,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeJobFailed
           annotations:
             message: Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete.
@@ -211,6 +224,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeHpaReplicasMismatch
           annotations:
             message:
@@ -227,6 +241,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeHpaMaxedOut
           annotations:
             message:
@@ -241,6 +256,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-resources
       rules:
         - alert: KubeCPUOvercommit
@@ -259,6 +275,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeMemoryOvercommit
           annotations:
             message:
@@ -277,6 +294,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeCPUQuotaOvercommit
           annotations:
             message: Cluster has overcommitted CPU resource requests for Namespaces.
@@ -290,6 +308,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeMemoryQuotaOvercommit
           annotations:
             message: Cluster has overcommitted memory resource requests for Namespaces.
@@ -303,6 +322,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeQuotaExceeded
           annotations:
             message:
@@ -318,6 +338,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: CPUThrottlingHigh
           annotations:
             message:
@@ -334,6 +355,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-storage
       rules:
         - alert: KubePersistentVolumeFillingUp
@@ -352,6 +374,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubelet
         - alert: KubePersistentVolumeFillingUp
           annotations:
             message:
@@ -371,6 +394,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubelet
         - alert: KubePersistentVolumeErrors
           annotations:
             message:
@@ -383,6 +407,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-system
       rules:
         - alert: KubeVersionMismatch
@@ -397,6 +422,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeClientErrors
           annotations:
             message:
@@ -412,6 +438,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-apiserver-slost
       rules:
         - alert: KubeAPIErrorBudgetBurn
@@ -426,6 +453,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -438,6 +466,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -450,6 +479,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -462,6 +492,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-apiserver
       rules:
         - alert: KubeAPILatencyHigh
@@ -472,24 +503,25 @@ spec:
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapilatencyhigh
           expr: |
             (
-              cluster:apiserver_request_duration_seconds:mean5m{job="apiserver"}
+              cluster:apiserver_request_duration_seconds:mean5m{job=~"apiserver|kubernetes"}
               >
               on (verb) group_left()
               (
-                avg by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job="apiserver"} >= 0)
+                avg by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job=~"apiserver|kubernetes"} >= 0)
                 +
-                2*stddev by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job="apiserver"} >= 0)
+                2*stddev by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job=~"apiserver|kubernetes"} >= 0)
               )
             ) > on (verb) group_left()
-            1.2 * avg by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job="apiserver"} >= 0)
+            1.2 * avg by (verb) (cluster:apiserver_request_duration_seconds:mean5m{job=~"apiserver|kubernetes"} >= 0)
             and on (verb,resource)
-            cluster_quantile:apiserver_request_duration_seconds:histogram_quantile{job="apiserver",quantile="0.99"}
+            cluster_quantile:apiserver_request_duration_seconds:histogram_quantile{job=~"apiserver|kubernetes",quantile="0.99"}
             >
             1
           for: 5m
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeAPIErrorsHigh
           annotations:
             message:
@@ -498,13 +530,14 @@ spec:
               }}.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeapierrorshigh
           expr: |
-            sum(rate(apiserver_request_total{job="apiserver",code=~"5.."}[5m])) by (resource,subresource,verb)
+            sum(rate(apiserver_request_total{job=~"apiserver|kubernetes",code=~"5.."}[5m])) by (resource,subresource,verb)
               /
-            sum(rate(apiserver_request_total{job="apiserver"}[5m])) by (resource,subresource,verb) > 0.05
+            sum(rate(apiserver_request_total{job=~"apiserver|kubernetes"}[5m])) by (resource,subresource,verb) > 0.05
           for: 10m
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeClientCertificateExpiration
           annotations:
             message:
@@ -512,10 +545,11 @@ spec:
               in less than 7.0 days.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
           expr: |
-            apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 604800
+            apiserver_client_certificate_expiration_seconds_count{job=~"apiserver|kubernetes"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job=~"apiserver|kubernetes"}[5m]))) < 604800
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeClientCertificateExpiration
           annotations:
             message:
@@ -523,10 +557,11 @@ spec:
               in less than 24.0 hours.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-kubeclientcertificateexpiration
           expr: |
-            apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 86400
+            apiserver_client_certificate_expiration_seconds_count{job=~"apiserver|kubernetes"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job=~"apiserver|kubernetes"}[5m]))) < 86400
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
         - alert: AggregatedAPIErrors
           annotations:
             message:
@@ -540,6 +575,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: AggregatedAPIDown
           annotations:
             message:
@@ -552,6 +588,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeAPIDown
           annotations:
             message: KubeAPI has disappeared from Prometheus target discovery.
@@ -562,6 +599,7 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubernetes
     - name: alert--kubernetes-kubelet
       rules:
         - alert: KubeNodeNotReady
@@ -574,6 +612,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeNodeUnreachable
           annotations:
             message: "{{ $labels.node }} is unreachable and some workloads may be rescheduled."
@@ -584,6 +623,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeletTooManyPods
           annotations:
             message:
@@ -596,6 +636,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubelet
         - alert: KubeNodeReadinessFlapping
           annotations:
             message:
@@ -608,6 +649,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubernetes
         - alert: KubeletPlegDurationHigh
           annotations:
             message:
@@ -620,6 +662,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubelet
         - alert: KubeletPodStartUpLatencyHigh
           annotations:
             message:
@@ -632,6 +675,7 @@ spec:
           labels:
             severity: warning
             team: visibility
+            service: kubelet
         - alert: KubeletDown
           annotations:
             message: Kubelet has disappeared from Prometheus target discovery.
@@ -642,3 +686,4 @@ spec:
           labels:
             severity: critical
             team: visibility
+            service: kubelet
