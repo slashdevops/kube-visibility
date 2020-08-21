@@ -23,6 +23,7 @@ spec:
           for: 10m
           labels:
             severity: critical
+            team: visibility
         - alert: PrometheusNotificationQueueRunningFull
           annotations:
             description:
@@ -42,6 +43,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusErrorSendingAlertsToSomeAlertmanagers
           annotations:
             description:
@@ -61,6 +63,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusErrorSendingAlertsToAnyAlertmanager
           annotations:
             description:
@@ -78,6 +81,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: PrometheusNotConnectedToAlertmanagers
           annotations:
             description:
@@ -91,6 +95,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusTSDBReloadsFailing
           annotations:
             description:
@@ -102,6 +107,7 @@ spec:
           for: 4h
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusTSDBCompactionsFailing
           annotations:
             description:
@@ -113,6 +119,7 @@ spec:
           for: 4h
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusNotIngestingSamples
           annotations:
             description:
@@ -124,6 +131,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusDuplicateTimestamps
           annotations:
             description:
@@ -136,6 +144,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusOutOfOrderTimestamps
           annotations:
             description:
@@ -147,6 +156,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusRemoteStorageFailures
           annotations:
             description:
@@ -169,6 +179,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: PrometheusRemoteWriteBehind
           annotations:
             description:
@@ -188,6 +199,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: PrometheusRemoteWriteDesiredShards
           annotations:
             description:
@@ -210,6 +222,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: PrometheusRuleFailures
           annotations:
             description:
@@ -221,6 +234,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: PrometheusMissingRuleEvaluations
           annotations:
             description:
@@ -232,3 +246,4 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility

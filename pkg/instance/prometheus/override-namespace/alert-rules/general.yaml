@@ -21,6 +21,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: Watchdog
           annotations:
             message: |
@@ -31,4 +32,5 @@ spec:
               "DeadMansSnitch" integration in PagerDuty.
           expr: vector(1)
           labels:
-            severity: none  
+            severity: none
+            team: visibility

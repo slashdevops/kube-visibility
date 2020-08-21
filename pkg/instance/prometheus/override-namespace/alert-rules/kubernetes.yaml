@@ -20,6 +20,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubePodNotReady
           annotations:
             message:
@@ -31,6 +32,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeDeploymentGenerationMismatch
           annotations:
             message:
@@ -45,6 +47,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeDeploymentReplicasMismatch
           annotations:
             message:
@@ -64,6 +67,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeStatefulSetReplicasMismatch
           annotations:
             message:
@@ -83,6 +87,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeStatefulSetGenerationMismatch
           annotations:
             message:
@@ -97,6 +102,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeStatefulSetUpdateNotRolledOut
           annotations:
             message:
@@ -118,6 +124,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeDaemonSetRolloutStuck
           annotations:
             message:
@@ -131,6 +138,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeContainerWaiting
           annotations:
             message:
@@ -142,6 +150,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: KubeDaemonSetNotScheduled
           annotations:
             message:
@@ -155,6 +164,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeDaemonSetMisScheduled
           annotations:
             message:
@@ -166,6 +176,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeCronJobRunning
           annotations:
             message:
@@ -177,6 +188,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: KubeJobCompletion
           annotations:
             message:
@@ -188,6 +200,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: KubeJobFailed
           annotations:
             message: Job {{ $labels.namespace }}/{{ $labels.job_name }} failed to complete.
@@ -197,6 +210,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeHpaReplicasMismatch
           annotations:
             message:
@@ -212,6 +226,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeHpaMaxedOut
           annotations:
             message:
@@ -225,6 +240,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
     - name: alert--kubernetes-resources
       rules:
         - alert: KubeCPUOvercommit
@@ -242,6 +258,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeMemoryOvercommit
           annotations:
             message:
@@ -259,6 +276,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeCPUQuotaOvercommit
           annotations:
             message: Cluster has overcommitted CPU resource requests for Namespaces.
@@ -271,6 +289,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeMemoryQuotaOvercommit
           annotations:
             message: Cluster has overcommitted memory resource requests for Namespaces.
@@ -283,6 +302,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeQuotaExceeded
           annotations:
             message:
@@ -297,6 +317,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: CPUThrottlingHigh
           annotations:
             message:
@@ -312,6 +333,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
     - name: alert--kubernetes-storage
       rules:
         - alert: KubePersistentVolumeFillingUp
@@ -329,6 +351,7 @@ spec:
           for: 1m
           labels:
             severity: critical
+            team: visibility
         - alert: KubePersistentVolumeFillingUp
           annotations:
             message:
@@ -347,6 +370,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: KubePersistentVolumeErrors
           annotations:
             message:
@@ -358,6 +382,7 @@ spec:
           for: 5m
           labels:
             severity: critical
+            team: visibility
     - name: alert--kubernetes-system
       rules:
         - alert: KubeVersionMismatch
@@ -371,6 +396,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeClientErrors
           annotations:
             message:
@@ -385,6 +411,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
     - name: alert--kubernetes-apiserver-slost
       rules:
         - alert: KubeAPIErrorBudgetBurn
@@ -398,6 +425,7 @@ spec:
           for: 2m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -409,6 +437,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -420,6 +449,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: KubeAPIErrorBudgetBurn
           annotations:
             message: The API server is burning too much error budget
@@ -431,6 +461,7 @@ spec:
           for: 3h
           labels:
             severity: warning
+            team: visibility
     - name: alert--kubernetes-apiserver
       rules:
         - alert: KubeAPILatencyHigh
@@ -458,6 +489,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeAPIErrorsHigh
           annotations:
             message:
@@ -472,6 +504,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeClientCertificateExpiration
           annotations:
             message:
@@ -482,6 +515,7 @@ spec:
             apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 604800
           labels:
             severity: warning
+            team: visibility
         - alert: KubeClientCertificateExpiration
           annotations:
             message:
@@ -492,6 +526,7 @@ spec:
             apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and on(job) histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 86400
           labels:
             severity: critical
+            team: visibility
         - alert: AggregatedAPIErrors
           annotations:
             message:
@@ -504,6 +539,7 @@ spec:
             sum by(name, namespace)(increase(aggregator_unavailable_apiservice_count[5m])) > 2
           labels:
             severity: warning
+            team: visibility
         - alert: AggregatedAPIDown
           annotations:
             message:
@@ -515,6 +551,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeAPIDown
           annotations:
             message: KubeAPI has disappeared from Prometheus target discovery.
@@ -524,6 +561,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
     - name: alert--kubernetes-kubelet
       rules:
         - alert: KubeNodeNotReady
@@ -535,6 +573,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeNodeUnreachable
           annotations:
             message: "{{ $labels.node }} is unreachable and some workloads may be rescheduled."
@@ -544,6 +583,7 @@ spec:
           for: 2m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeletTooManyPods
           annotations:
             message:
@@ -555,6 +595,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeNodeReadinessFlapping
           annotations:
             message:
@@ -566,6 +607,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeletPlegDurationHigh
           annotations:
             message:
@@ -577,6 +619,7 @@ spec:
           for: 5m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeletPodStartUpLatencyHigh
           annotations:
             message:
@@ -588,6 +631,7 @@ spec:
           for: 15m
           labels:
             severity: warning
+            team: visibility
         - alert: KubeletDown
           annotations:
             message: Kubelet has disappeared from Prometheus target discovery.
@@ -597,3 +641,4 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility

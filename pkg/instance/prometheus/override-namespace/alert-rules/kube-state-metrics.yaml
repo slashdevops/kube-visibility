@@ -25,6 +25,7 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility
         - alert: KubeStateMetricsWatchErrors
           annotations:
             message:
@@ -40,3 +41,4 @@ spec:
           for: 15m
           labels:
             severity: critical
+            team: visibility

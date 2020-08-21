@@ -29,6 +29,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeFilesystemSpaceFillingUp
           annotations:
             description:
@@ -48,6 +49,7 @@ spec:
           for: 1h
           labels:
             severity: critical
+            team: visibility
         - alert: NodeFilesystemAlmostOutOfSpace
           annotations:
             description:
@@ -64,6 +66,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeFilesystemAlmostOutOfSpace
           annotations:
             description:
@@ -80,6 +83,7 @@ spec:
           for: 1h
           labels:
             severity: critical
+            team: visibility
         - alert: NodeFilesystemFilesFillingUp
           annotations:
             description:
@@ -99,6 +103,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeFilesystemFilesFillingUp
           annotations:
             description:
@@ -118,6 +123,7 @@ spec:
           for: 1h
           labels:
             severity: critical
+            team: visibility
         - alert: NodeFilesystemAlmostOutOfFiles
           annotations:
             description:
@@ -134,6 +140,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeFilesystemAlmostOutOfFiles
           annotations:
             description:
@@ -150,6 +157,7 @@ spec:
           for: 1h
           labels:
             severity: critical
+            team: visibility
     - name: alert--node-network
       rules:
         - alert: NodeNetworkInterfaceFlapping
@@ -162,6 +170,7 @@ spec:
           for: 2m
           labels:
             severity: warning
+            team: visibility
         - alert: NodeNetworkReceiveErrs
           annotations:
             description:
@@ -174,6 +183,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeNetworkTransmitErrs
           annotations:
             description:
@@ -186,6 +196,7 @@ spec:
           for: 1h
           labels:
             severity: warning
+            team: visibility
         - alert: NodeHighNumberConntrackEntriesUsed
           annotations:
             description: "{{ $value | humanizePercentage }} of conntrack entries are used"
@@ -195,6 +206,7 @@ spec:
             (node_nf_conntrack_entries / node_nf_conntrack_entries_limit) > 0.75
           labels:
             severity: warning
+            team: visibility
     - name: alert--node-clock
       rules:
         - alert: NodeClockSkewDetected
@@ -219,6 +231,7 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility
         - alert: NodeClockNotSynchronising
           annotations:
             message:
@@ -231,3 +244,4 @@ spec:
           for: 10m
           labels:
             severity: warning
+            team: visibility

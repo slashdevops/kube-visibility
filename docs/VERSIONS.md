@@ -1,0 +1,12 @@
+# Components Versions
+
+| Image                                           | Version | Manifest                                        |
+| ----------------------------------------------- | ------- | ----------------------------------------------- |
+| quay.io/coreos/kube-state-metrics | v1.9.7 | pkg/upstream/kube-state-metrics/deployment.yaml |
+| quay.io/prometheus/alertmanager | v0.21.0 | pkg/upstream/alertmanager/alertmanager.yaml |
+| quay.io/prometheus-operator/prometheus-operator | v0.41.1 | pkg/upstream/prometheus-operator/bundle.yaml |
+| quay.io/prometheus/node-exporter | v1.0.1 | pkg/upstream/node_exporter/daemonset.yaml |
+| quay.io/coreos/kube-rbac-proxy | v0.5.0 | pkg/upstream/node_exporter/daemonset.yaml |
+| grafana/grafana | 7.1.3 | pkg/upstream/grafana/deployment.yaml |
+| quay.io/coreos/k8s-prometheus-adapter-amd64 | v0.7.0 | pkg/upstream/prometheus-adapter/deployment.yaml |
+| quay.io/prometheus/prometheus | v2.20.1 | pkg/upstream/prometheus/prometheus.yaml |
