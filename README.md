@@ -18,6 +18,10 @@ This [kpt package](pkg/) will install the following software list into your Kube
 * [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)
 * [grafana](https://grafana.com/)
 
+## Components Versions
+
+See the file [VERSIONS](docs/VERSIONS.md)
+
 ## Kubernetes version supported
 
 * '>=' 1.16.x
