@@ -10,12 +10,14 @@ templates: []
 route:
   receiver: Default
   group_by:
+    - severity
+    - service
     - alertname
     - namespace
-    - service
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 1h
+
   routes:
     - match:
         alertname: Watchdog
@@ -23,11 +25,19 @@ route:
     - match:
         severity: critical
       receiver: Critical
+    - match:
+        severity: warning
+      receiver: Warning
+    - match:
+        severity: info
+      receiver: Info
 
 receivers:
   - name: Default
   - name: Watchdog
   - name: Critical
+  - name: Warning
+  - name: Info
 
 inhibit_rules:
   - source_match:
