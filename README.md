@@ -20,8 +20,13 @@ This [kpt package](pkg/) will install the following software list into your Kube
 | [prometheus](https://prometheus.io/docs/introduction/overview/)                  | [Apache License 2.0](https://github.com/prometheus/prometheus/blob/master/LICENSE)                   |
 | [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)                | [Apache License 2.0](https://github.com/prometheus/alertmanager/blob/master/LICENSE)                 |
 | [grafana](https://grafana.com/)                                                  | [Apache License 2.0](https://github.com/grafana/grafana/blob/master/LICENSE)                         |
-| [kpt](https://googlecontainertools.github.io/kpt/)                               | [Apache License 2.0](https://github.com/GoogleContainerTools/kpt/blob/master/LICENSE)                |
-| [kustomize](https://kubernetes-sigs.github.io/kustomize/)                        | [Apache License 2.0](https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE)               |
+
+Used Tools
+
+| Project                                                   | License                                                                                |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [kpt](https://googlecontainertools.github.io/kpt/)        | [Apache License 2.0](https://github.com/GoogleContainerTools/kpt/blob/master/LICENSE)  |
+| [kustomize](https://kubernetes-sigs.github.io/kustomize/) | [Apache License 2.0](https://github.com/kubernetes-sigs/kustomize/blob/master/LICENSE) |
 
 ## Components Versions
 
