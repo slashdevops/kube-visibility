@@ -576,19 +576,19 @@ spec:
               five minutes. High values indicate that the availability of the service
               changes too often.
             runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapierrors
-        - alert: AggregatedAPIDown
-          expr: |
-            (1 - max by(name, namespace)(avg_over_time(aggregator_unavailable_apiservice[5m]))) * 100 < 90
-          for: 5m
-          labels:
-            severity: warning
-            team: visibility
-            service: kubernetes
-          annotations:
-            description:
-              An aggregated API {{ $labels.name }}/{{ $labels.namespace }} has
-              been only {{ $value | humanize }}% available over the last 5m.
-            runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
+        # - alert: AggregatedAPIDown
+        #   expr: |
+        #     (1 - max by(name, namespace)(avg_over_time(aggregator_unavailable_apiservice[5m]))) * 100 < 90
+        #   for: 5m
+        #   labels:
+        #     severity: warning
+        #     team: visibility
+        #     service: kubernetes
+        #   annotations:
+        #     description:
+        #       An aggregated API {{ $labels.name }}/{{ $labels.namespace }} has
+        #       been only {{ $value | humanize }}% available over the last 5m.
+        #     runbook_url: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#alert-name-aggregatedapidown
         - alert: KubeAPIDown
           expr: |
             absent(up{job=~"apiserver|kubernetes"} == 1)
