@@ -12,6 +12,7 @@ This [kpt package](pkg/) will install the following software list into your Kube
 
 | Project                                                                          | License                                                                                              |
 | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin)    | [Apache License 2.0](https://github.com/kubernetes-monitoring/kubernetes-mixin/blob/master/LICENSE)  |
 | [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)           | [Apache License 2.0](https://github.com/kubernetes/kube-state-metrics/blob/master/LICENSE)           |
 | [node_exporter](https://github.com/prometheus/node_exporter)                     | [Apache License 2.0](https://github.com/prometheus/node_exporter/blob/master/LICENSE)                |
 | [prometheus-operator](https://github.com/coreos/prometheus-operator)             | [Apache License 2.0](https://github.com/prometheus-operator/prometheus-operator/blob/master/LICENSE) |
@@ -20,6 +21,10 @@ This [kpt package](pkg/) will install the following software list into your Kube
 | [prometheus](https://prometheus.io/docs/introduction/overview/)                  | [Apache License 2.0](https://github.com/prometheus/prometheus/blob/master/LICENSE)                   |
 | [alertmanager](https://prometheus.io/docs/alerting/alertmanager/)                | [Apache License 2.0](https://github.com/prometheus/alertmanager/blob/master/LICENSE)                 |
 | [grafana](https://grafana.com/)                                                  | [Apache License 2.0](https://github.com/grafana/grafana/blob/master/LICENSE)                         |
+
+__NOTES__:
+
+1. [kubernetes-mixin](https://github.com/kubernetes-monitoring/kubernetes-mixin) provides some prometheus rules and dashboards.
 
 Used Tools
 
