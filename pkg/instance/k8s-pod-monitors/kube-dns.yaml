@@ -1,5 +1,5 @@
 apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
+kind: PodMonitor
 metadata:
   name: kube-dns
   labels:
@@ -13,7 +13,10 @@ spec:
   selector:
     matchLabels:
       k8s-app: kube-dns
-  endpoints:
+  podMetricsEndpoints:
     - port: metrics
-      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      path: "/metrics"
+      scheme: http
+      #bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      #bearerTokenSecret:
       interval: 15s

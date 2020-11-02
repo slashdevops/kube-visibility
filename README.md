@@ -74,11 +74,11 @@ Looks inside [HowTos folder](HowTos/) for more detailed information about how to
 
 ```bash
 # set
-minikube config set memory 4096 # > much better
+minikube config set memory 6144 # > much better
 minikube config set cpus 2      # > much better
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2 # for linux, for MacOS see HowTos/ folder
-minikube config set kubernetes-version 1.17.6
+minikube config set kubernetes-version 1.18.8
 minikube config view
 
 # start

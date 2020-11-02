@@ -52,11 +52,11 @@ This way persist configuration when making minikube stop and minikube start agai
 * To Select the [Kubernetes versions](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) available select the `CHANGELOG-X.Y.md` you want to use
 
 ```bash
-minikube config set memory 4096
+minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver hyperkit
-minikube config set kubernetes-version 1.16.8
+minikube config set kubernetes-version 1.18.8
 minikube config view
 
 minikube start
@@ -68,7 +68,7 @@ minikube status
 
 ```bash
 minikube start \
- --kubernetes-version v1.16.8 \
+ --kubernetes-version v1.18.8 \
  --vm-driver=hyperkit \
  --memory=4096 \
  --cpus=2 \

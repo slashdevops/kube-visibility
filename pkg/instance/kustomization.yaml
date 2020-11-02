@@ -11,3 +11,4 @@ resources:
   - ./alertmanager
   - ./grafana
   - ./k8s-service-monitors
+  - ./k8s-pod-monitors

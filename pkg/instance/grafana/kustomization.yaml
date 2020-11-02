@@ -39,6 +39,7 @@ configMapGenerator:
     files:
       - ./dashboards/kubernetes/kubernetes-api-server.json
       - ./dashboards/kubernetes/kubernetes-kubelet.json
+      - ./dashboards/kubernetes/kubernetes-coredns.json
   - name: grafana-dashboards-kubernetes-3
     files:
       - ./dashboards/kubernetes/kubernetes-network-cluster.json
