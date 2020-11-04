@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 12,
-    "iteration": 1604337925362,
+    "iteration": 1604479191874,
     "links": [],
     "panels": [
         {
@@ -177,6 +177,60 @@
             "type": "stat"
         },
         {
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "dateTimeFromNow"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 7,
+                "w": 4,
+                "x": 4,
+                "y": 5
+            },
+            "id": 27,
+            "options": {
+                "colorMode": "background",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "mean"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "max(process_start_time_seconds{cluster=\"$cluster\",job=\"$job\",instance=~\"$instance\",service=\"kubernetes\"}\n) * 1000",
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Up Time",
+            "type": "stat"
+        },
+        {
             "aliasColors": {},
             "bars": false,
             "dashLength": 10,
@@ -193,8 +247,8 @@
             "fillGradient": 8,
             "gridPos": {
                 "h": 7,
-                "w": 10,
-                "x": 4,
+                "w": 8,
+                "x": 8,
                 "y": 5
             },
             "hiddenSeries": false,
@@ -319,8 +373,8 @@
             "fillGradient": 8,
             "gridPos": {
                 "h": 7,
-                "w": 10,
-                "x": 14,
+                "w": 8,
+                "x": 16,
                 "y": 5
             },
             "hiddenSeries": false,
@@ -2340,7 +2394,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
+                    "selected": true,
                     "text": "kubernetes",
                     "value": "kubernetes"
                 },

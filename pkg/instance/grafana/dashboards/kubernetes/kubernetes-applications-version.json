@@ -1,0 +1,121 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": "-- Grafana --",
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 26,
+    "links": [],
+    "panels": [
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {
+                        "align": null,
+                        "filterable": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 14,
+                "w": 24,
+                "x": 0,
+                "y": 0
+            },
+            "id": 2,
+            "options": {
+                "frameIndex": 0,
+                "showHeader": true,
+                "sortBy": [
+                    {
+                        "desc": false,
+                        "displayName": "version"
+                    }
+                ]
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "count by (namespace,job,version) ({__name__=~\".*_build_info\",job!=\"kubelet\"})",
+                    "format": "table",
+                    "hide": false,
+                    "instant": true,
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Applications Version",
+            "transformations": [
+                {
+                    "id": "organize",
+                    "options": {
+                        "excludeByName": {
+                            "Time": true
+                        },
+                        "indexByName": {
+                            "Time": 0,
+                            "Value": 5,
+                            "gitVersion": 4,
+                            "job": 1,
+                            "namespace": 2,
+                            "version": 3
+                        },
+                        "renameByName": {
+                            "gitVersion": "",
+                            "version": ""
+                        }
+                    }
+                }
+            ],
+            "type": "table"
+        }
+    ],
+    "schemaVersion": 26,
+    "style": "dark",
+    "tags": [
+        "kubernetes",
+        "kube-visibility"
+    ],
+    "templating": {
+        "list": []
+    },
+    "time": {
+        "from": "now-6h",
+        "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Kubernetes / Applications Version",
+    "uid": "vwBSR5hGk",
+    "version": 1
+}

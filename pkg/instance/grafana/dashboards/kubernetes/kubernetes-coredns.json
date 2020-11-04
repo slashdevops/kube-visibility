@@ -16,12 +16,12 @@
     "editable": true,
     "gnetId": 12382,
     "graphTooltip": 1,
-    "id": 27,
-    "iteration": 1604340199680,
+    "id": 13,
+    "iteration": 1604478881107,
     "links": [],
     "panels": [
         {
-            "datasource": null,
+            "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
@@ -30,7 +30,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-yellow",
+                                "color": "semi-dark-green",
                                 "value": null
                             }
                         ]
@@ -47,8 +47,8 @@
             },
             "id": 30,
             "options": {
-                "colorMode": "value",
-                "graphMode": "area",
+                "colorMode": "background",
+                "graphMode": "none",
                 "justifyMode": "auto",
                 "orientation": "auto",
                 "reduceOptions": {
@@ -117,7 +117,7 @@
             "id": 20,
             "links": [],
             "options": {
-                "colorMode": "value",
+                "colorMode": "background",
                 "graphMode": "area",
                 "justifyMode": "auto",
                 "orientation": "horizontal",
@@ -184,7 +184,7 @@
             "id": 22,
             "links": [],
             "options": {
-                "colorMode": "value",
+                "colorMode": "background",
                 "graphMode": "area",
                 "justifyMode": "auto",
                 "orientation": "horizontal",
@@ -214,7 +214,7 @@
         },
         {
             "cacheTimeout": null,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
@@ -251,7 +251,7 @@
             "id": 23,
             "links": [],
             "options": {
-                "colorMode": "value",
+                "colorMode": "background",
                 "graphMode": "area",
                 "justifyMode": "auto",
                 "orientation": "horizontal",
@@ -318,14 +318,14 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 5,
+                "w": 7,
                 "x": 17,
                 "y": 0
             },
             "id": 18,
             "links": [],
             "options": {
-                "colorMode": "value",
+                "colorMode": "background",
                 "graphMode": "area",
                 "justifyMode": "auto",
                 "orientation": "horizontal",
@@ -640,7 +640,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -753,7 +753,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -860,7 +860,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -990,7 +990,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1117,7 +1117,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1231,7 +1231,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1341,7 +1341,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1442,7 +1442,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1577,7 +1577,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
@@ -1678,7 +1678,7 @@
             "bars": false,
             "dashLength": 10,
             "dashes": false,
-            "datasource": "prometheus-visibility",
+            "datasource": "$datasource",
             "editable": true,
             "error": false,
             "fieldConfig": {
