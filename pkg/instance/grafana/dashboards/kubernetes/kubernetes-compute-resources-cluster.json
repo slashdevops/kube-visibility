@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 25,
-    "iteration": 1596450294790,
+    "id": 26,
+    "iteration": 1604567171855,
     "links": [],
     "panels": [
         {
@@ -97,9 +97,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "1 - avg(rate(node_cpu_seconds_total{mode=\"idle\", cluster=\"$cluster\"}[$__interval]))",
@@ -177,9 +178,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_cpu_cores{cluster=\"$cluster\"})",
@@ -257,9 +259,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_cpu_cores{cluster=\"$cluster\"})",
@@ -337,9 +340,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
@@ -417,9 +421,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "sum(kube_pod_container_resource_requests_memory_bytes{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
@@ -497,9 +502,10 @@
                     ],
                     "fields": "",
                     "values": false
-                }
+                },
+                "textMode": "auto"
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.1",
             "targets": [
                 {
                     "expr": "sum(kube_pod_container_resource_limits_memory_bytes{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
@@ -537,7 +543,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -565,9 +572,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -942,7 +950,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -970,9 +979,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1621,7 +1631,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1649,9 +1660,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1661,8 +1673,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "sum(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -1674,7 +1687,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Transmit Bandwidth",
+            "title": "Transmit Bandwidth [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -1719,7 +1732,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1747,9 +1761,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1759,8 +1774,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -1772,7 +1788,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Receive Bandwidth",
+            "title": "Receive Bandwidth [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -1817,7 +1833,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1845,9 +1862,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1857,8 +1875,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "avg(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "avg(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -1870,7 +1889,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Average Container Bandwidth by Namespace: Transmitted",
+            "title": "Average Container Bandwidth by Namespace: Transmitted [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -1915,7 +1934,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1943,9 +1963,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1955,8 +1976,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "avg(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "avg(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -1968,7 +1990,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Average Container Bandwidth by Namespace: Received",
+            "title": "Average Container Bandwidth by Namespace: Received [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -2013,7 +2035,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -2041,9 +2064,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2053,8 +2077,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -2066,7 +2091,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Rate of Transmitted Packets",
+            "title": "Rate of Transmitted Packets [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -2111,7 +2136,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -2139,9 +2165,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2151,8 +2178,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$__interval])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{namespace}}",
                     "legendLink": null,
@@ -2164,7 +2192,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Rate of Received Packets",
+            "title": "Rate of Received Packets [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -2209,7 +2237,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -2237,9 +2266,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2249,7 +2279,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_transmit_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_transmit_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -2263,7 +2293,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Rate of Transmitted Packets Dropped [5m]",
+            "title": "Rate of Transmitted Packets Dropped [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -2308,7 +2338,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -2336,9 +2367,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2348,7 +2380,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_receive_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -2362,7 +2394,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Rate of Received Packets Dropped [5m]",
+            "title": "Rate of Received Packets Dropped [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -2401,7 +2433,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kubernetes",
@@ -2416,6 +2448,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -2438,6 +2471,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": null,
@@ -2454,6 +2488,87 @@
                 "tagsQuery": "",
                 "type": "query",
                 "useTags": false
+            },
+            {
+                "auto": true,
+                "auto_count": 30,
+                "auto_min": "10s",
+                "current": {
+                    "selected": false,
+                    "text": "30m",
+                    "value": "30m"
+                },
+                "error": null,
+                "hide": 0,
+                "label": "Interval",
+                "name": "interval",
+                "options": [
+                    {
+                        "selected": false,
+                        "text": "auto",
+                        "value": "$__auto_interval_interval"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    {
+                        "selected": false,
+                        "text": "5m",
+                        "value": "5m"
+                    },
+                    {
+                        "selected": false,
+                        "text": "10m",
+                        "value": "10m"
+                    },
+                    {
+                        "selected": true,
+                        "text": "30m",
+                        "value": "30m"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1h",
+                        "value": "1h"
+                    },
+                    {
+                        "selected": false,
+                        "text": "6h",
+                        "value": "6h"
+                    },
+                    {
+                        "selected": false,
+                        "text": "12h",
+                        "value": "12h"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1d",
+                        "value": "1d"
+                    },
+                    {
+                        "selected": false,
+                        "text": "7d",
+                        "value": "7d"
+                    },
+                    {
+                        "selected": false,
+                        "text": "14d",
+                        "value": "14d"
+                    },
+                    {
+                        "selected": false,
+                        "text": "30d",
+                        "value": "30d"
+                    }
+                ],
+                "query": "1m,5m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+                "queryValue": "",
+                "refresh": 2,
+                "skipUrlSync": false,
+                "type": "interval"
             }
         ]
     },

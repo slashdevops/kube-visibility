@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 12382,
     "graphTooltip": 1,
-    "id": 13,
-    "iteration": 1604478881107,
+    "id": 33,
+    "iteration": 1604566592501,
     "links": [],
     "panels": [
         {
@@ -64,6 +64,7 @@
             "targets": [
                 {
                     "expr": "max(process_start_time_seconds{cluster=\"$cluster\",pod=~\"$pod\"}) * 1000",
+                    "instant": true,
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -135,6 +136,7 @@
                 {
                     "expr": "sum(kube_pod_container_status_running{container=\"coredns\",cluster=\"$cluster\"})",
                     "format": "time_series",
+                    "instant": false,
                     "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "",
@@ -142,140 +144,6 @@
                 }
             ],
             "title": "Pods",
-            "transparent": true,
-            "type": "stat"
-        },
-        {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "displayName": "Success Cache",
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "N/A",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "blue",
-                                "value": null
-                            }
-                        ]
-                    },
-                    "unit": "none"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 4,
-                "x": 9,
-                "y": 0
-            },
-            "id": 22,
-            "links": [],
-            "options": {
-                "colorMode": "background",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.1",
-            "targets": [
-                {
-                    "expr": "sum(coredns_cache_size{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"})",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "title": "Success Cache Size",
-            "transparent": true,
-            "type": "stat"
-        },
-        {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "displayName": "Denial Cache",
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "N/A",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            }
-                        ]
-                    },
-                    "unit": "none"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 4,
-                "x": 13,
-                "y": 0
-            },
-            "id": 23,
-            "links": [],
-            "options": {
-                "colorMode": "background",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.1",
-            "targets": [
-                {
-                    "expr": "sum(coredns_cache_size{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"})",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "title": "Denial Cache Size",
             "transparent": true,
             "type": "stat"
         },
@@ -319,7 +187,7 @@
             "gridPos": {
                 "h": 3,
                 "w": 7,
-                "x": 17,
+                "x": 9,
                 "y": 0
             },
             "id": 18,
@@ -351,6 +219,141 @@
                 }
             ],
             "title": "Requests/s [1m]",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Denial Cache",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 4,
+                "x": 16,
+                "y": 0
+            },
+            "id": 23,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(coredns_cache_size{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "format": "time_series",
+                    "instant": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Denial Cache Size",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Success Cache",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "blue",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 4,
+                "x": 20,
+                "y": 0
+            },
+            "id": 22,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(coredns_cache_size{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Success Cache Size",
             "transparent": true,
             "type": "stat"
         },
@@ -443,7 +446,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 9,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 6,
@@ -544,7 +547,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 9,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 7,
@@ -555,11 +558,13 @@
             "hiddenSeries": false,
             "id": 1,
             "legend": {
+                "alignAsTable": false,
                 "avg": false,
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "rightSide": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -575,22 +580,17 @@
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
-            "seriesOverrides": [
-                {
-                    "alias": "total",
-                    "yaxis": 2
-                }
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "stack": true,
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (kubernetes_pod_name)",
+                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (pod)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "{{kubernetes_pod_name}}",
+                    "legendFormat": "{{ pod }}",
                     "refId": "A",
                     "step": 60
                 }
@@ -651,7 +651,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 7,
@@ -666,7 +666,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -697,10 +697,11 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_type_count_total[1m])) by (type)",
+                    "expr": "sum(rate(coredns_dns_request_type_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (type)",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "{{type}}",
+                    "legendFormat": "{{ type }}",
                     "refId": "A",
                     "step": 60
                 }
@@ -709,7 +710,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Requests (by qtype)",
+            "title": "Requests (by qtype) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -763,8 +764,8 @@
                 },
                 "overrides": []
             },
-            "fill": 8,
-            "fillGradient": 0,
+            "fill": 1,
+            "fillGradient": 9,
             "grid": {},
             "gridPos": {
                 "h": 7,
@@ -779,7 +780,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -806,11 +807,11 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_count_total[1m])) by (proto)",
+                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (proto)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "{{proto}}",
+                    "legendFormat": "{{ proto }}",
                     "refId": "A",
                     "step": 60
                 }
@@ -819,7 +820,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Requests/s (by Protocol)",
+            "title": "Requests/s (by Protocol) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -871,7 +872,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 6,
@@ -921,24 +922,27 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "{{proto}}:99 ",
                     "refId": "A",
                     "step": 60
                 },
                 {
-                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "{{proto}}:90",
                     "refId": "B",
                     "step": 60
                 },
                 {
-                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "{{proto}}:50",
                     "refId": "C",
@@ -949,7 +953,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Requests (size, udp)",
+            "title": "Requests (size, udp) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1001,7 +1005,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 6,
@@ -1051,21 +1055,24 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\"}[5m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{proto}}:99 ",
                     "refId": "A",
                     "step": 60
                 },
                 {
-                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\"}[5m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{proto}}:90",
                     "refId": "B",
                     "step": 60
                 },
                 {
-                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\"}[5m])) by (le,proto))",
+                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_request_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto))",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{proto}}:50",
                     "refId": "C",
@@ -1076,7 +1083,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Requests (size,tcp)",
+            "title": "Requests (size,tcp) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1159,27 +1166,15 @@
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
-            "seriesOverrides": [
-                {
-                    "alias": "total",
-                    "yaxis": 2
-                }
-            ],
+            "seriesOverrides": [],
             "spaceLength": 10,
             "stack": false,
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_do_count_total[1m]))",
+                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "DO",
-                    "refId": "A",
-                    "step": 40
-                },
-                {
-                    "expr": "sum(rate(coredns_dns_request_count_total[1m]))",
-                    "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "total",
                     "refId": "B",
@@ -1190,7 +1185,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Requests w/ DNSSEC OK",
+            "title": "Requests w/ DNSSEC OK [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1241,14 +1236,392 @@
                 },
                 "overrides": []
             },
-            "fill": 6,
+            "fill": 1,
             "fillGradient": 0,
+            "grid": {},
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 0,
+                "y": 21
+            },
+            "hiddenSeries": false,
+            "id": 8,
+            "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 2,
+            "links": [],
+            "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.1",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [
+                {
+                    "alias": "udp:50%",
+                    "yaxis": 1
+                },
+                {
+                    "alias": "tcp:50%",
+                    "yaxis": 2
+                },
+                {
+                    "alias": "tcp:90%",
+                    "yaxis": 2
+                },
+                {
+                    "alias": "tcp:99%",
+                    "yaxis": 2
+                }
+            ],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:99%",
+                    "refId": "A",
+                    "step": 40
+                },
+                {
+                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:90%",
+                    "refId": "B",
+                    "step": 40
+                },
+                {
+                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:50%",
+                    "metric": "",
+                    "refId": "C",
+                    "step": 40
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Responses (size, udp) [$interval]",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "cumulative"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "grid": {},
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 8,
+                "y": 21
+            },
+            "hiddenSeries": false,
+            "id": 13,
+            "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 2,
+            "links": [],
+            "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.1",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [
+                {
+                    "alias": "udp:50%",
+                    "yaxis": 1
+                },
+                {
+                    "alias": "tcp:50%",
+                    "yaxis": 1
+                },
+                {
+                    "alias": "tcp:90%",
+                    "yaxis": 1
+                },
+                {
+                    "alias": "tcp:99%",
+                    "yaxis": 1
+                }
+            ],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:99%",
+                    "refId": "A",
+                    "step": 40
+                },
+                {
+                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le,proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:90%",
+                    "refId": "B",
+                    "step": 40
+                },
+                {
+                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (le, proto)) ",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{proto}}:50%",
+                    "metric": "",
+                    "refId": "C",
+                    "step": 40
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Responses (size, tcp) [$interval]",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "cumulative"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 0,
+            "grid": {},
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 16,
+                "y": 21
+            },
+            "hiddenSeries": false,
+            "id": 5,
+            "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 2,
+            "links": [],
+            "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.1",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_dns_response_rcode_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (rcode)",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "{{rcode}}",
+                    "refId": "A",
+                    "step": 40
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Responses (by rcode) [$interval]",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "cumulative"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "pps",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 21
+                "y": 27
             },
             "hiddenSeries": false,
             "id": 16,
@@ -1257,7 +1630,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1279,16 +1652,18 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_cache_hits_total{type=\"success\"}[1m]))",
+                    "expr": "sum(rate(coredns_cache_hits_total{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "hits: success",
                     "refId": "A",
                     "step": 40
                 },
                 {
-                    "expr": "sum(rate(coredns_cache_hits_total{type=\"denial\"}[1m]))",
+                    "expr": "sum(rate(coredns_cache_hits_total{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "hits: denial",
                     "refId": "D"
@@ -1298,7 +1673,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Cache (Hits)",
+            "title": "Cache (Hits) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1351,14 +1726,14 @@
                 },
                 "overrides": []
             },
-            "fill": 6,
-            "fillGradient": 0,
+            "fill": 1,
+            "fillGradient": 10,
             "grid": {},
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 21
+                "y": 27
             },
             "hiddenSeries": false,
             "id": 24,
@@ -1367,7 +1742,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -1389,8 +1764,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_cache_misses_total[1m]))",
+                    "expr": "sum(rate(coredns_cache_misses_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "misses",
                     "refId": "A",
@@ -1401,7 +1777,7 @@
             "timeFrom": null,
             "timeRegions": [],
             "timeShift": null,
-            "title": "Cache (Misses)",
+            "title": "Cache (Misses) [$interval]",
             "tooltip": {
                 "shared": true,
                 "sort": 0,
@@ -1436,377 +1812,6 @@
                 "align": false,
                 "alignLevel": null
             }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "editable": true,
-            "error": false,
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "grid": {},
-            "gridPos": {
-                "h": 7,
-                "w": 12,
-                "x": 0,
-                "y": 28
-            },
-            "hiddenSeries": false,
-            "id": 8,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 2,
-            "links": [],
-            "nullPointMode": "connected",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [
-                {
-                    "alias": "udp:50%",
-                    "yaxis": 1
-                },
-                {
-                    "alias": "tcp:50%",
-                    "yaxis": 2
-                },
-                {
-                    "alias": "tcp:90%",
-                    "yaxis": 2
-                },
-                {
-                    "alias": "tcp:99%",
-                    "yaxis": 2
-                }
-            ],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:99%",
-                    "refId": "A",
-                    "step": 40
-                },
-                {
-                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:90%",
-                    "refId": "B",
-                    "step": 40
-                },
-                {
-                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"udp\"}[1m])) by (le,proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:50%",
-                    "metric": "",
-                    "refId": "C",
-                    "step": 40
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Responses (size, udp)",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "cumulative"
-            },
-            "transparent": true,
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "editable": true,
-            "error": false,
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "grid": {},
-            "gridPos": {
-                "h": 7,
-                "w": 12,
-                "x": 12,
-                "y": 28
-            },
-            "hiddenSeries": false,
-            "id": 5,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 2,
-            "links": [],
-            "nullPointMode": "connected",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "sum(rate(coredns_dns_response_rcode_count_total[1m])) by (rcode)",
-                    "format": "time_series",
-                    "intervalFactor": 1,
-                    "legendFormat": "{{rcode}}",
-                    "refId": "A",
-                    "step": 40
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Responses (by rcode)",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "cumulative"
-            },
-            "transparent": true,
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "pps",
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "editable": true,
-            "error": false,
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 0,
-            "grid": {},
-            "gridPos": {
-                "h": 7,
-                "w": 12,
-                "x": 12,
-                "y": 35
-            },
-            "hiddenSeries": false,
-            "id": 13,
-            "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 2,
-            "links": [],
-            "nullPointMode": "connected",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "seriesOverrides": [
-                {
-                    "alias": "udp:50%",
-                    "yaxis": 1
-                },
-                {
-                    "alias": "tcp:50%",
-                    "yaxis": 1
-                },
-                {
-                    "alias": "tcp:90%",
-                    "yaxis": 1
-                },
-                {
-                    "alias": "tcp:99%",
-                    "yaxis": 1
-                }
-            ],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "histogram_quantile(0.99, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\"}[1m])) by (le,proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:99%",
-                    "refId": "A",
-                    "step": 40
-                },
-                {
-                    "expr": "histogram_quantile(0.90, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\"}[1m])) by (le,proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:90%",
-                    "refId": "B",
-                    "step": 40
-                },
-                {
-                    "expr": "histogram_quantile(0.50, sum(rate(coredns_dns_response_size_bytes_bucket{proto=\"tcp\"}[1m])) by (le, proto)) ",
-                    "format": "time_series",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{proto}}:50%",
-                    "metric": "",
-                    "refId": "C",
-                    "step": 40
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Responses (size, tcp)",
-            "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "cumulative"
-            },
-            "transparent": true,
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
         }
     ],
     "refresh": "10s",
@@ -1823,8 +1828,8 @@
             {
                 "current": {
                     "selected": false,
-                    "text": "prometheus-visibility",
-                    "value": "prometheus-visibility"
+                    "text": "default",
+                    "value": "default"
                 },
                 "error": null,
                 "hide": 0,
@@ -1834,6 +1839,7 @@
                 "name": "datasource",
                 "options": [],
                 "query": "prometheus",
+                "queryValue": "",
                 "refresh": 1,
                 "regex": "",
                 "skipUrlSync": false,
@@ -1842,7 +1848,6 @@
             {
                 "allValue": null,
                 "current": {
-                    "isNone": true,
                     "selected": false,
                     "text": "None",
                     "value": ""
@@ -1877,9 +1882,14 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "All",
-                    "value": "$__all"
+                    "selected": true,
+                    "tags": [],
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(coredns_dns_request_count_total{cluster=\"$cluster\"}, pod)",
@@ -1897,8 +1907,13 @@
                     },
                     {
                         "selected": false,
-                        "text": "coredns-66bff467f8-vprkx",
-                        "value": "coredns-66bff467f8-vprkx"
+                        "text": "coredns-6987776bbd-b5cdg",
+                        "value": "coredns-6987776bbd-b5cdg"
+                    },
+                    {
+                        "selected": false,
+                        "text": "coredns-6987776bbd-kfhvx",
+                        "value": "coredns-6987776bbd-kfhvx"
                     }
                 ],
                 "query": "label_values(coredns_dns_request_count_total{cluster=\"$cluster\"}, pod)",
@@ -1918,8 +1933,8 @@
                 "auto_min": "10s",
                 "current": {
                     "selected": false,
-                    "text": "1m",
-                    "value": "1m"
+                    "text": "10m",
+                    "value": "10m"
                 },
                 "error": null,
                 "hide": 0,
@@ -1932,7 +1947,7 @@
                         "value": "$__auto_interval_interval"
                     },
                     {
-                        "selected": true,
+                        "selected": false,
                         "text": "1m",
                         "value": "1m"
                     },
@@ -1942,7 +1957,7 @@
                         "value": "5m"
                     },
                     {
-                        "selected": false,
+                        "selected": true,
                         "text": "10m",
                         "value": "10m"
                     },
@@ -1988,6 +2003,7 @@
                     }
                 ],
                 "query": "1m,5m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+                "queryValue": "",
                 "refresh": 2,
                 "skipUrlSync": false,
                 "type": "interval"

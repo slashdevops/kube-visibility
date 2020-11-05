@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 34,
-    "iteration": 1596455256212,
+    "graphTooltip": 1,
+    "id": 37,
+    "iteration": 1604567961612,
     "links": [],
     "panels": [
         {
@@ -47,14 +47,15 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 7,
                 "w": 12,
                 "x": 0,
                 "y": 1
@@ -82,10 +83,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -157,14 +159,15 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 7,
                 "w": 12,
                 "x": 12,
                 "y": 1
@@ -192,10 +195,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -267,7 +271,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 10
+                "y": 8
             },
             "id": 5,
             "panels": [],
@@ -287,24 +291,25 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 11
+                "y": 9
             },
             "hiddenSeries": false,
             "id": 6,
             "legend": {
                 "alignAsTable": true,
-                "avg": false,
-                "current": true,
+                "avg": true,
+                "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
@@ -322,10 +327,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -363,7 +369,7 @@
                 "name": null,
                 "show": false,
                 "values": [
-                    "current"
+                    "avg"
                 ]
             },
             "yaxes": [
@@ -397,24 +403,25 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 11
+                "y": 9
             },
             "hiddenSeries": false,
             "id": 7,
             "legend": {
                 "alignAsTable": true,
-                "avg": false,
-                "current": true,
+                "avg": true,
+                "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
@@ -432,10 +439,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -473,7 +481,7 @@
                 "name": null,
                 "show": false,
                 "values": [
-                    "current"
+                    "avg"
                 ]
             },
             "yaxes": [
@@ -507,7 +515,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 20
+                "y": 16
             },
             "id": 8,
             "panels": [],
@@ -527,29 +535,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 21
+                "y": 17
             },
             "hiddenSeries": false,
             "id": 9,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -560,10 +569,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -633,29 +643,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 21
+                "y": 17
             },
             "hiddenSeries": false,
             "id": 10,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -666,10 +677,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -739,7 +751,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 30
+                "y": 25
             },
             "id": 11,
             "panels": [],
@@ -759,29 +771,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 31
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 12,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -792,10 +805,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -865,29 +879,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 31
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 13,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -898,10 +913,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -971,7 +987,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 40
+                "y": 34
             },
             "id": 14,
             "panels": [],
@@ -991,29 +1007,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 41
+                "y": 35
             },
             "hiddenSeries": false,
             "id": 15,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -1024,10 +1041,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1097,29 +1115,30 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 9,
+                "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 41
+                "y": 35
             },
             "hiddenSeries": false,
             "id": 16,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -1130,10 +1149,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1197,10 +1217,12 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
-        "kubernetes-mixin"
+        "kubernetes",
+        "networking",
+        "workload"
     ],
     "templating": {
         "list": [
@@ -1210,6 +1232,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,
@@ -1234,6 +1257,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(container_network_receive_packets_total, namespace)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1258,14 +1282,28 @@
                 "auto_min": "10s",
                 "current": {
                     "selected": true,
-                    "tags": [],
-                    "text": "All",
+                    "text": [
+                        "All",
+                        "alb-ingress-controller",
+                        "aws-node",
+                        "cluster-autoscaler",
+                        "cni-metrics-helper",
+                        "coredns",
+                        "kube-proxy"
+                    ],
                     "value": [
-                        "$__all"
+                        "$__all",
+                        "alb-ingress-controller",
+                        "aws-node",
+                        "cluster-autoscaler",
+                        "cni-metrics-helper",
+                        "coredns",
+                        "kube-proxy"
                     ]
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(mixin_pod_workload{namespace=~\"$namespace\"}, workload)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1295,6 +1333,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(mixin_pod_workload{namespace=~\"$namespace\", workload=~\"$workload\"}, workload_type)",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,
@@ -1321,6 +1360,7 @@
                     "text": "auto",
                     "value": "$__auto_interval_interval"
                 },
+                "error": null,
                 "hide": 0,
                 "label": "Interval",
                 "name": "interval",

@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 33,
-    "iteration": 1596612958917,
+    "graphTooltip": 1,
+    "id": 36,
+    "iteration": 1604567670362,
     "links": [],
     "panels": [
         {
@@ -93,7 +93,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 8,
+                "h": 6,
                 "w": 5,
                 "x": 0,
                 "y": 1
@@ -129,7 +129,7 @@
                 "showThresholdLabels": false,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "postfix": "",
             "postfixFontSize": "50%",
             "prefix": "",
@@ -191,7 +191,7 @@
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 8,
+                "h": 6,
                 "w": 19,
                 "x": 5,
                 "y": 1
@@ -199,14 +199,14 @@
             "hiddenSeries": false,
             "id": 6,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -216,9 +216,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -334,10 +337,10 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 8,
+                "h": 6,
                 "w": 5,
                 "x": 0,
-                "y": 9
+                "y": 7
             },
             "height": 9,
             "id": 4,
@@ -370,7 +373,7 @@
                 "showThresholdLabels": false,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "postfix": "",
             "postfixFontSize": "50%",
             "prefix": "",
@@ -432,22 +435,22 @@
             "fill": 2,
             "fillGradient": 0,
             "gridPos": {
-                "h": 8,
+                "h": 6,
                 "w": 19,
                 "x": 5,
-                "y": 9
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 7,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -457,9 +460,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -529,7 +535,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 17
+                "y": 13
             },
             "id": 8,
             "panels": [],
@@ -560,19 +566,19 @@
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 18
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 9,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -582,9 +588,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -665,19 +674,19 @@
                 "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 18
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 10,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -687,9 +696,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -759,7 +771,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 26
+                "y": 22
             },
             "id": 11,
             "panels": [],
@@ -790,19 +802,19 @@
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 27
+                "y": 23
             },
             "hiddenSeries": false,
             "id": 12,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -812,9 +824,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -895,19 +910,19 @@
                 "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 27
+                "y": 23
             },
             "hiddenSeries": false,
             "id": 13,
             "legend": {
-                "alignAsTable": false,
+                "alignAsTable": true,
                 "avg": false,
                 "current": false,
                 "hideEmpty": true,
                 "hideZero": true,
                 "max": false,
                 "min": false,
-                "rightSide": false,
+                "rightSide": true,
                 "show": true,
                 "total": false,
                 "values": false
@@ -917,9 +932,12 @@
             "links": [],
             "minSpan": 12,
             "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -996,6 +1014,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,
@@ -1020,6 +1039,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(container_network_receive_packets_total, namespace)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1044,13 +1064,16 @@
                 "auto_min": "10s",
                 "current": {
                     "selected": true,
-                    "text": "All",
+                    "text": [
+                        "All"
+                    ],
                     "value": [
                         "$__all"
                     ]
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(container_network_receive_packets_total{namespace=~\"$namespace\"}, pod)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1077,6 +1100,7 @@
                     "text": "auto",
                     "value": "$__auto_interval_interval"
                 },
+                "error": null,
                 "hide": 0,
                 "label": "Interval",
                 "name": "interval",

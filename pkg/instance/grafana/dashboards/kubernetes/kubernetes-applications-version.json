@@ -15,7 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 26,
+    "id": 28,
     "links": [],
     "panels": [
         {
@@ -44,7 +44,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 14,
+                "h": 32,
                 "w": 24,
                 "x": 0,
                 "y": 0
@@ -55,7 +55,7 @@
                 "showHeader": true,
                 "sortBy": [
                     {
-                        "desc": false,
+                        "desc": true,
                         "displayName": "version"
                     }
                 ]
@@ -80,7 +80,8 @@
                     "id": "organize",
                     "options": {
                         "excludeByName": {
-                            "Time": true
+                            "Time": true,
+                            "Value": true
                         },
                         "indexByName": {
                             "Time": 0,
@@ -100,6 +101,7 @@
             "type": "table"
         }
     ],
+    "refresh": "1m",
     "schemaVersion": 26,
     "style": "dark",
     "tags": [
@@ -110,7 +112,7 @@
         "list": []
     },
     "time": {
-        "from": "now-6h",
+        "from": "now-5m",
         "to": "now"
     },
     "timepicker": {},

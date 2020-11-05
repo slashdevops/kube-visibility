@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 25,
-    "iteration": 1596613200562,
+    "id": 24,
+    "iteration": 1604568139419,
     "links": [],
     "panels": [
         {
@@ -83,7 +83,7 @@
                 "lineColor": "rgb(31, 120, 193)",
                 "show": false
             },
-            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"visibility\", persistentvolumeclaim=\"alertmanager-visibility-db-alertmanager-visibility-0\", service=\"kubelet\"}",
+            "tableColumn": "",
             "targets": [
                 {
                     "expr": "(\n  sum without(instance, node) (kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n  -\n  sum without(instance, node) (kubelet_volume_stats_available_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n)\n/\nsum without(instance, node) (kubelet_volume_stats_capacity_bytes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n* 100\n",
@@ -148,8 +148,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -279,7 +282,7 @@
                 "lineColor": "rgb(31, 120, 193)",
                 "show": false
             },
-            "tableColumn": "{endpoint=\"https-metrics\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"visibility\", persistentvolumeclaim=\"alertmanager-visibility-db-alertmanager-visibility-0\", service=\"kubelet\"}",
+            "tableColumn": "",
             "targets": [
                 {
                     "expr": "sum without(instance, node) (kubelet_volume_stats_inodes_used{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n/\nsum without(instance, node) (kubelet_volume_stats_inodes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", namespace=\"$namespace\", persistentvolumeclaim=\"$volume\"})\n* 100",
@@ -344,8 +347,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.1",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -412,7 +418,7 @@
             }
         }
     ],
-    "refresh": "10s",
+    "refresh": "1m",
     "schemaVersion": 26,
     "style": "dark",
     "tags": [
@@ -428,6 +434,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -451,6 +458,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": "Cluster",
@@ -471,12 +479,13 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
+                    "selected": true,
                     "text": "visibility",
                     "value": "visibility"
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Namespace",
@@ -497,12 +506,13 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
+                    "selected": true,
                     "text": "alertmanager-visibility-db-alertmanager-visibility-0",
                     "value": "alertmanager-visibility-db-alertmanager-visibility-0"
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "PersistentVolumeClaim",

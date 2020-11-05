@@ -15,87 +15,10 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 12,
-    "iteration": 1604479191874,
+    "id": 32,
+    "iteration": 1604566929863,
     "links": [],
     "panels": [
-        {
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {
-                        "align": null,
-                        "filterable": false
-                    },
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
-                                "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
-                            }
-                        ]
-                    }
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 5,
-                "w": 24,
-                "x": 0,
-                "y": 0
-            },
-            "id": 25,
-            "options": {
-                "showHeader": true
-            },
-            "pluginVersion": "7.3.1",
-            "targets": [
-                {
-                    "expr": "count by (namespace, instance, pod, gitVersion, buildDate) (kubernetes_build_info{service=\"kubelet\", namespace=\"kube-system\"})",
-                    "format": "table",
-                    "instant": true,
-                    "interval": "",
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "timeFrom": null,
-            "timeShift": null,
-            "title": "Version",
-            "transformations": [
-                {
-                    "id": "organize",
-                    "options": {
-                        "excludeByName": {
-                            "Time": true,
-                            "Value": true
-                        },
-                        "indexByName": {
-                            "Time": 1,
-                            "Value": 3,
-                            "buildDate": 4,
-                            "gitVersion": 5,
-                            "instance": 2,
-                            "namespace": 0
-                        },
-                        "renameByName": {
-                            "Time": "",
-                            "buildDate": "build date",
-                            "gitVersion": "version",
-                            "instance": "",
-                            "namespace": ""
-                        }
-                    }
-                }
-            ],
-            "type": "table"
-        },
         {
             "cacheTimeout": null,
             "datasource": "$datasource",
@@ -137,7 +60,7 @@
                 "h": 7,
                 "w": 4,
                 "x": 0,
-                "y": 5
+                "y": 0
             },
             "id": 12,
             "interval": null,
@@ -199,7 +122,7 @@
                 "h": 7,
                 "w": 4,
                 "x": 4,
-                "y": 5
+                "y": 0
             },
             "id": 27,
             "options": {
@@ -249,7 +172,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 5
+                "y": 0
             },
             "hiddenSeries": false,
             "id": 13,
@@ -375,7 +298,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 5
+                "y": 0
             },
             "hiddenSeries": false,
             "id": 14,
@@ -496,7 +419,7 @@
                 "h": 7,
                 "w": 4,
                 "x": 0,
-                "y": 12
+                "y": 7
             },
             "id": 2,
             "interval": null,
@@ -554,7 +477,7 @@
                 "h": 7,
                 "w": 20,
                 "x": 4,
-                "y": 12
+                "y": 7
             },
             "hiddenSeries": false,
             "id": 3,
@@ -677,7 +600,7 @@
                 "h": 7,
                 "w": 4,
                 "x": 0,
-                "y": 19
+                "y": 14
             },
             "id": 4,
             "interval": null,
@@ -735,7 +658,7 @@
                 "h": 7,
                 "w": 7,
                 "x": 4,
-                "y": 19
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 5,
@@ -837,7 +760,7 @@
                 "h": 7,
                 "w": 7,
                 "x": 11,
-                "y": 19
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 7,
@@ -938,7 +861,7 @@
                 "h": 7,
                 "w": 6,
                 "x": 18,
-                "y": 19
+                "y": 14
             },
             "hiddenSeries": false,
             "id": 6,
@@ -1058,7 +981,7 @@
                 "h": 7,
                 "w": 4,
                 "x": 0,
-                "y": 26
+                "y": 21
             },
             "id": 8,
             "interval": null,
@@ -1115,7 +1038,7 @@
                 "h": 7,
                 "w": 7,
                 "x": 4,
-                "y": 26
+                "y": 21
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1216,7 +1139,7 @@
                 "h": 7,
                 "w": 7,
                 "x": 11,
-                "y": 26
+                "y": 21
             },
             "hiddenSeries": false,
             "id": 11,
@@ -1317,7 +1240,7 @@
                 "h": 7,
                 "w": 6,
                 "x": 18,
-                "y": 26
+                "y": 21
             },
             "hiddenSeries": false,
             "id": 10,
@@ -1418,7 +1341,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 33
+                "y": 28
             },
             "hiddenSeries": false,
             "id": 15,
@@ -1520,7 +1443,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 33
+                "y": 28
             },
             "hiddenSeries": false,
             "id": 16,
@@ -1622,7 +1545,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 40
+                "y": 35
             },
             "hiddenSeries": false,
             "id": 17,
@@ -1724,7 +1647,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 47
+                "y": 42
             },
             "hiddenSeries": false,
             "id": 18,
@@ -1826,7 +1749,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 47
+                "y": 42
             },
             "hiddenSeries": false,
             "id": 19,
@@ -1936,7 +1859,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 47
+                "y": 42
             },
             "hiddenSeries": false,
             "id": 20,
@@ -2046,7 +1969,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 0,
-                "y": 54
+                "y": 49
             },
             "hiddenSeries": false,
             "id": 21,
@@ -2148,7 +2071,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 8,
-                "y": 54
+                "y": 49
             },
             "hiddenSeries": false,
             "id": 22,
@@ -2250,7 +2173,7 @@
                 "h": 7,
                 "w": 8,
                 "x": 16,
-                "y": 54
+                "y": 49
             },
             "hiddenSeries": false,
             "id": 23,
@@ -2339,7 +2262,8 @@
     "style": "dark",
     "tags": [
         "kubernetes",
-        "api"
+        "api",
+        "kube-visibility"
     ],
     "templating": {
         "list": [
@@ -2530,7 +2454,7 @@
         ]
     },
     "time": {
-        "from": "now-6h",
+        "from": "now-1h",
         "to": "now"
     },
     "timepicker": {
