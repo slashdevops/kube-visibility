@@ -55,7 +55,7 @@ This way persist configuration when making minikube stop and minikube start agai
 minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
-minikube config set vm-driver hyperkit
+minikube config set vm-driver docker
 minikube config set kubernetes-version 1.18.8
 minikube config view
 
@@ -69,7 +69,7 @@ minikube status
 ```bash
 minikube start \
  --kubernetes-version v1.18.8 \
- --vm-driver=hyperkit \
+ --vm-driver=docker \
  --memory=4096 \
  --cpus=2 \
  --disk-size=40G
@@ -103,14 +103,14 @@ kubectl get pods --all-namespaces
 
 ### Access to Kubernetes Dashboard
 
-```bash
-kubectl proxy
-```
-
 **NOTE:** First you need to get the token (Secret) of the `default ServiceAccount of kube-system namespace`
 
 ```bash
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
+```
+
+```bash
+kubectl proxy
 ```
 
 After execute `kubectl proxy` got this link [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy)

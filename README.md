@@ -142,6 +142,18 @@ All these tools are accessible (using the method described below) when you follo
 
 #### kubernetes Dashboard
 
+Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+```
+
+Create a RoleBinding to `kube-system namespace default ServiceAccount` to access to the dashboard as ClusterAdmin
+
+```bash
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
+```
+
 ```bash
 # get the token
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')

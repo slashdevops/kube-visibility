@@ -60,3 +60,4 @@ configMapGenerator:
   - name: grafana-dashboards-grafana-0
     files:
       - ./dashboards/grafana/grafana-internals.json
+      - ./dashboards/grafana/main-dashboard.json
