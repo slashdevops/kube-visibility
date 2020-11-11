@@ -39,7 +39,7 @@ See the file [VERSIONS](docs/VERSIONS.md)
 
 ## Kubernetes version supported
 
-* '>=' 1.16.x
+* `>= 1.18.x`
 
 ## Project Layout Structure
 

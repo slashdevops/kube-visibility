@@ -17,7 +17,7 @@
     "gnetId": 12382,
     "graphTooltip": 1,
     "id": 33,
-    "iteration": 1604566592501,
+    "iteration": 1605102966046,
     "links": [],
     "panels": [
         {
@@ -38,12 +38,6 @@
                     "unit": "dateTimeFromNow"
                 },
                 "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 5,
-                "x": 0,
-                "y": 0
             },
             "id": 30,
             "options": {
@@ -73,6 +67,216 @@
             "timeFrom": null,
             "timeShift": null,
             "title": "Up Time",
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Cache Requests",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "#d44a3a",
+                                "value": null
+                            },
+                            {
+                                "color": "#299c46",
+                                "value": 10
+                            },
+                            {
+                                "color": "#6d1f62",
+                                "value": 20000
+                            }
+                        ]
+                    },
+                    "unit": "reqps"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 6,
+                "x": 6,
+                "y": 0
+            },
+            "id": 18,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
+                    "format": "time_series",
+                    "instant": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Requests/s [1m]",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Cache Hits",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 6,
+                "x": 12,
+                "y": 0
+            },
+            "id": 34,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_cache_hits_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Cache Hits/s [1m]",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Cache Size",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 6,
+                "x": 18,
+                "y": 0
+            },
+            "id": 37,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(coredns_cache_entries{cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Cache Size/s",
+            "transparent": true,
             "type": "stat"
         },
         {
@@ -111,9 +315,9 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
-                "x": 5,
-                "y": 0
+                "w": 6,
+                "x": 0,
+                "y": 3
             },
             "id": 20,
             "links": [],
@@ -153,6 +357,7 @@
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
+                    "displayName": "Cache Misses",
                     "mappings": [
                         {
                             "id": 0,
@@ -167,83 +372,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "#d44a3a",
-                                "value": null
-                            },
-                            {
-                                "color": "#299c46",
-                                "value": 10
-                            },
-                            {
-                                "color": "#6d1f62",
-                                "value": 20000
-                            }
-                        ]
-                    },
-                    "unit": "reqps"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 7,
-                "x": 9,
-                "y": 0
-            },
-            "id": 18,
-            "links": [],
-            "options": {
-                "colorMode": "background",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.1",
-            "targets": [
-                {
-                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
-                    "format": "time_series",
-                    "instant": false,
-                    "interval": "",
-                    "intervalFactor": 1,
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "title": "Requests/s [1m]",
-            "transparent": true,
-            "type": "stat"
-        },
-        {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "displayName": "Denial Cache",
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "N/A",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "green",
+                                "color": "light-yellow",
                                 "value": null
                             }
                         ]
@@ -254,11 +383,11 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
-                "x": 16,
-                "y": 0
+                "w": 6,
+                "x": 6,
+                "y": 3
             },
-            "id": 23,
+            "id": 35,
             "links": [],
             "options": {
                 "colorMode": "background",
@@ -277,7 +406,74 @@
             "pluginVersion": "7.3.1",
             "targets": [
                 {
-                    "expr": "sum(coredns_cache_size{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "expr": "sum(rate(coredns_cache_misses_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Cache Misses/s [1m]",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Success Cache Hits",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "semi-dark-blue",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 3,
+                "x": 12,
+                "y": 3
+            },
+            "id": 36,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_cache_hits_total{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
                     "format": "time_series",
                     "instant": false,
                     "interval": "",
@@ -286,7 +482,75 @@
                     "refId": "A"
                 }
             ],
-            "title": "Denial Cache Size",
+            "title": "Success Cache Hits [1m]",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Denial Cache Hits",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "light-yellow",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 3,
+                "x": 15,
+                "y": 3
+            },
+            "id": 33,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_cache_hits_total{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
+                    "format": "time_series",
+                    "instant": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Denial Cache Hits [1m]",
             "transparent": true,
             "type": "stat"
         },
@@ -322,9 +586,9 @@
             },
             "gridPos": {
                 "h": 3,
-                "w": 4,
-                "x": 20,
-                "y": 0
+                "w": 3,
+                "x": 18,
+                "y": 3
             },
             "id": 22,
             "links": [],
@@ -345,7 +609,7 @@
             "pluginVersion": "7.3.1",
             "targets": [
                 {
-                    "expr": "sum(coredns_cache_size{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "expr": "sum(coredns_cache_entries{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -353,7 +617,75 @@
                     "refId": "A"
                 }
             ],
-            "title": "Success Cache Size",
+            "title": "Cache Size Success",
+            "transparent": true,
+            "type": "stat"
+        },
+        {
+            "cacheTimeout": null,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "displayName": "Denial Cache",
+                    "mappings": [
+                        {
+                            "id": 0,
+                            "op": "=",
+                            "text": "N/A",
+                            "type": 1,
+                            "value": "null"
+                        }
+                    ],
+                    "nullValueMode": "connected",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "light-yellow",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 3,
+                "x": 21,
+                "y": 3
+            },
+            "id": 23,
+            "links": [],
+            "options": {
+                "colorMode": "background",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "horizontal",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.1",
+            "targets": [
+                {
+                    "expr": "sum(coredns_cache_entries{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"})",
+                    "format": "time_series",
+                    "instant": false,
+                    "interval": "",
+                    "intervalFactor": 1,
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "title": "Cache Size Denial",
             "transparent": true,
             "type": "stat"
         },
@@ -386,7 +718,7 @@
                 "h": 5,
                 "w": 24,
                 "x": 0,
-                "y": 3
+                "y": 6
             },
             "id": 28,
             "options": {
@@ -451,18 +783,18 @@
                 "h": 7,
                 "w": 6,
                 "x": 0,
-                "y": 8
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 26,
             "legend": {
-                "avg": false,
+                "avg": true,
                 "current": false,
                 "max": false,
                 "min": false,
                 "show": true,
                 "total": false,
-                "values": false
+                "values": true
             },
             "lines": true,
             "linewidth": 1,
@@ -484,8 +816,14 @@
                     "expr": "max(rate(coredns_dns_request_duration_seconds_bucket{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "hide": false,
                     "interval": "",
-                    "legendFormat": "max delay",
+                    "legendFormat": "request - max delay",
                     "refId": "A"
+                },
+                {
+                    "expr": "max(rate(coredns_forward_request_duration_seconds_bucket{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
+                    "interval": "",
+                    "legendFormat": "forward - max delay",
+                    "refId": "B"
                 }
             ],
             "thresholds": [],
@@ -553,7 +891,7 @@
                 "h": 7,
                 "w": 6,
                 "x": 6,
-                "y": 8
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 1,
@@ -586,7 +924,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (pod)",
+                    "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (pod)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -657,7 +995,7 @@
                 "h": 7,
                 "w": 6,
                 "x": 12,
-                "y": 8
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 12,
@@ -697,7 +1035,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_type_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (type)",
+                    "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (type)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -771,7 +1109,7 @@
                 "h": 7,
                 "w": 6,
                 "x": 18,
-                "y": 8
+                "y": 11
             },
             "hiddenSeries": false,
             "id": 19,
@@ -807,7 +1145,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (proto)",
+                    "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (proto)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -876,9 +1214,9 @@
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
+                "w": 6,
                 "x": 0,
-                "y": 15
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1009,9 +1347,113 @@
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
-                "x": 8,
-                "y": 15
+                "w": 6,
+                "x": 6,
+                "y": 18
+            },
+            "hiddenSeries": false,
+            "id": 31,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 0,
+            "links": [],
+            "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.1",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_forward_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (pod)",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{ pod }}",
+                    "refId": "A",
+                    "step": 60
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Requests Forward/s (by pod) [$interval]",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "reqps",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "reqps",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 10,
+            "grid": {},
+            "gridPos": {
+                "h": 6,
+                "w": 6,
+                "x": 12,
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 14,
@@ -1139,9 +1581,9 @@
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
-                "x": 16,
-                "y": 15
+                "w": 6,
+                "x": 18,
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 10,
@@ -1172,7 +1614,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_request_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
+                    "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval]))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -1241,9 +1683,9 @@
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
+                "w": 6,
                 "x": 0,
-                "y": 21
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 8,
@@ -1375,13 +1817,117 @@
                 "overrides": []
             },
             "fill": 1,
+            "fillGradient": 10,
+            "grid": {},
+            "gridPos": {
+                "h": 6,
+                "w": 6,
+                "x": 6,
+                "y": 24
+            },
+            "hiddenSeries": false,
+            "id": 32,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 0,
+            "links": [],
+            "nullPointMode": "connected",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.1",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": true,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "sum(rate(coredns_forward_responses_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (pod)",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{ pod }}",
+                    "refId": "A",
+                    "step": 60
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Responses Forward/s (by pod) [$interval]",
+            "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "transparent": true,
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "reqps",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "reqps",
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "editable": true,
+            "error": false,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
             "fillGradient": 0,
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
-                "x": 8,
-                "y": 21
+                "w": 6,
+                "x": 12,
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1517,9 +2063,9 @@
             "grid": {},
             "gridPos": {
                 "h": 6,
-                "w": 8,
-                "x": 16,
-                "y": 21
+                "w": 6,
+                "x": 18,
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 5,
@@ -1550,7 +2096,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(rate(coredns_dns_response_rcode_count_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (rcode)",
+                    "expr": "sum(rate(coredns_dns_responses_total{cluster=\"$cluster\",pod=~\"$pod\"}[$interval])) by (rcode)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -1621,7 +2167,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 27
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 16,
@@ -1733,7 +2279,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 27
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 24,
@@ -1848,12 +2394,13 @@
             {
                 "allValue": null,
                 "current": {
+                    "isNone": true,
                     "selected": false,
                     "text": "None",
                     "value": ""
                 },
                 "datasource": "$datasource",
-                "definition": "label_values(coredns_dns_request_count_total, cluster)",
+                "definition": "label_values(coredns_build_info, cluster)",
                 "error": null,
                 "hide": 0,
                 "includeAll": false,
@@ -1868,7 +2415,7 @@
                         "value": ""
                     }
                 ],
-                "query": "label_values(coredns_dns_request_count_total, cluster)",
+                "query": "label_values(coredns_build_info, cluster)",
                 "refresh": 0,
                 "regex": "",
                 "skipUrlSync": false,
@@ -1883,7 +2430,6 @@
                 "allValue": null,
                 "current": {
                     "selected": true,
-                    "tags": [],
                     "text": [
                         "All"
                     ],
@@ -1892,7 +2438,7 @@
                     ]
                 },
                 "datasource": "$datasource",
-                "definition": "label_values(coredns_dns_request_count_total{cluster=\"$cluster\"}, pod)",
+                "definition": "label_values(coredns_build_info{cluster=\"$cluster\"}, pod)",
                 "error": null,
                 "hide": 0,
                 "includeAll": true,
@@ -1907,16 +2453,31 @@
                     },
                     {
                         "selected": false,
-                        "text": "coredns-6987776bbd-b5cdg",
-                        "value": "coredns-6987776bbd-b5cdg"
+                        "text": "coredns-5f865b6b4b-f6ksm",
+                        "value": "coredns-5f865b6b4b-f6ksm"
                     },
                     {
                         "selected": false,
-                        "text": "coredns-6987776bbd-kfhvx",
-                        "value": "coredns-6987776bbd-kfhvx"
+                        "text": "coredns-5f865b6b4b-b7hvt",
+                        "value": "coredns-5f865b6b4b-b7hvt"
+                    },
+                    {
+                        "selected": false,
+                        "text": "coredns-7b77d7b74-2xnx9",
+                        "value": "coredns-7b77d7b74-2xnx9"
+                    },
+                    {
+                        "selected": false,
+                        "text": "coredns-5f865b6b4b-f78j7",
+                        "value": "coredns-5f865b6b4b-f78j7"
+                    },
+                    {
+                        "selected": false,
+                        "text": "coredns-7b77d7b74-gxnb4",
+                        "value": "coredns-7b77d7b74-gxnb4"
                     }
                 ],
-                "query": "label_values(coredns_dns_request_count_total{cluster=\"$cluster\"}, pod)",
+                "query": "label_values(coredns_build_info{cluster=\"$cluster\"}, pod)",
                 "refresh": 0,
                 "regex": "",
                 "skipUrlSync": false,
@@ -2011,7 +2572,7 @@
         ]
     },
     "time": {
-        "from": "now-1h",
+        "from": "now-6h",
         "to": "now"
     },
     "timepicker": {
