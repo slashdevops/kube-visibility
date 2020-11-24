@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 25,
-    "iteration": 1606231308436,
+    "iteration": 1606233132466,
     "links": [],
     "panels": [
         {
@@ -567,7 +567,7 @@
             "seriesOverrides": [],
             "showHeader": true,
             "sort": {
-                "col": 0,
+                "col": 4,
                 "desc": true
             },
             "spaceLength": 10,
@@ -695,36 +695,40 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "B",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "C",
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "D",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod) / sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "E",
@@ -2193,9 +2197,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "kube-system",
-                    "value": "kube-system"
+                    "selected": true,
+                    "text": "integration",
+                    "value": "integration"
                 },
                 "datasource": "$datasource",
                 "definition": "",
