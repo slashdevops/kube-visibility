@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 35,
-    "iteration": 1596454529185,
+    "id": 38,
+    "iteration": 1606231880500,
     "links": [],
     "panels": [
         {
@@ -93,7 +93,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 12,
                 "x": 0,
                 "y": 1
@@ -129,7 +129,7 @@
                 "showThresholdLabels": false,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.3",
             "postfix": "",
             "postfixFontSize": "50%",
             "prefix": "",
@@ -229,7 +229,7 @@
                 "thresholdMarkers": true
             },
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 12,
                 "x": 12,
                 "y": 1
@@ -265,7 +265,7 @@
                 "showThresholdLabels": false,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.0.4",
+            "pluginVersion": "7.3.3",
             "postfix": "",
             "postfixFontSize": "50%",
             "prefix": "",
@@ -359,7 +359,7 @@
                 "h": 8,
                 "w": 24,
                 "x": 0,
-                "y": 8
+                "y": 7
             },
             "id": 5,
             "lines": true,
@@ -574,7 +574,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 16
+                "y": 15
             },
             "id": 6,
             "panels": [],
@@ -594,7 +594,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -604,7 +605,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 17
+                "y": 16
             },
             "hiddenSeries": false,
             "id": 7,
@@ -627,10 +628,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -700,7 +702,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -710,7 +713,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 17
+                "y": 16
             },
             "hiddenSeries": false,
             "id": 8,
@@ -733,10 +736,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -806,7 +810,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 26
+                "y": 25
             },
             "id": 9,
             "panels": [],
@@ -826,7 +830,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -836,7 +841,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 27
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 10,
@@ -859,10 +864,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -932,7 +938,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -942,7 +949,7 @@
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 27
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 11,
@@ -965,10 +972,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1038,7 +1046,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 36
+                "y": 35
             },
             "id": 12,
             "panels": [],
@@ -1058,7 +1066,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1068,7 +1077,7 @@
                 "h": 8,
                 "w": 12,
                 "x": 0,
-                "y": 37
+                "y": 36
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1091,10 +1100,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1164,7 +1174,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1174,7 +1185,7 @@
                 "h": 8,
                 "w": 12,
                 "x": 12,
-                "y": 37
+                "y": 36
             },
             "hiddenSeries": false,
             "id": 14,
@@ -1197,10 +1208,11 @@
             "minSpan": 12,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1264,7 +1276,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility",
@@ -1274,10 +1286,11 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,
@@ -1303,6 +1316,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(container_network_receive_packets_total, namespace)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1329,6 +1343,7 @@
                     "text": "auto",
                     "value": "$__auto_interval_interval"
                 },
+                "error": null,
                 "hide": 0,
                 "label": "Interval",
                 "name": "interval",

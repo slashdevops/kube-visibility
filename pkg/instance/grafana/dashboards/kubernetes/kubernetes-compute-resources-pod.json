@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 28,
-    "iteration": 1596612634773,
+    "id": 31,
+    "iteration": 1606230943568,
     "links": [],
     "panels": [
         {
@@ -70,8 +70,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -110,7 +113,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -120,7 +123,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -207,8 +210,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -450,7 +456,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -460,7 +466,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -470,7 +476,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -480,7 +486,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -578,8 +584,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -624,7 +633,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_memory_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -634,7 +643,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_memory_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -902,7 +911,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_memory_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -912,7 +921,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_requests_memory_bytes{namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"}) by (container) / sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -922,7 +931,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_memory_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"\"}) by (container)",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -932,7 +941,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"\"}) by (container) / sum(kube_pod_container_resource_limits_memory_bytes{namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
+                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"\"}) by (container) / sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\", pod=~\"$pod\"}) by (container)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1060,8 +1069,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1158,8 +1170,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1256,8 +1271,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1354,8 +1372,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1452,8 +1473,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1550,8 +1574,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1630,6 +1657,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -1646,13 +1674,13 @@
             {
                 "allValue": null,
                 "current": {
-                    "isNone": true,
                     "selected": false,
                     "text": "None",
                     "value": ""
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": "Cluster",
@@ -1673,12 +1701,13 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
-                    "text": "kube-system",
-                    "value": "kube-system"
+                    "selected": false,
+                    "text": "core",
+                    "value": "core"
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Namespace",
@@ -1699,12 +1728,17 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "All",
-                    "value": "$__all"
+                    "selected": true,
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": "Pod",
@@ -1731,6 +1765,7 @@
                     "text": "5m",
                     "value": "5m"
                 },
+                "error": null,
                 "hide": 0,
                 "label": "Interval",
                 "name": "interval",

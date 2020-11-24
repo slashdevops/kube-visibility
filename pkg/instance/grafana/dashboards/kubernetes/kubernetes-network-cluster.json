@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 32,
-    "iteration": 1596454461531,
+    "id": 35,
+    "iteration": 1606231831313,
     "links": [],
     "panels": [
         {
@@ -47,7 +47,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -82,10 +83,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -156,7 +158,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -191,10 +194,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -590,7 +594,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -625,10 +630,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -699,7 +705,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -734,10 +741,11 @@
             "minSpan": 24,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -828,7 +836,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -861,10 +870,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -933,7 +943,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -966,10 +977,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1058,7 +1070,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1091,10 +1104,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1163,7 +1177,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1196,10 +1211,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1288,7 +1304,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1321,10 +1338,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1393,7 +1411,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1426,10 +1445,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1498,7 +1518,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1537,10 +1558,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1609,7 +1631,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -1648,10 +1671,11 @@
             "minSpan": 24,
             "nullPointMode": "connected",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "paceLength": 10,
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1714,7 +1738,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility"
@@ -1727,6 +1751,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -1751,6 +1776,7 @@
                     "value": "$__auto_interval_resolution"
                 },
                 "datasource": "$datasource",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Resolution",
@@ -1821,6 +1847,7 @@
                     "value": "4h"
                 },
                 "datasource": "$datasource",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": "Interval",

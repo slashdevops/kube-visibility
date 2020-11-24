@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 28,
-    "iteration": 1596452864058,
+    "id": 30,
+    "iteration": 1606231481422,
     "links": [],
     "panels": [
         {
@@ -42,7 +42,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -70,9 +71,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -297,42 +299,47 @@
                     "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A",
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "B",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", node=\"$node\"}) by (pod) / sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", node=\"$node\"}) by (pod) / sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "C",
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "D",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", node=\"$node\"}) by (pod) / sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", node=\"$node\"}) by (pod) / sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "E",
@@ -399,7 +406,8 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
@@ -427,9 +435,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -705,36 +714,40 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_memory_bytes{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "B",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_memory_working_set_bytes{cluster=\"$cluster\", node=\"$node\",container!=\"\"}) by (pod) / sum(kube_pod_container_resource_requests_memory_bytes{node=\"$node\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_memory_working_set_bytes{cluster=\"$cluster\", node=\"$node\",container!=\"\"}) by (pod) / sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "C",
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_memory_bytes{cluster=\"$cluster\", node=\"$node\"}) by (pod)",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "D",
                     "step": 10
                 },
                 {
-                    "expr": "sum(node_namespace_pod_container:container_memory_working_set_bytes{cluster=\"$cluster\", node=\"$node\",container!=\"\"}) by (pod) / sum(kube_pod_container_resource_limits_memory_bytes{node=\"$node\"}) by (pod)",
+                    "expr": "sum(node_namespace_pod_container:container_memory_working_set_bytes{cluster=\"$cluster\", node=\"$node\",container!=\"\"}) by (pod) / sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",node=\"$node\"}) by (pod)",
                     "format": "table",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "E",
@@ -807,7 +820,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility"
@@ -816,10 +829,11 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -843,6 +857,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": "Cluster",
@@ -864,11 +879,12 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "ip-10-62-53-204.eu-west-1.compute.internal",
-                    "value": "ip-10-62-53-204.eu-west-1.compute.internal"
+                    "text": "ip-10-62-49-158.eu-west-1.compute.internal",
+                    "value": "ip-10-62-49-158.eu-west-1.compute.internal"
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Node",

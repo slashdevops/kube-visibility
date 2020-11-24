@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 12382,
     "graphTooltip": 1,
-    "id": 13,
-    "iteration": 1606223732095,
+    "id": 32,
+    "iteration": 1606231723550,
     "links": [],
     "panels": [
         {
@@ -2407,16 +2407,9 @@
                 "label": "Cluster",
                 "multi": false,
                 "name": "cluster",
-                "options": [
-                    {
-                        "isNone": true,
-                        "selected": true,
-                        "text": "None",
-                        "value": ""
-                    }
-                ],
+                "options": [],
                 "query": "label_values(node_cpu_seconds_total, cluster)",
-                "refresh": 0,
+                "refresh": 1,
                 "regex": "",
                 "skipUrlSync": false,
                 "sort": 1,
@@ -2445,20 +2438,9 @@
                 "label": "Pod",
                 "multi": true,
                 "name": "pod",
-                "options": [
-                    {
-                        "selected": true,
-                        "text": "All",
-                        "value": "$__all"
-                    },
-                    {
-                        "selected": false,
-                        "text": "coredns-66bff467f8-qhvzg",
-                        "value": "coredns-66bff467f8-qhvzg"
-                    }
-                ],
+                "options": [],
                 "query": "label_values(coredns_build_info{cluster=\"$cluster\"}, pod)",
-                "refresh": 0,
+                "refresh": 1,
                 "regex": "",
                 "skipUrlSync": false,
                 "sort": 0,
