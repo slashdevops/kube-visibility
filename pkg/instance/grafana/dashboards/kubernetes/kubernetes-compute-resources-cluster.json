@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 26,
-    "iteration": 1604567171855,
+    "id": 5,
+    "iteration": 1606221530101,
     "links": [],
     "panels": [
         {
@@ -100,7 +100,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "1 - avg(rate(node_cpu_seconds_total{mode=\"idle\", cluster=\"$cluster\"}[$__interval]))",
@@ -181,13 +181,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_cpu_cores{cluster=\"$cluster\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\"}) / sum(kube_node_status_allocatable{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -262,13 +264,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_cpu_cores{cluster=\"$cluster\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\"}) / sum(kube_node_status_allocatable{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -343,13 +347,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
+                    "expr": "1 - sum(:node_memory_MemAvailable_bytes:sum{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -424,13 +430,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_resource_requests_memory_bytes{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\"}) / sum(kube_node_status_allocatable{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -505,13 +513,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_resource_limits_memory_bytes{cluster=\"$cluster\"}) / sum(kube_node_status_allocatable_memory_bytes{cluster=\"$cluster\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\"}) / sum(kube_node_status_allocatable{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -575,7 +585,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -982,7 +992,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1663,7 +1673,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1764,7 +1774,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1865,7 +1875,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1966,7 +1976,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2067,7 +2077,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2168,7 +2178,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2269,7 +2279,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2370,7 +2380,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2603,5 +2613,5 @@
     "timezone": "",
     "title": "Kubernetes / Compute Resources / Cluster",
     "uid": "efa86fd1d0c121a26444b636a3f509a8",
-    "version": 1
+    "version": 2
 }

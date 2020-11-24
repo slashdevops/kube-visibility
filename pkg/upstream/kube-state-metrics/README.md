@@ -2,9 +2,7 @@
 
 NOTES:
 
-v1.9.6 > k8s 1.16.x
-* https://github.com/kubernetes/kube-state-metrics/issues/1093
-* https://github.com/sighupio/fury-kubernetes-monitoring/issues/32
+v2.0.0 > k8s 1.17.x
 
 Important URLs:
 
@@ -13,17 +11,31 @@ Important URLs:
 * https://github.com/kubernetes-sigs/kustomize
 * https://googlecontainertools.github.io/kpt/
 
-This project was imported and maintaint using KPT and Kustomize
+## Upgrade
 
-## Kustomize
+Download manifest
 
-The files
+```bash
+mkdir -p kube-state-metrics/
+cd kube-state-metrics
 
-* kustomization.yaml
-* role-binding.yaml
-* role.yaml
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/kubernetes/kube-state-metrics/master/examples/standard/cluster-role-binding.yaml
 
-was created by kube-visibility project
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/kubernetes/kube-state-metrics/master/examples/standard/cluster-role.yaml
+
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/kubernetes/kube-state-metrics/master/examples/standard/deployment.yaml
+
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/kubernetes/kube-state-metrics/master/examples/standard/service-account.yaml
+
+curl --remote-name --remote-header-name  https://raw.githubusercontent.com/kubernetes/kube-state-metrics/master/examples/standard/service.yaml
+
+```
+
+create customization file
+
+```bash
+kustomize create --autodetect --recursive --namespace kube-visibility
+```
 
 ## Check
 

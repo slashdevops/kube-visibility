@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kube-state-metrics
+  namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
 spec:
   replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.replicas"}
   template:

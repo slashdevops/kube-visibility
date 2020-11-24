@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 24,
-    "iteration": 1596612313877,
+    "id": 6,
+    "iteration": 1606222661200,
     "links": [],
     "panels": [
         {
@@ -101,13 +101,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_requests_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"})",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -183,13 +185,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_limits_cpu_cores{cluster=\"$cluster\", namespace=\"$namespace\"})",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -265,13 +269,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_requests_memory_bytes{namespace=\"$namespace\"})",
+                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -347,13 +353,15 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_limits_memory_bytes{namespace=\"$namespace\"})",
+                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": true,
+                    "interval": "",
                     "intervalFactor": 2,
+                    "legendFormat": "",
                     "refId": "A"
                 }
             ],
@@ -413,8 +421,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -808,8 +819,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1549,8 +1563,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1646,8 +1663,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1744,8 +1764,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1841,8 +1864,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1938,8 +1964,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2036,8 +2065,11 @@
             "linewidth": 0,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2113,6 +2145,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -2135,6 +2168,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 2,
                 "includeAll": false,
                 "label": "Cluster",
@@ -2161,6 +2195,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Namespace",
