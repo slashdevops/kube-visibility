@@ -7,6 +7,7 @@ v2.0.0 > k8s 1.17.x
 Important URLs:
 
 * https://github.com/kubernetes/kube-state-metrics
+* https://github.com/kubernetes/kube-state-metrics/tree/master/docs
 * https://github.com/brancz/kube-rbac-proxy
 * https://github.com/kubernetes-sigs/kustomize
 * https://googlecontainertools.github.io/kpt/
