@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 30,
-    "iteration": 1606316799367,
+    "id": 48,
+    "iteration": 1606319024754,
     "links": [],
     "panels": [
         {
@@ -63,7 +63,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_node_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_node_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -117,7 +117,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_namespace_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_namespace_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -171,7 +171,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_pod_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -225,7 +225,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_pod_container_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -279,7 +279,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_deployment_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_deployment_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -333,7 +333,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_service_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_service_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -388,7 +388,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_daemonset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_daemonset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -442,7 +442,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_replicaset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_replicaset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -496,7 +496,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_statefulset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_statefulset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -550,7 +550,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_configmap_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_configmap_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -604,7 +604,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_secret_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_secret_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -658,7 +658,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_endpoint_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_endpoint_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -712,7 +712,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -766,7 +766,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_storageclass_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})",
+                    "expr": "count(kube_storageclass_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -839,6 +839,7 @@
                 "allValue": null,
                 "current": {
                     "selected": true,
+                    "tags": [],
                     "text": [
                         "All"
                     ],
@@ -869,7 +870,7 @@
         ]
     },
     "time": {
-        "from": "now-6h",
+        "from": "now-1h",
         "to": "now"
     },
     "timepicker": {},

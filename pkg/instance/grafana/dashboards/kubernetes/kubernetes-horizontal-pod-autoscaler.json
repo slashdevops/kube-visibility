@@ -16,37 +16,30 @@
     "editable": true,
     "gnetId": 10257,
     "graphTooltip": 0,
-    "id": 29,
-    "iteration": 1606312915144,
+    "id": 47,
+    "iteration": 1606321010249,
     "links": [],
     "panels": [
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
-            "description": "",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "0",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
+                    "mappings": [],
                     "thresholds": {
-                        "mode": "absolute",
+                        "mode": "percentage",
                         "steps": [
                             {
                                 "color": "green",
                                 "value": null
                             },
                             {
-                                "color": "red",
-                                "value": 80
+                                "color": "#EAB839",
+                                "value": 70
+                            },
+                            {
+                                "color": "semi-dark-red",
+                                "value": 90
                             }
                         ]
                     },
@@ -60,17 +53,14 @@
                 "x": 0,
                 "y": 0
             },
-            "id": 5,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 26,
             "options": {
-                "orientation": "horizontal",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "lastNotNull"
+                        "mean"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_spec_target_metric{container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", metric_name=\"cpu\", metric_target_type=\"utilization\", namespace=\"default\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "showThresholdLabels": false,
@@ -79,59 +69,49 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_spec_target_metric{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"}",
-                    "format": "time_series",
+                    "expr": "max(kube_horizontalpodautoscaler_spec_target_metric{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
-            "title": "Target Load Value",
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Target Load",
             "type": "gauge"
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
                     "mappings": [
                         {
-                            "id": 0,
-                            "op": "=",
+                            "from": "",
+                            "id": 1,
                             "text": "No",
+                            "to": "",
                             "type": 1,
                             "value": "0"
                         },
                         {
                             "from": "",
-                            "id": 1,
+                            "id": 2,
                             "text": "Yes",
                             "to": "",
                             "type": 1,
                             "value": "1"
                         }
                     ],
-                    "nullValueMode": "connected",
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
                             {
                                 "color": "green",
                                 "value": null
-                            },
-                            {
-                                "color": "#EAB839",
-                                "value": -0.0001
-                            },
-                            {
-                                "color": "semi-dark-green",
-                                "value": 1
                             }
                         ]
-                    },
-                    "unit": "none"
+                    }
                 },
                 "overrides": []
             },
@@ -141,20 +121,17 @@
                 "x": 4,
                 "y": 0
             },
-            "id": 14,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 24,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
                 "justifyMode": "auto",
-                "orientation": "horizontal",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "lastNotNull"
+                        "mean"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_status_condition{condition=\"ScalingLimited\", container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", namespace=\"default\", status=\"false\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
@@ -162,47 +139,32 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_status_condition{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\",status=\"false\",condition=\"ScalingLimited\"}",
-                    "format": "time_series",
+                    "expr": "max(kube_horizontalpodautoscaler_status_condition{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\",status=\"false\",condition=\"ScalingLimited\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
+            "timeFrom": null,
+            "timeShift": null,
             "title": "Scaling?",
             "type": "stat"
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "0",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
+                    "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
                             {
                                 "color": "green",
                                 "value": null
-                            },
-                            {
-                                "color": "red",
-                                "value": 80
                             }
                         ]
-                    },
-                    "unit": "none"
+                    }
                 },
                 "overrides": []
             },
@@ -212,20 +174,17 @@
                 "x": 8,
                 "y": 0
             },
-            "id": 6,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 22,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
                 "justifyMode": "auto",
-                "orientation": "horizontal",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "lastNotNull"
+                        "mean"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_status_current_replicas{container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", namespace=\"default\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
@@ -233,33 +192,23 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"}",
-                    "format": "time_series",
+                    "expr": "max(kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
+            "timeFrom": null,
+            "timeShift": null,
             "title": "Current Replicas",
             "type": "stat"
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "0",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
+                    "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -268,8 +217,7 @@
                                 "value": null
                             }
                         ]
-                    },
-                    "unit": "none"
+                    }
                 },
                 "overrides": []
             },
@@ -279,20 +227,17 @@
                 "x": 12,
                 "y": 0
             },
-            "id": 13,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 20,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
                 "justifyMode": "auto",
-                "orientation": "horizontal",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "lastNotNull"
+                        "mean"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_status_desired_replicas{container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", namespace=\"default\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
@@ -300,33 +245,24 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_status_desired_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"}",
-                    "format": "time_series",
+                    "expr": "max(kube_horizontalpodautoscaler_status_desired_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
+            "timeFrom": null,
+            "timeShift": null,
             "title": "Desired Replicas",
             "type": "stat"
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "0",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
+                    "displayName": "Min Replicas",
+                    "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -335,8 +271,7 @@
                                 "value": null
                             }
                         ]
-                    },
-                    "unit": "none"
+                    }
                 },
                 "overrides": []
             },
@@ -346,20 +281,17 @@
                 "x": 16,
                 "y": 0
             },
-            "id": 7,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 18,
             "options": {
                 "colorMode": "value",
-                "graphMode": "none",
+                "graphMode": "area",
                 "justifyMode": "auto",
-                "orientation": "horizontal",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "lastNotNull"
+                        "mean"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_spec_min_replicas{container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", namespace=\"default\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
@@ -367,33 +299,23 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\",  namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"}",
-                    "format": "time_series",
+                    "expr": "min(kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\",  namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
-            "title": "Min Replicas",
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Panel Title",
             "type": "stat"
         },
         {
-            "cacheTimeout": null,
-            "datasource": "$datasource",
+            "datasource": null,
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "id": 0,
-                            "op": "=",
-                            "text": "0",
-                            "type": 1,
-                            "value": "null"
-                        }
-                    ],
-                    "nullValueMode": "connected",
+                    "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -402,8 +324,7 @@
                                 "value": null
                             }
                         ]
-                    },
-                    "unit": "none"
+                    }
                 },
                 "overrides": []
             },
@@ -413,20 +334,17 @@
                 "x": 20,
                 "y": 0
             },
-            "id": 8,
-            "interval": null,
-            "links": [],
-            "maxDataPoints": 100,
+            "id": 16,
             "options": {
                 "colorMode": "value",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
+                "graphMode": "area",
+                "justifyMode": "center",
+                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
                         "lastNotNull"
                     ],
-                    "fields": "/^kube_horizontalpodautoscaler_spec_max_replicas{container=\"kube-state-metrics\", horizontalpodautoscaler=\"php-apache\", instance=\"172.17.0.6:8080\", job=\"kube-state-metrics\", namespace=\"default\"}$/",
+                    "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
@@ -434,14 +352,14 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"}",
-                    "format": "time_series",
+                    "expr": "max(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"})",
                     "interval": "",
-                    "intervalFactor": 2,
                     "legendFormat": "",
                     "refId": "A"
                 }
             ],
+            "timeFrom": null,
+            "timeShift": null,
             "title": "Max Replicas",
             "type": "stat"
         },
@@ -454,7 +372,21 @@
             "description": "",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
                 },
                 "overrides": []
             },
@@ -523,7 +455,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "kube_horizontalpodautoscaler_status_desired_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\", cluster=\"$cluster\"}",
+                    "expr": "max(kube_horizontalpodautoscaler_status_desired_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\", cluster=\"$cluster\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -531,7 +463,7 @@
                     "refId": "B"
                 },
                 {
-                    "expr": "kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"}",
+                    "expr": "max(kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"})",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
@@ -539,7 +471,7 @@
                     "refId": "C"
                 },
                 {
-                    "expr": "kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"}",
+                    "expr": "max(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": false,
                     "interval": "",
@@ -548,7 +480,7 @@
                     "refId": "A"
                 },
                 {
-                    "expr": "kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"}",
+                    "expr": "max(kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\",namespace=\"$namespace\"})",
                     "format": "time_series",
                     "instant": false,
                     "interval": "",
@@ -647,9 +579,16 @@
                 "label": "Cluster",
                 "multi": false,
                 "name": "cluster",
-                "options": [],
+                "options": [
+                    {
+                        "isNone": true,
+                        "selected": true,
+                        "text": "None",
+                        "value": ""
+                    }
+                ],
                 "query": "label_values(kube_pod_info, cluster)",
-                "refresh": 1,
+                "refresh": 0,
                 "regex": "",
                 "skipUrlSync": false,
                 "sort": 0,
@@ -663,8 +602,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "default",
-                    "value": "default"
+                    "text": "integration",
+                    "value": "integration"
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\"}, namespace)",
@@ -690,8 +629,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "php-apache",
-                    "value": "php-apache"
+                    "text": "transaction-api",
+                    "value": "transaction-api"
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\", namespace=\"$namespace\"}, horizontalpodautoscaler)",
