@@ -52,6 +52,7 @@ configMapGenerator:
       - ./dashboards/kubernetes/kubernetes-network-namespace-pods.json
       - ./dashboards/kubernetes/kubernetes-network-namespace-workload.json
       - ./dashboards/kubernetes/kubernetes-horizontal-pod-autoscaler.json
+      - ./dashboards/kubernetes/kubernetes-objects-quantities.json
   - name: grafana-dashboards-infrastructure-0
     files:
       - ./dashboards/infrastructure/nodes.json
