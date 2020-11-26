@@ -17,7 +17,7 @@
     "gnetId": 10257,
     "graphTooltip": 0,
     "id": 47,
-    "iteration": 1606321010249,
+    "iteration": 1606384368673,
     "links": [],
     "panels": [
         {
@@ -48,7 +48,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 0,
                 "y": 0
@@ -116,7 +116,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 4,
                 "y": 0
@@ -169,7 +169,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 8,
                 "y": 0
@@ -213,7 +213,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-yellow",
+                                "color": "light-blue",
                                 "value": null
                             }
                         ]
@@ -222,7 +222,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 12,
                 "y": 0
@@ -267,7 +267,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-blue",
+                                "color": "semi-dark-orange",
                                 "value": null
                             }
                         ]
@@ -276,7 +276,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 16,
                 "y": 0
@@ -307,7 +307,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Panel Title",
+            "title": "Min Replicas",
             "type": "stat"
         },
         {
@@ -320,7 +320,7 @@
                         "mode": "absolute",
                         "steps": [
                             {
-                                "color": "semi-dark-orange",
+                                "color": "semi-dark-red",
                                 "value": null
                             }
                         ]
@@ -329,7 +329,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 5,
                 "w": 4,
                 "x": 20,
                 "y": 0
@@ -396,7 +396,7 @@
                 "h": 9,
                 "w": 24,
                 "x": 0,
-                "y": 3
+                "y": 5
             },
             "hiddenSeries": false,
             "id": 9,
@@ -428,12 +428,12 @@
             "seriesOverrides": [
                 {
                     "alias": "Max Replicas",
-                    "color": "#FF780A",
+                    "color": "#E02F44",
                     "linewidth": 2
                 },
                 {
                     "alias": "Min Replicas",
-                    "color": "#1F60C4",
+                    "color": "#FF780A",
                     "fillGradient": 3
                 },
                 {
@@ -445,7 +445,7 @@
                 },
                 {
                     "alias": "Desired Replicas",
-                    "color": "#F2CC0C",
+                    "color": "#8AB8FF",
                     "dashes": true,
                     "linewidth": 1
                 }
@@ -655,7 +655,7 @@
         ]
     },
     "time": {
-        "from": "now-1h",
+        "from": "now-6h",
         "to": "now"
     },
     "timepicker": {

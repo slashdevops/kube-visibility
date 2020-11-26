@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 38,
-    "iteration": 1596613582071,
+    "graphTooltip": 1,
+    "id": 42,
+    "iteration": 1606382306973,
     "links": [],
     "panels": [
         {
@@ -47,8 +47,8 @@
                 },
                 "overrides": []
             },
-            "fill": 8,
-            "fillGradient": 0,
+            "fill": 5,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -67,11 +67,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -96,7 +99,7 @@
             "timeShift": null,
             "title": "CPU Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -145,7 +148,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -164,11 +167,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -193,7 +199,7 @@
             "timeShift": null,
             "title": "CPU Saturation (load1 per CPU)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -257,7 +263,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -276,11 +282,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -305,7 +314,7 @@
             "timeShift": null,
             "title": "Memory Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -354,7 +363,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -373,11 +382,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -402,7 +414,7 @@
             "timeShift": null,
             "title": "Memory Saturation (Major Page Faults)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -466,7 +478,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -485,11 +497,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -533,7 +548,7 @@
             "timeShift": null,
             "title": "Net Utilisation (Bytes Receive/Transmit)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -582,7 +597,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -601,11 +616,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -649,7 +667,7 @@
             "timeShift": null,
             "title": "Net Saturation (Drops Receive/Transmit)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -713,7 +731,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -732,11 +750,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -761,7 +782,7 @@
             "timeShift": null,
             "title": "Disk IO Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -810,7 +831,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -829,11 +850,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -858,7 +882,7 @@
             "timeShift": null,
             "title": "Disk IO Saturation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -922,7 +946,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -941,11 +965,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -970,7 +997,7 @@
             "timeShift": null,
             "title": "Disk Space Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1020,6 +1047,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,

@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 5,
-    "iteration": 1606221530101,
+    "graphTooltip": 1,
+    "id": 24,
+    "iteration": 1606382697915,
     "links": [],
     "panels": [
         {
@@ -558,11 +558,11 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 9,
             "gridPos": {
-                "h": 7,
-                "w": 24,
+                "h": 6,
+                "w": 12,
                 "x": 0,
                 "y": 5
             },
@@ -578,7 +578,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -610,7 +610,7 @@
             "timeShift": null,
             "title": "CPU Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -661,10 +661,10 @@
             "fill": 1,
             "fontSize": "100%",
             "gridPos": {
-                "h": 7,
-                "w": 24,
-                "x": 0,
-                "y": 12
+                "h": 6,
+                "w": 12,
+                "x": 12,
+                "y": 5
             },
             "id": 8,
             "legend": {
@@ -944,7 +944,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 19
+                "y": 11
             },
             "id": 23,
             "panels": [],
@@ -965,13 +965,13 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 9,
             "gridPos": {
-                "h": 7,
-                "w": 24,
+                "h": 6,
+                "w": 12,
                 "x": 0,
-                "y": 20
+                "y": 12
             },
             "hiddenSeries": false,
             "id": 9,
@@ -985,7 +985,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1017,7 +1017,7 @@
             "timeShift": null,
             "title": "Memory Usage (w/o cache)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1068,10 +1068,10 @@
             "fill": 1,
             "fontSize": "100%",
             "gridPos": {
-                "h": 7,
-                "w": 24,
-                "x": 0,
-                "y": 27
+                "h": 6,
+                "w": 12,
+                "x": 12,
+                "y": 12
             },
             "id": 10,
             "legend": {
@@ -1351,7 +1351,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 34
+                "y": 18
             },
             "id": 25,
             "panels": [],
@@ -1378,7 +1378,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 35
+                "y": 19
             },
             "id": 11,
             "legend": {
@@ -1536,7 +1536,7 @@
             ],
             "targets": [
                 {
-                    "expr": "sum(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1546,7 +1546,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_transmit_bytes_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1556,7 +1556,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1566,7 +1566,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(irate(container_network_transmit_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_transmit_packets_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1576,7 +1576,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(irate(container_network_receive_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_receive_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1586,7 +1586,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(irate(container_network_transmit_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[5m])) by (namespace)",
+                    "expr": "sum(irate(container_network_transmit_packets_dropped_total{cluster=\"$cluster\", namespace=~\".+\"}[$interval])) by (namespace)",
                     "format": "table",
                     "instant": true,
                     "interval": "",
@@ -1599,7 +1599,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Current Network Usage [5m]",
+            "title": "Current Network Usage [$interval]",
             "tooltip": {
                 "shared": false,
                 "sort": 0,
@@ -1647,12 +1647,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 42
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 13,
@@ -1666,7 +1666,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1699,7 +1699,7 @@
             "timeShift": null,
             "title": "Transmit Bandwidth [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1748,12 +1748,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 42
+                "y": 26
             },
             "hiddenSeries": false,
             "id": 12,
@@ -1767,7 +1767,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1800,7 +1800,7 @@
             "timeShift": null,
             "title": "Receive Bandwidth [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1849,12 +1849,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 49
+                "y": 33
             },
             "hiddenSeries": false,
             "id": 15,
@@ -1868,7 +1868,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1901,7 +1901,7 @@
             "timeShift": null,
             "title": "Average Container Bandwidth by Namespace: Transmitted [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1950,12 +1950,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 49
+                "y": 33
             },
             "hiddenSeries": false,
             "id": 14,
@@ -1969,7 +1969,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -2002,7 +2002,7 @@
             "timeShift": null,
             "title": "Average Container Bandwidth by Namespace: Received [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2051,12 +2051,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 56
+                "y": 40
             },
             "hiddenSeries": false,
             "id": 17,
@@ -2070,7 +2070,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -2103,7 +2103,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2152,12 +2152,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 56
+                "y": 40
             },
             "hiddenSeries": false,
             "id": 16,
@@ -2171,7 +2171,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -2204,7 +2204,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2253,12 +2253,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 63
+                "y": 47
             },
             "hiddenSeries": false,
             "id": 19,
@@ -2272,7 +2272,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -2305,7 +2305,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets Dropped [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2354,12 +2354,12 @@
                 "overrides": []
             },
             "fill": 10,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 63
+                "y": 47
             },
             "hiddenSeries": false,
             "id": 18,
@@ -2373,7 +2373,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -2406,7 +2406,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets Dropped [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2613,5 +2613,5 @@
     "timezone": "",
     "title": "Kubernetes / Compute Resources / Cluster",
     "uid": "efa86fd1d0c121a26444b636a3f509a8",
-    "version": 2
+    "version": 1
 }

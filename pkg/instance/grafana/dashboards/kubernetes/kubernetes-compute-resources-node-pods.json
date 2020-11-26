@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
+    "graphTooltip": 1,
     "id": 30,
-    "iteration": 1606231481422,
+    "iteration": 1606383243027,
     "links": [],
     "panels": [
         {
@@ -47,11 +47,11 @@
                 },
                 "overrides": []
             },
-            "fill": 8,
-            "fillGradient": 0,
+            "fill": 9,
+            "fillGradient": 10,
             "gridPos": {
-                "h": 7,
-                "w": 24,
+                "h": 10,
+                "w": 11,
                 "x": 0,
                 "y": 1
             },
@@ -67,7 +67,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -99,7 +99,7 @@
             "timeShift": null,
             "title": "CPU Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -150,10 +150,10 @@
             "fill": 1,
             "fontSize": "100%",
             "gridPos": {
-                "h": 7,
-                "w": 24,
-                "x": 0,
-                "y": 8
+                "h": 10,
+                "w": 13,
+                "x": 11,
+                "y": 1
             },
             "id": 2,
             "legend": {
@@ -390,7 +390,7 @@
                 "h": 1,
                 "w": 24,
                 "x": 0,
-                "y": 15
+                "y": 11
             },
             "id": 7,
             "panels": [],
@@ -412,12 +412,12 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 16
+                "y": 12
             },
             "hiddenSeries": false,
             "id": 3,
@@ -431,7 +431,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -463,7 +463,7 @@
             "timeShift": null,
             "title": "Memory Usage (w/o cache)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -514,10 +514,10 @@
             "fill": 1,
             "fontSize": "100%",
             "gridPos": {
-                "h": 7,
+                "h": 10,
                 "w": 24,
                 "x": 0,
-                "y": 23
+                "y": 19
             },
             "id": 4,
             "legend": {
@@ -878,9 +878,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "ip-10-62-49-158.eu-west-1.compute.internal",
-                    "value": "ip-10-62-49-158.eu-west-1.compute.internal"
+                    "selected": true,
+                    "text": "ip-10-62-51-16.eu-west-1.compute.internal",
+                    "value": "ip-10-62-51-16.eu-west-1.compute.internal"
                 },
                 "datasource": "$datasource",
                 "definition": "",

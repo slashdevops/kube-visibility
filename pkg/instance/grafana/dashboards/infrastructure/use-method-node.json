@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 39,
-    "iteration": 1596456704144,
+    "graphTooltip": 1,
+    "id": 43,
+    "iteration": 1606381879207,
     "links": [],
     "panels": [
         {
@@ -42,12 +42,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -57,11 +58,12 @@
             "hiddenSeries": false,
             "id": 1,
             "legend": {
+                "alignAsTable": false,
                 "avg": false,
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -70,9 +72,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -86,7 +89,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "Utilisation",
+                    "legendFormat": "{{instance}}",
                     "legendLink": null,
                     "refId": "A",
                     "step": 10
@@ -98,7 +101,7 @@
             "timeShift": null,
             "title": "CPU Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -141,12 +144,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -160,7 +164,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -169,9 +173,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -185,7 +190,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "Saturation",
+                    "legendFormat": "{{instance}}",
                     "legendLink": null,
                     "refId": "A",
                     "step": 10
@@ -197,7 +202,7 @@
             "timeShift": null,
             "title": "CPU Saturation (Load1 per CPU)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -255,12 +260,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 2,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -283,9 +289,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -299,7 +306,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "Memory",
+                    "legendFormat": "{{instance}}",
                     "legendLink": null,
                     "refId": "A",
                     "step": 10
@@ -311,7 +318,7 @@
             "timeShift": null,
             "title": "Memory Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -354,12 +361,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -373,7 +381,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -382,9 +390,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -398,7 +407,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "Major page faults",
+                    "legendFormat": "{{instance}}",
                     "legendLink": null,
                     "refId": "A",
                     "step": 10
@@ -410,7 +419,7 @@
             "timeShift": null,
             "title": "Memory Saturation (Major Page Faults)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -468,12 +477,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -496,9 +506,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -544,7 +555,7 @@
             "timeShift": null,
             "title": "Net Utilisation (Bytes Receive/Transmit)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -587,12 +598,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -615,9 +627,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -663,7 +676,7 @@
             "timeShift": null,
             "title": "Net Saturation (Drops Receive/Transmit)",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -721,12 +734,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -749,9 +763,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -777,7 +792,7 @@
             "timeShift": null,
             "title": "Disk IO Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -820,12 +835,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -848,9 +864,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -876,7 +893,7 @@
             "timeShift": null,
             "title": "Disk IO Saturation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -934,12 +951,13 @@
             "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
-                    "custom": {}
+                    "custom": {},
+                    "links": []
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 5,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -953,7 +971,7 @@
                 "current": false,
                 "max": false,
                 "min": false,
-                "show": false,
+                "show": true,
                 "total": false,
                 "values": false
             },
@@ -962,9 +980,10 @@
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -990,7 +1009,7 @@
             "timeShift": null,
             "title": "Disk Space Utilisation",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1027,7 +1046,7 @@
         }
     ],
     "refresh": "10s",
-    "schemaVersion": 25,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kube-visibility"
@@ -1036,10 +1055,11 @@
         "list": [
             {
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": null,
@@ -1058,13 +1078,16 @@
                 "current": {
                     "selected": true,
                     "tags": [],
-                    "text": "ip-10-62-79-76.eu-west-1.compute.internal",
+                    "text": [
+                        "All"
+                    ],
                     "value": [
-                        "ip-10-62-79-76.eu-west-1.compute.internal"
+                        "$__all"
                     ]
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": "instance",

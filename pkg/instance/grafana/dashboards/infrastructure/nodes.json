@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 37,
-    "iteration": 1596613442400,
+    "id": 41,
+    "iteration": 1606381080354,
     "links": [],
     "panels": [
         {
@@ -34,7 +34,7 @@
                 "overrides": []
             },
             "fill": 1,
-            "fillGradient": 0,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -58,8 +58,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -74,7 +77,7 @@
                     "format": "time_series",
                     "interval": "1m",
                     "intervalFactor": 5,
-                    "legendFormat": "{{cpu}}",
+                    "legendFormat": "cpu {{cpu}}",
                     "refId": "A"
                 }
             ],
@@ -84,8 +87,8 @@
             "timeShift": null,
             "title": "CPU Usage [$interval]",
             "tooltip": {
-                "shared": false,
-                "sort": 0,
+                "shared": true,
+                "sort": 1,
                 "value_type": "individual"
             },
             "type": "graph",
@@ -157,8 +160,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -207,7 +213,7 @@
             "timeShift": null,
             "title": "Load Average",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -261,7 +267,7 @@
                     "min": 0,
                     "nullValueMode": "connected",
                     "thresholds": {
-                        "mode": "absolute",
+                        "mode": "percentage",
                         "steps": [
                             {
                                 "color": "rgba(50, 172, 45, 0.97)",
@@ -301,7 +307,7 @@
                 "showThresholdLabels": true,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "100 -\n(\n  avg(avg_over_time(node_memory_MemAvailable_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n/\n  avg(avg_over_time(node_memory_MemTotal_bytes{job=\"node-exporter\", instance=~\"$instance\"}[$interval]))\n* 100\n)\n",
@@ -353,8 +359,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -402,7 +411,7 @@
             "timeShift": null,
             "title": "Memory Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -456,7 +465,7 @@
                     "min": 0,
                     "nullValueMode": "connected",
                     "thresholds": {
-                        "mode": "absolute",
+                        "mode": "percentage",
                         "steps": [
                             {
                                 "color": "rgba(50, 172, 45, 0.97)",
@@ -496,7 +505,7 @@
                 "showThresholdLabels": true,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "(\n  avg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n  -\n  avg(avg_over_time(node_filesystem_avail_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n)\n/\navg(avg_over_time(node_filesystem_size_bytes{job=\"node-exporter\", instance=~\"$instance\", fstype!=\"\"}[$interval]))\n* 100\n",
@@ -548,8 +557,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -591,7 +603,7 @@
             "timeShift": null,
             "title": "Disk Space Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -664,8 +676,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -715,7 +730,7 @@
             "timeShift": null,
             "title": "Disk I/O [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -788,8 +803,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -814,7 +832,7 @@
             "timeShift": null,
             "title": "Network Received [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -887,8 +905,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
-            "pluginVersion": "7.1.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -913,7 +934,7 @@
             "timeShift": null,
             "title": "Network Transmitted [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -964,6 +985,7 @@
                     "text": "default",
                     "value": "default"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -982,13 +1004,16 @@
                 "current": {
                     "selected": true,
                     "tags": [],
-                    "text": "ip-10-62-53-204.eu-west-1.compute.internal",
+                    "text": [
+                        "All"
+                    ],
                     "value": [
-                        "ip-10-62-53-204.eu-west-1.compute.internal"
+                        "$__all"
                     ]
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(node_exporter_build_info{job=\"node-exporter\"}, instance)",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": "Instance",
@@ -1015,6 +1040,7 @@
                     "text": "auto",
                     "value": "$__auto_interval_interval"
                 },
+                "error": null,
                 "hide": 0,
                 "label": "Interval",
                 "name": "interval",

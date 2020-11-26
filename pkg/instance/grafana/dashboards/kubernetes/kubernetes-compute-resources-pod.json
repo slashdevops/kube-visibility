@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 31,
-    "iteration": 1606230943568,
+    "iteration": 1606383496070,
     "links": [],
     "panels": [
         {
@@ -47,8 +47,8 @@
                 },
                 "overrides": []
             },
-            "fill": 8,
-            "fillGradient": 0,
+            "fill": 10,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -67,7 +67,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -81,8 +81,10 @@
             "seriesOverrides": [
                 {
                     "alias": "requests",
-                    "color": "#F2495C",
+                    "color": "#FF780A",
+                    "dashes": true,
                     "fill": 0,
+                    "fillGradient": 0,
                     "hideTooltip": true,
                     "legend": true,
                     "linewidth": 2,
@@ -90,8 +92,9 @@
                 },
                 {
                     "alias": "limits",
-                    "color": "#FF9830",
+                    "color": "#E02F44",
                     "fill": 0,
+                    "fillGradient": 0,
                     "hideTooltip": true,
                     "legend": true,
                     "linewidth": 2,
@@ -113,7 +116,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -123,7 +126,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -139,7 +142,7 @@
             "timeShift": null,
             "title": "CPU Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -187,8 +190,8 @@
                 },
                 "overrides": []
             },
-            "fill": 8,
-            "fillGradient": 0,
+            "fill": 9,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -204,10 +207,10 @@
                 "min": false,
                 "show": true,
                 "total": false,
-                "values": false
+                "values": true
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -249,7 +252,7 @@
             "timeShift": null,
             "title": "CPU Throttling [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -562,7 +565,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -581,7 +584,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -595,9 +598,10 @@
             "seriesOverrides": [
                 {
                     "alias": "requests",
-                    "color": "#F2495C",
+                    "color": "#FF780A",
                     "dashes": true,
                     "fill": 0,
+                    "fillGradient": 0,
                     "hideTooltip": true,
                     "legend": false,
                     "linewidth": 2,
@@ -605,17 +609,13 @@
                 },
                 {
                     "alias": "limits",
-                    "color": "#FF9830",
-                    "dashes": true,
+                    "color": "#E02F44",
                     "fill": 0,
+                    "fillGradient": 0,
                     "hideTooltip": true,
                     "legend": false,
                     "linewidth": 2,
                     "stack": false
-                },
-                {
-                    "alias": "{{container}}",
-                    "fillGradient": 6
                 }
             ],
             "spaceLength": 10,
@@ -633,7 +633,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -643,7 +643,7 @@
                     "step": 10
                 },
                 {
-                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})",
+                    "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -1047,7 +1047,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1066,7 +1066,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1099,7 +1099,7 @@
             "timeShift": null,
             "title": "Receive Bandwidth [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1148,7 +1148,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1167,7 +1167,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1200,7 +1200,7 @@
             "timeShift": null,
             "title": "Transmit Bandwidth [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1249,7 +1249,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1268,7 +1268,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1301,7 +1301,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1350,7 +1350,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1369,7 +1369,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1402,7 +1402,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1451,7 +1451,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1470,7 +1470,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1503,7 +1503,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets Dropped [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1552,7 +1552,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 10,
             "gridPos": {
                 "h": 6,
                 "w": 12,
@@ -1571,7 +1571,7 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
@@ -1604,7 +1604,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets Dropped [$interval]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1674,6 +1674,7 @@
             {
                 "allValue": null,
                 "current": {
+                    "isNone": true,
                     "selected": false,
                     "text": "None",
                     "value": ""
@@ -1701,9 +1702,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "core",
-                    "value": "core"
+                    "selected": true,
+                    "text": "kube-system",
+                    "value": "kube-system"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -1728,13 +1729,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
-                    "text": [
-                        "All"
-                    ],
-                    "value": [
-                        "$__all"
-                    ]
+                    "selected": false,
+                    "text": "All",
+                    "value": "$__all"
                 },
                 "datasource": "$datasource",
                 "definition": "",
@@ -1762,8 +1759,8 @@
                 "auto_min": "10s",
                 "current": {
                     "selected": false,
-                    "text": "5m",
-                    "value": "5m"
+                    "text": "auto",
+                    "value": "$__auto_interval_interval"
                 },
                 "error": null,
                 "hide": 0,
@@ -1771,7 +1768,7 @@
                 "name": "interval",
                 "options": [
                     {
-                        "selected": false,
+                        "selected": true,
                         "text": "auto",
                         "value": "$__auto_interval_interval"
                     },
@@ -1781,7 +1778,7 @@
                         "value": "1m"
                     },
                     {
-                        "selected": true,
+                        "selected": false,
                         "text": "5m",
                         "value": "5m"
                     },
