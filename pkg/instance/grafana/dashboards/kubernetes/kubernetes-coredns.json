@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 12382,
     "graphTooltip": 1,
-    "id": 32,
-    "iteration": 1606231723550,
+    "id": 33,
+    "iteration": 1606376236375,
     "links": [],
     "panels": [
         {
@@ -338,7 +338,7 @@
             "pluginVersion": "7.3.3",
             "targets": [
                 {
-                    "expr": "sum(kube_pod_container_status_running{container=\"coredns\",cluster=\"$cluster\"})",
+                    "expr": "sum(kube_pod_container_status_running{container=\"coredns\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "format": "time_series",
                     "instant": false,
                     "interval": "",
