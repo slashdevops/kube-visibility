@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 26,
-    "iteration": 1606378001027,
+    "iteration": 1606469238511,
     "links": [],
     "panels": [
         {
@@ -95,8 +95,8 @@
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 18,
@@ -155,7 +155,7 @@
             "timeShift": null,
             "title": "Volume Space Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -250,7 +250,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Volume inodes Usage",
+            "title": "Volume Inodes Usage",
             "type": "gauge"
         },
         {
@@ -266,8 +266,8 @@
                 },
                 "overrides": []
             },
-            "fill": 1,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 9,
             "gridPos": {
                 "h": 7,
                 "w": 18,
@@ -326,7 +326,7 @@
             "timeShift": null,
             "title": "Volume inodes Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -423,7 +423,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "visibility",
                     "value": "visibility"
                 },
@@ -450,7 +450,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "alertmanager-visibility-db-alertmanager-visibility-0",
                     "value": "alertmanager-visibility-db-alertmanager-visibility-0"
                 },

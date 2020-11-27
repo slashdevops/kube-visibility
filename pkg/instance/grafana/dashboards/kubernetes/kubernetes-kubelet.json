@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 34,
-    "iteration": 1604566812426,
+    "iteration": 1606468619807,
     "links": [],
     "panels": [
         {
@@ -81,7 +81,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(up{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\"})",
@@ -152,7 +152,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(kubelet_running_pod_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
@@ -223,7 +223,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(kubelet_running_container_count{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"})",
@@ -294,7 +294,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(volume_manager_total_volumes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\", state=\"actual_state_of_world\"})",
@@ -365,7 +365,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(volume_manager_total_volumes{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\",state=\"desired_state_of_world\"})",
@@ -444,7 +444,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(rate(kubelet_node_config_error{cluster=\"$cluster\", job=\"kubelet\", metrics_path=\"/metrics\", instance=~\"$instance\"}[5m]))",
@@ -492,7 +492,7 @@
             "options": {
                 "showHeader": true
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "count by (namespace, instance, pod, gitVersion, buildDate) (kubernetes_build_info{service=\"kubelet\", namespace=\"kube-system\"})",
@@ -505,7 +505,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Version",
+            "title": "Information",
             "transformations": [
                 {
                     "id": "organize",
@@ -576,7 +576,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -678,7 +678,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -780,7 +780,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -882,7 +882,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -992,7 +992,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1104,7 +1104,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1208,7 +1208,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1312,7 +1312,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1414,7 +1414,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1516,7 +1516,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1619,7 +1619,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1721,7 +1721,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1823,7 +1823,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1925,7 +1925,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2026,7 +2026,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2127,7 +2127,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",

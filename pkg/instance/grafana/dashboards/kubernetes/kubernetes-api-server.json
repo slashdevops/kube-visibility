@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 32,
-    "iteration": 1604566929863,
+    "iteration": 1606466230689,
     "links": [],
     "panels": [
         {
@@ -57,8 +57,8 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
-                "w": 4,
+                "h": 6,
+                "w": 3,
                 "x": 0,
                 "y": 0
             },
@@ -85,7 +85,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "sum(up{job=\"$job\", cluster=\"$cluster\"})",
@@ -119,9 +119,9 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
-                "w": 4,
-                "x": 4,
+                "h": 6,
+                "w": 3,
+                "x": 3,
                 "y": 0
             },
             "id": 27,
@@ -139,7 +139,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "max(process_start_time_seconds{cluster=\"$cluster\",job=\"$job\",instance=~\"$instance\",service=\"kubernetes\"}\n) * 1000",
@@ -169,9 +169,9 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 8,
-                "x": 8,
+                "x": 6,
                 "y": 0
             },
             "hiddenSeries": false,
@@ -195,7 +195,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -295,9 +295,9 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
-                "w": 8,
-                "x": 16,
+                "h": 6,
+                "w": 10,
+                "x": 14,
                 "y": 0
             },
             "hiddenSeries": false,
@@ -321,7 +321,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -382,6 +382,312 @@
             }
         },
         {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 8,
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 0,
+                "y": 6
+            },
+            "hiddenSeries": false,
+            "id": 21,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.3",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "process_resident_memory_bytes{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Memory",
+            "tooltip": {
+                "shared": false,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "bytes",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 8,
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 8,
+                "y": 6
+            },
+            "hiddenSeries": false,
+            "id": 22,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.3",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "rate(process_cpu_seconds_total{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}[5m])",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "CPU usage",
+            "tooltip": {
+                "shared": false,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": 0,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
+            "aliasColors": {},
+            "bars": false,
+            "dashLength": 10,
+            "dashes": false,
+            "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
+            "fill": 1,
+            "fillGradient": 8,
+            "gridPos": {
+                "h": 6,
+                "w": 8,
+                "x": 16,
+                "y": 6
+            },
+            "hiddenSeries": false,
+            "id": 23,
+            "legend": {
+                "alignAsTable": false,
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "rightSide": false,
+                "show": true,
+                "total": false,
+                "values": false
+            },
+            "lines": true,
+            "linewidth": 1,
+            "links": [],
+            "nullPointMode": "null",
+            "options": {
+                "alertThreshold": true
+            },
+            "percentage": false,
+            "pluginVersion": "7.3.3",
+            "pointradius": 5,
+            "points": false,
+            "renderer": "flot",
+            "repeat": null,
+            "seriesOverrides": [],
+            "spaceLength": 10,
+            "stack": false,
+            "steppedLine": false,
+            "targets": [
+                {
+                    "expr": "go_goroutines{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}",
+                    "format": "time_series",
+                    "interval": "",
+                    "intervalFactor": 2,
+                    "legendFormat": "{{instance}}",
+                    "refId": "A"
+                }
+            ],
+            "thresholds": [],
+            "timeFrom": null,
+            "timeRegions": [],
+            "timeShift": null,
+            "title": "Goroutines",
+            "tooltip": {
+                "shared": false,
+                "sort": 0,
+                "value_type": "individual"
+            },
+            "type": "graph",
+            "xaxis": {
+                "buckets": null,
+                "mode": "time",
+                "name": null,
+                "show": true,
+                "values": []
+            },
+            "yaxes": [
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                },
+                {
+                    "format": "short",
+                    "label": null,
+                    "logBase": 1,
+                    "max": null,
+                    "min": null,
+                    "show": true
+                }
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
+        },
+        {
             "cacheTimeout": null,
             "datasource": "$datasource",
             "fieldConfig": {
@@ -416,10 +722,10 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 4,
                 "x": 0,
-                "y": 7
+                "y": 12
             },
             "id": 2,
             "interval": null,
@@ -444,7 +750,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "apiserver_request:availability30d{verb=\"all\"}",
@@ -474,10 +780,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 20,
                 "x": 4,
-                "y": 7
+                "y": 12
             },
             "hiddenSeries": false,
             "id": 3,
@@ -500,7 +806,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -597,10 +903,10 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 4,
                 "x": 0,
-                "y": 14
+                "y": 18
             },
             "id": 4,
             "interval": null,
@@ -625,7 +931,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "apiserver_request:availability30d{verb=\"read\"}",
@@ -655,10 +961,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 7,
                 "x": 4,
-                "y": 14
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 5,
@@ -681,7 +987,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -757,10 +1063,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 7,
                 "x": 11,
-                "y": 14
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 7,
@@ -783,7 +1089,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -858,10 +1164,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 6,
                 "x": 18,
-                "y": 14
+                "y": 18
             },
             "hiddenSeries": false,
             "id": 6,
@@ -884,7 +1190,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -978,10 +1284,10 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 4,
                 "x": 0,
-                "y": 21
+                "y": 24
             },
             "id": 8,
             "interval": null,
@@ -1006,7 +1312,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "targets": [
                 {
                     "expr": "apiserver_request:availability30d{verb=\"write\"}",
@@ -1035,10 +1341,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 7,
                 "x": 4,
-                "y": 21
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 9,
@@ -1061,7 +1367,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1136,10 +1442,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 7,
                 "x": 11,
-                "y": 21
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 11,
@@ -1162,7 +1468,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1237,10 +1543,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 6,
                 "x": 18,
-                "y": 21
+                "y": 24
             },
             "hiddenSeries": false,
             "id": 10,
@@ -1263,7 +1569,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1341,7 +1647,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 0,
-                "y": 28
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 15,
@@ -1364,7 +1670,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1443,7 +1749,7 @@
                 "h": 7,
                 "w": 12,
                 "x": 12,
-                "y": 28
+                "y": 30
             },
             "hiddenSeries": false,
             "id": 16,
@@ -1466,7 +1772,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1545,7 +1851,7 @@
                 "h": 7,
                 "w": 24,
                 "x": 0,
-                "y": 35
+                "y": 37
             },
             "hiddenSeries": false,
             "id": 17,
@@ -1568,7 +1874,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1644,10 +1950,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 8,
                 "x": 0,
-                "y": 42
+                "y": 44
             },
             "hiddenSeries": false,
             "id": 18,
@@ -1670,7 +1976,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1746,10 +2052,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 8,
                 "x": 8,
-                "y": 42
+                "y": 44
             },
             "hiddenSeries": false,
             "id": 19,
@@ -1772,7 +2078,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1856,10 +2162,10 @@
             "fill": 1,
             "fillGradient": 8,
             "gridPos": {
-                "h": 7,
+                "h": 6,
                 "w": 8,
                 "x": 16,
-                "y": 42
+                "y": 44
             },
             "hiddenSeries": false,
             "id": 20,
@@ -1882,7 +2188,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.3",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1942,312 +2248,6 @@
                     "logBase": 1,
                     "max": null,
                     "min": 0,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 8,
-            "gridPos": {
-                "h": 7,
-                "w": 8,
-                "x": 0,
-                "y": 49
-            },
-            "hiddenSeries": false,
-            "id": 21,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "repeat": null,
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "process_resident_memory_bytes{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{instance}}",
-                    "refId": "A"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Memory",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
-                    "format": "bytes",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 8,
-            "gridPos": {
-                "h": 7,
-                "w": 8,
-                "x": 8,
-                "y": 49
-            },
-            "hiddenSeries": false,
-            "id": 22,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "repeat": null,
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "rate(process_cpu_seconds_total{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}[5m])",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{instance}}",
-                    "refId": "A"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "CPU usage",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": 0,
-                    "show": true
-                }
-            ],
-            "yaxis": {
-                "align": false,
-                "alignLevel": null
-            }
-        },
-        {
-            "aliasColors": {},
-            "bars": false,
-            "dashLength": 10,
-            "dashes": false,
-            "datasource": "$datasource",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "links": []
-                },
-                "overrides": []
-            },
-            "fill": 1,
-            "fillGradient": 8,
-            "gridPos": {
-                "h": 7,
-                "w": 8,
-                "x": 16,
-                "y": 49
-            },
-            "hiddenSeries": false,
-            "id": 23,
-            "legend": {
-                "alignAsTable": false,
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "rightSide": false,
-                "show": true,
-                "total": false,
-                "values": false
-            },
-            "lines": true,
-            "linewidth": 1,
-            "links": [],
-            "nullPointMode": "null",
-            "options": {
-                "alertThreshold": true
-            },
-            "percentage": false,
-            "pluginVersion": "7.3.1",
-            "pointradius": 5,
-            "points": false,
-            "renderer": "flot",
-            "repeat": null,
-            "seriesOverrides": [],
-            "spaceLength": 10,
-            "stack": false,
-            "steppedLine": false,
-            "targets": [
-                {
-                    "expr": "go_goroutines{job=\"$job\",instance=~\"$instance\", cluster=\"$cluster\"}",
-                    "format": "time_series",
-                    "interval": "",
-                    "intervalFactor": 2,
-                    "legendFormat": "{{instance}}",
-                    "refId": "A"
-                }
-            ],
-            "thresholds": [],
-            "timeFrom": null,
-            "timeRegions": [],
-            "timeShift": null,
-            "title": "Goroutines",
-            "tooltip": {
-                "shared": false,
-                "sort": 0,
-                "value_type": "individual"
-            },
-            "type": "graph",
-            "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-            },
-            "yaxes": [
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
-                    "show": true
-                },
-                {
-                    "format": "short",
-                    "label": null,
-                    "logBase": 1,
-                    "max": null,
-                    "min": null,
                     "show": true
                 }
             ],

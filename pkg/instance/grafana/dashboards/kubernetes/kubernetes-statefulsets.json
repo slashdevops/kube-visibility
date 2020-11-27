@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 27,
-    "iteration": 1606376502659,
+    "iteration": 1606469370180,
     "links": [],
     "panels": [
         {
@@ -389,7 +389,7 @@
                             }
                         ]
                     },
-                    "unit": "none"
+                    "unit": "decgbytes"
                 },
                 "overrides": []
             },
@@ -456,7 +456,7 @@
                             }
                         ]
                     },
-                    "unit": "none"
+                    "unit": "Bps"
                 },
                 "overrides": []
             },
@@ -722,8 +722,8 @@
                 "allValue": null,
                 "current": {
                     "selected": false,
-                    "text": "alertmanager-visibility",
-                    "value": "alertmanager-visibility"
+                    "text": "prometheus-visibility",
+                    "value": "prometheus-visibility"
                 },
                 "datasource": "$datasource",
                 "definition": "",
