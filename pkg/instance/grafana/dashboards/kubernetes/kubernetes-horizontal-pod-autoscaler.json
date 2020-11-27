@@ -17,7 +17,7 @@
     "gnetId": 10257,
     "graphTooltip": 0,
     "id": 47,
-    "iteration": 1606468391318,
+    "iteration": 1606482068697,
     "links": [],
     "panels": [
         {
@@ -129,7 +129,7 @@
                 "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
@@ -147,7 +147,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Attempt to Scale?",
+            "title": "Attempt to Scale Up / Scale Down?",
             "type": "stat"
         },
         {
@@ -182,7 +182,7 @@
                 "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
@@ -235,7 +235,7 @@
                 "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
@@ -601,9 +601,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "integration",
-                    "value": "integration"
+                    "selected": true,
+                    "text": "core",
+                    "value": "core"
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\"}, namespace)",
@@ -628,9 +628,9 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
-                    "text": "transaction-api",
-                    "value": "transaction-api"
+                    "selected": true,
+                    "text": "language-service",
+                    "value": "language-service"
                 },
                 "datasource": "$datasource",
                 "definition": "label_values(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\", namespace=\"$namespace\"}, horizontalpodautoscaler)",
@@ -655,7 +655,7 @@
         ]
     },
     "time": {
-        "from": "now-6h",
+        "from": "now-1h",
         "to": "now"
     },
     "timepicker": {
