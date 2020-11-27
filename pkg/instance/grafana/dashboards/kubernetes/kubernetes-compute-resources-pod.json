@@ -16,7 +16,7 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 31,
-    "iteration": 1606383496070,
+    "iteration": 1606464403461,
     "links": [],
     "panels": [
         {
@@ -102,12 +102,13 @@
                 }
             ],
             "spaceLength": 10,
-            "stack": true,
+            "stack": false,
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace=\"$namespace\", pod=~\"$pod\", container!=\"POD\", cluster=\"$cluster\"}) by (container)",
+                    "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{namespace=\"$namespace\", pod=~\"$pod\", container!=\"\", cluster=\"$cluster\"}) by (container)",
                     "format": "time_series",
+                    "instant": false,
                     "interval": "",
                     "intervalFactor": 1,
                     "legendFormat": "{{container}}",
@@ -202,12 +203,12 @@
             "id": 2,
             "legend": {
                 "avg": false,
-                "current": true,
-                "max": true,
+                "current": false,
+                "max": false,
                 "min": false,
                 "show": true,
                 "total": false,
-                "values": true
+                "values": false
             },
             "lines": true,
             "linewidth": 1,
@@ -223,11 +224,11 @@
             "renderer": "flot",
             "seriesOverrides": [],
             "spaceLength": 10,
-            "stack": true,
+            "stack": false,
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(increase(container_cpu_cfs_throttled_periods_total{namespace=\"$namespace\", pod=~\"$pod\", container!=\"POD\", cluster=\"$cluster\"}[$interval])) by (container) /sum(increase(container_cpu_cfs_periods_total{namespace=~\"$namespace\", pod=~\"$pod\", container!=\"POD\", cluster=\"$cluster\"}[$interval])) by (container)",
+                    "expr": "sum(increase(container_cpu_cfs_throttled_periods_total{namespace=\"$namespace\", pod=~\"$pod\", container!=\"\", cluster=\"$cluster\"}[$interval])) by (container) /sum(increase(container_cpu_cfs_periods_total{namespace=~\"$namespace\", pod=~\"$pod\", container!=\"\", cluster=\"$cluster\"}[$interval])) by (container)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -256,6 +257,7 @@
                 "sort": 0,
                 "value_type": "individual"
             },
+            "transformations": [],
             "type": "graph",
             "xaxis": {
                 "buckets": null,
@@ -623,7 +625,7 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"POD\", container!=\"\"}) by (container)",
+                    "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\", pod=~\"$pod\", container!=\"\", container!=\"\"}) by (container)",
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
@@ -659,7 +661,7 @@
             "timeShift": null,
             "title": "Memory Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
