@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 6,
-    "iteration": 1586709855253,
+    "graphTooltip": 2,
+    "id": 2,
+    "iteration": 1606811928844,
     "links": [],
     "panels": [
         {
@@ -40,6 +40,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -66,9 +73,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -133,6 +141,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -159,9 +174,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -241,6 +257,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -267,9 +290,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -280,8 +304,9 @@
             "steppedLine": false,
             "targets": [
                 {
-                    "expr": "rate(\n  prometheus_remote_storage_samples_in_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n- \n  ignoring(queue) group_right(instance) rate(prometheus_remote_storage_succeeded_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m]) \n- \n  rate(prometheus_remote_storage_dropped_samples_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n",
+                    "expr": "rate(prometheus_remote_storage_samples_in_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n- \nrate(prometheus_remote_storage_samples_dropped_total{cluster=~\"$cluster\", instance=~\"$instance\"}[5m])\n",
                     "format": "time_series",
+                    "interval": "",
                     "intervalFactor": 2,
                     "legendFormat": "{{cluster}}:{{instance}}-{{queue}}",
                     "refId": "A"
@@ -349,6 +374,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -376,9 +408,10 @@
             "maxPerRow": 2,
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -443,6 +476,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -469,9 +509,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -536,6 +577,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -562,9 +610,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -629,6 +678,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -655,9 +711,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -737,6 +794,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -763,9 +827,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -830,6 +895,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -856,9 +928,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -938,6 +1011,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -964,9 +1044,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1031,6 +1112,13 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "links": []
+                },
+                "overrides": []
+            },
             "fill": 1,
             "fillGradient": 0,
             "gridPos": {
@@ -1057,9 +1145,10 @@
             "links": [],
             "nullPointMode": "null",
             "options": {
-                "dataLinks": []
+                "alertThreshold": true
             },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1139,13 +1228,21 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 7,
                 "w": 6,
                 "x": 0,
                 "y": 48
             },
+            "hiddenSeries": false,
             "id": 13,
             "legend": {
                 "alignAsTable": false,
@@ -1162,8 +1259,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {},
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1183,6 +1283,7 @@
             ],
             "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Dropped Samples",
             "tooltip": {
@@ -1215,7 +1316,11 @@
                     "min": null,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "aliasColors": {},
@@ -1223,13 +1328,21 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 7,
                 "w": 6,
                 "x": 6,
                 "y": 48
             },
+            "hiddenSeries": false,
             "id": 14,
             "legend": {
                 "alignAsTable": false,
@@ -1246,8 +1359,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {},
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1267,6 +1383,7 @@
             ],
             "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Failed Samples",
             "tooltip": {
@@ -1299,7 +1416,11 @@
                     "min": null,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "aliasColors": {},
@@ -1307,13 +1428,21 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 7,
                 "w": 6,
                 "x": 12,
                 "y": 48
             },
+            "hiddenSeries": false,
             "id": 15,
             "legend": {
                 "alignAsTable": false,
@@ -1330,8 +1459,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {},
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1351,6 +1483,7 @@
             ],
             "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Retried Samples",
             "tooltip": {
@@ -1383,7 +1516,11 @@
                     "min": null,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         },
         {
             "aliasColors": {},
@@ -1391,13 +1528,21 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "$datasource",
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {}
+                },
+                "overrides": []
+            },
             "fill": 1,
+            "fillGradient": 0,
             "gridPos": {
                 "h": 7,
                 "w": 6,
                 "x": 18,
                 "y": 48
             },
+            "hiddenSeries": false,
             "id": 16,
             "legend": {
                 "alignAsTable": false,
@@ -1414,8 +1559,11 @@
             "linewidth": 1,
             "links": [],
             "nullPointMode": "null",
-            "options": {},
+            "options": {
+                "alertThreshold": true
+            },
             "percentage": false,
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1435,6 +1583,7 @@
             ],
             "thresholds": [],
             "timeFrom": null,
+            "timeRegions": [],
             "timeShift": null,
             "title": "Enqueue Retries",
             "tooltip": {
@@ -1467,23 +1616,30 @@
                     "min": null,
                     "show": true
                 }
-            ]
+            ],
+            "yaxis": {
+                "align": false,
+                "alignLevel": null
+            }
         }
     ],
     "refresh": "",
-    "schemaVersion": 22,
+    "schemaVersion": 26,
     "style": "dark",
     "tags": [
         "kubernetes",
-        "prometheus"
+        "prometheus",
+        "kube-visibility"
     ],
     "templating": {
         "list": [
             {
                 "current": {
+                    "selected": false,
                     "text": "prometheus-visibility",
                     "value": "prometheus-visibility"
                 },
+                "error": null,
                 "hide": 0,
                 "includeAll": false,
                 "label": "Datasource",
@@ -1499,12 +1655,13 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": false,
+                    "selected": true,
                     "text": "All",
                     "value": "$__all"
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1531,6 +1688,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1557,6 +1715,7 @@
                 },
                 "datasource": "$datasource",
                 "definition": "",
+                "error": null,
                 "hide": 0,
                 "includeAll": true,
                 "label": null,
@@ -1608,5 +1767,5 @@
     "timezone": "browser",
     "title": "Prometheus / Remote Write",
     "uid": "1yIPc_jZz",
-    "version": 3
+    "version": 1
 }
