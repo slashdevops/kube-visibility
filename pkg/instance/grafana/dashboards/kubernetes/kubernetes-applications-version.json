@@ -15,7 +15,7 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 28,
+    "id": 29,
     "links": [],
     "panels": [
         {
@@ -60,10 +60,10 @@
                     }
                 ]
             },
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count by (namespace,job,version) ({__name__=~\".*_build_info\",job!=\"kubelet\"})",
+                    "expr": "count by (container,namespace,job,version) ({__name__=~\".*_build_info\",job!=\"kubelet\"})",
                     "format": "table",
                     "hide": false,
                     "instant": true,
@@ -81,15 +81,16 @@
                     "options": {
                         "excludeByName": {
                             "Time": true,
-                            "Value": true
+                            "Value": true,
+                            "job": true
                         },
                         "indexByName": {
                             "Time": 0,
                             "Value": 5,
-                            "gitVersion": 4,
+                            "container": 3,
                             "job": 1,
                             "namespace": 2,
-                            "version": 3
+                            "version": 4
                         },
                         "renameByName": {
                             "gitVersion": "",
