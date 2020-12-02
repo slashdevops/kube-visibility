@@ -14,9 +14,9 @@
     },
     "editable": true,
     "gnetId": null,
-    "graphTooltip": 0,
-    "id": 25,
-    "iteration": 1606468068056,
+    "graphTooltip": 1,
+    "id": 26,
+    "iteration": 1606921802240,
     "links": [],
     "panels": [
         {
@@ -94,14 +94,14 @@
                 "orientation": "horizontal",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"})",
@@ -178,14 +178,14 @@
                 "orientation": "horizontal",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_rate{cluster=\"$cluster\", namespace=\"$namespace\"}) / sum(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",cluster=\"$cluster\", namespace=\"$namespace\"})",
@@ -262,14 +262,14 @@
                 "orientation": "horizontal",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\"})",
@@ -346,14 +346,14 @@
                 "orientation": "horizontal",
                 "reduceOptions": {
                     "calcs": [
-                        "mean"
+                        "lastNotNull"
                     ],
                     "fields": "",
                     "values": false
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(container_memory_working_set_bytes{cluster=\"$cluster\", namespace=\"$namespace\",container!=\"\"}) / sum(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",namespace=\"$namespace\"})",
@@ -399,7 +399,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 10,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -425,7 +425,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -801,7 +801,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 10,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -827,7 +827,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1301,7 +1301,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1401,7 +1401,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1776,7 +1776,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1876,7 +1876,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1976,7 +1976,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2077,7 +2077,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2198,7 +2198,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "kube-system",
                     "value": "kube-system"
                 },
@@ -2234,6 +2234,7 @@
             "30s",
             "1m",
             "5m",
+            "10m",
             "15m",
             "30m",
             "1h",

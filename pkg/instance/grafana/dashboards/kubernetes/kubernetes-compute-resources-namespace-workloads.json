@@ -15,8 +15,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 1,
-    "id": 29,
-    "iteration": 1604567549071,
+    "id": 30,
+    "iteration": 1606921985677,
     "links": [],
     "panels": [
         {
@@ -48,7 +48,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -67,14 +67,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -138,7 +138,7 @@
             "timeShift": null,
             "title": "CPU Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -485,7 +485,7 @@
                 "overrides": []
             },
             "fill": 8,
-            "fillGradient": 0,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 24,
@@ -504,14 +504,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -575,7 +575,7 @@
             "timeShift": null,
             "title": "Memory Usage",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1210,8 +1210,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1230,14 +1230,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1262,7 +1262,7 @@
             "timeShift": null,
             "title": "Transmit Bandwidth",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1310,8 +1310,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1330,14 +1330,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1362,7 +1362,7 @@
             "timeShift": null,
             "title": "Receive Bandwidth",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1410,8 +1410,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1430,14 +1430,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1462,7 +1462,7 @@
             "timeShift": null,
             "title": "Average Container Bandwidth by Workload: Transmitted",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1510,8 +1510,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1530,14 +1530,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1562,7 +1562,7 @@
             "timeShift": null,
             "title": "Average Container Bandwidth by Workload: Received",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1610,8 +1610,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1630,14 +1630,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1662,7 +1662,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1710,8 +1710,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1730,14 +1730,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1762,7 +1762,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1810,8 +1810,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1830,14 +1830,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1863,7 +1863,7 @@
             "timeShift": null,
             "title": "Rate of Transmitted Packets Dropped [5m]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -1911,8 +1911,8 @@
                 },
                 "overrides": []
             },
-            "fill": 10,
-            "fillGradient": 0,
+            "fill": 8,
+            "fillGradient": 8,
             "gridPos": {
                 "h": 7,
                 "w": 12,
@@ -1931,14 +1931,14 @@
                 "values": false
             },
             "lines": true,
-            "linewidth": 0,
+            "linewidth": 1,
             "links": [],
             "nullPointMode": "null as zero",
             "options": {
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.1",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1964,7 +1964,7 @@
             "timeShift": null,
             "title": "Rate of Received Packets Dropped [5m]",
             "tooltip": {
-                "shared": false,
+                "shared": true,
                 "sort": 0,
                 "value_type": "individual"
             },
@@ -2060,7 +2060,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "kube-system",
                     "value": "kube-system"
                 },
@@ -2090,7 +2090,7 @@
                 "auto_count": 30,
                 "auto_min": "10s",
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "deployment",
                     "value": "deployment"
                 },
@@ -2126,6 +2126,7 @@
             "30s",
             "1m",
             "5m",
+            "10m",
             "15m",
             "30m",
             "1h",
