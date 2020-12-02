@@ -16,10 +16,11 @@
     "gnetId": null,
     "graphTooltip": 0,
     "id": 29,
+    "iteration": 1606901392626,
     "links": [],
     "panels": [
         {
-            "datasource": null,
+            "datasource": "$datasource",
             "fieldConfig": {
                 "defaults": {
                     "custom": {
@@ -55,15 +56,15 @@
                 "showHeader": true,
                 "sortBy": [
                     {
-                        "desc": true,
-                        "displayName": "version"
+                        "desc": false,
+                        "displayName": "namespace"
                     }
                 ]
             },
             "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count by (container,namespace,job,version) ({__name__=~\".*_build_info\",job!=\"kubelet\"})",
+                    "expr": "count by (container,namespace,job,pod,version) ({__name__=~\".*_build_info\",job!=\"kubelet\",cluster=\"$cluster\",namespace=~\"$namespace\"})",
                     "format": "table",
                     "hide": false,
                     "instant": true,
@@ -86,11 +87,12 @@
                         },
                         "indexByName": {
                             "Time": 0,
-                            "Value": 5,
-                            "container": 3,
+                            "Value": 6,
+                            "container": 4,
                             "job": 1,
                             "namespace": 2,
-                            "version": 4
+                            "pod": 3,
+                            "version": 5
                         },
                         "renameByName": {
                             "gitVersion": "",
@@ -107,10 +109,91 @@
     "style": "dark",
     "tags": [
         "kubernetes",
-        "kube-visibility"
+        "kube-visibility",
+        "version"
     ],
     "templating": {
-        "list": []
+        "list": [
+            {
+                "current": {
+                    "selected": false,
+                    "text": "default",
+                    "value": "default"
+                },
+                "error": null,
+                "hide": 0,
+                "includeAll": false,
+                "label": "Datasource",
+                "multi": false,
+                "name": "datasource",
+                "options": [],
+                "query": "prometheus",
+                "queryValue": "",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "type": "datasource"
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "isNone": true,
+                    "selected": false,
+                    "text": "None",
+                    "value": ""
+                },
+                "datasource": "$datasource",
+                "definition": "label_values(node_cpu_seconds_total, cluster)",
+                "error": null,
+                "hide": 0,
+                "includeAll": false,
+                "label": "Cluster",
+                "multi": false,
+                "name": "cluster",
+                "options": [],
+                "query": "label_values(node_cpu_seconds_total, cluster)",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "selected": true,
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
+                },
+                "datasource": "$datasource",
+                "definition": "label_values({__name__=~\".*_build_info\",job!=\"kubelet\",cluster=\"$cluster\"}, namespace)",
+                "error": null,
+                "hide": 0,
+                "includeAll": true,
+                "label": "Namespace",
+                "multi": true,
+                "name": "namespace",
+                "options": [],
+                "query": "label_values({__name__=~\".*_build_info\",job!=\"kubelet\",cluster=\"$cluster\"}, namespace)",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "sort": 0,
+                "tagValuesQuery": "",
+                "tags": [],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
+            }
+        ]
     },
     "time": {
         "from": "now-5m",

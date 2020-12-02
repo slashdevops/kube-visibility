@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
-    "id": 48,
-    "iteration": 1606319024754,
+    "id": 41,
+    "iteration": 1606901475928,
     "links": [],
     "panels": [
         {
@@ -40,7 +40,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 6,
                 "w": 4,
                 "x": 0,
                 "y": 0
@@ -60,7 +60,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_node_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -114,7 +114,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_namespace_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -148,7 +148,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 6,
                 "w": 4,
                 "x": 8,
                 "y": 0
@@ -168,7 +168,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_pod_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -207,7 +207,7 @@
                 "x": 12,
                 "y": 0
             },
-            "id": 15,
+            "id": 9,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
@@ -222,10 +222,10 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count(kube_pod_container_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "expr": "count(kube_service_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -233,7 +233,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Containers",
+            "title": "Services",
             "type": "stat"
         },
         {
@@ -256,7 +256,7 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 6,
                 "w": 4,
                 "x": 16,
                 "y": 0
@@ -276,7 +276,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_deployment_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -315,7 +315,7 @@
                 "x": 20,
                 "y": 0
             },
-            "id": 9,
+            "id": 10,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
@@ -330,10 +330,10 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count(kube_service_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "expr": "count(kube_secret_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -341,62 +341,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Services",
-            "type": "stat"
-        },
-        {
-            "datasource": null,
-            "description": "",
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "super-light-blue",
-                                "value": null
-                            }
-                        ]
-                    },
-                    "unit": "none"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 4,
-                "x": 0,
-                "y": 3
-            },
-            "id": 6,
-            "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.3",
-            "targets": [
-                {
-                    "expr": "count(kube_daemonset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
-                    "interval": "",
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "timeFrom": null,
-            "timeShift": null,
-            "title": "Daemonsets",
+            "title": "Secrets",
             "type": "stat"
         },
         {
@@ -439,7 +384,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_replicaset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -475,64 +420,10 @@
             "gridPos": {
                 "h": 3,
                 "w": 4,
-                "x": 8,
-                "y": 3
-            },
-            "id": 11,
-            "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.3",
-            "targets": [
-                {
-                    "expr": "count(kube_statefulset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
-                    "interval": "",
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "timeFrom": null,
-            "timeShift": null,
-            "title": "Statefulsets",
-            "type": "stat"
-        },
-        {
-            "datasource": null,
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "super-light-blue",
-                                "value": null
-                            }
-                        ]
-                    },
-                    "unit": "none"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 4,
                 "x": 12,
                 "y": 3
             },
-            "id": 14,
+            "id": 15,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
@@ -547,10 +438,10 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count(kube_configmap_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "expr": "count(kube_pod_container_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -558,61 +449,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Configmaps",
-            "type": "stat"
-        },
-        {
-            "datasource": null,
-            "fieldConfig": {
-                "defaults": {
-                    "custom": {},
-                    "mappings": [],
-                    "thresholds": {
-                        "mode": "absolute",
-                        "steps": [
-                            {
-                                "color": "super-light-blue",
-                                "value": null
-                            }
-                        ]
-                    },
-                    "unit": "none"
-                },
-                "overrides": []
-            },
-            "gridPos": {
-                "h": 3,
-                "w": 4,
-                "x": 16,
-                "y": 3
-            },
-            "id": 10,
-            "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
-                "reduceOptions": {
-                    "calcs": [
-                        "lastNotNull"
-                    ],
-                    "fields": "",
-                    "values": false
-                },
-                "textMode": "auto"
-            },
-            "pluginVersion": "7.3.3",
-            "targets": [
-                {
-                    "expr": "count(kube_secret_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
-                    "interval": "",
-                    "legendFormat": "",
-                    "refId": "A"
-                }
-            ],
-            "timeFrom": null,
-            "timeShift": null,
-            "title": "Secrets",
+            "title": "Containers",
             "type": "stat"
         },
         {
@@ -640,7 +477,7 @@
                 "x": 20,
                 "y": 3
             },
-            "id": 8,
+            "id": 14,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
@@ -655,10 +492,10 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count(kube_endpoint_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "expr": "count(kube_configmap_info{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -666,11 +503,12 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Endpoints",
+            "title": "Configmaps",
             "type": "stat"
         },
         {
             "datasource": null,
+            "description": "",
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
@@ -689,12 +527,12 @@
                 "overrides": []
             },
             "gridPos": {
-                "h": 3,
+                "h": 6,
                 "w": 4,
                 "x": 0,
                 "y": 6
             },
-            "id": 13,
+            "id": 6,
             "options": {
                 "colorMode": "value",
                 "graphMode": "area",
@@ -709,10 +547,10 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "count(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "expr": "count(kube_daemonset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -720,7 +558,7 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "HPAs",
+            "title": "Daemonsets",
             "type": "stat"
         },
         {
@@ -763,7 +601,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count(kube_storageclass_labels{job=\"kube-state-metrics\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -775,6 +613,168 @@
             "timeFrom": null,
             "timeShift": null,
             "title": "StorageClass",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "super-light-blue",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 6,
+                "w": 4,
+                "x": 8,
+                "y": 6
+            },
+            "id": 11,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.4",
+            "targets": [
+                {
+                    "expr": "count(kube_statefulset_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Statefulsets",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "super-light-blue",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 4,
+                "x": 12,
+                "y": 6
+            },
+            "id": 13,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.4",
+            "targets": [
+                {
+                    "expr": "count(kube_horizontalpodautoscaler_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "HPAs",
+            "type": "stat"
+        },
+        {
+            "datasource": null,
+            "fieldConfig": {
+                "defaults": {
+                    "custom": {},
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "super-light-blue",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "none"
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 3,
+                "w": 4,
+                "x": 4,
+                "y": 9
+            },
+            "id": 8,
+            "options": {
+                "colorMode": "value",
+                "graphMode": "area",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": false
+                },
+                "textMode": "auto"
+            },
+            "pluginVersion": "7.3.4",
+            "targets": [
+                {
+                    "expr": "count(kube_endpoint_labels{job=\"kube-state-metrics\",namespace=~\"$namespace\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
+                    "interval": "",
+                    "legendFormat": "",
+                    "refId": "A"
+                }
+            ],
+            "timeFrom": null,
+            "timeShift": null,
+            "title": "Endpoints",
             "type": "stat"
         }
     ],
@@ -839,7 +839,6 @@
                 "allValue": null,
                 "current": {
                     "selected": true,
-                    "tags": [],
                     "text": [
                         "All"
                     ],

@@ -16,12 +16,13 @@
     "editable": true,
     "gnetId": 10257,
     "graphTooltip": 0,
-    "id": 47,
-    "iteration": 1606482068697,
+    "id": 39,
+    "iteration": 1606901779974,
     "links": [],
     "panels": [
         {
             "datasource": null,
+            "description": "",
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
@@ -66,7 +67,7 @@
                 "showThresholdLabels": false,
                 "showThresholdMarkers": true
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "max(kube_horizontalpodautoscaler_spec_target_metric{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
@@ -77,41 +78,26 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Target Load",
+            "title": "HPA Target Load",
             "type": "gauge"
         },
         {
-            "datasource": null,
+            "datasource": "$datasource",
+            "description": "Horizontal Pod Autoscaler used capacity",
             "fieldConfig": {
                 "defaults": {
                     "custom": {},
-                    "mappings": [
-                        {
-                            "from": "",
-                            "id": 1,
-                            "text": "No",
-                            "to": "",
-                            "type": 1,
-                            "value": "0"
-                        },
-                        {
-                            "from": "",
-                            "id": 2,
-                            "text": "Yes",
-                            "to": "",
-                            "type": 1,
-                            "value": "1"
-                        }
-                    ],
+                    "mappings": [],
                     "thresholds": {
-                        "mode": "absolute",
+                        "mode": "percentage",
                         "steps": [
                             {
                                 "color": "green",
                                 "value": null
                             }
                         ]
-                    }
+                    },
+                    "unit": "percent"
                 },
                 "overrides": []
             },
@@ -121,12 +107,8 @@
                 "x": 4,
                 "y": 0
             },
-            "id": 24,
+            "id": 28,
             "options": {
-                "colorMode": "value",
-                "graphMode": "area",
-                "justifyMode": "auto",
-                "orientation": "auto",
                 "reduceOptions": {
                     "calcs": [
                         "lastNotNull"
@@ -134,12 +116,14 @@
                     "fields": "",
                     "values": false
                 },
-                "textMode": "auto"
+                "showThresholdLabels": false,
+                "showThresholdMarkers": true
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
-                    "expr": "max(kube_horizontalpodautoscaler_status_condition{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\",status=\"false\",condition=\"ScalingLimited\"})",
+                    "expr": "(\n(\nmax(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"}) - \n    ( \n        max(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"}) - \n        (\n            max(kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"}) -\n            min(kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\",  namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})\n        )\n    )\n)\n/ max(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"})\n) * 100\n\n",
+                    "format": "time_series",
                     "interval": "",
                     "legendFormat": "",
                     "refId": "A"
@@ -147,8 +131,8 @@
             ],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Attempt to Scale Up / Scale Down?",
-            "type": "stat"
+            "title": "HPA Used Capacity",
+            "type": "gauge"
         },
         {
             "datasource": null,
@@ -189,7 +173,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "max(kube_horizontalpodautoscaler_status_desired_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
@@ -242,7 +226,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "max(kube_horizontalpodautoscaler_status_current_replicas{job=\"kube-state-metrics\", namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
@@ -296,7 +280,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "min(kube_horizontalpodautoscaler_spec_min_replicas{job=\"kube-state-metrics\",  namespace=\"$namespace\", horizontalpodautoscaler=\"$hpa\", cluster=\"$cluster\"})",
@@ -349,7 +333,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "max(kube_horizontalpodautoscaler_spec_max_replicas{job=\"kube-state-metrics\", horizontalpodautoscaler=\"$hpa\", namespace=\"$namespace\", cluster=\"$cluster\"})",
@@ -420,7 +404,7 @@
             },
             "paceLength": 10,
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -601,7 +585,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "core",
                     "value": "core"
                 },
@@ -628,7 +612,7 @@
             {
                 "allValue": null,
                 "current": {
-                    "selected": true,
+                    "selected": false,
                     "text": "language-service",
                     "value": "language-service"
                 },
