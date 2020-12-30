@@ -16,8 +16,8 @@
     "editable": true,
     "gnetId": 12382,
     "graphTooltip": 1,
-    "id": 33,
-    "iteration": 1606376236375,
+    "id": 34,
+    "iteration": 1609327837010,
     "links": [],
     "panels": [
         {
@@ -54,7 +54,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "max(process_start_time_seconds{cluster=\"$cluster\",pod=~\"$pod\"}) * 1000",
@@ -129,7 +129,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(rate(coredns_dns_requests_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
@@ -197,7 +197,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(rate(coredns_cache_hits_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
@@ -264,7 +264,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(coredns_cache_entries{cluster=\"$cluster\",pod=~\"$pod\"})",
@@ -335,7 +335,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(kube_pod_container_status_running{container=\"coredns\",cluster=\"$cluster\"})/count(count(kube_pod_labels{job=\"kube-state-metrics\",pod=~\"kube-state-metrics.*\"}) by (instance))",
@@ -403,7 +403,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(rate(coredns_cache_misses_total{cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
@@ -470,7 +470,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(rate(coredns_cache_hits_total{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
@@ -538,7 +538,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(rate(coredns_cache_hits_total{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"}[1m]))",
@@ -606,7 +606,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(coredns_cache_entries{type=\"success\",cluster=\"$cluster\",pod=~\"$pod\"})",
@@ -673,7 +673,7 @@
                 },
                 "textMode": "auto"
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "sum(coredns_cache_entries{type=\"denial\",cluster=\"$cluster\",pod=~\"$pod\"})",
@@ -724,7 +724,7 @@
             "options": {
                 "showHeader": true
             },
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "targets": [
                 {
                     "expr": "count by (namespace, instance, pod, version,goversion) (coredns_build_info{container=\"coredns\", namespace=\"kube-system\",cluster=\"$cluster\"})\n",
@@ -803,7 +803,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 2,
             "points": false,
             "renderer": "flot",
@@ -914,7 +914,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1016,7 +1016,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1130,7 +1130,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1237,7 +1237,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1372,7 +1372,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1474,7 +1474,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1604,7 +1604,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1706,7 +1706,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1846,7 +1846,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -1948,7 +1948,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2086,7 +2086,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2188,7 +2188,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2300,7 +2300,7 @@
                 "alertThreshold": true
             },
             "percentage": false,
-            "pluginVersion": "7.3.3",
+            "pluginVersion": "7.3.4",
             "pointradius": 5,
             "points": false,
             "renderer": "flot",
@@ -2367,7 +2367,8 @@
         "prometheus",
         "dns",
         "coredns",
-        "kubernetes"
+        "kubernetes",
+        "kube-dns"
     ],
     "templating": {
         "list": [
