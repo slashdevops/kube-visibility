@@ -72,13 +72,31 @@ Looks inside [HowTos folder](HowTos/) for more detailed information about how to
 
 ### minikube setting
 
+MacOS
+
+```bash
+minikube delete
+minikube config set memory 6144
+minikube config set cpus 2
+minikube config set disk-size 40G
+minikube config set vm-driver docker
+minikube config set kubernetes-version 1.18.9
+minikube config view
+
+minikube start
+
+minikube status
+```
+
+Linux
+
 ```bash
 # set
 minikube config set memory 6144 # > much better
 minikube config set cpus 2      # > much better
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2 # for linux, for MacOS see HowTos/ folder
-minikube config set kubernetes-version 1.18.8
+minikube config set kubernetes-version 1.18.9
 minikube config view
 
 # start
@@ -87,9 +105,14 @@ minikube start
 # check
 minikube status
 
+```
+
+Install kubernetes dashboard
+
+```bash
 # OPTIONAL, EXECUTE IT IN DIFFERENT TERMINAL
 # I recommended it to see what is happening inside your cluster
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 kubectl proxy
@@ -100,10 +123,22 @@ kubectl proxy
 
 Download and install the `kpt pkg` from `master branch` or the specify the `release tag`, more information here [Command Reference / pkg / get](https://googlecontainertools.github.io/kpt/reference/pkg/get/)
 
+Install `kpt`
+
+```bash
+brew tap GoogleContainerTools/kpt https://github.com/GoogleContainerTools/kpt.git
+brew install kpt
+```
+
+Install `kube-visibility`
+
 ```bash
 mkdir k8s-workspace
 cd k8s-workspace/
 kpt pkg get https://github.com/slashdevops/kube-visibility/pkg@master kube-visibility
+
+# OPTIONAL, using git
+git init .
 git add .
 git commit -am "added kube-visibility tool"
 
@@ -116,6 +151,7 @@ kpt cfg list-setters kube-visibility/
 # OPTIONAL, change one setter
 kpt cfg set kube-visibility/ alertmanager.resources-limits-cpu 120m
 
+# INSTALL, install kube-visibility manifests
 # WORKAROUND, until kpt avoid problems with json and yaml files that not are part of k8s 'kind'
 # Apply the manifest bundle to the cluster
 # NOTE 1: the first time you execute this command some errors appears at the end, wait until
@@ -145,7 +181,7 @@ All these tools are accessible (using the method described below) when you follo
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
 ```
 
 Create a RoleBinding to `kube-system namespace default ServiceAccount` to access to the dashboard as ClusterAdmin

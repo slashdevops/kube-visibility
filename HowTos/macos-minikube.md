@@ -1,15 +1,14 @@
 # MacOs Minikube Howto
 
-This receipe apply for [MacOs](https://www.apple.com/macos/catalina/) + [brew](https://brew.sh/) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
+This recipe apply for [MacOs](https://www.apple.com/macos/catalina/) + [brew](https://brew.sh/) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
 
 ## Preparing "minikube" environment
 
 ```bash
-brew update
-brew upgrade
+brew update && brew upgrade
 ```
 
-## Instaling command line tools
+## Installing command line tools
 
 ### minikube
 
@@ -52,6 +51,7 @@ This way persist configuration when making minikube stop and minikube start agai
 * To Select the [Kubernetes versions](https://github.com/kubernetes/kubernetes/tree/master/CHANGELOG) available select the `CHANGELOG-X.Y.md` you want to use
 
 ```bash
+minikube delete
 minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
@@ -70,7 +70,7 @@ minikube status
 minikube start \
  --kubernetes-version v1.18.9 \
  --vm-driver=docker \
- --memory=4096 \
+ --memory=6144 \
  --cpus=2 \
  --disk-size=40G
 
@@ -82,7 +82,7 @@ minikube status
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
 ```
 
 ### Create a RoleBinding for ServiceAccount

@@ -38,7 +38,7 @@ openAPI:
       x-k8s-cli:
         setter:
           name: prometheus.retention-size
-          value: "10G"
+          value: "10GB"
           setBy: package-default
     io.k8s.cli.setters.prometheus.log-level:
       x-k8s-cli:
