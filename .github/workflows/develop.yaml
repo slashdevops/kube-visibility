@@ -38,9 +38,8 @@ jobs:
 
       - name: Install kubeval
         run: |
-          curl --insecure -s "https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz" --output kubeval-linux-amd64.tar.gz
-          tar xf kubeval-linux-amd64.tar.gz
-          cmod +x kubeval
+          curl --insecure -L "https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz" > kubeval-linux-amd64.tar.gz
+          tar -zxvf kubeval-linux-amd64.tar.gz kubeval
 
       - name: kustomize version
         run: kubeval --version
