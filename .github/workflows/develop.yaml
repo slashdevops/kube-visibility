@@ -15,12 +15,10 @@ on:
     paths-ignore:
       - "**.md"
       - "docs/**"
-env:
-  GO_VERSION: 1.16
 
 jobs:
-  setup:
-    name: Setup environment
+  build:
+    name: Build and check linters
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,8 +30,20 @@ jobs:
       - name: markdownlint version
         run: markdownlint --version
 
-      - name: markdownlint version
-        run: markdownlint --version
+      - name: Install kustomize
+        run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"
+
+      - name: kustomize version
+        run: kustomize version
+
+      - name: Install kubeval
+        run: |
+          curl --insecure -s "https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz" --output kubeval-linux-amd64.tar.gz
+          tar xf kubeval-linux-amd64.tar.gz
+          cmod +x kubeval
+
+      - name: kustomize version
+        run: kubeval --version
 
       - name: Show project files
         run: tree -I '.git'
@@ -46,3 +56,12 @@ jobs:
 
       - name: Check docs/README.md
         run: markdownlint -f README.md
+
+      - name: Check kustomize generation
+        run: kustomize build pkg/instance > bundle.yaml
+
+      - name: Check bundle file
+        run: kubeval --ignore-missing-schemas bundle.yaml
+
+      - name: Show project files
+        run: tree -I '.git'
