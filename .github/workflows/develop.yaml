@@ -1,0 +1,53 @@
+---
+name: Develop branch workflow
+
+on:
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+
+  pull_request:
+    branches:
+      - develop
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+env:
+  GO_VERSION: 1.16
+
+jobs:
+  setup:
+    name: Setup environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: markdownlint version
+        run: markdownlint --version
+
+      - name: markdownlint version
+        run: markdownlint --version
+
+      - name: Show project files
+        run: ls -la
+
+  linters:
+    needs: setup
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check docs/VERSIONS.md
+        run: markdownlint -f docs/VERSIONS.md
+
+      - name: Check docs/CONTENT.md
+        run: markdownlint -f docs/CONTENT.md
+
+      - name: Check docs/README.md
+        run: markdownlint -f README.md
