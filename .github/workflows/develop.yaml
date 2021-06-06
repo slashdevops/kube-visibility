@@ -1,0 +1,68 @@
+---
+name: Develop branch workflow
+
+on:
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+
+  pull_request:
+    branches:
+      - develop
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+
+jobs:
+  build:
+    name: Build and check linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: markdownlint version
+        run: markdownlint --version
+
+      - name: Install kustomize
+        run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"
+
+      - name: kustomize version
+        run: kustomize version
+
+      - name: Install kubeval
+        run: |
+          curl --insecure -L "https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz" > kubeval-linux-amd64.tar.gz
+          tar -zxvf kubeval-linux-amd64.tar.gz kubeval
+          chmod +x kubeval
+          sudo cp kubeval /usr/local/bin/
+
+      - name: kustomize version
+        run: kubeval --version
+
+      - name: Show project files
+        run: tree -I '.git'
+
+      - name: Check docs/VERSIONS.md
+        run: markdownlint -f docs/VERSIONS.md
+
+      - name: Check docs/CONTENT.md
+        run: markdownlint -f docs/CONTENT.md
+
+      - name: Check docs/README.md
+        run: markdownlint -f README.md
+
+      - name: Check kustomize generation
+        run: kustomize build pkg/instance > bundle.yaml
+
+      - name: Check bundle file
+        run: kubeval --ignore-missing-schemas bundle.yaml
+
+      - name: Show project files
+        run: tree -I '.git'

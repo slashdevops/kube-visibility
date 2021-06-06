@@ -37,6 +37,10 @@ Used Tools
 
 See the file [VERSIONS](docs/VERSIONS.md)
 
+## kpt package information
+
+See the file [CONTENT](docs/CONTENT.md)
+
 ## Kubernetes version supported
 
 * `>= 1.18.x`
@@ -178,7 +182,7 @@ All these tools are accessible (using the method described below) when you follo
 
 #### kubernetes Dashboard
 
-Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+Reference: <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/>
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
@@ -198,7 +202,7 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 kubectl proxy
 ```
 
-__Link:__ [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy
+__Link:__ [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy) --> <http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy>
 
 #### Prometheus Dashboard
 
@@ -207,7 +211,7 @@ __Link:__ [Kubernetes Dashboard](http://localhost:8001/api/v1/namespaces/kuberne
 kubectl --namespace kube-visibility port-forward svc/prometheus-visibility 9090
 ```
 
-__Link:__ [prometheus](http://localhost:9090) --> http://localhost:9090
+__Link:__ [prometheus](http://localhost:9090) --> <http://localhost:9090>
 
 #### Alertmanager Dashboard
 
@@ -216,7 +220,7 @@ __Link:__ [prometheus](http://localhost:9090) --> http://localhost:9090
 kubectl --namespace kube-visibility port-forward svc/alertmanager-visibility 9093
 ```
 
-__Link:__ [alertmanager](http://localhost:9093) --> http://localhost:9093
+__Link:__ [alertmanager](http://localhost:9093) --> <http://localhost:9093>
 
 #### Grafana Dashboard
 
@@ -225,7 +229,7 @@ __Link:__ [alertmanager](http://localhost:9093) --> http://localhost:9093
 kubectl --namespace kube-visibility port-forward svc/grafana 3000
 ```
 
-__Link:__  [grafana](http://localhost:3000) --> http://localhost:3000
+__Link:__  [grafana](http://localhost:3000) --> <http://localhost:3000>
 
 * __user:__ admin
 * __password:__ admin
