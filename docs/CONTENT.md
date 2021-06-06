@@ -113,23 +113,13 @@ pkg
 │   │   └── [service-monitor.yaml]  ServiceMonitor node-exporter
 │   ├── prometheus
 │   │   ├── [kustomization.yaml]  Kustomization 
-│   │   └── roles-different-namespace
-│   │       ├── [kustomization.yaml]  Kustomization 
-│   │       └── [role-binding-auth-reader.yaml]  RoleBinding kube-system/resource-metrics-auth-reader
-│   ├── prometheus-adapter
-│   │   └── [kustomization.yaml]  Kustomization 
-│   ├── override-namespace
-│   │   ├── [apiserver.yaml]  APIService v1beta1.metrics.k8s.io
-│   │   ├── [deployment-patch.yaml]  Deployment prometheus-adapter
-│   │   └── [kustomization.yaml]  Kustomization 
-│   ├── prometheus-operator
-│   │   ├── [deployment-patch.yaml]  Deployment prometheus-operator
-│   │   ├── [kustomization.yaml]  Kustomization 
-│   │   └── [service-monitor.yaml]  ServiceMonitor prometheus-operator
-│   ├── override-namespace
-│   │   ├── [kustomization.yaml]  Kustomization 
-│   │   ├── [prometheus-patch.yaml]  Prometheus visibility
-│   │   ├── [service-monitor.yaml]  ServiceMonitor prometheus-visibility
+│   │   ├── override-namespace
+│   │   │   ├── [apiserver.yaml]  APIService v1beta1.metrics.k8s.io
+│   │   │   ├── [deployment-patch.yaml]  Deployment prometheus-adapter
+│   │   │   └── [kustomization.yaml]  Kustomization 
+│   │   ├── roles-different-namespace
+│   │   │   ├── [kustomization.yaml]  Kustomization 
+│   │   │   └── [role-binding-auth-reader.yaml]  RoleBinding kube-system/resource-metrics-auth-reader
 │   │   ├── alert-rules
 │   │   │   ├── [alertmanager.yaml]  PrometheusRule alertmanager-alert-rules
 │   │   │   ├── [general.yaml]  PrometheusRule general-alert-rules
@@ -139,15 +129,25 @@ pkg
 │   │   │   ├── [node-exporter.yaml]  PrometheusRule node-exporter-alert-rules
 │   │   │   ├── [prometheus-operator.yaml]  PrometheusRule prometheus-operator-alert-rules
 │   │   │   └── [prometheus.yaml]  PrometheusRule prometheus-alert-rules
-│   │   └── record-rules
-│   │       ├── [general.yaml]  PrometheusRule general-record-rules
-│   │       ├── [kubernetes.yaml]  PrometheusRule kubernetes-record-rules
-│   │       ├── [kustomization.yaml]  Kustomization 
-│   │       └── [node-exporter.yaml]  PrometheusRule node-exporter-record-rules
-│   └── roles-different-namespace
-│       ├── [kube-visibility-role-binding.yaml]  RoleBindingList 
-│       ├── [kube-visibility-roles.yaml]  RoleList 
-│       └── [kustomization.yaml]  Kustomization 
+│   │   └── roles-different-namespace
+│   │       ├── [kube-visibility-role-binding.yaml]  RoleBindingList 
+│   │       ├── [kube-visibility-roles.yaml]  RoleList 
+│   │       └── [kustomization.yaml]  Kustomization 
+│   ├── prometheus-adapter
+│   │   └── [kustomization.yaml]  Kustomization 
+│   ├── prometheus-operator
+│   │   ├── [deployment-patch.yaml]  Deployment prometheus-operator
+│   │   ├── [kustomization.yaml]  Kustomization 
+│   │   └── [service-monitor.yaml]  ServiceMonitor prometheus-operator
+│   ├── override-namespace
+│   │   ├── [kustomization.yaml]  Kustomization 
+│   │   ├── [prometheus-patch.yaml]  Prometheus visibility
+│   │   └── [service-monitor.yaml]  ServiceMonitor prometheus-visibility
+│   └── record-rules
+│       ├── [general.yaml]  PrometheusRule general-record-rules
+│       ├── [kubernetes.yaml]  PrometheusRule kubernetes-record-rules
+│       ├── [kustomization.yaml]  Kustomization 
+│       └── [node-exporter.yaml]  PrometheusRule node-exporter-record-rules
 └── upstream
     ├── [kustomization.yaml]  Kustomization 
     ├── [namespace.yaml]  Namespace kube-visibility
@@ -177,40 +177,40 @@ pkg
     │   ├── [kustomization.yaml]  Kustomization 
     │   ├── [service-account.yaml]  ServiceAccount node-exporter
     │   └── [service.yaml]  Service node-exporter
-    ├── prometheus
-    │   ├── [kustomization.yaml]  Kustomization 
-    │   ├── [prometheus.yaml]  Prometheus visibility
-    │   ├── [role-binding-config.yaml]  RoleBinding prometheus-visibility-config
-    │   ├── [role-binding-namespaces.yaml]  RoleBindingList 
-    │   ├── [role-config.yaml]  Role prometheus-visibility-config
-    │   ├── [role-namespaces.yaml]  RoleList 
-    │   ├── [service-account.yaml]  ClusterRole prometheus-visibility
-    │   ├── [service-account.yaml]  ClusterRoleBinding prometheus-visibility
-    │   ├── [service-account.yaml]  ServiceAccount prometheus-visibility
-    │   ├── [service.yaml]  Service prometheus-visibility
-    │   └── prometheus-adapter
-    │       ├── [cluster-role-aggregated-metrics-reader.yaml]  ClusterRole system:aggregated-metrics-reader
-    │       ├── [cluster-role-binding-delegator.yaml]  ClusterRoleBinding resource-metrics:system:auth-delegator
-    │       ├── [cluster-role-binding.yaml]  ClusterRoleBinding prometheus-adapter
-    │       ├── [cluster-role-server-resources.yaml]  ClusterRole resource-metrics-server-resources
-    │       ├── [cluster-role.yaml]  ClusterRole prometheus-adapter
-    │       ├── [deployment.yaml]  Deployment prometheus-adapter
-    │       ├── [kustomization.yaml]  Kustomization 
-    │       ├── [service-account.yaml]  ServiceAccount prometheus-adapter
-    │       └── [service.yaml]  Service kube-visibility/prometheus-adapter
-    └── prometheus-operator
-        ├── [bundle.yaml]  CustomResourceDefinition alertmanagerconfigs.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition alertmanagers.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition podmonitors.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition probes.monitoring.coreos.com
-        ├── [bundle.yaml]  ClusterRole prometheus-operator
-        ├── [bundle.yaml]  ClusterRoleBinding prometheus-operator
-        ├── [bundle.yaml]  CustomResourceDefinition prometheuses.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition prometheusrules.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition servicemonitors.monitoring.coreos.com
-        ├── [bundle.yaml]  CustomResourceDefinition thanosrulers.monitoring.coreos.com
-        ├── [bundle.yaml]  Deployment default/prometheus-operator
-        ├── [bundle.yaml]  Service default/prometheus-operator
-        ├── [bundle.yaml]  ServiceAccount default/prometheus-operator
-        └── [kustomization.yaml]  Kustomization 
+    └── prometheus
+        ├── [kustomization.yaml]  Kustomization 
+        ├── [prometheus.yaml]  Prometheus visibility
+        ├── [role-binding-config.yaml]  RoleBinding prometheus-visibility-config
+        ├── [role-binding-namespaces.yaml]  RoleBindingList 
+        ├── [role-config.yaml]  Role prometheus-visibility-config
+        ├── [role-namespaces.yaml]  RoleList 
+        ├── [service-account.yaml]  ClusterRole prometheus-visibility
+        ├── [service-account.yaml]  ClusterRoleBinding prometheus-visibility
+        ├── [service-account.yaml]  ServiceAccount prometheus-visibility
+        ├── [service.yaml]  Service prometheus-visibility
+        ├── prometheus-adapter
+        │   ├── [cluster-role-aggregated-metrics-reader.yaml]  ClusterRole system:aggregated-metrics-reader
+        │   ├── [cluster-role-binding-delegator.yaml]  ClusterRoleBinding resource-metrics:system:auth-delegator
+        │   ├── [cluster-role-binding.yaml]  ClusterRoleBinding prometheus-adapter
+        │   ├── [cluster-role-server-resources.yaml]  ClusterRole resource-metrics-server-resources
+        │   ├── [cluster-role.yaml]  ClusterRole prometheus-adapter
+        │   ├── [deployment.yaml]  Deployment prometheus-adapter
+        │   ├── [kustomization.yaml]  Kustomization 
+        │   ├── [service-account.yaml]  ServiceAccount prometheus-adapter
+        │   └── [service.yaml]  Service kube-visibility/prometheus-adapter
+        └── prometheus-operator
+            ├── [bundle.yaml]  CustomResourceDefinition alertmanagerconfigs.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition alertmanagers.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition podmonitors.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition probes.monitoring.coreos.com
+            ├── [bundle.yaml]  ClusterRole prometheus-operator
+            ├── [bundle.yaml]  ClusterRoleBinding prometheus-operator
+            ├── [bundle.yaml]  CustomResourceDefinition prometheuses.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition prometheusrules.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition servicemonitors.monitoring.coreos.com
+            ├── [bundle.yaml]  CustomResourceDefinition thanosrulers.monitoring.coreos.com
+            ├── [bundle.yaml]  Deployment default/prometheus-operator
+            ├── [bundle.yaml]  Service default/prometheus-operator
+            ├── [bundle.yaml]  ServiceAccount default/prometheus-operator
+            └── [kustomization.yaml]  Kustomization 
 ```
