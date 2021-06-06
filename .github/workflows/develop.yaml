@@ -36,13 +36,8 @@ jobs:
         run: markdownlint --version
 
       - name: Show project files
-        run: ls -la
+        run: tree -I '.git'
 
-  linters:
-    needs: setup
-    name: Linters
-    runs-on: ubuntu-latest
-    steps:
       - name: Check docs/VERSIONS.md
         run: markdownlint -f docs/VERSIONS.md
 
