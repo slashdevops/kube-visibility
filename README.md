@@ -35,11 +35,9 @@ Used Tools
 
 ## Components Versions
 
-See the file [VERSIONS](docs/VERSIONS.md)
-
-## kpt package information
-
-See the file [CONTENT](docs/CONTENT.md)
+* [VERSIONS](docs/VERSIONS.md)
+* [CONTENT](docs/CONTENT.md)
+* [FILES](docs/FILES.md)
 
 ## Kubernetes version supported
 

@@ -55,6 +55,9 @@ jobs:
       - name: Check docs/CONTENT.md
         run: markdownlint -f docs/CONTENT.md
 
+      - name: Check docs/FILES.md
+        run: markdownlint -f docs/FILES.md
+
       - name: Check docs/README.md
         run: markdownlint -f README.md
 
