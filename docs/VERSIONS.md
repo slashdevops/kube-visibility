@@ -9,6 +9,6 @@ The content of this files is auto-generated using the bash script [fill_versions
 | quay.io/prometheus-operator/prometheus-operator | v0.47.1 | pkg/upstream/prometheus-operator/bundle.yaml |
 | quay.io/prometheus/node-exporter | v1.1.2 | pkg/upstream/node_exporter/daemonset.yaml |
 | quay.io/coreos/kube-rbac-proxy | v0.5.0 | pkg/upstream/node_exporter/daemonset.yaml |
-| grafana/grafana | 8.0.3 | pkg/upstream/grafana/deployment.yaml |
+| grafana/grafana | v8.0.3 | pkg/upstream/grafana/deployment.yaml |
 | quay.io/coreos/k8s-prometheus-adapter-amd64 | v0.8.4 | pkg/upstream/prometheus-adapter/deployment.yaml |
 | quay.io/prometheus/prometheus | v2.27.1 | pkg/upstream/prometheus/prometheus.yaml |
