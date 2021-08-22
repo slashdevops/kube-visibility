@@ -15,7 +15,7 @@ spec:
             requests:
               cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-cpu"}
               memory: 180Mi # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-memory"}
-      # ENABLE ON -> EKS/Fargate to deactivate the daemonset
+      # Enable on EKS clusters with Fargate workloads
       # affinity:
       #   nodeAffinity:
       #     requiredDuringSchedulingIgnoredDuringExecution:
