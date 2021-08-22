@@ -41,7 +41,7 @@ Used Tools
 
 ## Kubernetes version supported
 
-* `>= 1.18.x`
+* `>= 1.19.x`
 
 ## Project Layout Structure
 
@@ -82,7 +82,7 @@ minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver docker
-minikube config set kubernetes-version 1.18.9
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 minikube start
@@ -98,7 +98,7 @@ minikube config set memory 6144 # > much better
 minikube config set cpus 2      # > much better
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2 # for linux, for MacOS see HowTos/ folder
-minikube config set kubernetes-version 1.18.9
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 # start
@@ -114,7 +114,7 @@ Install kubernetes dashboard
 ```bash
 # OPTIONAL, EXECUTE IT IN DIFFERENT TERMINAL
 # I recommended it to see what is happening inside your cluster
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+kubectl apply -f v
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 kubectl proxy
@@ -183,7 +183,7 @@ All these tools are accessible (using the method described below) when you follo
 Reference: <https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/>
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
 ```
 
 Create a RoleBinding to `kube-system namespace default ServiceAccount` to access to the dashboard as ClusterAdmin

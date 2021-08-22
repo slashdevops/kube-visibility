@@ -1,6 +1,6 @@
 # Fedora Minikube Howto
 
-This receipe apply for [Fedora 32](https://getfedora.org/) + [Linux KVM](https://www.linux-kvm.org/page/Main_Page) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
+This recipe apply for [Fedora 32](https://getfedora.org/) + [Linux KVM](https://www.linux-kvm.org/page/Main_Page) + [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube)
 
 ## Preparing "minikube" environment
 
@@ -15,7 +15,7 @@ newgrp libvirt
 newgrp kvm
 ```
 
-## Instaling command line tools
+## Installing command line tools
 
 ### minikube
 
@@ -76,7 +76,7 @@ minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2
-minikube config set kubernetes-version 1.18.8
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 minikube start
@@ -88,7 +88,7 @@ minikube status
 
 ```bash
 minikube start \
- --kubernetes-version v1.18.8 \
+ --kubernetes-version v1.19.8 \
  --vm-driver=kvm2 \
  --memory=6144 \
  --cpus=2 \
@@ -102,7 +102,8 @@ minikube status
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+```
 
 ### Create a RoleBinding for ServiceAccount
 
