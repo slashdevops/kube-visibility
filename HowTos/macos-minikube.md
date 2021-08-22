@@ -56,7 +56,7 @@ minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver docker
-minikube config set kubernetes-version 1.18.9
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 minikube start
@@ -68,7 +68,7 @@ minikube status
 
 ```bash
 minikube start \
- --kubernetes-version v1.18.9 \
+ --kubernetes-version v1.19.8 \
  --vm-driver=docker \
  --memory=6144 \
  --cpus=2 \

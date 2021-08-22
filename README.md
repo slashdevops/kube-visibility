@@ -41,7 +41,7 @@ Used Tools
 
 ## Kubernetes version supported
 
-* `>= 1.18.x`
+* `>= 1.19.x`
 
 ## Project Layout Structure
 
@@ -82,7 +82,7 @@ minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver docker
-minikube config set kubernetes-version 1.18.9
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 minikube start
@@ -98,7 +98,7 @@ minikube config set memory 6144 # > much better
 minikube config set cpus 2      # > much better
 minikube config set disk-size 40G
 minikube config set vm-driver kvm2 # for linux, for MacOS see HowTos/ folder
-minikube config set kubernetes-version 1.18.9
+minikube config set kubernetes-version 1.19.8
 minikube config view
 
 # start
