@@ -13,8 +13,8 @@ CONTENT+="\n"
 CONTENT+="The content of this files is auto-generated using the bash script [fill_versions.sh](../tools/fill_versions.sh)\n"
 CONTENT+="\n"
 CONTENT+="| Image | Version | Package Manifest |\n"
-CONTENT+="| ----- | ------- | ---------------- |"
-echo "$CONTENT" > $MD_FILE
+CONTENT+="| ----- | ------- | ---------------- |\n"
+printf "$CONTENT" > $MD_FILE
 
 grep -R  "image: " $UPSTREAM_PATH | awk -F":" '{print $1 " " $3 " " $4}' | while read MANIFEST IMAGE VERSION
 do
@@ -22,5 +22,5 @@ do
     if [[ "$IMAGE" =~ (alertmanager|prometheus)$ ]]; then
         VERSION=$(grep "version: " $MANIFEST | awk -F" " '{print $2}')
     fi
-    echo "| $IMAGE | $VERSION | $MANIFEST |" >> $MD_FILE
+    printf "| $IMAGE | $VERSION | $MANIFEST |\n" >> $MD_FILE
 done

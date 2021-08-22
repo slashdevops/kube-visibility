@@ -17,4 +17,4 @@ CONTENT+="$PKG_COUNT\n"
 
 CONTENT+="\`\`\`"
 
-echo "$CONTENT" > $MD_FILE
+printf "$CONTENT" > $MD_FILE
