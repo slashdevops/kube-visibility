@@ -11,9 +11,9 @@
 # Kube-Visibility 
 ### Node-Exporter - Daemonset
 
-If you deploy kube-visbility on an EKS Kubernetes cluster that has workloads on Fargate, by default the [`kube-scheduler`](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/) will attempt to deploy the [`node-exporter`](../pkg/upstream/node_exporter/daemonset.yaml) on the Fargate nodes. 
+If you deploy kube-visibility on an EKS Kubernetes cluster with workloads on Fargate, by default the [`kube-scheduler`](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/) will attempt to deploy the [`node-exporter`](../pkg/upstream/node_exporter/daemonset.yaml) on the Fargate nodes. 
 
-The pods will hang in a pending state because of the Fargate [limitations](#eks-fargate---limitations).
+The `node-exporter` pod will hang in a pending state because of the Fargate [limitations](#eks-fargate---limitations).
  
 ### Deactivate node-exporter from being scheduled on Fargate nodes.
 
