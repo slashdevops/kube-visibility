@@ -3,8 +3,9 @@ kind: Service
 metadata:
   labels:
     app.kubernetes.io/name: kube-state-metrics
-    app.kubernetes.io/version: 2.0.0-alpha.3
+    app.kubernetes.io/version: 2.1.1
   name: kube-state-metrics
+  namespace: kube-system
 spec:
   clusterIP: None
   ports:
