@@ -1,4 +1,11 @@
-# Package Content Information\n\nThe content of this files is auto-generated using the bash script [fill_pkg_info.sh](../tools/fill_pkg_info.sh)\n\n## tree \n\n```text\npkg
+# Package Content Information
+
+The content of this files is auto-generated using the bash script [fill_pkg_info.sh](../tools/fill_pkg_info.sh)
+
+## tree 
+
+```text
+pkg
 ├── Kptfile
 ├── README.md
 ├── instance
@@ -167,4 +174,5 @@
         ├── bundle.yaml
         └── kustomization.yaml
 
-33 directories, 134 files\n```
+33 directories, 134 files
+```
