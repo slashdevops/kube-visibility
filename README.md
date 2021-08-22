@@ -114,7 +114,7 @@ Install kubernetes dashboard
 ```bash
 # OPTIONAL, EXECUTE IT IN DIFFERENT TERMINAL
 # I recommended it to see what is happening inside your cluster
-kubectl apply -f v
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --serviceaccount=kube-system:default
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep default | awk '{print $1}')
 kubectl proxy
