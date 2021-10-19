@@ -1009,7 +1009,7 @@
     },
     {
       "collapsed": false,
-      "datasource": "prometheus-visibility",
+      "datasource": "${datasource}",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3669,7 +3669,7 @@
           "text": "node-exporter",
           "value": "node-exporter"
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\"}, job)",
         "description": null,
         "error": null,
@@ -3699,7 +3699,7 @@
           "text": "All",
           "value": "$__all"
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}, nodename)",
         "description": null,
         "error": null,
@@ -3734,7 +3734,7 @@
             "minikube"
           ]
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\",nodename=~\"$hostname\"},instance)",
         "description": null,
         "error": null,
@@ -3770,7 +3770,7 @@
             "$__all"
           ]
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "label_values(node_network_info{origin_prometheus=~\"$origin_prometheus\",device!~'tap.*|veth.*|br.*|docker.*|virbr.*|lo.*|cni.*'},device)",
         "description": null,
         "error": null,
@@ -3858,7 +3858,7 @@
           "text": "/data",
           "value": "/data"
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "query_result(topk(1,sort_desc (max(node_filesystem_size_bytes{origin_prometheus=~\"$origin_prometheus\",instance=~'$node',fstype=~\"ext.?|xfs\",mountpoint!~\".*pods.*\"}) by (mountpoint))))",
         "description": null,
         "error": null,
@@ -3888,7 +3888,7 @@
           "text": "minikube",
           "value": "minikube"
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "label_values(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\",instance=~\"$node\"}, nodename)",
         "description": null,
         "error": null,
@@ -3918,7 +3918,7 @@
           "text": "1",
           "value": "1"
         },
-        "datasource": "prometheus-visibility",
+        "datasource": "${datasource}",
         "definition": "query_result(count(node_uname_info{origin_prometheus=~\"$origin_prometheus\",job=~\"$job\"}))",
         "description": null,
         "error": null,
