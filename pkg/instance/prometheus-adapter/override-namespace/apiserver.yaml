@@ -6,7 +6,7 @@ spec:
   version: v1beta1
   service:
     name: prometheus-adapter
-    namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+    namespace: kube-visibility # kpt-set: ${namespace}
   group: metrics.k8s.io
   groupPriorityMinimum: 100
   insecureSkipTLSVerify: true

@@ -6,15 +6,15 @@ metadata:
   name: kube-state-metrics
   namespace: kube-system
 spec:
-  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.replicas"}
+  replicas: 1 # kpt-set: ${kube-state-metrics.replicas}
   template:
     spec:
       containers:
         - name: kube-state-metrics
           resources:
             limits:
-              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.resources-limits-cpu"}
-              memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.resources-limits-memory"}
+              cpu: 100m # kpt-set: ${kube-state-metrics.resources-limits-cpu}
+              memory: 100Mi # kpt-set: ${kube-state-metrics.resources-limits-memory}
             requests:
-              cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.resources-requests-cpu"}
-              memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.kube-state-metrics.resources-requests-memory"}
+              cpu: 50m # kpt-set: ${kube-state-metrics.resources-requests-cpu}
+              memory: 50Mi # kpt-set: ${kube-state-metrics.resources-requests-memory}

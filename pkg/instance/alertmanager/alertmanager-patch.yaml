@@ -4,16 +4,16 @@ kind: Alertmanager
 metadata:
   name: visibility
 spec:
-  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.replicas"}
-  externalUrl: "http://localhost:9093/" # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.external-url"}
-  retention: 120h # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.retention"}
-  logLevel: info # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-level"}
-  logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.log-format"}
+  replicas: 1 # kpt-set: ${alertmanager.replicas}
+  externalUrl: "http://localhost:9093/" # kpt-set: ${alertmanager.external-url}
+  retention: 120h # kpt-set: ${alertmanager.retention}
+  logLevel: info # kpt-set: ${alertmanager.log-level}
+  logFormat: logfmt # kpt-set: ${alertmanager.log-format}
   configSecret: alertmanager-visibility-configuration
   resources:
     limits:
-      cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-cpu"}
-      memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-limits-memory"}
+      cpu: 100m # kpt-set: ${alertmanager.resources-limits-cpu}
+      memory: 100Mi # kpt-set: ${alertmanager.resources-limits-memory}
     requests:
-      cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-cpu"}
-      memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.alertmanager.resources-requests-memory"}
+      cpu: 50m # kpt-set: ${alertmanager.resources-requests-cpu}
+      memory: 50Mi # kpt-set: ${alertmanager.resources-requests-memory}

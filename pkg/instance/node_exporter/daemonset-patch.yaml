@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -10,18 +9,18 @@ spec:
         - name: node-exporter
           resources:
             limits:
-              cpu: 250m # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-limits-cpu"}
-              memory: 180Mi # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-limits-memory"}
+              cpu: 250m # kpt-set: ${node-exporter.resources-limits-cpu}
+              memory: 180Mi # kpt-set: ${node-exporter.resources-limits-memory}
             requests:
-              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-cpu"}
-              memory: 180Mi # {"$ref":"#/definitions/io.k8s.cli.setters.node-exporter.resources-requests-memory"}
-      # Enable on EKS clusters with Fargate workloads
-      # affinity:
-      #   nodeAffinity:
-      #     requiredDuringSchedulingIgnoredDuringExecution:
-      #       nodeSelectorTerms:
-      #       - matchExpressions:
-      #         - key: eks.amazonaws.com/compute-type
-      #           operator: NotIn
-      #           values:
-      #           - fargate  
+              cpu: 100m # kpt-set: ${node-exporter.resources-requests-cpu}
+              memory: 180Mi # kpt-set: ${node-exporter.resources-requests-memory}
+              # Enable on EKS clusters with Fargate workloads
+              # affinity:
+              #   nodeAffinity:
+              #     requiredDuringSchedulingIgnoredDuringExecution:
+              #       nodeSelectorTerms:
+              #       - matchExpressions:
+              #         - key: eks.amazonaws.com/compute-type
+              #           operator: NotIn
+              #           values:
+              #           - fargate  

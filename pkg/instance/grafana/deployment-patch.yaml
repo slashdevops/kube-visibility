@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: grafana
 spec:
-  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.grafana.replicas"}
+  replicas: 1 # kpt-set: ${grafana.replicas}
   template:
     spec:
       containers:
         - name: grafana
           resources:
             limits:
-              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.grafana.resources-limits-cpu"}
-              memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.grafana.resources-limits-memory"}
+              cpu: 100m # kpt-set: ${grafana.resources-limits-cpu}
+              memory: 100Mi # kpt-set: ${grafana.resources-limits-memory}
             requests:
-              cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.grafana.resources-requests-cpu"}
-              memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.grafana.resources-requests-memory"}
+              cpu: 50m # kpt-set: ${grafana.resources-requests-cpu}
+              memory: 50Mi # kpt-set: ${grafana.resources-requests-memory}
           volumeMounts:
             - name: grafana-configuration
               mountPath: /etc/grafana/grafana.ini
@@ -54,15 +54,12 @@ spec:
         - name: grafana-configuration
           configMap:
             name: grafana-configuration
-
         - name: grafana-dashboards-providers
           configMap:
             name: grafana-dashboards-providers
-
         - name: grafana-dashboards-datasources
           configMap:
             name: grafana-dashboards-datasources
-
         - name: grafana-dashboards-prometheus-0
           configMap:
             name: grafana-dashboards-prometheus-0

@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,8 +9,8 @@ spec:
         - name: prometheus-operator
           resources:
             limits:
-              cpu: 300m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-cpu"}
-              memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-limits-memory"}
+              cpu: 300m # kpt-set: ${prometheus-operator.resources-limits-cpu}
+              memory: 300Mi # kpt-set: ${prometheus-operator.resources-limits-memory}
             requests:
-              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-requests-cpu"}
-              memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-operator.resources-requests-memory"}
+              cpu: 100m # kpt-set: ${prometheus-operator.resources-requests-cpu}
+              memory: 100Mi # kpt-set: ${prometheus-operator.resources-requests-memory}

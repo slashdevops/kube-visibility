@@ -3,30 +3,30 @@ kind: Prometheus
 metadata:
   name: visibility
 spec:
-  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.replicas"}
-  enableAdminAPI: true # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.enable-admin-api"}
-  externalUrl: "http://localhost:9090/" # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.external-url"}
-  retention: 3w # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention"}
-  retentionSize: 10GB # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.retention-size"}
-  logLevel: info # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-level"}
-  logFormat: logfmt # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.log-format"}
+  replicas: 1 # kpt-set: ${prometheus.replicas}
+  enableAdminAPI: true # kpt-set: ${prometheus.enable-admin-api}
+  externalUrl: "http://localhost:9090/" # kpt-set: ${prometheus.external-url}
+  retention: 3w # kpt-set: ${prometheus.retention}
+  retentionSize: 10GB # kpt-set: ${prometheus.retention-size}
+  logLevel: info # kpt-set: ${prometheus.log-level}
+  logFormat: logfmt # kpt-set: ${prometheus.log-format}
   alerting:
     alertmanagers:
       - name: alertmanager-visibility
-        namespace: kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+        namespace: kube-visibility # kpt-set: ${namespace}
         port: web
   resources:
     limits:
-      cpu: 200m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-cpu"}
-      memory: 500Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-limits-memory"}
+      cpu: 200m # kpt-set: ${prometheus.resources-limits-cpu}
+      memory: 500Mi # kpt-set: ${prometheus.resources-limits-memory}
     requests:
-      cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-cpu"}
-      memory: 300Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus.resources-requests-memory"}
+      cpu: 100m # kpt-set: ${prometheus.resources-requests-cpu}
+      memory: 300Mi # kpt-set: ${prometheus.resources-requests-memory}
   ruleSelector:
     matchLabels:
       prometheus: visibility
     matchExpressions:
-      - { key: role, operator: In, values: [alert-rules, record-rules] }
+      - {key: role, operator: In, values: [alert-rules, record-rules]}
   serviceMonitorNamespaceSelector: {}
   # This allow that any kind: ServiceMonitor that have the label 'prometheus-visibility.monitoring: "enabled"' will be scraped
   serviceMonitorSelector:

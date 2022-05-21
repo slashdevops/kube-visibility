@@ -9,7 +9,7 @@ spec:
   jobLabel: alertmanager
   namespaceSelector:
     matchNames:
-      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+      - kube-visibility # kpt-set: ${namespace}
   selector:
     matchLabels:
       alertmanager: visibility

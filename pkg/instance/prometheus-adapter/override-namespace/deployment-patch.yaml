@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: prometheus-adapter
 spec:
-  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.replicas"}
+  replicas: 1 # kpt-set: ${prometheus-adapter.replicas}
   template:
     spec:
       containers:
         - name: prometheus-adapter
           resources:
             limits:
-              cpu: 100m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-limits-cpu"}
-              memory: 100Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-limits-memory"}
+              cpu: 100m # kpt-set: ${prometheus-adapter.resources-limits-cpu}
+              memory: 100Mi # kpt-set: ${prometheus-adapter.resources-limits-memory}
             requests:
-              cpu: 50m # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-requests-cpu"}
-              memory: 50Mi # {"$ref":"#/definitions/io.k8s.cli.setters.prometheus-adapter.resources-requests-memory"}
+              cpu: 50m # kpt-set: ${prometheus-adapter.resources-requests-cpu}
+              memory: 50Mi # kpt-set: ${prometheus-adapter.resources-requests-memory}

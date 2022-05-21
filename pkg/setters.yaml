@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: setters
+data:
+  namespace: kube-visibility
+  alertmanager.external-url: http://localhost:9093/
+  alertmanager.log-format: logfmt
+  alertmanager.log-level: info
+  alertmanager.replicas: "1"
+  alertmanager.resources-limits-cpu: 100m
+  alertmanager.resources-limits-memory: 100Mi
+  alertmanager.resources-requests-cpu: 50m
+  alertmanager.resources-requests-memory: 50Mi
+  alertmanager.retention: 120h
+  grafana.replicas: "1"
+  grafana.resources-limits-cpu: 100m
+  grafana.resources-limits-memory: 100Mi
+  grafana.resources-requests-cpu: 50m
+  grafana.resources-requests-memory: 50Mi
+  kube-state-metrics.replicas: "1"
+  kube-state-metrics.resources-limits-cpu: 100m
+  kube-state-metrics.resources-limits-memory: 100Mi
+  kube-state-metrics.resources-requests-cpu: 50m
+  kube-state-metrics.resources-requests-memory: 50Mi
+  node-exporter.resources-limits-cpu: 250m
+  node-exporter.resources-limits-memory: 180Mi
+  node-exporter.resources-requests-cpu: 100m
+  node-exporter.resources-requests-memory: 180Mi
+  prometheus-adapter.replicas: "1"
+  prometheus-adapter.resources-limits-cpu: 100m
+  prometheus-adapter.resources-limits-memory: 100Mi
+  prometheus-adapter.resources-requests-cpu: 50m
+  prometheus-adapter.resources-requests-memory: 50Mi
+  prometheus-operator.resources-limits-cpu: 200m
+  prometheus-operator.resources-limits-memory: 200Mi
+  prometheus-operator.resources-requests-cpu: 100m
+  prometheus-operator.resources-requests-memory: 100Mi
+  prometheus.enable-admin-api: "true"
+  prometheus.external-url: http://localhost:9090/
+  prometheus.log-format: logfmt
+  prometheus.log-level: info
+  prometheus.replicas: "1"
+  prometheus.resources-limits-cpu: 200m
+  prometheus.resources-limits-memory: 500Mi
+  prometheus.resources-requests-cpu: 100m
+  prometheus.resources-requests-memory: 300Mi
+  prometheus.retention: 3w
+  prometheus.retention-size: 10GB

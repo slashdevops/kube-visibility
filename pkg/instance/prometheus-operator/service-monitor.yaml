@@ -14,7 +14,7 @@ spec:
       app.kubernetes.io/name: prometheus-operator
   namespaceSelector:
     matchNames:
-      - kube-visibility # {"$ref":"#/definitions/io.k8s.cli.setters.namespace"}
+      - kube-visibility # kpt-set: ${namespace}
   endpoints:
     - honorLabels: true
       port: http
