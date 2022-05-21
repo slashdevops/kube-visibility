@@ -56,7 +56,7 @@ minikube config set memory 6144
 minikube config set cpus 2
 minikube config set disk-size 40G
 minikube config set vm-driver docker
-minikube config set kubernetes-version 1.19.8
+minikube config set kubernetes-version 1.21.9
 minikube config view
 
 minikube start
@@ -68,7 +68,7 @@ minikube status
 
 ```bash
 minikube start \
- --kubernetes-version v1.19.8 \
+ --kubernetes-version v1.21.9 \
  --vm-driver=docker \
  --memory=6144 \
  --cpus=2 \
@@ -82,7 +82,7 @@ minikube status
 Reference: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.3.1/aio/deploy/recommended.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
 ```
 
 ### Create a RoleBinding for ServiceAccount
